@@ -13,7 +13,7 @@
 
 @base <http://sawgraph.spatialai.org/contaminoso/v1#> .
 
-<http://sawgraph.spatialai.org/contaminoso/v1#/> rdf:type owl:Ontology ;
+<http://sawgraph.spatialai.org/v1/contaminoso#/> rdf:type owl:Ontology ;
                                                   owl:versionIRI <http://sawgraph.spatialai.org/v1/contaminoso#> ;
                                                   owl:imports ufokn: ;
                                                   dcterms:created "2024-02-16"@en-us ;
