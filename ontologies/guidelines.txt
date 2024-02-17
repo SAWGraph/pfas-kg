@@ -1,0 +1,22 @@
+Each dataset has its own namespace, separate namespaces for TBox and ABox:
+- lower case prefixes
+- ABox with "_data" attached
+@prefix me_egad: <http://sawgraph.spatialai.org/v1/me-egad#> .
+@prefix me_egad_data: <http://sawgraph.spatialai.org/v1/me-egad-data#> .
+@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
+@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+
+Each namespace is its own named graph
+ABox and TBox are their own named graph
+
+Class names: camel case, start with upper case, no special symbols except hyphens
+Object and Data properties: camel case, start with lower case
+
+Instances must start with a lower case: attach "d." followed by class name that it is instantiated in followed by "." and unique identifier for the instance among all of that class
+me_egad_data:d.EGAD-Observation.1234 rdf:type me_egad:EGAD-Observation . 
+
+prefix:CLASSNAME_id
+
+egad:Observation/1234
+egad:1234
+
