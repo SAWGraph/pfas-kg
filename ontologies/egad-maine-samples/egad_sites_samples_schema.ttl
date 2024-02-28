@@ -1,0 +1,381 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix coto: <http://skai.maine.edu/lod/ontology/coto/> .
+@prefix qudt: <https://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix prov-o: <http://www.w3.org/ns/prov#> .
+@prefix schema: <http://schema.org/> .
+@prefix aik-pfas: <http://aiknowspfas.skai.maine.edu/lod/resource/> .
+@prefix aik-pfas-ont: <http://aiknowspfas.skai.maine.edu/lod/ontology/> .
+
+<http://aiknowspfas.skai.maine.edu/lod/ontology/egad-sites-samples> rdf:type owl:Ontology ;
+                                                                     terms:contributor "Shirly Stephen"@en ;
+                                                                     terms:created "2023-11-08"^^xsd:date ;
+                                                                     terms:creator "The AIKnowsPFAS Project"@en ;
+                                                                     terms:description "This ontology supports the AIKnowsPFAS Graph"@en ;
+                                                                     terms:title "Ontology for EGAD's Sites and Sample Observations"@en ;
+                                                                     owl:versionInfo "v 1.0"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+terms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+schema:domainIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+schema:rangeIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#description
+skos:description rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://skai.maine.edu/lod/ontology/coto/collectedAtSamplePoint
+coto:collectedAtSamplePoint rdf:type owl:ObjectProperty ;
+                            rdfs:label "collected at sample point" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/hasContaminationSource
+coto:hasContaminationSource rdf:type owl:ObjectProperty ;
+                            rdfs:label "has contamination source" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/hasSampleFeature
+coto:hasSampleFeature rdf:type owl:ObjectProperty ;
+                      rdfs:label "has sample feature" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/hasSamplePoint
+coto:hasSamplePoint rdf:type owl:ObjectProperty ;
+                    rdfs:label "has sample point" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/observedAtSite
+coto:observedAtSite rdf:type owl:ObjectProperty ;
+                    rdfs:label "observed at site" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/observedSample
+coto:observedSample rdf:type owl:ObjectProperty ;
+                    rdfs:label "observed sample" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/sampleMaterialType
+coto:sampleMaterialType rdf:type owl:ObjectProperty ;
+                        rdfs:label "sample material type" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/sampleMediaType
+coto:sampleMediaType rdf:type owl:ObjectProperty ;
+                     rdfs:label "sample media type" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/temporalScope
+coto:temporalScope rdf:type owl:ObjectProperty ;
+                   rdfs:label "temporal scope" .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isSampleOf
+sosa:isSampleOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+sosa:observedProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/usedProcedure
+sosa:usedProcedure rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/egad_sampleID
+aik-pfas-ont:egad_sampleID rdf:type owl:DatatypeProperty ;
+                           rdfs:label "egad sample id" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/egad_samplePointNumber
+aik-pfas-ont:egad_samplePointNumber rdf:type owl:DatatypeProperty ;
+                                    rdfs:label "egad sample point number" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/egad_samplePointWebName
+aik-pfas-ont:egad_samplePointWebName rdf:type owl:DatatypeProperty ;
+                                     rdfs:label "egad sample point web name" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/egad_siteName
+aik-pfas-ont:egad_siteName rdf:type owl:DatatypeProperty ;
+                           rdfs:label "egad site name" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/egad_siteNumber
+aik-pfas-ont:egad_siteNumber rdf:type owl:DatatypeProperty ;
+                             rdfs:label "egad site number" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/sampleCollectionTime
+coto:sampleCollectionTime rdf:type owl:DatatypeProperty ;
+                          rdfs:label "sample collection time" .
+
+
+###  http://www.w3.org/ns/sosa/resultTime
+sosa:resultTime rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/County
+aik-pfas-ont:County rdf:type owl:Class ;
+                    rdfs:subClassOf aik-pfas-ont:Region ;
+                    rdfs:label "County" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_PFAS_Observation
+aik-pfas-ont:EGAD_PFAS_Observation rdf:type owl:Class ;
+                                   rdfs:subClassOf coto:SampleContaminantObservation ;
+                                   rdfs:label "EGAD PFAS Observation" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_PFAS_Result
+aik-pfas-ont:EGAD_PFAS_Result rdf:type owl:Class ;
+                              rdfs:subClassOf coto:ContaminantResult ;
+                              rdfs:label "EGAD PFAS Result" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_PFAS_Sample
+aik-pfas-ont:EGAD_PFAS_Sample rdf:type owl:Class ;
+                              rdfs:subClassOf sosa:Sample ;
+                              rdfs:label "EGAD PFAS Sample" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_SampleCollection_Method
+aik-pfas-ont:EGAD_SampleCollection_Method rdf:type owl:Class ;
+                                          rdfs:subClassOf coto:SamplingMethod ;
+                                          rdfs:label "EGAD Sample Collection Method" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_SampleLocation
+aik-pfas-ont:EGAD_SampleLocation rdf:type owl:Class ;
+                                 rdfs:label "EGAD Sample Location" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_SampleMaterial
+aik-pfas-ont:EGAD_SampleMaterial rdf:type owl:Class ;
+                                 rdfs:subClassOf coto:SampleMaterial ;
+                                 rdfs:label "EGAD Sample Material" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_SamplePoint
+aik-pfas-ont:EGAD_SamplePoint rdf:type owl:Class ;
+                              rdfs:subClassOf coto:SamplePoint ;
+                              rdfs:label "EGAD Sample Point" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/EGAD_Site
+aik-pfas-ont:EGAD_Site rdf:type owl:Class ;
+                       rdfs:subClassOf coto:SampleFeature ;
+                       rdfs:label "EGAD Site" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/PFAS_Parameter
+aik-pfas-ont:PFAS_Parameter rdf:type owl:Class ;
+                            rdfs:subClassOf coto:ContaminantType ;
+                            rdfs:label "PFAS Parameter" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/Parcel
+aik-pfas-ont:Parcel rdf:type owl:Class ;
+                    rdfs:subClassOf aik-pfas-ont:Region ;
+                    rdfs:label "Parcel" .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/Region
+aik-pfas-ont:Region rdf:type owl:Class ;
+                    rdfs:subClassOf coto:PhysicalEntity .
+
+
+###  http://aiknowspfas.skai.maine.edu/lod/ontology/Town
+aik-pfas-ont:Town rdf:type owl:Class ;
+                  rdfs:subClassOf aik-pfas-ont:Region ;
+                  rdfs:label "Town" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/AnalyticMethod
+coto:AnalyticMethod rdf:type owl:Class ;
+                    rdfs:subClassOf sosa:Procedure ;
+                    rdfs:label "Analytic Method" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/ContaminantResult
+coto:ContaminantResult rdf:type owl:Class ;
+                       rdfs:subClassOf sosa:Result ,
+                                       qudt:QuantityValue ;
+                       rdfs:label "Contaminant Result" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/ContaminantType
+coto:ContaminantType rdf:type owl:Class ;
+                     rdfs:subClassOf sosa:ObservedProperty ;
+                     rdfs:label "Contaminant Type" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/ContaminationSite
+coto:ContaminationSite rdf:type owl:Class ;
+                       rdfs:subClassOf geo:Feature ;
+                       rdfs:label "Contamination Site" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/ContaminationSource
+coto:ContaminationSource rdf:type owl:Class ;
+                         rdfs:subClassOf geo:Feature ;
+                         rdfs:label "Contamination Source" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/PhysicalEntity
+coto:PhysicalEntity rdf:type owl:Class ;
+                    rdfs:label "Physical Entity" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/SampleContaminantObservation
+coto:SampleContaminantObservation rdf:type owl:Class ;
+                                  rdfs:subClassOf sosa:Observation ;
+                                  rdfs:label "Sample Contaminant Observation" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/SampleFeature
+coto:SampleFeature rdf:type owl:Class ;
+                   rdfs:subClassOf sosa:FeatureOfInterest ;
+                   rdfs:label "Sample Feature" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/SampleMaterial
+coto:SampleMaterial rdf:type owl:Class ;
+                    rdfs:label "Sample Material" ;
+                    skos:description "Refers to the type of sample (substance or material) that is being observed, measured, or analyzed in a scientific experiment or investigation. Sample material type could include metals, polymers, liquids, gases, biological specimens, minerals, chemicals, and more." .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/SamplePoint
+coto:SamplePoint rdf:type owl:Class ;
+                 rdfs:label "Sample Point" .
+
+
+###  http://skai.maine.edu/lod/ontology/coto/SamplingMethod
+coto:SamplingMethod rdf:type owl:Class ;
+                    rdfs:subClassOf sosa:Procedure ;
+                    rdfs:label "Sampling Method" ;
+                    skos:description "Refers to the overall approach or technique used to collect samples from a particular environmental medium (e.g., air, water, soil)." ;
+                    skos:example "Grab sampling, passive sampling, and continuous sampling are examples of different sampling methods. Each method has its own set of protocols and considerations based on the nature of the environmental medium and the goals of the sampling activity." .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geo:Feature rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geo:Geometry rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+time:TemporalEntity rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservationCollection
+sosa:ObservationCollection rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservedProperty
+sosa:ObservedProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sample
+sosa:Sample rdf:type owl:Class ;
+            rdfs:label "Sample" .
+
+
+###  https://qudt.org/schema/qudt/QuantityValue
+qudt:QuantityValue rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
