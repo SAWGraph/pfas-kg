@@ -1,12 +1,12 @@
 ## Overview of the raw dataset
-* **Name of dataset:** EGAD PFAS sites and samples
-* **Source Agency:** [EGAD](https://www.maine.gov/dep/maps-data/egad/)
+* **Name of dataset:** EGAD (Environmental and Geographic Analysis Database) PFAS sites and samples 
+* **Source Agency:** [Maine Department of Environmental Protection (DEP)](https://www.maine.gov/dep/maps-data/egad/)
 * **Data source location:** ??
 * **Metadata description:** [Data user manual](https://www.maine.gov/dep/maps-data/egad/documents/Maine%20DEP%20EGAD%20EDD%20v6.0%20User%20Manual_2022%20(Final).pdf)
 * **Other metadata (for PFAS):** [EGAD lookup tables)](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx)
 * **Format of data returned:** ??
 * **Data update interval:** ?? 
-* **General comments**: We only include a subset of attributes of the output json in SAWGraph (see mapping tables below).
+* **General comments**: We only include a subset of attributes of the original data in SAWGraph (see mapping tables below).
 
 ## Schema Diagram
 [**Link to schema diagram on lucid chart**](https://lucid.app/lucidchart/a9330f5f-14bb-430b-b734-dd37626284e7/edit?viewport_loc=-805%2C-12%2C2587%2C1150%2C0_0&invitationId=inv_9a3f9eda-0d3a-4243-a695-481a17d294b8)
