@@ -86,7 +86,7 @@
 - Sample time and analysis time are very different (which is why we disinguish them using two temporal properties)
 
 ## Schema Diagram
-![Schema Diagram](./egad_sites_samples-schema-diagram.PNG)
+![Schema Diagram](./egad_sites_samples-schema-diagram.png)
 
 **Legend description:** (TO UPDATE)
 - Yellow boxes - classes specific for _egad-maine-sample_ dataset.
