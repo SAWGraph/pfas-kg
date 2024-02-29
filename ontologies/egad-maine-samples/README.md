@@ -3,7 +3,7 @@
 * **Source Agency:** [Maine Department of Environmental Protection (DEP)](https://www.maine.gov/dep/maps-data/egad/)
 * **Data source location:** ??
 * **Metadata description:** [Data user manual](https://www.maine.gov/dep/maps-data/egad/documents/Maine%20DEP%20EGAD%20EDD%20v6.0%20User%20Manual_2022%20(Final).pdf)
-* **Other metadata (for PFAS):** [EGAD lookup tables)](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx)
+* **Other metadata (for PFAS):** [EGAD lookup tables](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx)
 * **Format of data returned:** ??
 * **Data update interval:** ?? 
 * **General comments**: We only include a subset of attributes of the original data in SAWGraph (see mapping tables below).
@@ -98,14 +98,15 @@
 - arrow with unfilled ends - subclass relation
 - arrow with unfilled ends and a short line - instance (rdf:type) relation
 
-## Controlled Vocabularies (EGAD Lookup Tables)
-- [List 1. Analysis Labs](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/analysis_lab.csv)
-- [List 2. PFAS Parameters](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/pfas_parameter.csv)
-- [List 3. Sample Collection Methods](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_collection_method.csv)
-- [List 4. Sample Locations](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_location.csv)
-- [List 5. Sample Point Types](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_point_type.csv)
-- [List 6. Site Types](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_type.csv)
-- [List 4. Sample Material Types](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_type.csv)
+## Controlled Vocabularies 
+See [EGAD lookup tables](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx) for controlled vocabularies for the following terms/concepts
+- Analysis Labs
+- PFAS Parameters
+- Sample Collection Methods
+- Sample Locations
+- Sample Point Types
+- Site Types
+- Sample Material Types
 
 **Notes(changes that I made to the Lookup Tables so they were comprehensive with the PFAS data):**
 1. Added the following two records to List 1:
