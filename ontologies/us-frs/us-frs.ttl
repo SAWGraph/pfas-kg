@@ -1,0 +1,125 @@
+@prefix us_frs: <http://sawgraph.spatialai.org/v1/us-frs#/> .
+@prefix fio: <<http://sawgraph.spatialai.org/v1/fio#/> .
+@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix aik-pfas: <http://aiknowspfas.skai.maine.edu/lod/resource/> .
+@prefix aik-pfas-ont: <http://aiknowspfas.skai.maine.edu/lod/ontology/> .
+
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://sawgraph.spatialai.org/v1/us-frs#/> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <http://sawgraph.spatialai.org/v1/us-frs#/> ;
+                                                  dcterms:created "2024-03-06"@en-us ;
+                                                  dcterms:creator <http://orcid.org/0000-0002-5331-5052> ,
+													<http://orcid.org/0000-0003-3547-8058>, <https://orcid.org/0000-0003-3271-6700> ;
+                                                  dcterms:description "The facility registry service ontology developed as part of the AIKnowsPFAS and SAWGraph projects."@en-us ;
+                                                  dcterms:issued "2024-03-06"^^xsd:date ;
+                                                  dcterms:modified "2024-03-06"^^xsd:date ;
+                                                  dcterms:publisher <http://spatialai.org> ;
+												  dcterms:title "Ontology for Facility Registry Service"@en-us ;
+                                                  owl:versionInfo "1"@en-us .
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+dcterms:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+### http://sawgraph.spatialai.org/v1/us-frs#caa_industry
+us_frs:caa_industry rdf:type owl:ObjectProperty ;
+			rdfs:domain us_frs:FRS-Facility ; 
+			rdfs:range  fio:Industry-Code .
+
+### http://sawgraph.spatialai.org/v1/us-frs#cwa_industry
+us_frs:cwa_industry rdf:type owl:ObjectProperty ;
+			rdfs:domain us_frs:FRS-Facility ;
+			rdfs range fio:Industry-Code .
+			
+### http://sawgraph.spatialai.org/v1/us-frs#rcra_industry
+us_frs:rcra_industry rdf:type owl:ObjectProperty ;
+			rdfs:domain us_frs:FRS-Facility ;
+			rdfs range fio:Industry-Code .
+			
+### http://sawgraph.spatialai.org/v1/us-frs#sdwa_industry
+us_frs:sdwa_industry rdf:type owl:ObjectProperty ;
+			rdfs:domain us_frs:FRS-Facility ;
+			rdfs range fio:Industry-Code .
+
+#################################################################
+#    Data properties
+#################################################################
+### http://sawgraph.spatialai.org/v1/us-frs#hasAirId
+us_frs:hasAirId rdf:type owl:DatatypeProperty ;
+			rdfs:label "ICIS-Air Id" ; 
+			rdfs:domain us_frs:FRS_Facility . 
+
+### http://sawgraph.spatialai.org/v1/us-frs#hasNPDESId
+us_frs:hasNPDESId rdf:type owl:DatatypeProperty ;
+			rdfs:domain us_frs:FRS_Facility .
+
+### http://sawgraph.spatialai.org/v1/us-frs#hasRCRAId			
+us_frs:hasRCRAId rdf:type owl:DatatypeProperty ;
+			rdfs:domain us_frs:FRS_Facility .
+
+### http://sawgraph.spatialai.org/v1/us-frs#hasSDWAId
+us_frs:hasSDWAId rdf:type owl:DatatypeProperty ;
+			rdfs:domain us_frs:FRS_Facility .
+
+### http://sawgraph.spatialai.org/v1/us-frs#hasTRIId			
+us_frs:hasTRIId rdf:type owl:DatatypeProperty ;
+			rdfs:domain us_frs:FRS_Facility .
+
+
+
+#################################################################
+#    Classes
+#################################################################
+### http://sawgraph.spatialai.org/v1/us-frs#FRS-Facility
+us_frs:FRS-Facility rdf_type owl:Class ;
+				rdfs:subClassOf fio:Facility .
+				
+				
+
+#################################################################
+#    General axioms
+#################################################################
+

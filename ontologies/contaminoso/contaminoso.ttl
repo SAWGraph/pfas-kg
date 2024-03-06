@@ -76,8 +76,16 @@ coso:observedAnalyte rdf:type owl:ObjectProperty ;
 coso:analyzedSample rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf sosa:hasFeatureOfInterest ;
               rdfs:domain coso:ContaminantObservation ;
-              rdfs:range coso:MaterialSample ;
+              rdfs:range coso:MaterialSample .
+			  
+coso:sampledFeature rdf:type owl:ObjectProperty;
+			   rdfs:subPropertyOf sosa:hasFeatureOfInterest;
+			   rdfs:domain coso:ContaminantObservation ;
+			   rdfs:range coso:SampledFeature .
 
+coso:fromSamplePoint rdf:type owl:ObjectProperty;
+			   rdfs:range coso:SamplePoint .
+			   
 
 #################################################################
 #    Classes
@@ -101,11 +109,29 @@ coso:Analyte rdf:type owl:Class ;
 coso:ContaminantObservation rdf:type owl:Class ;
                        rdfs:subClassOf sosa:Observation .
 
+### http://sawgraph.spatialai.org/v1/contaminoso#ContaminantSampleObservation
+coso:ContaminantSampleObservation rdf:type owl:Class ;
+					   rdfs:subClassOf coso:ContaminantObservation.
+
+### http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantObservation
+coso:AggregateContaminantObservation rdf:type owl:Class ;
+						rdfs:subClassOf coso:ContaminantSampleObservation.
+
 ### http://sawgraph.spatialai.org/v1/contaminoso#MaterialSample
 coso:MaterialSample rdf:type owl:Class ;
                        rdfs:subClassOf sosa:Sample.
 
+### http://sawgraph.spatialai.org/v1/contaminoso#SampledFeature
+coso:SampledFeature rdf:type owl:Class ; 
+					   rdfs:subClassOf sosa:FeatureOfInterest.
 					   
+### http://sawgraph.spatialai.org/v1/contaminoso#ContaminantMeasurement
+coso:ContaminantMeasurement rdf:type owl:Class ;
+					   rdfs:subClassOf sosa:Result .
+
+### http://sawgraph.spatialai.org/v1/contaminoso#ContaminantConcentrationMeasurement
+coso:ContaminantConcentrationMeasurement rdf:type owl:Class;
+						rdfs:subClassOf	coso:ContaminantMeasurement. 
 					   
 #################################################################
 #    General axioms

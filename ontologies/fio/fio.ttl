@@ -1,0 +1,150 @@
+@prefix fio: <http://sawgraph.spatialai.org/v1/fio#> .
+@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix aik-pfas: <http://aiknowspfas.skai.maine.edu/lod/resource/> .
+@prefix aik-pfas-ont: <http://aiknowspfas.skai.maine.edu/lod/ontology/> .
+
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix prov-o: <http://www.w3.org/ns/prov#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://sawgraph.spatialai.org/v1/fio#> rdf:type owl:Ontology ;
+                                                  owl:versionIRI <http://sawgraph.spatialai.org/v1/fio#/> ;
+                                                  dcterms:created "2024-03-06"@en-us ;
+                                                  dcterms:creator <http://orcid.org/0000-0002-5331-5052> ,
+													<http://orcid.org/0000-0003-3547-8058>, <https://orcid.org/0000-0003-3271-6700> ;
+                                                  dcterms:description "The facility registry service ontology developed as part of the AIKnowsPFAS and SAWGraph projects."@en-us ;
+                                                  dcterms:issued "2024-03-06"^^xsd:date ;
+                                                  dcterms:modified "2024-03-06"^^xsd:date ;
+                                                  dcterms:publisher <http://spatialai.org> ;
+												  dcterms:title "Facilities and Industries Ontology"@en-us ;
+                                                  owl:versionInfo "1"@en-us .
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+dcterms:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+### http://sawgraph.spatialai.org/v1/fio#hasParentCompany
+fio:hasParentCompany rdf:type owl:ObjectProperty ;
+			rdfs:domain fio:Facility;
+			rdfs:range fio:Agency .
+
+### http://sawgraph.spatialai.org/v1/fio#ofAgency
+fio:ofAgency rdf:type owl:ObjectProperty ;
+			rdfs:domain fio:Facility;
+			rdfs:range fio:Agency .
+
+### http://sawgraph.spatialai.org/v1/fio#hasName
+fio:hasName rdf:type owl:ObjectProperty ;
+			rdfs:domain fio:Facility .
+
+#################################################################
+#    Classes
+#################################################################
+### http://sawgraph.spatialai.org/v1/fio#Facility
+fio:Facility rdf:type owl:Class ;
+			rdfs:subClassOf coso:GeographicMaterialFeature .
+
+### http://sawgraph.spatialai.org/v1/fio#Company
+fio:Company rdf:type owl:Class ;
+			rdfs:subClassOf prov-o:Organization .
+
+### http://sawgraph.spatialai.org/v1/fio#Agency
+fio:Agency rdf:type owl:Class ;
+			rdfs:subClassOf prov-o:Organization .
+			
+### http://sawgraph.spatialai.org/v1/fio#Industry-Code
+fio:Industry-Code rdf:type owl:Class .
+
+### http://sawgraph.spatialai.org/v1/fio#NAICS-Sector
+fio:NAICS-Sector rdf:type owl:Class ;
+			rdfs:subClassOf fio:Industry-Code .
+			
+### http://sawgraph.spatialai.org/v1/fio#NAICS-Subsector
+fio:NAICS-Subsector rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-Sector .
+			
+### http://sawgraph.spatialai.org/v1/fio#NAICS-IndustryGroup
+fio:NAICS-IndustryGroup rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-Subsector .
+ 
+### http://sawgraph.spatialai.org/v1/fio#NAICS-Industry-Code
+fio:NAICS-Industry-Code rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-IndustryGroup .
+			
+### http://sawgraph.spatialai.org/v1/fio#NAICS-Sector-48
+fio:NAICS-Sector-48 rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-Sector .
+			
+### http://sawgraph.spatialai.org/v1/fio#NAICS-Subsector-488
+fio:NAICS-Subsector-488 rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-Sector-48.
+			
+			
+### http://sawgraph.spatialai.org/v1/fio#NAICS-IndustryGroup-4881
+fio:NAICS-IndustryGroup-4881 rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-Subsector-488 .
+
+### http://sawgraph.spatialai.org/v1/fio#NAICS-Industry-Code-48811
+fio:NAICS-Industry-Code-48811 rdf:type owl:Class ;
+			rdfs:subClassOf fio:NAICS-IndustryGroup-4881 .			
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+fio:NAICS-Industry-Code-48811 rdf:type owl:NamedIndividual ;
+				rdf:type fio:NAICS-Industry-Code ;
+				rdf:type fio:NAICS-IndustryGroup-4881.
+				
+fio:NAICS-IndustryGroup-4881 rdf:type owl:NamedIndividual ;
+				rdf:type fio:NAICS-IndustryGroup ;
+				rdf:type fio:NAICS-Subsector-488.
+				
+fio:NAICS-Subsector-488 rdf:type owl:NamedIndividual ;
+				rdf:type fio:NAICS-Subsector ;
+				rdf:type fio:NAICS-Sector-48.
+				
+fio:NAICS-Sector-48 rdf:type owl:NamedIndividual ;
+				rdf:type fio:NAICS-Sector .
