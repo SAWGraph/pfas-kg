@@ -1,20 +1,21 @@
 ## Overview of the raw dataset
-* **Name of dataset:** EGAD PFAS sites and samples
-* **Source Agency:** [EGAD](https://www.maine.gov/dep/maps-data/egad/)
+* **Name of dataset:** EGAD (Environmental and Geographic Analysis Database) PFAS sites and samples 
+* **Source Agency:** [Maine Department of Environmental Protection (DEP)](https://www.maine.gov/dep/maps-data/egad/)
 * **Data source location:** ??
-* **Data Location on Github:** [Excel spreadsheet](https://github.com/shirlysteph/AlKnowsPFAS/tree/main/data/maine_samples)
 * **Metadata description:** [Data user manual](https://www.maine.gov/dep/maps-data/egad/documents/Maine%20DEP%20EGAD%20EDD%20v6.0%20User%20Manual_2022%20(Final).pdf)
-* **Other metadata (for PFAS):** [EGAD lookup tables)](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx)
-* **Format of data returned:** Excel (converted to cvs for easy data triplification)
+* **Other metadata (for PFAS):** [EGAD lookup tables](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx)
+* **Format of data returned:** ??
 * **Data update interval:** ?? 
-* **Volume of raw data**: ??
-* **General comments**: We only include a subset of attributes of the output json in AIKnowsPFAS (see mapping tables below).
+* **General comments**: We only include a subset of attributes of the original data in SAWGraph (see mapping tables below).
 
-## Code
+## Schema Diagram
+[**Link to schema diagram on lucid chart**](https://lucid.app/lucidchart/a9330f5f-14bb-430b-b734-dd37626284e7/edit?viewport_loc=-805%2C-12%2C2587%2C1150%2C0_0&invitationId=inv_9a3f9eda-0d3a-4243-a695-481a17d294b8)
+
+## Code (TO UPDATE)
 * [Code Directory](../../code/egad-maine-samples)
 * [GDrive Output Directory](https://drive.google.com/drive/folders/18HynzQhZStMQj-CuM2U0NUtLUdBybWEx)
 
-## Raw Data Attribute List and Mapping with Ontology Concepts
+## Raw Data Attribute List and Mapping with Ontology Concepts (TO UPDATE)
 | Sheet 2 attribute | Description | Lift to graph | Ontology property |
 | --- | --- | --- |--- |
 | MCD | Administrative region | Yes | Have to decide |
@@ -85,9 +86,9 @@
 - Sample time and analysis time are very different (which is why we disinguish them using two temporal properties)
 
 ## Schema Diagram
-![Schema Diagram](./egad_sites_samples_schema_diagram.png)
+![Schema Diagram](./egad_sites_samples-schema-diagram.png)
 
-**Legend description:**
+**Legend description:** (TO UPDATE)
 - Yellow boxes - classes specific for _egad-maine-sample_ dataset.
 - Pink boxes - classes in the generic PFAS schema
 - Blue boxes - classes from external standard ontologies (e.g., SOSA, GeoSPARQL, OWL-Time, PROV)
@@ -97,14 +98,15 @@
 - arrow with unfilled ends - subclass relation
 - arrow with unfilled ends and a short line - instance (rdf:type) relation
 
-## Controlled Vocabularies (EGAD Lookup Tables)
-- [List 1. Analysis Labs](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/analysis_lab.csv)
-- [List 2. PFAS Parameters](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/pfas_parameter.csv)
-- [List 3. Sample Collection Methods](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_collection_method.csv)
-- [List 4. Sample Locations](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_location.csv)
-- [List 5. Sample Point Types](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_point_type.csv)
-- [List 6. Site Types](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_type.csv)
-- [List 4. Sample Material Types](https://github.com/shirlysteph/AlKnowsPFAS/blob/main/data/egad-maine-samples/Metadata/sample_type.csv)
+## Controlled Vocabularies 
+See [EGAD lookup tables](https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xlsx) for controlled vocabularies for the following terms/concepts
+- Analysis Labs
+- PFAS Parameters
+- Sample Collection Methods
+- Sample Locations
+- Sample Point Types
+- Site Types
+- Sample Material Types
 
 **Notes(changes that I made to the Lookup Tables so they were comprehensive with the PFAS data):**
 1. Added the following two records to List 1:
@@ -114,80 +116,6 @@
 3. Added DRINKING WATER in List 4 (VALUE: DW)
 
 ## Sample Data
-
-EGAD site and its geometry
-```
-aik-pfas:egad.site.29410 a aik-pfas-ont:EGAD_Site ;
-    rdfs:label "EGAD site with site number 29410" ;
-    aik-pfas-ont:egad_siteName "UNITY LANDFILL"^^xsd:string ;
-    aik-pfas-ont:egad_siteNumber 29410 ;
-    geo:hasDefaultGeometry aik-pfas:egad.site.geometry.29410 ;
-    geo:hasGeometry aik-pfas:egad.site.geometry.29410 .
-
-aik-pfas:egad.site.geometry.29410 a geo:Geometry,
-        sf:Point ;
-    geo:asWKT "POINT (-69.2923093 44.5873933)"^^geo:wktLiteral .
-```
-EGAD sample point and its geometry
-```
-aik-pfas:egad.samplePoint.100410 a aik-pfas-ont:EGAD_SamplePoint,
-        aik-pfas-ont:MW ;
-    aik-pfas-ont:locatedIn aik-pfas:egad.site.29410 ;
-    geo:hasDefaultGeometry aik-pfas:egad.samplePoint.geometry.100410 ;
-    geo:hasGeometry aik-pfas:egad.samplePoint.geometry.100410 .
-
-aik-pfas:egad.samplePoint.geometry.100410 a geo:Geometry,
-        sf:Point ;
-    geo:asWKT "POINT (-69.293029 44.5876)"^^geo:wktLiteral .
-```
-EGAD sample (collected at a sample point) and its related attributes
-```
-aik-pfas:egad.sample.100410.B5.20221103 a aik-pfas-ont:EGAD_PFAS_Sample ;
-    rdfs:label "EGAD PFAS sample with ID B-5 collected at sample point 100410 on 2022-11-03" ;
-    aik-pfas-ont:egad_sampleID "B-5"^^xsd:string ;
-    aik-pfas-ont:sampleLocation aik-pfas:egad.sampleLocation.OT ;
-    sosa:isResultOf aik-pfas:egad.sampling.100410.B5 ;
-    sosa:isSampleOf aik-pfas:egad.samplePoint.100410 .
-
-aik-pfas:egad.sampleLocation.OT a aik-pfas-ont:EGAD_SampleLocation ;
-    rdfs:label "OUTSIDE TAP" .
-
-aik-pfas:egad.sampling.100410.B5 a aik-pfas-ont:EGAD_Sampling ;
-    rdfs:label "Sampling activity/procedure that was carried out to collect EGAD sample with ID B5 at sample point 100410" ;
-    prov:atTime "2022-11-03"^^xsd:date ;
-    sosa:madeBySampler aik-pfas:egad.samplingMethod.GS .
-
-aik-pfas:egad.samplingMethod.GS a aik-pfas-ont:EGAD_SampleCollectionMethod ;
-    rdfs:label "GRAB SAMPLE" .
-```
-EGAD PFAS observation and results (corresponding) and the sample 
-```
-aik-pfas:egad.observation.100410.B5.42FTSA.20221103 a aik-pfas-ont:EGAD_PFAS_Observation ;
-    rdfs:label "EGAD PFAS observation for sample with ID B-5 that was collected at sample point 100410 on 2022-11-03" ;
-    aik-pfas-ont:sampleMaterial aik-pfas:egad.sampleMaterial.GW ;
-    aik-pfas-ont:wasAnalysedBy aik-pfas:organization.lab.AAWH ;
-    sosa:hasFeatureOfInterest aik-pfas:egad.sample.100410.B5.20221103 ;
-    sosa:hasResult aik-pfas:egad.result.100410.B5.42FTSA.20221103 ;
-    sosa:observedProperty aik-pfas:egad.parameter.4-2_FTS_A ;
-    sosa:resultTime "2022-11-24"^^xsd:date .
-
-aik-pfas:egad.sampleMaterial.GW a aik-pfas-ont:EGAD_SampleMaterial ;
-    rdfs:label "GROUNDWATER" .
-
-aik-pfas:organization.lab.AAWH a aik-pfas-ont:AnalysisLab ;
-    rdfs:label "ALPHA ANALYTICAL WOODS HOLE LAB - MANSFIELD, MA" .
-
-aik-pfas:egad.parameter.4-2_FTS_A a aik-pfas-ont:PFAS_Parameter ;
-    rdfs:label "4:2-FLUOROTELOMER SULFONIC ACID" ;
-    aik-pfas-ont:parameterAbbreviaion "4:2 FTS_A"^^xsd:string ;
-    aik-pfas-ont:parameterName "4:2-FLUOROTELOMER SULFONIC ACID"^^xsd:string .
-
-aik-pfas:egad.result.100410.B5.42FTSA.20221103 a aik-pfas-ont:EGAD_PFAS_Result ;
-    rdfs:label "EGAD PFAS measurements obtained through analysis conducted on 2022-11-24 for sample with ID B-5 that was collected at sample point 100410" ;
-    aik-pfas-ont:egad_pfas_mdl "0.428 NG/L"^^<http://w3id.org/lindt/custom_datatypes#ucum> ;
-    aik-pfas-ont:egad_pfas_ql "1.89 NG/L"^^<http://w3id.org/lindt/custom_datatypes#ucum> .
-
-```
 
 ## Competency Questions 
 
