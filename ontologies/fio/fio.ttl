@@ -1,7 +1,6 @@
 @prefix fio: <http://sawgraph.spatialai.org/v1/fio#> .
 @prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
-@prefix aik-pfas: <http://aiknowspfas.skai.maine.edu/lod/resource/> .
-@prefix aik-pfas-ont: <http://aiknowspfas.skai.maine.edu/lod/ontology/> .
+@prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
 
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
