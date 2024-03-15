@@ -1,0 +1,187 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://sawgraph.spatialai.org/v1/contaminoso#> rdf:type owl:Ontology ;
+                                                 dcterms:created "2024-02-16"@en-us ;
+                                                 dcterms:description "This ontology contains the generic concepts of the Contaminant Observation Ontology." ;
+                                                 dcterms:modified "2024-03-13"^^xsd:date ;
+                                                 dcterms:title "Contaminant Observation Ontology" ;
+                                                 owl:versionInfo "v 1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://qudt.org/schema/qudt/hasQuantityKind
+qudt:hasQuantityKind rdf:type owl:ObjectProperty .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#hasResult
+coso:hasResult rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf sosa:hasResult ;
+               rdfs:comment "has contaminant result" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#observationTime
+coso:observationTime rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf sosa:phenomenonTime ;
+                     rdfs:comment "contaminant observation time" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#observedAnalyte
+coso:observedAnalyte rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf sosa:observedProperty ;
+                     rdfs:comment "observed analyte" .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+sosa:observedProperty rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+sosa:phenomenonTime rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://qudt.org/schema/qudt/Quantity
+qudt:Quantity rdf:type owl:Class .
+
+
+###  http://qudt.org/schema/qudt/QuantityKind
+qudt:QuantityKind rdf:type owl:Class .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#Analyte
+coso:Analyte rdf:type owl:Class ;
+             rdfs:subClassOf sosa:ObservableProperty ;
+             rdfs:label "Analyte" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantMeasurement
+coso:ContaminantMeasurement rdf:type owl:Class ;
+                            rdfs:subClassOf qudt:Quantity ,
+                                            sosa:Result ;
+                            rdfs:label "Contaminant Measurement" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantObservation
+coso:ContaminantObservation rdf:type owl:Class ;
+                            rdfs:subClassOf sosa:Observation ;
+                            rdfs:label "Contaminant Observation" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantSource
+coso:ContaminantSource rdf:type owl:Class ;
+                       rdfs:subClassOf coso:Feature ;
+                       rdfs:label "Contaminant Source" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#Facility
+coso:Facility rdf:type owl:Class ;
+              rdfs:subClassOf coso:ContaminantSource ;
+              rdfs:comment "Denotes an entity (place, building, equipment, or service) that is a source of environmental concern." ;
+              rdfs:label "Facility" ;
+              skos:example "The Facility Registry System (FRS) is a centrally managed Environmental Protection Agency (EPA) database that identifies facilities, sites or places of environmental interest in the United States." .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#Feature
+coso:Feature rdf:type owl:Class ;
+             rdfs:subClassOf geo:Feature ,
+                             sosa:FeatureOfInterest ;
+             rdfs:label "COSO Feature" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#HazardEvent
+coso:HazardEvent rdf:type owl:Class ;
+                 rdfs:subClassOf coso:ContaminantSource ;
+                 rdfs:comment "Denotes a hazardous incident that may be a spill or release of chemicals, radioactive materials or biological materials inside a building or to the environment." ;
+                 rdfs:label "Hazard Event" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#SampleFeature
+coso:SampleFeature rdf:type owl:Class ;
+                   rdfs:subClassOf coso:Feature ;
+                   rdfs:label "Sample Feature" .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#SamplePoint
+coso:SamplePoint rdf:type owl:Class ;
+                 rdfs:subClassOf coso:Feature ;
+                 rdfs:comment "Refers to a specific location or site within a sample feature where samples are collected for testing or analysis to determine the presence and concentration of contaminants. These sample points are strategically chosen based on various factors such as suspected contamination sources, environmental pathways, and regulatory requirements. The samples collected from these points provide crucial data for understanding the extent of contamination, assessing potential risks to human health and the environment, and formulating remediation strategies." ;
+                 rdfs:label "Sample Point" .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geo:Feature rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+time:TemporalEntity rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
