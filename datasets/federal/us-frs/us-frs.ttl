@@ -88,23 +88,23 @@ us_frs:sdwa_industry rdf:type owl:ObjectProperty ;
 ### http://sawgraph.spatialai.org/v1/us-frs#hasAirId
 us_frs:hasAirId rdf:type owl:DatatypeProperty ;
 			rdfs:label "ICIS-Air Id" ; 
-			rdfs:domain us_frs:FRS_Facility . 
+			rdfs:domain us_frs:FRS-Facility . 
 
 ### http://sawgraph.spatialai.org/v1/us-frs#hasNPDESId
 us_frs:hasNPDESId rdf:type owl:DatatypeProperty ;
-			rdfs:domain us_frs:FRS_Facility .
+			rdfs:domain us_frs:FRS-Facility .
 
 ### http://sawgraph.spatialai.org/v1/us-frs#hasRCRAId			
 us_frs:hasRCRAId rdf:type owl:DatatypeProperty ;
-			rdfs:domain us_frs:FRS_Facility .
+			rdfs:domain us_frs:FRS-Facility .
 
 ### http://sawgraph.spatialai.org/v1/us-frs#hasSDWAId
 us_frs:hasSDWAId rdf:type owl:DatatypeProperty ;
-			rdfs:domain us_frs:FRS_Facility .
+			rdfs:domain us_frs:FRS-Facility .
 
 ### http://sawgraph.spatialai.org/v1/us-frs#hasTRIId			
 us_frs:hasTRIId rdf:type owl:DatatypeProperty ;
-			rdfs:domain us_frs:FRS_Facility .
+			rdfs:domain us_frs:FRS-Facility .
 
 
 
@@ -118,7 +118,10 @@ us_frs:FRS-Facility rdf:type owl:Class ;
 ## http://sawgraph.spatialai.org/v1/us-frs#EPA-PFAS-Facility
 us_frs:EPA-PFAS-Facility rdf:type owl:Class ;
                 rdfs:subClassOf us_frs:FRS-Facility .
-				
+
+## http://sawgraph.spatialai.org/v1/us-frs#Federal-Facility
+us_frs:Federal-Facility rdf:type owl:Class ;
+				rdfs:subClassOf us_frs:FRS-Facility .
 
 #################################################################
 #    General axioms
