@@ -5,12 +5,15 @@
 *note: there are many ways to access FRS data, such as via ECHO, state downloads contain industry codes*
 * **Additional Data source:** [Industry Sectors Data](https://echo.epa.gov/trends/pfas-tools#data)
 *note: this identifies facilities the epa suspects are using pfas*
+[Additional FRS identifiers](https://frs-public.epa.gov/ords/frs_public2/ez_frs_column.list?table_name=D_EF_FAC.V_PUB_FRS_FACILITY_SITE_GEOPGM) 
 * **Metadata description:** [Facility State File Documentation 1132012_new]() (comes with state download)
-* **Format of data returned:**
+[Environmental Interest Types](https://www.epa.gov/sites/default/files/2020-01/documents/interest_types.pdf)
+* **Format of data returned:** csv (also available by REST)
 * **Data update interval:**
 * **General Comments**:
 
-##Schema Diagram
+## Schema Diagram
+- [WIP](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d&page=IHg_2ajnF.Pg#) 
 
 ## Code
 *  
@@ -20,38 +23,73 @@ FRS State Downloads
 ME_FACILITY_FILE.csv
 
 
-|Attribute | Description                                                                                                                                                                                | Lift to Graph | Ontology Property |
-| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- | --- |
-| FRS_FACILITY_DETAIL_REPORT_URL | report url                                                                                                                                                                                 | |
-| REGISTRY_ID| registry id to uniquely identify facility                                                                                                                                                  | | 
-|PRIMARY_NAME | public or commercial name                                                                                                                                                                  | |
-| LOCATION_ADDRESS|                                                                                                                                                                                            | |
-| SUPPLEMENTAL_LOCATION|                                                                                                                                                                                            | |
-| CITY_NAME| locality name - nameof city, town village or other locality within whose boundaries (the majority of) the facility site is located.                                                        | | COUNTY_NAME| | | 
-|FIPS_CODE| county fips code (state and county)                                                                                                                                                        | | 
+|Attribute | Description | Lift to Graph | Ontology Property |
+| --- |--------------------------------------| --- | --- |
+| FRS_FACILITY_DETAIL_REPORT_URL | report url                                                                                                                  | |
+| REGISTRY_ID| registry id to uniquely identify facility                                                                                                                                                  |Yes |us_frs:FRS-Facility (URI)  us_frs:facilityId |
+| PRIMARY_NAME | public or commercial name                                                                                                                                                                  |Yes | coso:Facility rdfs:Label | 
+| LOCATION_ADDRESS|                                                                                                                                                                                            |? | coso:locatedIn 
+| SUPPLEMENTAL_LOCATION| text that provides additional information about a place, including a building name with its secondary unit and number, an industrial park name, an installation name or descriptive text where no formal address is available.                                                                                                                                                                                           |? |
+| CITY_NAME| locality name - nameof city, town village or other locality within whose boundaries (the majority of) the facility site is located.                                                        | ||
+| COUNTY_NAME| | No | 
+|FIPS_CODE| county fips code (state and county)                                                                                                                                                        |Yes | coso:locatedIn (referencing coso:Town)
 |STATE_CODE| USPS abbreviation for state                                                                                                                                                                | | 
 |STATE_NAME|                                                                                                                                                                                            | | 
 |COUNTRY_NAME|                                                                                                                                                                                            | | 
 |POSTAL_CODE| 5 digit zip code and 4 digit extension code (if available)                                                                                                                                 | | 
-|FEDERAL_FACILITY_CODE| Yes/No the facility is property of the Federal Government                                                                                                                                  | | 
-|FEDERAL_AGENCY_NAME| name of federal agency (derived from FEDERAL_AGENCY_CODE lookup)                                                                                                                           | | 
-|TRIBAL_LAND_CODE| Yes if tribal land                                                                                                                                                                         | | 
-|TRIBAL_LAND_NAME| Name of Tribal Reservation, statistical area, or Public Domain Allotment.                                                                                                                  | | 
+|FEDERAL_FACILITY_CODE| Yes/No the facility is property of the Federal Government                                                                                                                                  |Yes | rdf:type us_frs:Federal-Facility
+|FEDERAL_AGENCY_NAME| name of federal agency (derived from FEDERAL_AGENCY_CODE lookup)                                                                                                                           | Yes | fio:ofAgency 
+|TRIBAL_LAND_CODE| Yes if tribal land                                                                                                                                                                         |  | 
+|TRIBAL_LAND_NAME| Name of Tribal Reservation, statistical area, or Public Domain Allotment.                                                                                                                  |Yes | coso:locatedIn
 |CONGRESSIONAL_DIST_NUM|                                                                                                                                                                                            | | 
 |CENSUS_BLOCK_CODE|                                                                                                                                                                                            | | 
-|HUC_CODE| The Hydrologic Unit Code (HUC) that represents a geographic area representing part or all of a surface drainage basin, a combination of drainage basins, or a distinct hydrologic feature. | | 
-|EPA_REGION_CODE| The code that represents an EPA Region.                                                                                                                                                    | | 
-|SITE_TYPE_NAME| Allowable Values: [ Stationary, Monitoring Site, Brownfields Site, Water System ,  Contamination Addressed,  Contaminated Site,  Potentially Contaminated Site  ]                          | | 
+|HUC_CODE| The Hydrologic Unit Code (HUC) that represents a geographic area representing part or all of a surface drainage basin, a combination of drainage basins, or a distinct hydrologic feature. |Yes | coso:locatedIn hydro...
+|EPA_REGION_CODE| The code that represents an EPA Region.                                                                                                                                                    | ?| 
+|SITE_TYPE_NAME| Allowable Values: [ Stationary, Monitoring Site, Brownfields Site, Water System ,  Contamination Addressed,  Contaminated Site,  Potentially Contaminated Site  ]                          |Yes | 
 |LOCATION_DESCRIPTION| Descriptive information about location of facility, including directions.                                                                                                                  | | 
 |CREATE_DATE| date first posted to database                                                                                                                                                              | | 
-|UPDATE_DATE| most recent calendar update                                                                                                                                                                | | 
+|UPDATE_DATE| most recent calendar update                                                                                                                                                                |? | 
 |US_MEXICO_BORDER_IND| An indicator that the facility is located within 62.5 miles (100 km) of the United States - Mexico Border. Only applicable to facilities in California, Arizona, New Mexico, and Texas.    | | 
-|PGM_SYS_ACRNMS| list of program acronyms the facility is tracked by                                                                                                                                        | | 
-|LATITUDE83|                                                                                                                                                                                            | | 
-|LONGITUDE83|                                                                                                                                                                                            | | 
+|PGM_SYS_ACRNMS| list of program acronyms the facility is tracked by                                                                                                                                        |?| rdf:type  
+|LATITUDE83|                                                                                                                                                                                            |Yes | 
+|LONGITUDE83|                                                                                                                                                                                            |Yes | 
 |CONVEYOR| Identification of the party that transmitted the latitude and longitude                                                                                                                    | | 
 |COLLECT_DESC| Method used to determine Lat/Long                                                                                                                                                          | | 
 |ACCURACY_VALUE| Measure of accuracy in meters of latitude/longitude                                                                                                                                        | | 
 |REF_POINT_DESC| Name that identifies the place for which geographic coordinates were established                                                                                                           | | 
 |HDATUM_DESC| Horizontal reference datum used in determining latitude longitude coordinates                                                                                                              | | 
 |SOURCE_DESC| Name of party responsible for providing lat/long coordinates                                                                                                                               | |
+
+
+
+ME_ENVIRONMENTAL_INTEREST_FILE.csv
+
+
+| Attribute | Description | Lift to Graph | Ontology Property |
+| --- | --- | --- | --- |
+| REGISTRY_ID | | |
+| PGM_SYS_ACRNM | The abbreviated name that represents the name of an information management system for an environmental program. Program System Definitions can be viewed at http://www.epa.gov/enviro/html/fii/prog_sys.html | | 
+| PGM_SYS_ID | The identification number, such as the permit number, assigned by an information management system | |
+| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | |
+| FED_STATE_CODE |A flag which indicates whether the environmental interest data was provided by a federal or state environmental information system. | |
+| START_DATE | Date the agency became interested in the facility site for a particular environmental interest type | |
+| START_DATE_QUALIFIER | The qualifier that specifies the meaning of the date being used as an approximation for the environmental interest start date. | |
+| END_DATE | Date the agency ceased to be interested in the facility site for a particular environmental interest type | |
+| END_DATE_QUALIFIER | The qualifier that specifies the meaning of the date being used as an approximation for the environmental interest end date. | |
+| SOURCE_OF_DATA | The source of the associated environmental interest data. | |
+| LAST_REPORTED_DATE | The most recent date the corresponding environmental interest data was reported to the Source of Data. | |
+| CREATE_DATE | A system-generated value that represents the calendar date and time the corresponding information was posted to the database. | |
+| UPDATE_DATE | A system-generated value that represents the most recent calendar date and time that the corresponding information was updated in the database | |
+| ACTIVE_STATUS | The status of the environmental interest at the facility or sit | |
+
+ME_NAICS_FILE.csv
+
+| Attribute | Description | Lift to Graph | Ontology Property | 
+| --- | --- | --- | --- | 
+| REGISTRY_ID | | |
+| PGM_SYS_ACRNM | The abbreviated name that represents the name of an information management system for an environmental program. | |
+| PGM_SYS_ID |The identification number, such as the permit number, assigned by an information management system that represents a facility site, waste site, operable unit, or other feature tracked by that Environmental Information System. | |
+| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | |
+| NAICS_CODE |The code that represents a subdivision of an industry that accommodates user needs in the United States (six-digits). | |
+| PRIMARY_INDICATOR | The name that indicates whether the associated NAICS Code represents the primary activity occurring at the facility site | |
+| CODE_DESCRIPTION | The text that represents a subdivision of an industry that accommodates user needs in the United States | |
