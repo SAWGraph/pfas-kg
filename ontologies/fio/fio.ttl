@@ -95,6 +95,8 @@ fio:Agency rdf:type owl:Class ;
 ### http://sawgraph.spatialai.org/v1/fio#Industry-Code
 fio:Industry-Code rdf:type owl:Class .
 
+# naics subclasses 
+
 ### http://sawgraph.spatialai.org/v1/fio#NAICS-Sector
 fio:NAICS-Sector rdf:type owl:Class ;
 			rdfs:subClassOf fio:Industry-Code .
@@ -110,7 +112,9 @@ fio:NAICS-IndustryGroup rdf:type owl:Class ;
 ### http://sawgraph.spatialai.org/v1/fio#NAICS-Industry-Code
 fio:NAICS-Industry-Code rdf:type owl:Class ;
 			rdfs:subClassOf fio:NAICS-IndustryGroup .
-			
+
+# specific individual codes 	
+
 ### http://sawgraph.spatialai.org/v1/fio#NAICS-Sector-48
 fio:NAICS-Sector-48 rdf:type owl:Class ;
 			rdfs:subClassOf fio:NAICS-Sector .
@@ -133,6 +137,7 @@ fio:NAICS-Industry-Code-48811 rdf:type owl:Class ;
 #    General axioms
 #################################################################
 
+#testing the punning of specific codes
 fio:NAICS-Industry-Code-48811 rdf:type owl:NamedIndividual ;
 				rdf:type fio:NAICS-Industry-Code ;
 				rdf:type fio:NAICS-IndustryGroup-4881.

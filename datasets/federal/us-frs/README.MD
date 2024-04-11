@@ -5,7 +5,8 @@
 *note: there are many ways to access FRS data, such as via ECHO, state downloads contain industry codes*
 * **Additional Data source:** [Industry Sectors Data](https://echo.epa.gov/trends/pfas-tools#data)
 *note: this identifies facilities the epa suspects are using pfas*
-[Additional FRS identifiers](https://frs-public.epa.gov/ords/frs_public2/ez_frs_column.list?table_name=D_EF_FAC.V_PUB_FRS_FACILITY_SITE_GEOPGM) 
+[Additional FRS identifiers](https://frs-public.epa.gov/ords/frs_public2/ez_frs_column.list?table_name=D_EF_FAC.V_PUB_FRS_FACILITY_SITE_GEOPGM)
+[program reference](https://usepa.servicenowservices.com/oeca_icis/en/list-of-program-system-acronyms-found-in-icis?id=kb_article_view&sys_kb_id=42327c7f1bfc1954fd044262f54bcb8f)
 * **Metadata description:** [Facility State File Documentation 1132012_new]() (comes with state download)
 [Environmental Interest Types](https://www.epa.gov/sites/default/files/2020-01/documents/interest_types.pdf)
 * **Format of data returned:** csv (also available by REST)
@@ -20,7 +21,7 @@
 
 ## Raw Data Attribute List and Mappings with Ontology
 FRS State Downloads
-ME_FACILITY_FILE.csv
+### ME_FACILITY_FILE.csv
 
 
 |Attribute | Description | Lift to Graph | Ontology Property |
@@ -61,16 +62,70 @@ ME_FACILITY_FILE.csv
 |SOURCE_DESC| Name of party responsible for providing lat/long coordinates                                                                                                                               | |
 
 
+### ME_NAICS_FILE.csv
 
-ME_ENVIRONMENTAL_INTEREST_FILE.csv
+| Attribute | Description | Lift to Graph | Ontology Property/Class | 
+| --- | --- | --- | --- | 
+| REGISTRY_ID | |  Yes|us_frs:FRS-Facility 
+| PGM_SYS_ACRNM | The abbreviated name that represents the name of an information management system for an environmental program. | Yes|maps to fio:ofIndustry sub properties
+| PGM_SYS_ID |The identification number, such as the permit number assigned by an information management system that represents a facility site, waste site, operable unit, or other feature tracked by that Environmental Information System. | |
+| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | ? |
+| NAICS_CODE |The code that represents a subdivision of an industry that accommodates user needs in the United States (six-digits). |Yes |fio:ofIndustry naics:NAICS-Industry-Code
+| PRIMARY_INDICATOR | The name that indicates whether the associated NAICS Code represents the primary activity occurring at the facility site | yes | us_frs:primary_industry or us_frs:secondary_industry
+| CODE_DESCRIPTION | The text that represents a subdivision of an industry that accommodates user needs in the United States | |
+
+### ME_SIC_FILE.csv
+
+| Attribute | Description | Lift to Graph | Ontology Property | 
+| --- | --- | --- | --- | 
+| REGISTRY_ID | | |
+| PGM_SYS_ACRNM | The abbreviated name that represents the name of an information management system for an environmental program. | |
+| PGM_SYS_ID |The identification number, such as the permit number, assigned by an information management system that represents a facility site, waste site, operable unit, or other feature tracked by that Environmental Information System. | |
+| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | |
+| SIC_CODE |The code that represents the economic activity of a company (4-digits). | |
+| PRIMARY_INDICATOR | The name that indicates whether the associated SIC Code represents the primary activity occurring at the facility site | |
+| CODE_DESCRIPTION | The text that represents a subdivision of an industry that accommodates user needs in the United States | |
+
+### ALTERNATIVE NAME FILE 
 
 
+### ORGANIZATION FILE 
+Described organizations affiliated with a facility
+
+| Attribute | Description | Lift to Graph | Ontology Property | 
+| --- | --- | --- | --- |
+| "REGISTRY_ID"| | | 
+| "PGM_SYS_ACRNM"| | | 
+| "PGM_SYS_ID"| | | 
+| "INTEREST_TYPE"| | | 
+| "AFFILIATION_TYPE"|The name that describes the capacity or function that an organization or individual serves for a facility site [Legally Responsible Entity, Legal Operator, Waste Treater, Waste Handler, Land Owner, Parent Corporation, Owner/Operator][ Report Certifier, Regulatory Contact, Public Contact, Technical Contact, Owner, Operator] | Yes | fio:hasAffiliation, mapped out under us_frs: as subproperties
+| "START_DATE"|? | | 
+| "END_DATE"|? | | 
+| "ORG_NAME"|Yes | rdfs:label| 
+| "ORG_TYPE"|Yes |maps to subclass of Prov:Organization | 
+| "DUNS_NUMBER"|The Data Universal Numbering System (DUNS) number assigned by Dun and Bradstreet to identify unique business establishments | | 
+| "DIVISION_NAME"| | | 
+| "PHONE_NUMBER"| | | 
+| "ALTERNATE_PHONE"| | | 
+| "FAX_NUMBER"| | | 
+| "EMAIL_ADDRESS"| | | 
+| "EIN"| The unique tax identification number issued by the Internal Revenue Service to the employer.|? | 
+| "STATE_BUSINESS_ID"| The uniform business number assigned to an official business by a state. |? | 
+| "MAILING_ADDRESS"| | | 
+| "SUPPLEMENTAL_ADDRESS"| | | 
+| "CITY_NAME"| | | 
+| "STATE_CODE"| | | 
+| "STATE_NAME"| | | 
+| "POSTAL_CODE"| | | 
+| "COUNTRY_NAME"| | | 
+
+### ME_ENVIRONMENTAL_INTEREST_FILE.csv
 | Attribute | Description | Lift to Graph | Ontology Property |
 | --- | --- | --- | --- |
 | REGISTRY_ID | | |
 | PGM_SYS_ACRNM | The abbreviated name that represents the name of an information management system for an environmental program. Program System Definitions can be viewed at http://www.epa.gov/enviro/html/fii/prog_sys.html | | 
 | PGM_SYS_ID | The identification number, such as the permit number, assigned by an information management system | |
-| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | |
+| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | ? |
 | FED_STATE_CODE |A flag which indicates whether the environmental interest data was provided by a federal or state environmental information system. | |
 | START_DATE | Date the agency became interested in the facility site for a particular environmental interest type | |
 | START_DATE_QUALIFIER | The qualifier that specifies the meaning of the date being used as an approximation for the environmental interest start date. | |
@@ -80,16 +135,4 @@ ME_ENVIRONMENTAL_INTEREST_FILE.csv
 | LAST_REPORTED_DATE | The most recent date the corresponding environmental interest data was reported to the Source of Data. | |
 | CREATE_DATE | A system-generated value that represents the calendar date and time the corresponding information was posted to the database. | |
 | UPDATE_DATE | A system-generated value that represents the most recent calendar date and time that the corresponding information was updated in the database | |
-| ACTIVE_STATUS | The status of the environmental interest at the facility or sit | |
-
-ME_NAICS_FILE.csv
-
-| Attribute | Description | Lift to Graph | Ontology Property | 
-| --- | --- | --- | --- | 
-| REGISTRY_ID | | |
-| PGM_SYS_ACRNM | The abbreviated name that represents the name of an information management system for an environmental program. | |
-| PGM_SYS_ID |The identification number, such as the permit number, assigned by an information management system that represents a facility site, waste site, operable unit, or other feature tracked by that Environmental Information System. | |
-| INTEREST_TYPE | The environmental permit or regulatory program that applies to the facility site | |
-| NAICS_CODE |The code that represents a subdivision of an industry that accommodates user needs in the United States (six-digits). | |
-| PRIMARY_INDICATOR | The name that indicates whether the associated NAICS Code represents the primary activity occurring at the facility site | |
-| CODE_DESCRIPTION | The text that represents a subdivision of an industry that accommodates user needs in the United States | |
+| ACTIVE_STATUS | The status of the environmental interest at the facility or site | |
