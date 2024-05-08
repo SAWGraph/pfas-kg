@@ -62,34 +62,52 @@ dcterms:title rdf:type owl:AnnotationProperty .
 #################################################################
 #    Object Properties
 #################################################################
-### http://sawgraph.spatialai.org/v1/us-frs#caa_industry
-us_frs:caa_Industry rdf:type owl:ObjectProperty ;
+### http://sawgraph.spatialai.org/v1/us-frs#caaIndustry
+us_frs:caaIndustry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Clean Air Act (Air) programs Industry Code'^^xsd:string;
 			rdfs:subPropertyOf fio:ofIndustry.
 
 # animal operations, assistance and support programs, chemical storage, coastal and oceans
 
-### http://sawgraph.spatialai.org/v1/us-frs#cwa_industry
-us_frs:cwa_Industry rdf:type owl:ObjectProperty ;
+### http://sawgraph.spatialai.org/v1/us-frs#cwaIndustry
+us_frs:cwaIndustry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Clean Water Act programs Industry Code'^^xsd:string;
 			rdfs:subPropertyOf fio:ofIndustry.
-			
-### http://sawgraph.spatialai.org/v1/us-frs#rcra_industry
-us_frs:rcra_Industry rdf:type owl:ObjectProperty ;
-			dcterms:description 'Resource Conservation and Recovery Act (Hazardous Waste) programs Industry Code'^^xsd:string;
+
+us_frs:odaIndustry rdf:type owl:ObjectProperty ;
+			dcterms:description 'Ocean Dumping Act Industry Code'^^xsd:string;
 			rdfs:subPropertyOf fio:ofIndustry.
 			
-### http://sawgraph.spatialai.org/v1/us-frs#sdwa_industry
-us_frs:sdwa_Industry rdf:type owl:ObjectProperty ;
+### http://sawgraph.spatialai.org/v1/us-frs#rcraIndustry
+us_frs:rcraIndustry rdf:type owl:ObjectProperty ;
+			dcterms:description 'Resource Conservation and Recovery Act (Hazardous Waste) programs Industry Code'^^xsd:string;
+			rdfs:subPropertyOf fio:ofIndustry.
+
+us_frs:cerclaIndustry rdf:type owl:ObjectProperty ;
+			dcterms:description 'Comprehensive Environmental Response, Compensation and Liability Act Industry Code'^^xsd:string;
+			rdfs:subPropertyOf fio:ofIndustry.
+			
+### http://sawgraph.spatialai.org/v1/us-frs#sdwaIndustry
+us_frs:sdwaIndustry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Safe Drinking Water Act programs Industry Code'^^xsd:string;
 			rdfs:subPropertyOf fio:ofIndustry.
 
-## 
-us_frs:cr_Industry rdf:type owl:ObjectProperty ;
-			dcterms:description 'Chemical Release programs Industry Code'^^xsd:string;
+us_frs:tscaIndustry rdf:type owl:ObjectProperty ;
+			dcterms:description 'Toxic Substances Control Act Industry Code'^^xsd:string;
 			rdfs:subPropertyOf fio:ofIndustry.
 
-us_frs:state_Industry rdf:type owl:ObjectProperty ;
+us_frs:fifraIndustry rdf:type owl:ObjectProperty ;
+			dcterms:description 'Federal Insecticide, Fungicide and Rodenticide Act Industry Code'^^xsd:string;
+			rdfs:subPropertyOf fio:ofIndustry.
+
+us_frs:epcraIndustry rdf:type owl:ObjectProperty ;
+			dcterms:description 'Emergency Planning and Community Right-to-Know Act Industry Code'^^xsd:string;
+			rdfs:subPropertyOf fio:ofIndustry.
+#us_frs:crIndustry rdf:type owl:ObjectProperty ;
+#			dcterms:description 'Chemical Release programs Industry Code'^^xsd:string;
+#			rdfs:subPropertyOf fio:ofIndustry.
+
+us_frs:stateIndustry rdf:type owl:ObjectProperty ;
 			dcterms:description 'State programs Industry Code'^^xsd:string;
 			rdfs:subPropertyOf fio:ofIndustry.
 
@@ -100,54 +118,51 @@ us_frs:state_Industry rdf:type owl:ObjectProperty ;
 
 ##  specific program level 
 us_frs:airs-afs-Industry rdf:type owl:ObjectProperty ;
-			rdfs:subPropertyOf us_frs:caa_Industry ;
-			rdfs:subPropertyOf fio:ofIndustry.
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
 us_frs:air-Industry rdf:type owl:ObjectProperty ;
-			rdfs:subPropertyOf us_frs:caa_Industry ;
-			rdfs:subPropertyOf fio:ofIndustry.
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
 us_frs:camdbs-Industry rdf:type owl:ObjectProperty ;
-			dcterms:description 'CAM database system Industry Code'^^xsd:string;
-			rdfs:subPropertyOf fio:ofIndustry.
+			dcterms:description 'CAM (Compliance Assurance Monitoring) database system Industry Code'^^xsd:string;
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
 us_frs:cedri-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Compliance and Emissions data reporting Interface Industry Code'^^xsd:string;
-			rdfs:subPropertyOf fio:ofIndustry.
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
 us_frs:e-ggrt-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Electronic Greenhous Gas Reporting Tool Industry Code'^^xsd:string;
-			rdfs:subPropertyOf fio:caa_Industry.
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
 us_frs:eis-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Emissions Inventory System Industry Code'^^xsd:string;
-			rdfs:subPropertyOf us_frs:caa_Industry.
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
-us_frs:npdes_Industry rdf:type owl:ObjectProperty ;
-			rdfs:subPropertyOf us_frs:cwa_Industry ;
-			dcterms:description 'National Pollutant Discharge Elimination system Industry Code'^^xsd:string;
-			rdfs:subPropertyOf fio:ofIndustry.
+us_frs:npdes-Industry rdf:type owl:ObjectProperty ;
+			rdfs:subPropertyOf us_frs:cwaIndustry ;
+			dcterms:description 'National Pollutant Discharge Elimination system Industry Code'^^xsd:string.
 
 us_frs:rcrainfo rdf:type owl:ObjectProperty;
-			dcterms:description 'Resource Conservation and Recovery Act Information System Industry Code'^^xsd:string. 
-			rdfs:subPropertyOf us_frs:rcra_Industry. 
+			dcterms:description 'Resource Conservation and Recovery Act Information System Industry Code'^^xsd:string; 
+			rdfs:subPropertyOf us_frs:rcraIndustry. 
 
 us_frs:tris-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Toxic Release Inventory program Industry Code'^^xsd:string;
-			rdfs:subPropertyOf us_frs:cr_Industry ;
-			rdfs:subPropertyOf fio:ofIndustry.
+			rdfs:subPropertyOf us_frs:eprcaIndustry.
 
 us_frs:ssts-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Section Seven Tracking System (pesticides programs) Industry Code'^^xsd:string;
-			rdfs:subPropertyOf fio:ofIndustry.
+			rdfs:subPropertyOf us_frs:fifraIndustry.
 
 us_frs:ncdb-Industry rdf:type owl:ObjectProperty ;
-			dcterms:description 'National Compliance Database System (pesticide/ toxic substances programs) Industry Code'^^xsd:string.
-			rdfs:subPropertyOf us_frs:cr_Industry.
+			dcterms:description 'National Compliance Database System (pesticide/ toxic substances programs) Industry Code'^^xsd:string;
+			rdfs:subPropertyOf us_frs:fifraIndustry;
+			rdfs:subPropertyOf us_frs:tscaIndustry.
 
 us_frs:rblc-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'RACT/BACT/LAER CLEARINGHOUSE Industry Code'^^xsd:string;
-			rdfs:subPropertyOf us_frs:caa_Industry.
+			rdfs:subPropertyOf us_frs:caaIndustry.
 
 
 ## epa general 
@@ -174,8 +189,7 @@ us_frs:eia-860-Industry rdf:type owl:ObjectProperty ;
 
 ### state databases
 us_frs:me-efis-Industry rdf:type owl:ObjectProperty ;
-			rdfs:subPropertyOf us_frs:state_Industry ;
-			rdfs:subPropertyOf fio:ofIndustry.
+			rdfs:subPropertyOf us_frs:stateIndustry.
 
 #################################################################
 #    Data properties
