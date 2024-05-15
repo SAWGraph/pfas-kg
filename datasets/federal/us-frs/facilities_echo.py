@@ -63,7 +63,7 @@ def main():
 def load_data():
     #df = pd.read_csv(data_dir / "industrysectors_ME.csv")
     df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_FACILITY_FILE.CSV', low_memory=False)
-    df_federal = pd.read_csv(data_dir /'state_combined_me'/'222910070_ME_FEDERAL.CSV')
+    df_federal = pd.read_csv(data_dir /'state_combined_me'/'222910070_ME_FEDERAL.CSV') #this was a custom ezquery to get agency codes
     print(df_federal.info())
     df = df.set_index('REGISTRY_ID', drop=False)
     df_federal = df_federal.set_index('REGISTRY_ID')
@@ -121,20 +121,26 @@ def get_attributes(row):
     if pd.notnull(row.HUC_CODE):
         facility['HUC'] = row.HUC_CODE
     if pd.notnull(row.SITE_TYPE_NAME):
-        facility['siteType'] = row.SITE_TYPE_NAME
+        facility['siteType'] = str(row.SITE_TYPE_NAME).title().replace(" ", "")
 
     return facility
 
 def get_iris(facility):
     #build iris for any entities
     facility_iri = us_frs_data['d.FRS-Facility.'+str(facility['facility_id'])]
-    county_iri = aik_pfas_ont['County.01'+str(facility['county_fips'])] #needs to be replaced
+    county_iri = aik_pfas_ont['County.01'+str(facility['county_fips'])] #namespace needs to be replaced
     geo_iri = us_frs_data['d.FRS-Facility-Geometry.'+str(facility['facility_id'])]
     extra_iris ={}
     #TODO agency codes need labels  FRS_PROGRAM_FACILITY.FEDERAL_AGENCY_CODE
     if 'federalAgencyCode' in facility.keys():
         agency_iri = fio['d.Agency.'+str(facility['federalAgencyCode'])]
         extra_iris['agency'] = agency_iri
+    
+    #siteType to class
+    if 'siteType' in facility.keys():
+        if facility['siteType'] != 'Facility':
+            extra_iris['type'] = us_frs[facility['siteType']+'-Facility']
+
 
 
     return facility_iri, county_iri, geo_iri, extra_iris
@@ -160,12 +166,17 @@ def triplify(df):
         if 'tribal_bool' in facility.keys():
             #kg.add((facility_iri, coso['locatedIn'], ))
             pass
+        #TODO huc code
+        
 
         #federal
         if facility['federal_bool'] == True :
             kg.add((facility_iri, RDF.type, us_frs['Federal-Facility']))
             if 'agency' in extra_iris.keys():
                 kg.add((facility_iri, fio['ofAgency'], extra_iris['agency']))
+        #siteType
+        if 'type' in extra_iris.keys():
+            kg.add((facility_iri, RDF.type, extra_iris['type']))
 
 
 

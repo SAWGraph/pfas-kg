@@ -51,24 +51,21 @@ logging.info("Running triplification for facilities")
 
 def main():
     '''main function initializes all other functions'''
-    naics_df, sic_df = load_data()
-    kg = triplify(naics_df)
-    kg2 = triplify(sic_df)
+    df = load_data()
+    kg = triplify(df)
 
-    kg_turtle_file = "us-frs-industry-naics-echo.ttl".format(output_dir)
-    kg_turtle_file2 = "us-frs-industry-sic-echo.ttl".format(output_dir)
+
+    kg_turtle_file = "us-frs-environmentalInterest-echo.ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
-    kg2.serialize(kg_turtle_file2, format='turtle')
     logger = logging.getLogger('Finished triplifying pfas analytics tool facility industries.')
 
 def load_data():
     #df = pd.read_csv(data_dir / "industrysectors_ME.csv")
-    naics_df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_NAICS_FILE.CSV', low_memory=False, dtype=str) #make sure to import as string and not drop leading 0 in codes
-    sic_df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_SIC_FILE.csv', low_memory=False, dtype=str)
+    df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_NAICS_FILE.CSV', low_memory=False, dtype=str)
     logger = logging.getLogger('Data loaded to dataframe.')
-    print(naics_df.info())
-    print(sic_df.info())
-    return naics_df, sic_df
+    print(df.info())
+
+    return df
 
 
 def Initial_KG():
@@ -89,15 +86,10 @@ def get_attributes(row):
     #this is specific to the imported file
     facility = {
         'facility_id': row.REGISTRY_ID,
-        'program': str(row.PGM_SYS_ACRNM).lower().replace('/','-'),
-        'primary': row.PRIMARY_INDICATOR
+        'interest':row.INTEREST_TYPE
 
     }
     ## additional attributes that do not appear for all facilities
-    if 'NAICS_CODE' in row.keys():
-        facility['naics_code'] = str(row.NAICS_CODE)
-    elif 'SIC_CODE' in row.keys():
-        facility['sic_code'] = str(row.SIC_CODE)
 
     return facility
 
@@ -105,36 +97,8 @@ def get_iris(facility):
     #build iris for any entities
     facility_iri = us_frs_data['d.FRS-Facility.'+str(facility['facility_id'])]
 
-    #industry iri
-    if 'naics_code' in facility.keys():
-        if len(facility['naics_code'])>4:
-            industry_iri = naics['NAICS-Industry-Code-'+str(facility['naics_code'])]
-        elif len(facility['naics_code'])==4:
-            industry_iri = naics['NAICS-IndustryGroup-' + str(facility['naics_code'])]
-        elif len(facility['naics_code']) == 3:
-            industry_iri = naics['NAICS-Subsector-' + str(facility['naics_code'])]
-        elif len(facility['naics_code']) in {1,2}:
-            industry_iri = naics['NAICS-Sector-' + str(facility['naics_code'])]
-    elif 'sic_code' in facility.keys():
-        if len(facility['sic_code']) == 4:
-            industry_iri = sic['SIC-Industry-Code-' + str(facility['sic_code'])]
-    else:
-        print('error on: ', facility['facility_id'], facility['sic_code'])
-        industry_iri = False
 
-    extra_iris = {}
-
-    #primary predicate
-    if 'primary' in facility.keys():
-        if facility['primary'] == 'PRIMARY':
-            extra_iris['primary'] = us_frs['primaryIndustry']
-        elif facility['primary'] == 'SECONDARY':
-            extra_iris['primary'] = us_frs['secondaryIndustry']
-
-    #industry predicate
-    industry_predicate = us_frs[facility['program']+'-Industry']
-
-    return facility_iri, industry_iri, industry_predicate, extra_iris
+    return facility_iri
 
 def triplify(df):
     kg = Initial_KG()
@@ -142,14 +106,10 @@ def triplify(df):
         #get attributes
         facility = get_attributes(row)
         #get iris
-        facility_iri, industry_iri, industry_predicate, extra_iris = get_iris(facility)
+        facility_iri = get_iris(facility)
 
         #create facility
-        if industry_iri:
-            kg.add((facility_iri, industry_predicate, industry_iri))
-
-        if 'primary' in extra_iris.keys():
-            kg.add((facility_iri, extra_iris['primary'], industry_iri))
+        kg.add((facility_iri, us_frs['environmentalInterstType'],Literal(facility['interest'], datatype=XSD.string)))
 
     return kg
 

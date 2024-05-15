@@ -191,6 +191,14 @@ us_frs:eia-860-Industry rdf:type owl:ObjectProperty ;
 us_frs:me-efis-Industry rdf:type owl:ObjectProperty ;
 			rdfs:subPropertyOf us_frs:stateIndustry.
 
+#Primary and secondary
+us_frs:primaryIndustry rdf:type owl:ObjectProperty ;
+			rdfs:subPropertyOf fio:ofIndustry .
+
+
+us_frs:secondaryIndustry rdf:type owl:ObjectProperty ;
+			rdfs:subPropertyOf fio:ofIndustry .
+
 #################################################################
 #    Data properties
 #################################################################
@@ -231,6 +239,40 @@ us_frs:EPA-PFAS-Facility rdf:type owl:Class ;
 ## http://sawgraph.spatialai.org/v1/us-frs#Federal-Facility
 us_frs:Federal-Facility rdf:type owl:Class ;
 				rdfs:subClassOf us_frs:FRS-Facility .
+
+##other site types
+us_frs:Stationary-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:BrownfieldsSite-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:ContaminatedSite-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:ContaminationAddressed-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:ContaminatedSite-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:MonitoringStation-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:Portable-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:ContaminatedSite-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:PotentiallyContaminatedSite-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:WaterSystem-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+## environmental interest types 
+
 
 #################################################################
 #    General axioms
