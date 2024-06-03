@@ -20,3 +20,25 @@ prefix:CLASSNAME_id
 egad:Observation/1234
 egad:1234
 
+Current Namespaces:
+@prefix coso:         <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix dcgeoid:      <https://datacommons.org/browser/geoId/> .
+@prefix gcx_cid:      <https://geoconnex.us/nhdplusv2/comid/> .   # This is temporary and will likely change.
+@prefix geo:          <http://www.opengis.net/ont/geosparql#> .
+@prefix gwml:         <http://www.opengis.net/gwml-main/2.2/> .
+@prefix hyf:          <https://www.opengis.net/def/schema/hy_features/hyf/> .
+@prefix kwg-ont:      <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
+@prefix kwgr:         <http://stko-kwg.geog.ucsb.edu/lod/resource/> .
+@prefix me_egad:      <http://sawgraph.spatialai.org/v1/me-egad#> .
+@prefix me_egad_data: <http://sawgraph.spatialai.org/v1/me-egad-data#> .
+@prefix me_mgs:       <http://sawgraph.spatialai.org/v1/me-mgs#> .
+@prefix me_mgs_data:  <http://sawgraph.spatialai.org/v1/me-mgs-data#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix prov:         <http://www.w3.org/ns/prov#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sawgeo:       <http://sawgraph.spatialai.org/v1/sawgeo#> .
+@prefix schema:       <https://schema.org/> .
+@prefix sf:           <http://www.opengis.net/ont/sf#> .
+@prefix wdp:          <https://www.wikidata.org/wiki/Property:> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
