@@ -25,7 +25,9 @@
 * For the state of Maine (ME) town and parcel data can be downloaded from the Maine State GeoLibrary Data Catalog
   1. [Maine Town and Townships Boundary Polygons Feature](https://maine.hub.arcgis.com/datasets/maine::maine-town-and-townships-boundary-polygons-feature-1/explore?showTable=true)
   2. [Maine Parcels Organized Towns Feature](https://maine.hub.arcgis.com/maps/maine::maine-parcels-organized-towns-feature/about) and [Maine Parcels Unorganized Territory](https://maine.hub.arcgis.com/datasets/868097d1a133446f8ffae242929a25dd/explore)
-
+ 
+* Towns for any given state are represented by US Census Bureau county subdivisions. These are also easy to link to Data Commons by their 10-digit FIPS code (GEOID). Shapefiles are available at [https://www.census.gov/cgi-bin/geo/shapefiles/index.php](https://www.census.gov/cgi-bin/geo/shapefiles/index.php).
 
 ## Contributors
 * [Shirly Stephen](https://github.com/shirlysteph)
+* [David Kedrowski](https://github.com/dkedrowski)
