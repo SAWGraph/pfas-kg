@@ -112,7 +112,7 @@ coso:mValue rdf:type owl:ObjectProperty ;
 ###  http://sawgraph.spatialai.org/v1/contaminoso#observedAnalyte
 coso:observedAnalyte rdf:type owl:ObjectProperty ;
                      rdfs:domain coso:ContaminantObservation ;
-                     rdfs:range coso:Analyte .
+                     rdfs:range coso:Substance .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#ofSampleMaterialType
@@ -169,8 +169,8 @@ coso:AggregateContaminantObservation rdf:type owl:Class ;
 coso:AnalysisMethod rdf:type owl:Class .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#Analyte
-coso:Analyte rdf:type owl:Class .
+###  http://sawgraph.spatialai.org/v1/contaminoso#Substance
+coso:Substance rdf:type owl:Class .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantConcentrationMeasurement
@@ -211,7 +211,10 @@ coso:MinimumConcentration rdf:type owl:Class ;
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#MonitoredFeature
 coso:MonitoredFeature rdf:type owl:Class ;
-                      rdfs:subClassOf geo:Feature .
+                      rdfs:subClassOf coso:ReleaseFeature.
+
+coso:ReleaseFeature rdf:type owl:Class;
+                     rdfs:subClassOf geo:Feature.
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#Report
