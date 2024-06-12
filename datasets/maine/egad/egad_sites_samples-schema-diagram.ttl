@@ -197,7 +197,7 @@ coso:MaterialSample rdf:type owl:Class ;
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#SampleMaterial
-coso:SampleMaterial rdf:type owl:Class .
+coso:SampleMaterialType rdf:type owl:Class .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#SamplingMethod
@@ -237,6 +237,8 @@ me_egad:EGAD-ObservationCollection rdf:type owl:Class ;
                                    rdfs:comment "This class denotes the collection of all PFAS type observations made against a specific sample collected from an EGAD sample point." ;
                                    rdfs:label "EGAD Observation Collection" .
 
+me_egad:EGAD-PFAS rdf:type owl:Class;
+                                rdfs:subClassOf pfas:PFAS .
 
 ###  http://sawgraph.spatialai.org/v1/me-egad#EGAD-PFAS-Concentration
 me_egad:EGAD-PFAS-Concentration rdf:type owl:Class ;
@@ -341,7 +343,7 @@ Source: https://www.maine.gov/dep/maps-data/egad/documents/EGAD_Lookup_Tables.xl
 
 
 ###  http://sawgraph.spatialai.org/v1/me-egad#EGAD_Site
-me_egad:EGAD_Site rdf:type owl:Class ;
+me_egad:EGAD-Site rdf:type owl:Class ;
                   rdfs:subClassOf coso:Feature ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty coso:hasSamplePoint ;
