@@ -160,8 +160,8 @@ coso:AggregateContaminantMeasurement rdf:type owl:Class ;
                                                      <http://sawgraph.spatialai.org/v1/stad#StatisticalAggregateData> .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantObservation
-coso:AggregateContaminantObservation rdf:type owl:Class ;
+###  http://sawgraph.spatialai.org/v1/contaminoso#ReleaseContaminantObservation
+coso:ReleaseContaminantObservation rdf:type owl:Class ;
                                      rdfs:subClassOf coso:ContaminantObservation .
 
 
@@ -246,8 +246,8 @@ coso:SingleContaminantMeasurement rdf:type owl:Class ;
                                                   <http://sawgraph.spatialai.org/v1/stad#SingleData> .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#SingleContaminantObservation
-coso:SingleContaminantObservation rdf:type owl:Class ;
+###  http://sawgraph.spatialai.org/v1/contaminoso#SampleContaminantObservation
+coso:SampleContaminantObservation rdf:type owl:Class ;
                                   rdfs:subClassOf coso:ContaminantObservation .
 
 
