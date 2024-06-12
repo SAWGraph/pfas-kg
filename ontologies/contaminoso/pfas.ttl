@@ -69,13 +69,6 @@ dcterms:title rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#observedAnalyte
-coso:observedAnalyte rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf sosa:observedProperty ;
-              rdfs:domain coso:ContaminantObservation ;
-			  rdfs:range coso:Analyte.
-
-
 
 #################################################################
 #    Classes
@@ -89,16 +82,27 @@ geo:Feature rdf:type owl:Class .
 ###  http://www.opengis.net/ont/geosparql#Geometry
 geo:Geometry rdf:type owl:Class .
 
+pfas:QuantitationLimit rdf:type owl:Class ;
+    rdfs:subClassOf coso:ResultQualifier.
+
+pfas:MethodDetectionLimit rdf:type owl:Class ;
+    rdfs:subClassOf coso:ResultQualifier.
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#Analyte
-coso:Analyte rdf:type owl:Class ;
-                       rdfs:subClassOf sosa:ObservableProperty .
+pfas:SinglePFASConcentrationMeasurement rdf:type owl:Class ;
+    rdfs:subClassOf coso:SingleContaminantMeasurement.
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantObservation
-coso:ContaminantObservation rdf:type owl:Class ;
-                       rdfs:subClassOf sosa:Observation .
+pfas:AnalysisMethod rdf:type owl:Class . 
 					   
+
+pfas:PFAS-ConcentrationMeasurement rdf:type owl:Class ;
+    rdfs:subClassOf coso:ContaminantMeasurement .
+
+pfas:PFAS-ContaminantObservation rdf:type owl:Class ;
+    rdfs:subClassOf coso:SampleContaminantObservation .
+
+pfas:PFAS-ReleaseContaminantObservation rdf:type owl:Class ;
+    rdfs:subClassOf coso:ReleaseContaminantObservation .
 					   
 #################################################################
 #    General axioms
