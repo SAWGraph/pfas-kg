@@ -4,6 +4,7 @@ from rdflib import Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
 import pandas as pd
+import shapely
 import encodings
 import logging
 import csv
@@ -28,7 +29,7 @@ logname = "log"
 root_folder =Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/mgs_wells/"
 metadata_dir = root_folder / "data/mgs_wells/metadata/"
-output_dir = root_folder / "code/MGS_wells/"
+output_dir = Path(__file__).resolve().parent #root_folder / "code/MGS_wells/"
 
 me_mgs = Namespace(f"http://sawgraph.spatialai.org/v1/me-mgs#")
 me_mgs_data = Namespace(f"http://sawgraph.spatialai.org/v1/me-mgs-data#")
@@ -91,8 +92,14 @@ def get_attributes(row):
     #print('well_iri: ', well_iri)
     # town
     town_name_formatted = str(row['WELL_LOCATION_TOWN']).replace(' ', '_').replace('&', '').casefold().upper()
+    #town_iri = _PREFIX["aik-pfas"][f"{'town'}.{town_name_formatted}"]
+    try:
+        well_point = shapely.Point((row['LATITUDE'],row['LONGITUDE']))
+        geom = well_point.wkt
+    except:
+        geom = None
 
-    return well_no, well_use, well_type, well_depth, well_overburden, well_iri, town_name_formatted
+    return well_no, well_use, well_type, well_depth, well_overburden, well_iri, town_name_formatted, geom
 
 
 ## triplify the abox
@@ -103,7 +110,7 @@ def triplify_well_data(df, _PREFIX):
     df.info()
     for idx, row in df.iterrows():
 
-        well_no, well_use, well_type, well_depth, well_overburden, well_iri, town_name_formatted = get_attributes(row)
+        well_no, well_use, well_type, well_depth, well_overburden, well_iri, town_name_formatted, geom = get_attributes(row)
 
         # well instance
         kg.add((well_iri, RDF.type, me_mgs["MGS-Well"]))
@@ -128,21 +135,16 @@ def triplify_well_data(df, _PREFIX):
         # kg.add((_PREFIX["aik-pfas-ont"]["WellDepthInFt."+well_iri], _PREFIX["qudt"]["unit"], _PREFIX["qudt"]["FT"]))
 
         # well geometry
-        try:
+        if geom is not None:
             # extract the geometry
-            geom = row['geometry']
-            well_geometry_iri = me_mgs_data[f"d.MGS-Well-Geometry.{well_iri}"]
+            well_geometry_iri = me_mgs_data[f"d.MGS-Well-Geometry.{well_no}"]
             kg.add((well_iri, _PREFIX['geo']['hasGeometry'], well_geometry_iri))
             kg.add((well_iri, _PREFIX['geo']['hasDefaultGeometry'], well_geometry_iri))
             kg.add((well_geometry_iri, _PREFIX["geo"]["asWKT"], Literal(geom, datatype=_PREFIX["geo"]["wktLiteral"])))
             kg.add((well_geometry_iri, RDF.type, _PREFIX['geo']['Geometry']))
 
-        except:
-            pass
-
-
-        town_iri = _PREFIX["aik-pfas"][f"{'town'}.{town_name_formatted}"]
-        # todo lookup FIPS code
+        
+        # todo lookup FIPS code for town
         #kg.add((well_iri, _PREFIX["aik-pfas"]['locatedIn'], town_iri))
 
         #if idx == 5:
