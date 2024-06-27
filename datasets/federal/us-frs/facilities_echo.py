@@ -87,7 +87,7 @@ def Initial_KG():
     kg.bind('us_frs_data', us_frs_data)
     kg.bind('naics', naics)
     kg.bind('sic', sic)
-    kg.bind('coso', coso)
+    kg.bind('coso', coso)   `
     kg.bind('geo', geo)
     return kg
 
