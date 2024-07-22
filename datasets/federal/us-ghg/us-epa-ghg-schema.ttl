@@ -1,0 +1,29 @@
+@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix qudt: <https://qudt.org/schema/qudt/> .
+@prefix us_epa_ghg: <http://sawgraph.spatialai.org/v1/us-epa-ghg#> .
+@prefix us_frs: <http://sawgraph.spatialai.org/v1/us-frs#> .
+@prefix us_frs_data: <http://sawgraph.spatialai.org/v1/us-frs-data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
+
+
+#Classes
+us_epa_ghg:ReleaseObservation rdf:type owl:Class;
+    rdfs:subClassOf coso:ReleaseContaminantObservation.
+
+us_epa_ghg:Volume rdf:type owl:Class;
+    rdfs:subClassOf coso:Volume;
+    rdfs:subClassOf qudt:QuantityValue.
+
+us_epa_ghg:Measurement rdf:type owl:Class;
+    rdfs:subClassOf pfas:PFASVolumeMeasurement;
+    rdfs:subClassOf coso:ContaminantVolumeMeasurement ;
+    rdfs:subClassOf coso:AggregateContaminantMeasurement .
+
+us_epa_ghg:Chemical rdf:type owl:Class;
+    rdfs:subClassOf coso:Substance.
+
+

@@ -24,7 +24,7 @@
                                                   dcterms:issued "2024-02-16"^^xsd:date ;
                                                   dcterms:modified "2024-02-16"^^xsd:date ;
                                                   dcterms:publisher <http://spatialai.org> ;
-                                                  dcterms:source "https://raw.githubusercontent.com/SAWGraph/kg-construction/master/ontologies/v1/pfas.ttl"^^<xsd:anyURI> ;
+                                                  dcterms:source "https://raw.githubusercontent.com/SAWGraph/kg-construction/master/ontologies/v1/pfas.ttl"^^xsd:anyUri ;
                                                   dcterms:title "The PFAS specific concepts that extend ContaminOSO"@en-us ;
                                                   rdfs:label "The PFAS specific concepts that extend ContaminOSO"@en-us ;
                                                   owl:versionInfo "1"@en-us .
@@ -97,6 +97,10 @@ pfas:AnalysisMethod rdf:type owl:Class .
 
 pfas:PFAS-ConcentrationMeasurement rdf:type owl:Class ;
     rdfs:subClassOf coso:ContaminantMeasurement .
+
+pfas:PFASVolumeMeasurement  rdf:type owl:Class;
+    rdfs:subClassOf coso:ContaminantVolumeMeasurement;
+    rdfs:subClassOf coso:ContaminantMeasurement.
 
 pfas:PFAS-ContaminantObservation rdf:type owl:Class ;
     rdfs:subClassOf coso:SampleContaminantObservation .

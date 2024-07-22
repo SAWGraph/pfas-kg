@@ -90,16 +90,10 @@ def get_attributes(row):
 
 def get_iris(facility):
     #build iris for any entities
-    facility_iri = us_frs_data['d.FRS-Facility.'+str(facility['facility_id'])]
-    county_iri = aik_pfas_ont['County.01'+str(facility['county_fips'])] #namespace needs to be replaced
-    geo_iri = us_frs_data['d.FRS-Facility-Geometry.'+str(facility['facility_id'])]
-    extra_iris ={}
-    #TODO agency codes need labels  FRS_PROGRAM_FACILITY.FEDERAL_AGENCY_CODE
-    if 'federalAgencyCode' in facility.keys():
-        agency_iri = fio['d.Agency.'+str(facility['federalAgencyCode'])]
-        extra_iris['agency'] = agency_iri
 
-    return facility_iri, county_iri, geo_iri, extra_iris
+    extra_iris ={}
+    
+    return extra_iris
 
 
 def triplify(df):

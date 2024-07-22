@@ -86,7 +86,9 @@ def get_attributes(row):
     #this is specific to the imported file
     facility = {
         'facility_id': row.REGISTRY_ID,
-        'interest':row.INTEREST_TYPE
+        'interest':row.INTEREST_TYPE,
+        'program':str(row.PGM_SYS_ACRNM).replace('/', '').replace('-', ''),  #remove slashes and hyphens
+        'program_id':row.PGM_SYS_ID
 
     }
     ## additional attributes that do not appear for all facilities
@@ -109,7 +111,8 @@ def triplify(df):
         facility_iri = get_iris(facility)
 
         #create facility
-        kg.add((facility_iri, us_frs['environmentalInterstType'],Literal(facility['interest'], datatype=XSD.string)))
+        kg.add((facility_iri, us_frs['environmentalInterestType'], Literal(facility['interest'], datatype=XSD.string)))
+        kg.add((facility_iri, us_frs['has'+facility['program']+'Id'], Literal(facility['program_id'], datatype=XSD.string)))
 
     return kg
 

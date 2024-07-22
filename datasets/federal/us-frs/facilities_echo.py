@@ -87,7 +87,7 @@ def Initial_KG():
     kg.bind('us_frs_data', us_frs_data)
     kg.bind('naics', naics)
     kg.bind('sic', sic)
-    kg.bind('coso', coso)   `
+    kg.bind('coso', coso)
     kg.bind('geo', geo)
     return kg
 
@@ -157,6 +157,7 @@ def triplify(df):
         #create facility
         kg.add((facility_iri, RDF.type, us_frs["FRS-Facility"]))
         kg.add((facility_iri, RDFS.label, Literal(facility['facility_name'], datatype= XSD.string)))
+        kg.add((facility_iri, us_frs['hasFRSId'], Literal(facility['facility_id'], datatype=XSD.string)))
 
         #geometry
         if 'WKT' in facility:

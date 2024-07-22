@@ -118,6 +118,7 @@ def get_iris(release):
     extra_iris['ReleaseObservation'] = us_epa_ghg[
         'd.ReleaseObservation.' + facilityId]
     extra_iris['Chemical'] = us_epa_ghg['d.Chemical.' + chemicalName]
+    extra_iris['Measurement'] = us_epa_ghg['d.ContaminantMeasurement.' + facilityId + '.Chemical-' + chemicalName]
     extra_iris['Amount'] = us_epa_ghg['d.Amount.' + facilityId + '.Chemical-' + chemicalName]
 
     if 'FRS_ID' not in release.keys():
@@ -175,9 +176,14 @@ def triplify(df):
         if 'CAS' in release.keys():
             kg.add((extra_iris['Chemical'], us_epa_ghg['casNumber'], Literal(release['CAS'], datatype=XSD.string)))
 
+        #measurement
+        kg.add((extra_iris['ReleaseObservation'], coso['hasResult'], extra_iris['Measurement']))
+        kg.add((extra_iris['Measurement'], qudt['quantityKind'], extra_iris['Amount']))
+        kg.add((extra_iris['Measurement'], RDF.type, us_epa_ghg['Measurement']))
+
         #amount
-        kg.add((extra_iris['ReleaseObservation'], coso['hasResult'], extra_iris['Amount']))
-        kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Amount']))
+
+        kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Volume']))
         kg.add((extra_iris['Amount'], qudt['numericValue'], Literal(release['Amount'], datatype=XSD.float)))
         kg.add((extra_iris['Amount'], qudt['unit'], qudt['TON_Metric']))
     return kg
