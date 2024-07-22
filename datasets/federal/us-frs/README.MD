@@ -1,4 +1,5 @@
-## Overview of the raw dataset
+# Overview of the raw dataset
+
 * **Name of dataset:** Facility Registry Service
 * **Source Agency:** EPA
 * **Data source location:** [FRS State Downloads](https://www.epa.gov/frs/epa-state-combined-csv-download-files)
@@ -7,28 +8,31 @@
 *note: this identifies facilities the epa suspects are using pfas*
 [Additional FRS identifiers](https://frs-public.epa.gov/ords/frs_public2/ez_frs_column.list?table_name=D_EF_FAC.V_PUB_FRS_FACILITY_SITE_GEOPGM)
 [program reference](https://usepa.servicenowservices.com/oeca_icis/en/list-of-program-system-acronyms-found-in-icis?id=kb_article_view&sys_kb_id=42327c7f1bfc1954fd044262f54bcb8f)
-* **Metadata description:** [Facility State File Documentation 1132012_new]() (comes with state download)
+* **Metadata description:** [Facility State File Documentation 1132012_new](https://www.epa.gov/frs/epa-state-combined-csv-download-files) (comes with state download)
 [Environmental Interest Types](https://www.epa.gov/sites/default/files/2020-01/documents/interest_types.pdf)
 * **Format of data returned:** csv (also available by REST)
 * **Data update interval:**
 * **General Comments**:
 
 ## Schema Diagram
-- [WIP](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d&page=IHg_2ajnF.Pg#) 
+
+* [WIP](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d&page=IHg_2ajnF.Pg#)
 
 ## Code
+
 *  
 
 ## Raw Data Attribute List and Mappings with Ontology
-FRS State Downloads
-### ME_FACILITY_FILE.csv
 
+FRS State Downloads
+
+### ME_FACILITY_FILE.csv
 
 | Attribute                      | Description                                                                                                                                                                                                                    | Lift to Graph | Ontology Property                            |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|----------------------------------------------|
 | FRS_FACILITY_DETAIL_REPORT_URL | report url                                                                                                                                                                                                                     |               |                                              |
 | REGISTRY_ID                    | registry id to uniquely identify facility                                                                                                                                                                                      | Yes           | us_frs:FRS-Facility (URI)  us_frs:facilityId |
-| PRIMARY_NAME                   | public or commercial name                                                                                                                                                                                                      | Yes           | coso:Facility rdfs:Label                     | 
+| PRIMARY_NAME                   | public or commercial name                                                                                                                                                                                                      | Yes           | coso:Facility rdfs:Label                     |
 | LOCATION_ADDRESS               |                                                                                                                                                                                                                                | ?             | coso:locatedIn                               |
 | SUPPLEMENTAL_LOCATION          | text that provides additional information about a place, including a building name with its secondary unit and number, an industrial park name, an installation name or descriptive text where no formal address is available. | ?             |                                              |
 | CITY_NAME                      | locality name - nameof city, town village or other locality within whose boundaries (the majority of) the facility site is located.                                                                                            |               |                                              |
@@ -63,8 +67,8 @@ FRS State Downloads
 
 ### ME_NAICS_FILE.csv
 
-| Attribute         | Description                                                                                                                                                                                                                      | Lift to Graph | Ontology Property/Class                              | 
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------| 
+| Attribute         | Description                                                                                                                                                                                                                      | Lift to Graph | Ontology Property/Class                              |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|
 | REGISTRY_ID       |                                                                                                                                                                                                                                  | Yes           | us_frs:FRS-Facility                                  |
 | PGM_SYS_ACRNM     | The abbreviated name that represents the name of an information management system for an environmental program.                                                                                                                  | Yes           | maps to fio:ofIndustry sub properties                |
 | PGM_SYS_ID        | The identification number, such as the permit number assigned by an information management system that represents a facility site, waste site, operable unit, or other feature tracked by that Environmental Information System. |               |                                                      |
@@ -75,8 +79,8 @@ FRS State Downloads
 
 ### ME_SIC_FILE.csv
 
-| Attribute         | Description                                                                                                                                                                                                                       | Lift to Graph | Ontology Property | 
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|-------------------| 
+| Attribute         | Description                                                                                                                                                                                                                       | Lift to Graph | Ontology Property |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|-------------------|
 | REGISTRY_ID       |                                                                                                                                                                                                                                   |               |
 | PGM_SYS_ACRNM     | The abbreviated name that represents the name of an information management system for an environmental program.                                                                                                                   |               |
 | PGM_SYS_ID        | The identification number, such as the permit number, assigned by an information management system that represents a facility site, waste site, operable unit, or other feature tracked by that Environmental Information System. |               |
@@ -85,9 +89,9 @@ FRS State Downloads
 | PRIMARY_INDICATOR | The name that indicates whether the associated SIC Code represents the primary activity occurring at the facility site                                                                                                            |               |
 | CODE_DESCRIPTION  | The text that represents a subdivision of an industry that accommodates user needs in the United States                                                                                                                           |               |
 
-### ALTERNATIVE NAME FILE 
+### ALTERNATIVE NAME FILE
 
-| Attribute             | Description | Lift to Graph | Ontology Property | 
+| Attribute             | Description | Lift to Graph | Ontology Property |
 |-----------------------|-------------|---------------|-------------------|
 | REGISTRY_ID           |             |               |
 | PGM_SYS_ACRNM         |             |               |
@@ -95,10 +99,11 @@ FRS State Downloads
 | ALTERNATIVE_NAME      |             |               |
 | ALTERNATIVE_NAME_TYPE |             |               |
 
-### ORGANIZATION FILE 
+### ORGANIZATION FILE
+
 Described organizations affiliated with a facility
 
-| Attribute              | Description                                                                                                                                                                                                                                                                                                                          | Lift to Graph                         | Ontology Property                                             | 
+| Attribute              | Description                                                                                                                                                                                                                                                                                                                          | Lift to Graph                         | Ontology Property                                             |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|---------------------------------------------------------------|
 | "REGISTRY_ID"          |                                                                                                                                                                                                                                                                                                                                      |                                       |                                                               |
 | "PGM_SYS_ACRNM"        |                                                                                                                                                                                                                                                                                                                                      |                                       |                                                               |
@@ -126,10 +131,11 @@ Described organizations affiliated with a facility
 | "COUNTRY_NAME"         |                                                                                                                                                                                                                                                                                                                                      |                                       |                                                               |
 
 ### ME_ENVIRONMENTAL_INTEREST_FILE.csv
+
 | Attribute            | Description                                                                                                                                                                                                  | Lift to Graph | Ontology Property               |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------|
 | REGISTRY_ID          |                                                                                                                                                                                                              |               |                                 |
-| PGM_SYS_ACRNM        | The abbreviated name that represents the name of an information management system for an environmental program. Program System Definitions can be viewed at http://www.epa.gov/enviro/html/fii/prog_sys.html |               |                                 |
+| PGM_SYS_ACRNM        | The abbreviated name that represents the name of an information management system for an environmental program. Program System Definitions can be viewed at <http://www.epa.gov/enviro/html/fii/prog_sys.html> |               |                                 |
 | PGM_SYS_ID           | The identification number, such as the permit number, assigned by an information management system                                                                                                           | Yes           | us_frs:hasId                    |
 | INTEREST_TYPE        | The environmental permit or regulatory program that applies to the facility site                                                                                                                             | Yes           | us_frs:environmentalInterestType|
 | FED_STATE_CODE       | A flag which indicates whether the environmental interest data was provided by a federal or state environmental information system.                                                                          |               |                                 |
@@ -144,16 +150,21 @@ Described organizations affiliated with a facility
 | ACTIVE_STATUS        | The status of the environmental interest at the facility or site                                                                                                                                             |               |                                 |
 
 ### Contact File
+
 "REGISTRY_ID","PGM_SYS_ACRNM","PGM_SYS_ID","INTEREST_TYPE","AFFILIATION_TYPE","START_DATE","END_DATE","FULL_NAME","TITLE","PHONE_NUMBER","ALTERNATE_PHONE","FAX_NUMBER","EMAIL_ADDRESS","MAILING_ADDRESS","SUPPLEMENTAL_ADDRESS","CITY_NAME","STATE_CODE","STATE_NAME","POSTAL_CODE","COUNTRY_NAME"
 
 ### Mailing Address
+
 "REGISTRY_ID","PGM_SYS_ACRNM","PGM_SYS_ID","INTEREST_TYPE","AFFILIATION_TYPE","START_DATE","END_DATE","MAILING_ADDRESS","SUPPLEMENTAL_ADDRESS","CITY_NAME","STATE_CODE","STATE_NAME","POSTAL_CODE","COUNTRY_NAME"
 
 ### Program File
+
 "PGM_SYS_ACRNM","PGM_SYS_ID","REGISTRY_ID","PRIMARY_NAME","LOCATION_ADDRESS","SUPPLEMENTAL_LOCATION","CITY_NAME","COUNTY_NAME","FIPS_CODE","STATE_CODE","STATE_NAME","COUNTRY_NAME","POSTAL_CODE","FEDERAL_FACILITY_CODE","FEDERAL_AGENCY_CODE","TRIBAL_LAND_CODE","TRIBAL_LAND_NAME","LEGISLATIVE_DIST_NUM","HUC_CODE_8","HUC_CODE_12","EPA_REGION_CODE","SITE_TYPE_NAME","DATA_QUALITY_CODE","LAST_REPORTED_DATE","STD_NAME","STD_LOC_ADDRESS","STD_HOUSE_NUMBER","STD_STREET_NAME","STD_BASE_NAME","STD_PREFIX","STD_SUFFIX","STD_STYPE_BEFORE","STD_STYPE_AFTER","STD_POSTAL_CODE","STD_CITY_NAME","STD_COUNTY_NAME","STD_STATE_CODE","STD_COUNTY_FIPS","STD_COUNTRY","STD_FULL_ADDRESS","ADDR_TYPE","LINK_MTHD","LOCATION_DESCRIPTION","CREATE_DATE","UPDATE_DATE","USER_ID","SENSITIVE_IND","USER_COMMENT","PUBLIC_IND","REFRESH_DATE","SMALL_BUS_IND","ENV_JUSTICE_CODE","PARENT_PGM_SYS_ID","STAND_ALONE_FLAG","SOURCE_OF_DATA"
 
 ### Program GIS File
+
 "PGM_SYS_ACRNM","PGM_SYS_ID","LATITUDE83","LONGITUDE83","CONVEYOR","COLLECT_DESC","ACCURACY_VALUE","REF_POINT_DESC","HDATUM_DESC","SOURCE_DESC","STATE_CODE"
 
 ### Supplemental Interest File
+
 "REGISTRY_ID","PGM_SYS_ACRNM","PGM_SYS_ID","INTEREST_TYPE","SUP_PGM_SYS_ACRNM","SUP_PGM_SYS_ID","SUP_INTEREST_TYPE","START_DATE","START_DATE_QUALIFIER","END_DATE","END_DATE_QUALIFIER","SOURCE_OF_DATA","LAST_REPORTED_DATE","REPORTED_SUP_INTEREST_TYPE","CREATE_DATE","UPDATE_DATE"
