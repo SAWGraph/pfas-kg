@@ -25,6 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
+state = 'IL'
 
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
@@ -55,16 +56,16 @@ def main():
     kg = triplify(naics_df)
     kg2 = triplify(sic_df)
 
-    kg_turtle_file = "us-frs-industry-naics-echo.ttl".format(output_dir)
-    kg_turtle_file2 = "us-frs-industry-sic-echo.ttl".format(output_dir)
+    kg_turtle_file = "us-frs-industry-naics-echo-"+state+".ttl".format(output_dir)
+    kg_turtle_file2 = "us-frs-industry-sic-echo-"+state+".ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
     kg2.serialize(kg_turtle_file2, format='turtle')
     logger = logging.getLogger('Finished triplifying pfas analytics tool facility industries.')
 
 def load_data():
     #df = pd.read_csv(data_dir / "industrysectors_ME.csv")
-    naics_df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_NAICS_FILE.CSV', low_memory=False, dtype=str) #make sure to import as string and not drop leading 0 in codes
-    sic_df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_SIC_FILE.csv', low_memory=False, dtype=str)
+    naics_df = pd.read_csv(data_dir / str('state_combined_'+state.lower()) / str(state+'_NAICS_FILE.CSV'), low_memory=False, dtype=str) #make sure to import as string and not drop leading 0 in codes
+    sic_df = pd.read_csv(data_dir / str('state_combined_'+state.lower()) / str(state+'_SIC_FILE.csv'), low_memory=False, dtype=str)
     logger = logging.getLogger('Data loaded to dataframe.')
     print(naics_df.info())
     print(sic_df.info())

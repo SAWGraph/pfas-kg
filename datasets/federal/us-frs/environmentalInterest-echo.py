@@ -25,6 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
+state= "IL"
 
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
@@ -55,13 +56,13 @@ def main():
     kg = triplify(df)
 
 
-    kg_turtle_file = "us-frs-environmentalInterest-echo.ttl".format(output_dir)
+    kg_turtle_file = "us-frs-environmentalInterest-echo_"+state +".ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
     logger = logging.getLogger('Finished triplifying pfas analytics tool facility industries.')
 
 def load_data():
     #df = pd.read_csv(data_dir / "industrysectors_ME.csv")
-    df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_NAICS_FILE.CSV', low_memory=False, dtype=str)
+    df = pd.read_csv(data_dir / str('state_combined_'+ state.lower()) / str(state + '_NAICS_FILE.CSV'), low_memory=False, dtype=str)
     logger = logging.getLogger('Data loaded to dataframe.')
     print(df.info())
 

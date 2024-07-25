@@ -25,6 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
+state = 'ME'
 
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
@@ -38,7 +39,9 @@ us_frs_data = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
 fio = Namespace(f"http://sawgraph.spatialai.org/v1/fio#")
 naics = Namespace(f"http://sawgraph.spatialai.org/v1/fio/naics#")
 sic = Namespace(f"http://sawgraph.spatialai.org/v1/fio/sic#")
-aik_pfas_ont = Namespace(f"http://aiknowspfas.skai.maine.edu/lod/ontology/")  #this will be replaced with something for sawgraph, but unsure of namespace for geospatial entities
+#aik_pfas_ont = Namespace(f"http://aiknowspfas.skai.maine.edu/lod/ontology/")  #this will be replaced with something for sawgraph, but unsure of namespace for geospatial entities
+kwgr = Namespace(f'http://stko-kwg.geog.ucsb.edu/lod/resource/')
+kwg_ont = Namespace(f'http://stko-kwg.geog.ucsb.edu/lod/ontology/')
 coso = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 geo = Namespace(f'http://www.opengis.net/ont/geosparql#')
 
@@ -56,18 +59,19 @@ def main():
     df = load_data()
     kg = triplify(df)
 
-    kg_turtle_file = "us-frs-data-echo.ttl".format(output_dir)
+    kg_turtle_file = "us-frs-data-echo-"+ state+".ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
     logger = logging.getLogger('Finished triplifying pfas analytics tool facilities.')
 
 def load_data():
     #df = pd.read_csv(data_dir / "industrysectors_ME.csv")
-    df = pd.read_csv(data_dir / 'state_combined_me' / 'ME_FACILITY_FILE.CSV', low_memory=False)
-    df_federal = pd.read_csv(data_dir /'state_combined_me'/'222910070_ME_FEDERAL.CSV') #this was a custom ezquery to get agency codes
-    print(df_federal.info())
-    df = df.set_index('REGISTRY_ID', drop=False)
-    df_federal = df_federal.set_index('REGISTRY_ID')
-    df = df.join(df_federal, how='left', rsuffix='_FEDERAL')
+    df = pd.read_csv(data_dir / str('state_combined_'+state.lower()) / str(state + '_FACILITY_FILE.CSV'), low_memory=False)
+    #TODO agency codes for all states
+    #df_federal = pd.read_csv(data_dir /str('state_combined_'+state.lower()) /'222910070_ME_FEDERAL.CSV') #this was a custom ezquery to get agency codes
+    #print(df_federal.info())
+    #df = df.set_index('REGISTRY_ID', drop=False)
+    #df_federal = df_federal.set_index('REGISTRY_ID')
+    #df = df.join(df_federal, how='left', rsuffix='_FEDERAL')
     #replace - with nan
     print(df.info(verbose=True))
     #print(df[df.REGISTRY_ID_FEDERAL > 0])
@@ -89,6 +93,8 @@ def Initial_KG():
     kg.bind('sic', sic)
     kg.bind('coso', coso)
     kg.bind('geo', geo)
+    kg.bind('kwgr', kwgr)
+    kg.bind('kwg-ont', kwg_ont)
     return kg
 
 
@@ -110,9 +116,11 @@ def get_attributes(row):
     #identify federal facilities
     if row.FEDERAL_FACILITY_CODE == 'Yes':
         facility['federal_bool'] = True
-        if pd.notnull(row.FEDERAL_AGENCY_CODE):
+        if pd.notnull(row.FEDERAL_AGENCY_NAME):
             facility['federalAgency'] = row.FEDERAL_AGENCY_NAME #don't need this if find a lookup table
-            facility['federalAgencyCode'] = row.FEDERAL_AGENCY_CODE #this will be used in the iri
+        #TODO integrate agency code for all states
+        #if pd.notnull(row.FEDERAL_AGENCY_CODE):
+        #    facility['federalAgencyCode'] = row.FEDERAL_AGENCY_CODE #this will be used in the iri
     else:
         facility['federal_bool'] = False
 
@@ -128,7 +136,7 @@ def get_attributes(row):
 def get_iris(facility):
     #build iris for any entities
     facility_iri = us_frs_data['d.FRS-Facility.'+str(facility['facility_id'])]
-    county_iri = aik_pfas_ont['County.01'+str(facility['county_fips'])] #namespace needs to be replaced
+    county_iri = kwgr['administrativeRegion.USA.'+str(facility['county_fips'])] #namespace needs to be replaced
     geo_iri = us_frs_data['d.FRS-Facility-Geometry.'+str(facility['facility_id'])]
     extra_iris ={}
     #TODO agency codes need labels  FRS_PROGRAM_FACILITY.FEDERAL_AGENCY_CODE
@@ -163,7 +171,7 @@ def triplify(df):
         if 'WKT' in facility:
             kg.add((facility_iri, geo['hasGeometry'], geo_iri))
             kg.add((geo_iri, geo["asWKT"], Literal(facility['WKT'], datatype=geo["wktLiteral"])))
-            kg.add((facility_iri, coso['locatedIn'], county_iri))
+            kg.add((facility_iri, coso['locatedIn'], county_iri)) #TODO should this predicate be kwg-ont:sfWithin ?
         if 'tribal_bool' in facility.keys():
             #kg.add((facility_iri, coso['locatedIn'], ))
             pass

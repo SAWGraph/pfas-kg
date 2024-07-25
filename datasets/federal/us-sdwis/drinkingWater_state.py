@@ -25,7 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = " IL"
+state = " ME"
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -37,6 +37,7 @@ output_dir = root_folder / "federal/us-sdwis/"
 
 prefixes = {}
 prefixes['us_sdwis'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-sdwis#')
+prefixes['us_sdwis_data'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-sdwis-data#')
 #prefixes['us_frs'] = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
 #prefixes['us_frs_data'] = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
 prefixes['qudt'] = Namespace(f'https://qudt.org/schema/qudt/')
@@ -94,8 +95,7 @@ def get_attributes(row):
         #'SampleType': row['Sample Type'], - for IL this just says its a special sample (SP) e.g. not routine
         'Count': row['Results'],
 
-        'SubstanceCode':row['Code'],
-        'Substance':row['Contaminant'],
+        'Substance': str(row['Contaminant']).replace('+', '-'),
 
         'Method': row['Method'],
         'RL': row['Reporting Level'],
@@ -107,18 +107,26 @@ def get_attributes(row):
         sample['SampleID'] = row['Sample ID']
     else:
         #construct from PWS(below), date, and sample location id (if exists)
-        sample['SampleID'] = str(row['Sample Date']).replace('/','') + '.'+str(row['Sample Point ID'])
+        if pd.notnull(row['Sample Point ID']):
+            sample['SampleID'] = str(row['Sample Date']).replace('/', '') + '.'+str(row['Sample Point ID'])
+        else:
+            sample['SampleID'] = str(row['Sample Date']).replace('/', '')
 
     #if sample location has identifier
     if pd.notnull(row['Sample Point ID']):
         sample['SamplePointID'] = str(row['Sample Point ID']).replace(" ", "")
-    #else:  #if we don't know anything about the sample location don't include it
+    else:  #if we don't know anything about the sample location don't include it
         #construct sample location identifier
-        #sample['SamplePointID'] = str(row['Sample Date']).replace('/', '') + '.' + str(row['Sample ID'])
+        if pd.notnull(row['Sample ID']):
+            sample['SamplePointID'] = str(row['Sample Date']).replace('/', '') + '.' + str(row['Sample ID'])
+        else:
+            sample['SamplePointID'] = str(row['Sample Date']).replace('/', '')
 
     #concentrations and NDs
     if row['Concentration'] != '-':
         sample['Conc'] = row['Concentration']
+    if pd.notnull(row['Code']):
+        sample['SubstanceCode'] = row['Code']
 
     #units conversion
     unitLookup = {
@@ -135,15 +143,18 @@ def get_attributes(row):
 
 def get_iris(sample):
     iris = {}
-    iris['sample'] = prefixes['us_sdwis']['d.PWS-Sample.'+ sample['PWSID']+ '.'+ sample['SampleID']]
+    iris['sample'] = prefixes['us_sdwis_data']['d.PWS-Sample.'+ sample['PWSID']+ '.'+ sample['SampleID']]
     if 'SamplePointID' in sample.keys():
-        iris['samplePoint'] = prefixes['us_sdwis']['d.PWS-SamplePoint.'+  sample['PWSID']+ '.'+ sample['SamplePointID']]
-    iris['observation'] = prefixes['us_sdwis']['d.PWS-Observation.'+ sample['PWSID']+ '.'+ sample['SampleID']+'.'+sample['Substance']]
-    iris['measurement']= prefixes['us_sdwis']['d.PWS-PFASConcentration.'+ sample['PWSID']+ '.'+ sample['SampleID']+'.'+sample['Substance']]
-    iris['amount'] = prefixes['us_sdwis']['d.Amount.'+ sample['PWSID']+ '.Sample-'+ sample['SampleID']+'.Chemical-'+sample['Substance']]
-    iris['substance'] = prefixes['us_sdwis']['d.PWS-PFAS.'+sample['SubstanceCode']]
+        iris['samplePoint'] = prefixes['us_sdwis_data']['d.PWS-SamplePoint.' + sample['PWSID'] + '.' + sample['SamplePointID']]
+    iris['observation'] = prefixes['us_sdwis_data']['d.PWS-Observation.' + sample['PWSID'] + '.' + sample['SampleID']+'.' + sample['Substance']]
+    iris['measurement']= prefixes['us_sdwis_data']['d.PWS-PFASConcentration.' + sample['PWSID'] + '.' + sample['SampleID'] + '.' + sample['Substance']]
+    iris['amount'] = prefixes['us_sdwis_data']['d.Amount.' + sample['PWSID'] + '.Sample-' + sample['SampleID']+'.Chemical-' + sample['Substance']]
+    if 'SubstanceCode' in sample.keys():
+        iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.'+str(sample['SubstanceCode'])]
+    else:
+        iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.' + str(sample['Substance'])]
     #sample Material Type?
-    iris['PWS'] = prefixes['us_sdwis']['d.PublicWaterSystem.'+sample['PWSID']]
+    iris['PWS'] = prefixes['us_sdwis_data']['d.PublicWaterSystem.'+sample['PWSID']]
 
     #print(iris)
     return iris
@@ -187,15 +198,16 @@ def triplify(df):
 
         #measurement
         kg.add((iris['measurement'], RDF.type, prefixes['us_sdwis']['PWS-PFASConcentration']))
-        kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['amount']))
+
         #TODO handle the non-detects
 
-        #Amount quanity value
-        kg.add((iris['amount'], RDF.type, prefixes['us_sdwis']['Amount']))
+        #Amount quanity value - only create if there is a concentration? - need to handle nondetects above
         if 'Conc' in sample.keys():
+            kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['amount']))
+            kg.add((iris['amount'], RDF.type, prefixes['us_sdwis']['Amount']))
             kg.add((iris['amount'], prefixes['qudt']['numericValue'], Literal(sample['Conc'], datatype=XSD.float)))
-        if 'Unit' in sample.keys():
-            kg.add((iris['amount'], prefixes['qudt']['unit'], prefixes['qudt'][sample['Unit']]))
+            if 'Unit' in sample.keys():
+                kg.add((iris['amount'], prefixes['qudt']['unit'], prefixes['qudt'][sample['Unit']]))
 
         #substance
         kg.add((iris['substance'], RDF.type, prefixes['us_sdwis']['PWS-PFAS']))

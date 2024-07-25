@@ -17,7 +17,7 @@ us_sdwis:PWS-PFASConcentration rdf:type owl:Class;
     rdfs:subClassOf pfas:PFAS-ConcentrationMeasurement.
 
 us_sdwis:PWS-Observation rdf:type owl:Class;
-    rdfs:subClassOf pfas:PFAS-ContaminantObservation. 
+    rdfs:subClassOf pfas:PFAS-SampleContaminantObservation. 
 
 us_sdwis:PWS-Sample rdf:type owl:Class;
     rdfs:subClassOf coso:MaterialSample. 
@@ -28,3 +28,17 @@ us_sdwis:PWS-SamplePoint rdf:type owl:Class;
 us_sdwis:PublicWaterSystem rdf:type owl:Class;
     rdfs:subClassOf coso:Feature.
 
+us_sdwis:PublicWaterSystem-CWS rdf:type owl:Class;
+    rdfs:subClassOf us_sdwis:PublicWaterSystem.
+
+us_sdwis:PublicWaterSystem-NTNCWS rdf:type owl:Class;
+    rdfs:subClassOf us_sdwis:PublicWaterSystem.
+
+us_sdwis:PublicWaterSystem-TNCWS rdf:type owl:Class;
+    rdfs:subClassOf us_sdwis:PublicWaterSystem.
+
+us_sdwis:PublicWaterSystem-GW rdf:type owl:Class;
+    rdfs:subClassOf us_sdwis:PublicWaterSystem.
+
+us_sdwis:PublicWaterSystem-SW rdf:type owl:Class;
+    rdfs:subClassOf us_sdwis:PublicWaterSystem.
