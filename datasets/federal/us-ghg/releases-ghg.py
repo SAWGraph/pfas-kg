@@ -25,6 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
+state = ' IL'
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -48,22 +49,22 @@ logging.basicConfig(filename=logname,
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
 
-logging.info("Running triplification for facilities")
+logging.info(f"Running triplification for ghg {state}")
 
 
 def main():
     df = load_data()
     kg = triplify(df)
 
-    kg_turtle_file = "us-epa-ghg-releases.ttl".format(output_dir)
+    kg_turtle_file = "us-epa-ghg-releases-"+state.strip()+".ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
-    logger = logging.getLogger('Finished triplifying ghg releases.')
+    logger = logging.getLogger(f'Finished triplifying ghg releases for {state}.')
 
 
 def load_data():
     df = pd.read_excel(data_dir / 'greenhousegas_cb4421f2-1c5c-473b-a175-9c785c2a752c.xlsx', dtype=str)
     #filter to just one state
-    df = df[df['State Territory or Tribe'] == ' ME']
+    df = df[df['State Territory or Tribe'] == state]
     print(df.info(verbose=True))
     logger = logging.getLogger('Data loaded to dataframe.')
     return df
@@ -183,7 +184,7 @@ def triplify(df):
 
         #amount
 
-        kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Volume']))
+        kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Amount']))
         kg.add((extra_iris['Amount'], qudt['numericValue'], Literal(release['Amount'], datatype=XSD.float)))
         kg.add((extra_iris['Amount'], qudt['unit'], qudt['TON_Metric']))
     return kg

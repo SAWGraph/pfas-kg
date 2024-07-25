@@ -98,15 +98,21 @@ pfas:AnalysisMethod rdf:type owl:Class .
 pfas:PFAS-ConcentrationMeasurement rdf:type owl:Class ;
     rdfs:subClassOf coso:ContaminantMeasurement .
 
-pfas:PFASVolumeMeasurement  rdf:type owl:Class;
+pfas:PFAS-VolumeMeasurement  rdf:type owl:Class;
     rdfs:subClassOf coso:ContaminantVolumeMeasurement;
     rdfs:subClassOf coso:ContaminantMeasurement.
+
+pfas:AggregatePFASAmountMeasurement rdf:type owl:Class;
+    rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
 pfas:PFAS-ContaminantObservation rdf:type owl:Class ;
     rdfs:subClassOf coso:SampleContaminantObservation .
 
 pfas:PFAS-ReleaseContaminantObservation rdf:type owl:Class ;
     rdfs:subClassOf coso:ReleaseContaminantObservation .
+
+pfas:PFAS-SampleContaminantObservation rdf:type owl:Class ;
+    rdfs:subClassOf coso:SampleContaminantObservation .
 					   
 #################################################################
 #    General axioms

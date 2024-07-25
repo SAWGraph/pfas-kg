@@ -12,14 +12,13 @@
 
 #Classes
 us_epa_ghg:ReleaseObservation rdf:type owl:Class;
-    rdfs:subClassOf coso:ReleaseContaminantObservation.
+    rdfs:subClassOf pfas:PFAS-ReleaseContaminantObservation.
 
-us_epa_ghg:Volume rdf:type owl:Class;
-    rdfs:subClassOf coso:Volume;
-    rdfs:subClassOf qudt:QuantityValue.
+us_epa_ghg:Amount rdf:type owl:Class;
+    rdfs:subClassOf stad:StatisticalAggregateData.
 
 us_epa_ghg:Measurement rdf:type owl:Class;
-    rdfs:subClassOf pfas:PFASVolumeMeasurement;
+    rdfs:subClassOf pfas:PFAS-VolumeMeasurement;
     rdfs:subClassOf coso:ContaminantVolumeMeasurement ;
     rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
