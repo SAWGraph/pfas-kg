@@ -25,7 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = ' IL'
+state = ' ME'
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent

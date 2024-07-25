@@ -22,6 +22,7 @@ from variable import NAME_SPACE, _PREFIX
 
 ## declare variables
 logname = "log"
+state = 'ME'
 
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
@@ -49,12 +50,12 @@ def main():
     df = load_data()
     kg = triplify(df, _PREFIX)
 
-    kg_turtle_file = "us-frs-data-pat.ttl".format(output_dir)
+    kg_turtle_file = f"us-frs-data-pat-{state}.ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
-    logger = logging.getLogger('Finished triplifying pfas analytics tool facilities.')
+    logger = logging.getLogger(f'Finished triplifying pfas analytics tool facilities - {state}.')
 
 def load_data():
-    df = pd.read_csv(data_dir / "industrysectors_ME.csv")
+    df = pd.read_csv(data_dir / f"industrysectors_{state}.csv")
     #df = pd.read_json(data_dir / '')
     #replace - with nan
     df.replace(to_replace='-', value=pd.NA, inplace=True)
