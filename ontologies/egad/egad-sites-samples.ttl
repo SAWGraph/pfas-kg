@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+@prefix : <http://sawgraph.spatialai.org/v1/me-egad#> .
+>>>>>>> Stashed changes
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -12,7 +16,13 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix sdwis: <http://sawgraph.spatialai.org/v1/sdwis#> .
 @prefix me_egad: <<http://sawgraph.spatialai.org/v1/me-egad#> .
+<<<<<<< Updated upstream
 
+=======
+@base <http://sawgraph.spatialai.org/v1/me-egad#> .
+
+<http://sawgraph.spatialai.org/v1/me-egad#> rdf:type owl:Ontology .
+>>>>>>> Stashed changes
 
 <http://sawgraph.spatialai.org/v1/me-egad#> rdf:type owl:Ontology ;
                                                                  terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
