@@ -105,6 +105,12 @@ me_egad:samplePointType rdf:type owl:ObjectProperty ;
                         rdfs:label "egad - sample point type" .
 
 
+###  <http://sawgraph.spatialai.org/v1/me-egad#sampleTreatmentStatus
+me_egad:sampleTreatmentStatus rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf coso:sampleAnnotation ;
+                              rdfs:label "egad - sample treatment status" .
+
+
 ###  <http://sawgraph.spatialai.org/v1/me-egad#validationLevel
 me_egad:validationLevel rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf coso:resultAnnotation ;
@@ -115,12 +121,6 @@ me_egad:validationLevel rdf:type owl:ObjectProperty ;
 me_egad:validationQualifier rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf coso:resultAnnotation ;
                             rdfs:label "egad - validation qualifier" .
-
-
-###  http://aiknowspfas.skai.maine.edu/lod/ontology/sampleTreatmentStatus
-<http://aiknowspfas.skai.maine.edu/lod/ontology/sampleTreatmentStatus> rdf:type owl:ObjectProperty ;
-                                                                       rdfs:subPropertyOf coso:sampleAnnotation ;
-                                                                       rdfs:label "egad - sample treatment status" .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#analysisMethod
@@ -262,6 +262,11 @@ sosa:resultTime rdf:type owl:DatatypeProperty .
 #    Classes
 #################################################################
 
+###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-AggregatePFAS-Concentration
+me_egad:EGAD-AggregatePFAS-Concentration rdf:type owl:Class ;
+                                         rdfs:subClassOf pfas:AggregatePFASConcentrationMeasurement .
+
+
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-AnalysisMethod
 me_egad:EGAD-AnalysisMethod rdf:type owl:Class ;
                             rdfs:subClassOf pfas:AnalysisMethod ;
@@ -349,6 +354,11 @@ me_egad:EGAD-SampledFeature rdf:type owl:Class ;
                             rdfs:label "EGAD - Sampled Feature" .
 
 
+###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SinglePFAS-Concentration
+me_egad:EGAD-SinglePFAS-Concentration rdf:type owl:Class ;
+                                      rdfs:subClassOf pfas:SinglePFASConcentrationMeasurement .
+
+
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-Site
 me_egad:EGAD-Site rdf:type owl:Class ;
                   rdfs:label "EGAD - Site" .
@@ -371,20 +381,13 @@ me_egad:EGAD-ValidationQualifier rdf:type owl:Class ;
                                  rdfs:label "EGAD - Validation Qualifier" .
 
 
-###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-AggregatePFAS-Concentration
-<<http://sawgraph.spatialai.org/v1/me-egad#EGAD-AggregatePFAS-Concentration> rdf:type owl:Class ;
-                                                                              rdfs:subClassOf pfas:AggregatePFASConcentrationMeasurement ;
-                                                                              rdfs:label "EGAD - Aggregate PFAS Concentration" .
-
-
-###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SinglePFAS-Concentration
-<<http://sawgraph.spatialai.org/v1/me-egad#EGAD-SinglePFAS-Concentration> rdf:type owl:Class ;
-                                                                           rdfs:subClassOf pfas:SinglePFASConcentrationMeasurement ;
-                                                                           rdfs:label "EGAD - Single PFAS Concentration" .
-
-
 ###  http://qudt.org/schema/qudt/QuantityValue
 qudt:QuantityValue rdf:type owl:Class .
+
+
+###  http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantMeasurement
+coso:AggregateContaminantMeasurement rdf:type owl:Class ;
+                                     rdfs:subClassOf coso:ContaminantMeasurement .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantMeasurement
@@ -434,24 +437,19 @@ coso:SampledFeaure rdf:type owl:Class ;
                    rdfs:subClassOf coso:Feature .
 
 
+###  http://sawgraph.spatialai.org/v1/contaminoso#SingleContaminantMeasurement
+coso:SingleContaminantMeasurement rdf:type owl:Class ;
+                                  rdfs:subClassOf coso:ContaminantMeasurement .
+
+
 ###  http://sawgraph.spatialai.org/v1/contaminoso#Substance
 coso:Substance rdf:type owl:Class ;
                rdfs:subClassOf sosa:ObservableProperty .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantMeasurement
-<http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantMeasurement> rdf:type owl:Class ;
-                                                                                 rdfs:subClassOf coso:ContaminantMeasurement .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#SingleContaminantMeasurement
-<http://sawgraph.spatialai.org/v1/contaminoso#SingleContaminantMeasurement> rdf:type owl:Class ;
-                                                                              rdfs:subClassOf coso:ContaminantMeasurement .
-
-
 ###  http://sawgraph.spatialai.org/v1/pfas#AggregatePFASConcentrationMeasurement
 pfas:AggregatePFASConcentrationMeasurement rdf:type owl:Class ;
-                                           rdfs:subClassOf <http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantMeasurement> .
+                                           rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
 
 ###  http://sawgraph.spatialai.org/v1/pfas#AnalysisMethod
@@ -476,7 +474,7 @@ pfas:ReportingLimit rdf:type owl:Class ;
 
 ###  http://sawgraph.spatialai.org/v1/pfas#SinglePFASConcentrationMeasurement
 pfas:SinglePFASConcentrationMeasurement rdf:type owl:Class ;
-                                        rdfs:subClassOf <http://sawgraph.spatialai.org/v1/contaminoso#SingleContaminantMeasurement> .
+                                        rdfs:subClassOf coso:SingleContaminantMeasurement .
 
 
 ###  http://www.opengis.net/ont/geosparql#Geometry
