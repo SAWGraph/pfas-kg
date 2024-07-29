@@ -8,17 +8,17 @@
 @prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix sdwis: <http://sawgraph.spatialai.org/v1/sdwis#> .
 @prefix terms: <http://purl.org/dc/terms/> .
-@prefix me_egad: <<http://sawgraph.spatialai.org/v1/me-egad#> .
+@prefix me_egad: <http://sawgraph.spatialai.org/v1/me-egad#> .
 
 <http://sawgraph.spatialai.org/v1/me-egad#> rdf:type owl:Ontology ;
                                              terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
                                              terms:created "2024-07-26" ;
-                                             terms:creator "The SAWGRaph Project"@en ;
-                                             terms:description "This ontology supports the SAWGraph"@en ;
+                                             terms:creator "The SAWGraph Project"@en ;
+                                             terms:description "This ontology supports SAWGraph"@en ;
                                              terms:title "Ontology for Maine Environmental and Geographic Analysis Database (EGAD) PFAS Dataset"@en ;
                                              owl:versionInfo "1.0"@en .
 
@@ -47,8 +47,8 @@ terms:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos#definition
-<http://www.w3.org/2004/02/skos#definition> rdf:type owl:AnnotationProperty ;
-                                            rdfs:subPropertyOf skos:note .
+skos:definition rdf:type owl:AnnotationProperty.
+                                          
 
 
 ###  http://www.w3.org/2008/05/skos#note
@@ -73,7 +73,7 @@ me_egad:labQualifier rdf:type owl:ObjectProperty ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#methodDetectionLimit
 me_egad:methodDetectionLimit rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf coso:resultAnnotation ;
-                             rdfs:label "egad -method detection limit" .
+                             rdfs:label "egad - method detection limit" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#reportingLimit
@@ -143,8 +143,8 @@ coso:observationAnnotation rdf:type owl:ObjectProperty .
 coso:observedAtSamplePoint rdf:type owl:ObjectProperty .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#ofSampleMaterialTYpe
-coso:ofSampleMaterialTYpe rdf:type owl:ObjectProperty .
+###  http://sawgraph.spatialai.org/v1/contaminoso#ofSampleMaterialType
+coso:ofSampleMaterialType rdf:type owl:ObjectProperty .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#ofSubstance
@@ -168,13 +168,13 @@ coso:sampleAnnotation rdf:type owl:ObjectProperty .
 coso:sampledTime rdf:type owl:ObjectProperty .
 
 
-###  http://www.opengis.net/ont/geosparql#haGeometry
-geo:haGeometry rdf:type owl:ObjectProperty .
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geo:hasGeometry rdf:type owl:ObjectProperty .
 
 
 ###  http://www.opengis.net/ont/geosparql#hasDefaultGeometry
 geo:hasDefaultGeometry rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf geo:haGeometry .
+                       rdfs:subPropertyOf geo:hasGeometry .
 
 
 ###  http://www.w3.org/ns/sosa/observedProperty
@@ -194,43 +194,43 @@ me_egad:dep_chemicalID rdf:type owl:DatatypeProperty ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#parameterAbbreviation
 me_egad:parameterAbbreviation rdf:type owl:DatatypeProperty ;
                               rdfs:label "parameter abbreviation" ;
-                              <http://www.w3.org/2004/02/skos#definition> "Abbreviation of the PFAS parameter (single chemical or aggregate set of chemicals) measured in the EGAD dataset from the state of Maine." .
+                              skos:definition "Abbreviation of the PFAS parameter (single chemical or aggregate set of chemicals) measured in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#parameterName
 me_egad:parameterName rdf:type owl:DatatypeProperty ;
                       rdfs:label "parameter name" ;
-                      <http://www.w3.org/2004/02/skos#definition> "Name of the PFAS parameter (single chemical or aggregate set of chemicals) measured in the EGAD dataset from the state of Maine." .
+                      skos:definition "Name of the PFAS parameter (single chemical or aggregate set of chemicals) measured in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#sampleID
 me_egad:sampleID rdf:type owl:DatatypeProperty ;
                  rdfs:label "sample identifier" ;
-                 <http://www.w3.org/2004/02/skos#definition> "Sample identifier in the EGAD dataset from the state of Maine." .
+                 skos:definition "Sample identifier in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#samplePointNumber
 me_egad:samplePointNumber rdf:type owl:DatatypeProperty ;
                           rdfs:label "sample point number" ;
-                          <http://www.w3.org/2004/02/skos#definition> "Sample point number in the EGAD dataset from the state of Maine." .
+                          skos:definition "Sample point number in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#samplePointWebName
 me_egad:samplePointWebName rdf:type owl:DatatypeProperty ;
                            rdfs:label "sample point web name" ;
-                           <http://www.w3.org/2004/02/skos#definition> "Sample point web name in the EGAD dataset from the state of Maine." .
+                           skos:definition "Sample point web name in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#siteName
 me_egad:siteName rdf:type owl:DatatypeProperty ;
                  rdfs:label "site name" ;
-                 <http://www.w3.org/2004/02/skos#definition> "Site name in the EGAD dataset from the state of Maine." .
+                 skos:definition "Site name in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#siteNumber
 me_egad:siteNumber rdf:type owl:DatatypeProperty ;
                    rdfs:label "site number" ;
-                   <http://www.w3.org/2004/02/skos#definition> "Site number in the EGAD dataset from the state of Maine." .
+                   skos:definition "Site number in the EGAD dataset from the state of Maine." .
 
 
 ###  http://sawgraph.spatialai.org/v1/contaminoso#analysisDate
@@ -251,7 +251,7 @@ coso:substanceID rdf:type owl:DatatypeProperty .
 ###  http://sawgraph.spatialai.org/v1/sdwis#pwsidNumber
 sdwis:pwsidNumber rdf:type owl:DatatypeProperty ;
                   rdfs:label "public system water identifier" ;
-                  <http://www.w3.org/2004/02/skos#definition> "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reser vation, and XXXXXXXXXX = the water system identification code assigned by the State." .
+                  skos:definition "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reservation, and XXXXXXXXXX = the water system identification code assigned by the State." .
 
 
 ###  http://www.w3.org/ns/sosa/resultTime
@@ -284,7 +284,7 @@ me_egad:EGAD-MethodDetectionLimit rdf:type owl:Class ;
                                   rdfs:subClassOf qudt:QuantityValue ,
                                                   pfas:MethodDetectionLimit ;
                                   rdfs:label "EGAD - Method Detection Limit" ;
-                                  <http://www.w3.org/2004/02/skos#definition> "Areas with land use activities which are potential and/or actual sources of contamination and areas where biological and surface water sampling is conducted." .
+                                  skos:definition "Areas with land use activities which are potential and/or actual sources of contamination and areas where biological and surface water sampling is conducted." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-PFAS-Observation
