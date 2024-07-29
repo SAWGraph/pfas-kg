@@ -1,0 +1,11 @@
+VALUE,DESCRIPTION
+CLP,CONTRACT LABORATORY PROGRAM
+DEP CMD,DEP CONTINUOUS MONITORING DEVICE SOP
+DEP,DEP REVIEW
+NRR,NON REPORTABLE RESULTS OR RESULTS NOT CHOSEN AFTER DATA REVIEW
+QAPP,QAPP SPECIFIED
+T1,Tier I: EPA-NE REGION 1 GUIDELINES. The data package is checked for completeness. The DC-2 Form (Inventory Sheet) is completed and signed.  This ensures that the data set is complete for potential use in court. The PE sample results are evaluated to asses
+T2M,TIER II MODIFIED
+T2,"Tier II: EPA-NE REGION 1 GUIDELINES. The results of the QC checks, analytical procedures and PE sample results are assessed and applied to the data set.  This will result in the proper qualifiers being applied to the data. For Tier II validations, a Data "
+T3M,TIER III MODIFIED
+T3,"Tier III: EPA-NE REGION 1 GUIDELINES. The raw data are examined in detail to check for calculation, compound identification, and/or transcription errors. For Tier III validations, a Data Validation Report is produced by the validator."
