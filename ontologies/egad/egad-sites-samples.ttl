@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
 @prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudt: <https://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
@@ -350,7 +350,7 @@ me_egad:EGAD-SampleTreatmentStatus rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampledFeature
 me_egad:EGAD-SampledFeature rdf:type owl:Class ;
-                            rdfs:subClassOf coso:SampledFeaure ;
+                            rdfs:subClassOf coso:SampledFeature ;
                             rdfs:label "EGAD - Sampled Feature" .
 
 
