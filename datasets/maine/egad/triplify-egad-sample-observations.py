@@ -147,7 +147,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         samplefeature_iri = _PREFIX["me_egad_data"][f"{'sampledFeature'}.{samplepoint_number}"]
                 
         ## specify sample feature instance and it's data properties
-        kg.add( (samplefeature_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampledFature"]) )
+        kg.add( (samplefeature_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampledFeature"]) )
         kg.add( (samplefeature_iri, RDFS['label'], Literal('EGAD sampled festure associated with sample point '+ str(samplepoint_number))) )
 
         samplepoint_type = point_type_dict[samplepoint_type]
