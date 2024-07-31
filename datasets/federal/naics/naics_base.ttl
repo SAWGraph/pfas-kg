@@ -1,0 +1,72 @@
+@prefix : <http://sawgraph.spatialai.org/v1/fio#> .
+@prefix fio: <http://sawgraph.spatialai.org/v1/fio#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov-o: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix naics: <http://sawgraph.spatialai.org/v1/fio/naics#> .
+@base <http://sawgraph.spatialai.org/v1/fio#> .
+
+
+###  http://sawgraph.spatialai.org/v1/fio#NAICS-Industry-Code
+naics:NAICS-Industry-Code rdf:type owl:Class ;
+                        rdfs:subClassOf naics:NAICS-IndustryGroup .
+
+
+###  http://sawgraph.spatialai.org/v1/fio#NAICS-IndustryGroup
+naics:NAICS-IndustryGroup rdf:type owl:Class ;
+                        rdfs:subClassOf naics:NAICS-Subsector .
+
+###  http://sawgraph.spatialai.org/v1/fio#NAICS-Sector
+naics:NAICS-Sector rdf:type owl:Class ;
+                 rdfs:subClassOf fio:Industry-Code .
+
+
+naics:NAICS-Sector-32 rdfs:subClassOf naics:NAICS-Sector ;
+                    rdfs:label "Manufacturing" ;
+					owl:equivalentClass naics:NAICS-Sector-31.
+
+naics:NAICS-Sector-33 rdfs:subClassOf naics:NAICS-Sector ;
+                    rdfs:label "Manufacturing" ;
+					owl:equivalentClass naics:NAICS-Sector-31.
+
+naics:NAICS-Sector-45 rdfs:subClassOf naics:NAICS-Sector;
+					rdfs:label "Retail Trade";
+					owl:equivalentClass naics:NAICS-Sector-44.
+
+naics:NAICS-Sector-49 rdfs:subClassOf naics:NAICS-Sector;
+					rdfs:label "Transportation and Warehousing";
+					owl:equivalentClass naics:NAICS-Sector-48.
+
+naics:NAICS-Sector-48 rdfs:subClassOf naics:NAICS-Sector.
+naics:NAICS-Sector-44 rdfs:subClassOf naics:NAICS-Sector.
+naics:NAICS-Sector-33 rdfs:subClassOf naics:NAICS-Sector.
+naics:NAICS-Sector-31 rdfs:subClassOf naics:NAICS-Sector.
+
+
+###  http://sawgraph.spatialai.org/v1/fio#NAICS-Subsector
+naics:NAICS-Subsector rdf:type owl:Class ;
+                    rdfs:subClassOf naics:NAICS-Sector .
+
+##Individuals
+naics:NAICS-Sector-32 a naics:NAICS-Sector;
+    owl:sameAs naics:NAICS-Sector-31,
+                naics:NAICS-Sector-33.
+
+naics:NAICS-Sector-33 a naics:NAICS-Sector;
+    owl:sameAs naics:NAICS-Sector-31,
+                naics:NAICS-Sector-32.
+
+naics:NAICS-Sector-45 a naics:NAICS-Sector;
+    owl:sameAs naics:NAICS-Sector-44.
+
+naics:NAICS-Sector-49 a naics:NAICS-Sector;
+    owl:sameAs naics:NAICS-Sector-48. 

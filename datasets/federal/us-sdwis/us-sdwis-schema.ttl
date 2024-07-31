@@ -42,3 +42,9 @@ us_sdwis:PublicWaterSystem-GW rdf:type owl:Class;
 
 us_sdwis:PublicWaterSystem-SW rdf:type owl:Class;
     rdfs:subClassOf us_sdwis:PublicWaterSystem.
+
+us_sdwis:SampledFeature rdf:type owl:Class;
+    rdfs:subClassOf coso:SampledFeature.
+
+us_sdwis:CombinedDistributionSystem rdf:type owl:Class;
+    rdfs:subClassOf coso:Feature.

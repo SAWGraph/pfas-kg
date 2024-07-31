@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
+@prefix stad: <http://sawgraph.spatialai.org/v1/stad#>.
 
 
 #Classes
@@ -25,4 +26,6 @@ us_epa_ghg:Measurement rdf:type owl:Class;
 us_epa_ghg:Chemical rdf:type owl:Class;
     rdfs:subClassOf coso:Substance.
 
+us_frs:FRS-Facility rdf:type owl:Class;
+    rdfs:subClassOf coso:ReleaseFeature.
 

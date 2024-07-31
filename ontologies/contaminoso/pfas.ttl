@@ -105,6 +105,10 @@ pfas:PFAS-VolumeMeasurement  rdf:type owl:Class;
 pfas:AggregatePFASAmountMeasurement rdf:type owl:Class;
     rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
+pfas:AggregatePFASConcentrationMeasurement rdf:type owl:Class;
+    rdfs:subClassOf coso:AggregateContaminantMeasurement.
+
+
 pfas:PFAS-ContaminantObservation rdf:type owl:Class ;
     rdfs:subClassOf coso:SampleContaminantObservation .
 

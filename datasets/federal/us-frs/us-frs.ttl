@@ -271,6 +271,12 @@ us_frs:PotentiallyContaminatedSite-Facility rdf:type owl:Class;
 us_frs:WaterSystem-Facility rdf:type owl:Class;
 				rdfs:subClassOf us_frs:FRS-Facility .
 
+us_frs:WaterfrontFacility-Facility rdf:type owl:Class;
+				rdfs:subClassOf us_frs:FRS-Facility .
+
+us_frs:Barge-Facility rdf:type owl:Class;
+                rdfs:subClassOf us_frs:FRS-Facility.
+
 ## environmental interest types 
 
 

@@ -25,13 +25,13 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = 'IL'
+state = 'OH'
 
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/frs_echo/"
 metadata_dir = None
-output_dir = root_folder / "code/us-pat-is/"
+output_dir = root_folder / "federal/us-frs"
 
 ##namespaces
 us_frs = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
