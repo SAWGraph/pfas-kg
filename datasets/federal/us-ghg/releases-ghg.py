@@ -39,6 +39,7 @@ us_epa_ghg_data = Namespace(f'http://sawgraph.spatialai.org/v1/us-epa-ghg-data#'
 us_frs = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
 us_frs_data = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
 qudt = Namespace(f'https://qudt.org/schema/qudt/')
+unit = Namespace(f'https://qudt.org/vocab/unit')
 coso = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 geo = Namespace(f'http://www.opengis.net/ont/geosparql#')
 
@@ -80,6 +81,7 @@ def Initial_KG():
     kg.bind('us_frs', us_frs)
     kg.bind('us_frs_data', us_frs_data)
     kg.bind('qudt', qudt)
+    kg.bind('unit', unit)
     kg.bind('coso', coso)
     kg.bind('geo', geo)
     return kg
@@ -186,7 +188,7 @@ def triplify(df):
 
         kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Amount']))
         kg.add((extra_iris['Amount'], qudt['numericValue'], Literal(release['Amount'], datatype=XSD.float)))
-        kg.add((extra_iris['Amount'], qudt['unit'], qudt['TON_Metric']))
+        kg.add((extra_iris['Amount'], qudt['unit'], unit['TON_Metric']))
     return kg
 
 

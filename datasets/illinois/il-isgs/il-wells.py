@@ -36,7 +36,10 @@ output_dir = Path(__file__).resolve().parent
 pfas = Namespace(f'http://sawgraph.spatialai.org/v1/pfas#')
 coso = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 geo = Namespace(f'http://www.opengis.net/ont/geosparql#')
-il_isgs= Namespace(f'http://sawgraph.spatialai.org/v1/il-isgs#')
+qudt = Namespace(f'https://qudt.org/schema/qudt/')
+unit = Namespace(f'https://qudt.org/vocab/unit/')
+il_isgs = Namespace(f'http://sawgraph.spatialai.org/v1/il-isgs#')
+il_isgs_data = Namespace(f'http://sawgraph.spatialai.org/v1/il-isgs-data#')
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -62,8 +65,7 @@ def load_data():
     json_path = data_dir / 'il-wells.geojson'
     df = gpd.read_file(json_path)
     print(df.info(verbose=True))
-    print('Status:', df.STATUS.unique())
-    print('Status:', df.STATUSLONG.unique())
+
     print('Formation:', df.WFORMATION.unique())
     logger = logging.getLogger('Data loaded to dataframe.')
     # print(df)
@@ -76,6 +78,9 @@ def Initial_KG():
     # for prefix in prefixes:
     #    kg.bind(prefix, prefixes[prefix])
     kg.bind('il_isgs', il_isgs)
+    kg.bind('il_isgs_data', il_isgs_data)
+    kg.bind('qudt', qudt)
+    kg.bind('unit', unit)
     kg.bind('pfas', pfas)
     kg.bind('coso', coso)
     kg.bind('geo', geo)
@@ -87,6 +92,7 @@ def get_attributes(row):
     well = {
         'id': row.API_NUMBER,
         'wellType': row.STATUS,
+        'purposeDesc': row.STATUSLONG,
         'wkt': f'POINT({row.LONGITUDE} {row.LATITUDE})'  # replace this with geodataframe version?
 
     }
@@ -109,10 +115,19 @@ def get_attributes(row):
     return well
 
 
-def get_iris(facility):
+def get_iris(well):
     # build iris for any entities
 
-    extra_iris = {}
+    extra_iris = {
+        'well': il_isgs_data['d.ISGS-Well.'+str(well['id'])],
+        'purpose': il_isgs_data['d.ISGS-WellPurpose.'+str(well['wellType'])],
+        'wellgeo': il_isgs_data['d.ISGS-Well.geometry.'+str(well['id'])]
+    }
+    if 'depth' in well.keys():
+        extra_iris['wellDepth'] = il_isgs_data['d.ISGS-Well.Depth.'+str(well['id'])]
+
+    if 'rate' in well.keys():
+        extra_iris['wellYield'] = il_isgs_data['d.ISGS-Well.Yield.' + str(well['id'])]
 
     return extra_iris
 
@@ -126,15 +141,34 @@ def triplify(df):
         # get iris
         iris = get_iris(well)
 
-        # create facility
-        # kg.add((facility_iri, RDF.type, us_frs["FRS-Facility"]))
-        # kg.add((facility_iri, RDFS.label, Literal(facility['facility_name'], datatype= XSD.string)))
+        # create well
+        kg.add((iris['well'], RDF.type, il_isgs["ISGS-Well"]))
+        if 'ISWS' in well.keys():
+                kg.add((iris['well'], il_isgs['hasISWSId'], Literal(well['ISWS'], datatype=XSD.string)))
+        if 'wellType' in well.keys():
+            kg.add((iris['well'], il_isgs['wellPurpose'], iris['purpose']))
+            #controlled vocabulary instances
+            kg.add((iris['purpose'], RDF.type, il_isgs['WellPurpose']))
+            if 'purposeDesc' in well.keys():
+                kg.add((iris['purpose'], RDFS.label, Literal(well['purposeDesc'], datatype=XSD.string)))
+        if 'owner' in well.keys():
+            kg.add((iris['well'], il_isgs['hasOwner'], Literal(well['owner'], datatype=XSD.string)))
+        if 'name' in well.keys():
+            kg.add((iris['well'], RDFS.label, Literal(well['name'], datatype=XSD.string)))
+        if 'depth' in well.keys():
+            kg.add((iris['well'], il_isgs['wellDepth'], iris['wellDepth']))
+            kg.add((iris['wellDepth'], qudt['numericValue'], Literal(well['depth'], datatype=XSD.float)))
+            #TODO unit??
+        if 'rate' in well.keys():
+            kg.add((iris['well'], il_isgs['wellYield'], iris['wellYield']))
+            kg.add((iris['wellYield'], qudt['numericValue'], Literal(well['rate'], datatype=XSD.float)))
+            kg.add((iris['wellYield'], qudt['unit'], unit['GAL_US-PER-MIN']))
+
 
         # geometry
-        # if 'WKT' in facility:
-        #    kg.add((facility_iri, geo['hasGeometry'], geo_iri))
-        #    kg.add((geo_iri, geo["asWKT"], Literal(facility['WKT'], datatype=geo["wktLiteral"])))
-        #    kg.add((facility_iri, coso['locatedIn'], county_iri))
+        kg.add((iris['well'], geo['hasGeometry'], iris['wellgeo']))
+        kg.add((iris['wellgeo'], geo["asWKT"], Literal(well['wkt'], datatype=geo["wktLiteral"])))
+
 
     return kg
 
