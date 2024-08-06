@@ -54,10 +54,12 @@ logging.info("Running triplification for tests")
 def main():
     '''main function initializes all other functions'''
     df = load_data()
-    kg = triplify(df)
+    kg, kg2 = triplify(df)
 
     kg_turtle_file = "il-isgs-wells.ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
+    kg2_turtle_file = 'il-isgs-wellsGeo.ttl'.format(output_dir)
+    kg2.serialize(kg2_turtle_file, format='turtle')
     logger = logging.getLogger('Finished triplifying Il wells.')
 
 
@@ -134,6 +136,7 @@ def get_iris(well):
 
 def triplify(df):
     kg = Initial_KG()
+    kg2 = Initial_KG()
     for idx, row in df.iterrows():
         pass
         # get attributes
@@ -157,20 +160,22 @@ def triplify(df):
             kg.add((iris['well'], RDFS.label, Literal(well['name'], datatype=XSD.string)))
         if 'depth' in well.keys():
             kg.add((iris['well'], il_isgs['wellDepth'], iris['wellDepth']))
+            kg.add((iris['wellDepth'], RDF.type, il_isgs['WellDepthInFt']))
             kg.add((iris['wellDepth'], qudt['numericValue'], Literal(well['depth'], datatype=XSD.float)))
-            #TODO unit??
+            #TODO unit?? us foot?
         if 'rate' in well.keys():
             kg.add((iris['well'], il_isgs['wellYield'], iris['wellYield']))
+            kg.add((iris['wellYield'], RDF.type, il_isgs['WellYield']))
             kg.add((iris['wellYield'], qudt['numericValue'], Literal(well['rate'], datatype=XSD.float)))
             kg.add((iris['wellYield'], qudt['unit'], unit['GAL_US-PER-MIN']))
 
 
         # geometry
-        kg.add((iris['well'], geo['hasGeometry'], iris['wellgeo']))
-        kg.add((iris['wellgeo'], geo["asWKT"], Literal(well['wkt'], datatype=geo["wktLiteral"])))
+        kg2.add((iris['well'], geo['hasGeometry'], iris['wellgeo']))
+        kg2.add((iris['wellgeo'], geo["asWKT"], Literal(well['wkt'], datatype=geo["wktLiteral"])))
 
 
-    return kg
+    return kg, kg2
 
 
 ## utility functions
