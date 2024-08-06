@@ -94,7 +94,7 @@ def get_attributes(row):
     town_name_formatted = str(row['WELL_LOCATION_TOWN']).replace(' ', '_').replace('&', '').casefold().upper()
     #town_iri = _PREFIX["aik-pfas"][f"{'town'}.{town_name_formatted}"]
     try:
-        well_point = shapely.Point((row['LATITUDE'],row['LONGITUDE']))
+        well_point = shapely.Point((row['LONGITUDE'], row['LATITUDE']))
         geom = well_point.wkt
     except:
         geom = None

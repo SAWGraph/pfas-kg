@@ -171,6 +171,7 @@ def triplify(df):
 
         #pws
         kg.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['PublicWaterSystem']))
+        kg.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['SampledFeature']))
         kg.add((iris['PWS'], prefixes['us_sdwis']['hasPWSID'], Literal(sample['PWSID'], datatype=XSD.string)))
         kg.add((iris['PWS'], prefixes['us_sdwis']['hasName'], Literal(sample['Name'], datatype=XSD.string)))
         kg.add((iris['PWS'], prefixes['us_sdwis']['populationServed'], Literal(sample['PopServed'], datatype=XSD.int)))

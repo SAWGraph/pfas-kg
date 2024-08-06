@@ -31,7 +31,7 @@ state = 'ME'
 root_folder =Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/frs_echo/"
 metadata_dir = None
-output_dir = root_folder / "code/us-pat-is/"
+output_dir = root_folder / "federal/us-frs/"
 
 ##namespaces
 us_frs = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
@@ -64,7 +64,7 @@ def main():
     logger = logging.getLogger('Finished triplifying pfas analytics tool facilities.')
 
 def load_data():
-    #df = pd.read_csv(data_dir / "industrysectors_ME.csv")
+    #df = pd.read_csv(data_dir / f"industrysectors_{state}.csv")
     df = pd.read_csv(data_dir / str('state_combined_'+state.lower()) / str(state + '_FACILITY_FILE.CSV'), low_memory=False)
     #TODO agency codes for all states
     #df_federal = pd.read_csv(data_dir /str('state_combined_'+state.lower()) /'222910070_ME_FEDERAL.CSV') #this was a custom ezquery to get agency codes
@@ -103,7 +103,7 @@ def get_attributes(row):
     facility = {
         'facility_id': row.REGISTRY_ID,
         'facility_name': row.PRIMARY_NAME,
-        'county_fips': row.FIPS_CODE,
+
 
     }
     ## additional attributes that do not appear for all facilities
@@ -112,6 +112,9 @@ def get_attributes(row):
         shape_pt = Point([row.LONGITUDE83, row.LATITUDE83])
         facility['WKT'] = shape_pt.wkt
     #REF_POINT_DESC ,
+
+    if pd.notnull(row.FIPS_CODE):
+        facility['county_fips']= row.FIPS_CODE
 
     #identify federal facilities
     if row.FEDERAL_FACILITY_CODE == 'Yes':
@@ -136,9 +139,12 @@ def get_attributes(row):
 def get_iris(facility):
     #build iris for any entities
     facility_iri = us_frs_data['d.FRS-Facility.'+str(facility['facility_id'])]
-    county_iri = kwgr['administrativeRegion.USA.'+str(facility['county_fips'])] #namespace needs to be replaced
+
     geo_iri = us_frs_data['d.FRS-Facility-Geometry.'+str(facility['facility_id'])]
     extra_iris ={}
+
+    if 'county_fips' in facility.keys():
+        extra_iris['county_iri'] = kwgr['administrativeRegion.USA.' + str(facility['county_fips'])]  # namespace needs to be replaced
     #TODO agency codes need labels  FRS_PROGRAM_FACILITY.FEDERAL_AGENCY_CODE
     if 'federalAgencyCode' in facility.keys():
         agency_iri = fio['d.Agency.'+str(facility['federalAgencyCode'])]
@@ -151,7 +157,7 @@ def get_iris(facility):
 
 
 
-    return facility_iri, county_iri, geo_iri, extra_iris
+    return facility_iri, geo_iri, extra_iris
 
 
 def triplify(df):
@@ -160,7 +166,7 @@ def triplify(df):
         #get attributes
         facility = get_attributes(row)
         #get iris
-        facility_iri, county_iri, geo_iri, extra_iris = get_iris(facility)
+        facility_iri, geo_iri, extra_iris = get_iris(facility)
 
         #create facility
         kg.add((facility_iri, RDF.type, us_frs["FRS-Facility"]))
@@ -171,7 +177,8 @@ def triplify(df):
         if 'WKT' in facility:
             kg.add((facility_iri, geo['hasGeometry'], geo_iri))
             kg.add((geo_iri, geo["asWKT"], Literal(facility['WKT'], datatype=geo["wktLiteral"])))
-            kg.add((facility_iri, coso['locatedIn'], county_iri)) #TODO should this predicate be kwg-ont:sfWithin ?
+        if 'county_fips' in facility.keys():
+            kg.add((facility_iri, kwg_ont['sfWithin'], extra_iris['county_iri'])) #TODO should this predicate be kwg-ont:sfWithin ?
         if 'tribal_bool' in facility.keys():
             #kg.add((facility_iri, coso['locatedIn'], ))
             pass

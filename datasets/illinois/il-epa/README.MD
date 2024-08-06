@@ -1,15 +1,5 @@
- ##Overview
- * **Name of dataset:** IL EPA PFAs Data 2021
- * **Source Agency:** Illinois Epa
- * **Data source location:** https://services1.arcgis.com/qI0WaD4k85ljbKGT/ArcGIS/rest/services/IllinoisEpaPfasData/FeatureServer/0
- * **Metadata description:** Results from the Illinois EPA's 2021 sampling event of Community Water Supplies across the state. This includes both groundwater and surface water sources
-                            https://epa.illinois.gov/topics/water-quality/pfas/pfas-statewide-investigation-network.html
-                        https://pubs.usgs.gov/publication/sir20235078/full
- * **Format:**
- * **Data update interval:**
 
 
-## Raw Data Attributes
 
 | attributes | Description                                                                                                                    | Lift to graph | Ontology Property |
 |------------|--------------------------------------------------------------------------------------------------------------------------------|---------------|-------------------|   
@@ -40,3 +30,4 @@
 | geometry   |                                                                                                                                |               |                   |
 
 RT Routine, RP Repeat, CO Confirmation, MR Maximum Residence Time, DU Duplicate, PE Performance Evaluation, SB Shipping Blanks, SL Split, SP Special, ST Split Blanks https://water.epa.state.il.us/dww/Help/html_Sample_Type.htm
+

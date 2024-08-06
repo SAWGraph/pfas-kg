@@ -37,6 +37,7 @@ output_dir = root_folder / "federal/us-sdwis/"
 
 prefixes = {}
 prefixes['us_sdwis'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-sdwis#')
+prefixes['us_sdwis_data'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-sdwis#')
 #prefixes['us_frs'] = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
 #prefixes['us_frs_data'] = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
 prefixes['qudt'] = Namespace(f'https://qudt.org/schema/qudt/')
@@ -103,7 +104,7 @@ def get_attributes(row):
 
 def get_iris(facility):
     iris = {}
-    iris['PWS'] = prefixes['us_sdwis']['d.PublicWaterSystem.'+ facility['PWSID']]
+    iris['PWS'] = prefixes['us_sdwis_data']['d.PublicWaterSystem.'+ facility['PWSID']]
 
     #print(iris)
     return iris

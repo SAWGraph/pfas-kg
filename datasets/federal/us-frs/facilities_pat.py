@@ -1,4 +1,5 @@
 import os
+from typing import Dict
 from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
 from rdflib import Namespace
 from rdflib import Graph
@@ -22,13 +23,13 @@ from variable import NAME_SPACE, _PREFIX
 
 ## declare variables
 logname = "log"
-state = 'ME'
+state = ' OH'
 
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/epa_pfas_analytic_tool/"
 metadata_dir = None
-output_dir = root_folder / "code/us-pat-is/"
+output_dir = root_folder / "federal/us-frs"
 
 us_frs = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
 us_frs_data = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
@@ -50,12 +51,15 @@ def main():
     df = load_data()
     kg = triplify(df, _PREFIX)
 
-    kg_turtle_file = f"us-frs-data-pat-{state}.ttl".format(output_dir)
+    kg_turtle_file = f"us-frs-data-pat-{state.strip()}.ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
     logger = logging.getLogger(f'Finished triplifying pfas analytics tool facilities - {state}.')
 
 def load_data():
-    df = pd.read_csv(data_dir / f"industrysectors_{state}.csv")
+    #df = pd.read_csv(data_dir / f"industrysectors_{state}.csv")
+    df = pd.read_excel(data_dir/ 'industrysectors_275aeff7-cbf1-46c2-92a9-67886bcbc0ee.xlsx')
+    #filter to just one state
+    df = df[df['State'] == state]
     #df = pd.read_json(data_dir / '')
     #replace - with nan
     df.replace(to_replace='-', value=pd.NA, inplace=True)

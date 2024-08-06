@@ -25,7 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = ' ME'
+state = ' IL'
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -39,6 +39,7 @@ us_epa_ghg_data = Namespace(f'http://sawgraph.spatialai.org/v1/us-epa-ghg-data#'
 us_frs = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
 us_frs_data = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
 qudt = Namespace(f'https://qudt.org/schema/qudt/')
+unit = Namespace(f'https://qudt.org/vocab/unit')
 coso = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 geo = Namespace(f'http://www.opengis.net/ont/geosparql#')
 
@@ -80,6 +81,7 @@ def Initial_KG():
     kg.bind('us_frs', us_frs)
     kg.bind('us_frs_data', us_frs_data)
     kg.bind('qudt', qudt)
+    kg.bind('unit', unit)
     kg.bind('coso', coso)
     kg.bind('geo', geo)
     return kg
@@ -162,8 +164,8 @@ def triplify(df):
         if 'FRS_Facility' in extra_iris.keys():
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['FRS_Facility']))
             kg.add((extra_iris['FRS_Facility'], RDF.type, us_frs['FRS-Facility']))
-            kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
-        elif 'GHG_Facility' in extra_iris.keys():
+            kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #TODO this should move to a different graph to go in FIO repo
+        elif 'GHG_Facility' in extra_iris.keys(): #this shouldn't run as long as all of the facilities missing FRS ID have been caught
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['GHG_Facility']))
             kg.add((extra_iris['GHG_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
             #TODO GHG facilities should get geometry
@@ -186,7 +188,7 @@ def triplify(df):
 
         kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Amount']))
         kg.add((extra_iris['Amount'], qudt['numericValue'], Literal(release['Amount'], datatype=XSD.float)))
-        kg.add((extra_iris['Amount'], qudt['unit'], qudt['TON_Metric']))
+        kg.add((extra_iris['Amount'], qudt['unit'], unit['TON_Metric']))
     return kg
 
 
