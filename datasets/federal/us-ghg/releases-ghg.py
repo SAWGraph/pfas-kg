@@ -25,7 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = ' ME'
+state = ' IL'
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -164,8 +164,8 @@ def triplify(df):
         if 'FRS_Facility' in extra_iris.keys():
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['FRS_Facility']))
             kg.add((extra_iris['FRS_Facility'], RDF.type, us_frs['FRS-Facility']))
-            kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
-        elif 'GHG_Facility' in extra_iris.keys():
+            kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #TODO this should move to a different graph to go in FIO repo
+        elif 'GHG_Facility' in extra_iris.keys(): #this shouldn't run as long as all of the facilities missing FRS ID have been caught
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['GHG_Facility']))
             kg.add((extra_iris['GHG_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
             #TODO GHG facilities should get geometry
