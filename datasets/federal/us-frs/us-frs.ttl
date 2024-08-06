@@ -149,7 +149,7 @@ us_frs:rcrainfo rdf:type owl:ObjectProperty;
 
 us_frs:tris-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Toxic Release Inventory program Industry Code'^^xsd:string;
-			rdfs:subPropertyOf us_frs:eprcaIndustry.
+			rdfs:subPropertyOf us_frs:epcraIndustry.
 
 us_frs:ssts-Industry rdf:type owl:ObjectProperty ;
 			dcterms:description 'Section Seven Tracking System (pesticides programs) Industry Code'^^xsd:string;
