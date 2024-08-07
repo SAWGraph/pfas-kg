@@ -1,0 +1,45 @@
+#What wells are within a radius of two S2L13 cells of a known release facility that have not been tested?
+PREFIX qudt: <https://qudt.org/schema/qudt/>
+PREFIX coso: <http://sawgraph.spatialai.org/v1/contaminoso#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
+select (group_concat(distinct(?facilitylabel); separator=", ") as ?facilities) ?s2nn (count(distinct(?well)) as ?locatedWells)  (count(distinct(?testPoint)) as ?testedWells) ((?locatedWells - ?testedWells) as ?untestedCount) #(sample(?releaseUnit) as ?unit) (sample(?releaseAmount) as ?release)
+where {
+    SERVICE <repository:FIO>{ 
+        	#find the facilities that are likely PFAs releasers and the s2 cells they are in
+    		?facility a us_frs:EPA-PFAS-Facility.
+        	?facility rdfs:label ?facilitylabel.
+    		?facility kwg-ont:sfWithin ?s2.
+    }
+    OPTIONAL {
+        #get release info for facility (currently only GHG releases)
+        SERVICE <repository:SAWGraph>{
+            ?facility ^coso:hasFeatureOfInterest ?releaseObs.
+                    ?releaseObs coso:hasResult / qudt:quantityKind ?amount.
+            ?amount qudt:numericValue ?releaseAmount.
+            ?amount qudt:unit ?releaseUnit.
+        }
+        
+    }
+    SERVICE <repository:S2L13_AdminRegions>{ 
+        #find the neighbors of s2 cells
+    		?s2 kwg-ont:cellID ?s2ID.
+    		?s2 kwg-ont:sfTouches ?s2neighbors.
+    		?s2 kwg-ont:sfTouches ?s2nn.
+    }
+        
+    SERVICE <repository:SAWGraph>{
+        #get all the located mgs wells and all the egad private well test points
+             	?s2nn kwg-ont:sfContains ?well.
+        		?well a me_mgs:MGS-Well. 
+          
+          		?s2nn kwg-ont:sfContains ?testPoint.
+    			?testPoint a me_egad:EGAD-SamplePoint.
+        		?testPoint me_egad:samplePointType me_egad:featureType.PWSW.
+          }
+        
+} group by ?s2nn
+order by DESC(?untestedCount )
