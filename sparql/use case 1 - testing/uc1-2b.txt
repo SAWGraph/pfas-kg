@@ -1,0 +1,56 @@
+# Use Case 1: Testing Gaps
+# CQ 2b (medium complexity)
+# What surface water bodies are downstream from landfills or DoD sites?
+# Run this from the Hydrology repository
+
+PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX hyf: <https://www.opengis.net/def/schema/hy_features/hyf/>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX naics: <http://sawgraph.spatialai.org/v1/fio/naics#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
+
+SELECT DISTINCT ?faclabel ?fl_ds_name (COUNT(?fl_ds_label) AS ?num_fl_ds) WHERE {
+    # Find flowlines that cross the S2 cell a facility (landfill or DoD site) is in and
+    #    find all flowlines downstream of them
+    ?fl rdf:type hyf:HY_FlowPath ;
+    	kwg-ont:sfCrosses ?fac_s2 ;
+    	hyf:downstreamWaterbody+ ?fl_ds .
+    # If available, pull the GNIS name for each flowline
+    OPTIONAL { ?fl schema:name ?fl_name . }
+    OPTIONAL { ?fl_ds schema:name ?fl_ds_name . }
+    # Retreive the flowline type for each flowline and filter out 'Coastline'
+    ?fl_ds rdfs:label ?fl_ds_label ;
+    FILTER (?fl_ds_label != 'Coastline'@en)
+    
+    SERVICE <repository:FIO> {
+        {
+            SELECT * WHERE {
+                # Find landfills and their containing S2 cells
+                ?fac rdf:type fio:Facility ;
+                     fio:ofIndustry naics:NAICS-Industry-Code-562212 ;
+                     fio:ofIndustry ?code ;
+                     kwg-ont:sfWithin ?fac_s2 .
+                # If available, find additional information for each landfill
+                OPTIONAL { ?fac rdfs:label ?faclabel . }
+                OPTIONAL { ?code rdfs:label ?ind . }
+        	}
+        }
+        UNION
+        {
+             SELECT * WHERE {
+                # Find DoD sites and their containing S2 cells
+                ?fac rdf:type us_frs:Federal-Facility ;
+               	  	 us_frs:primaryIndustry ?code ;
+                	 kwg-ont:sfWithin ?fac_s2 .
+                FILTER (?code IN (naics:NAICS-Industry-Code-92811, naics:NAICS-Industry-Code-928110))
+                # If available, find additional information for each DoD site
+                OPTIONAL { ?fac rdfs:label ?faclabel . }
+                OPTIONAL { ?code rdfs:label ?ind . }
+            }
+   		}
+    }
+} GROUP BY ?faclabel ?fl_ds_name ORDER BY ?faclabel ?fl_ds_name
