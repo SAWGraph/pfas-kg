@@ -23,9 +23,11 @@ egad:1234
 Current Namespaces:
 @prefix coso:         <http://sawgraph.spatialai.org/v1/contaminoso#> .
 @prefix dcgeoid:      <https://datacommons.org/browser/geoId/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
 @prefix gcx_cid:      <https://geoconnex.us/nhdplusv2/comid/> .   # This is temporary and will likely change.
 @prefix geo:          <http://www.opengis.net/ont/geosparql#> .
-@prefix gwml:         <http://www.opengis.net/gwml-main/2.2/> .
+@prefix gwml2:        <http://gwml2.org/def/gwml2#> .
+@prefix gsmlb:        <http://geosciml.org/def/gsmlb#> .
 @prefix hyf:          <https://www.opengis.net/def/schema/hy_features/hyf/> .
 @prefix kwg-ont:      <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
 @prefix kwgr:         <http://stko-kwg.geog.ucsb.edu/lod/resource/> .
@@ -40,5 +42,7 @@ Current Namespaces:
 @prefix sawgeo:       <http://sawgraph.spatialai.org/v1/sawgeo#> .
 @prefix schema:       <https://schema.org/> .
 @prefix sf:           <http://www.opengis.net/ont/sf#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix wdp:          <https://www.wikidata.org/wiki/Property:> .
+@prefix xml:          <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
