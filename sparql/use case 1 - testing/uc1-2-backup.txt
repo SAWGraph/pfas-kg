@@ -1,5 +1,5 @@
 # Federated queries: FIO with Hydrology and SpatialGraph (S2L13 and AdminRegions)
-# CQ 1
+# CQ 2
 # Retrieve all landfills in Penobscot county that are near (have touching S2 cell) any waterbody. 
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -14,7 +14,7 @@ PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
 PREFIX naics: <http://sawgraph.spatialai.org/v1/fio/naics#>
 PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
 
-SELECT DISTINCT ?facility ?wb WHERE {
+SELECT DISTINCT ?facility ?wb ?wblabel WHERE {
 	SERVICE <repository:FIO> {
     	?facility rdf:type us_frs:EPA-PFAS-Facility ;
     		fio:ofIndustry naics:NAICS-Industry-Code-562212.
@@ -24,7 +24,7 @@ SELECT DISTINCT ?facility ?wb WHERE {
         # Select waterbodies and their S2 cell relations
     	?wb rdf:type hyf:HY_WaterBody .
     	?wb rdfs:label ?wblabel .
-        # the S2cell is the object, the WB the subject . 
+        # the S2cell must be the subject and the WB the object.
 		?s2neighbor kwg-ont:sfWithin | kwg-ont:sfOverlaps ?wb .
     }
         

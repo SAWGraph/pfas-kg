@@ -1,6 +1,5 @@
-# Use Case 1: Testing Gaps
-# CQ 1b
-# In Penobscot county, what wells are near (in same or adjacent S2 cell as) as landfills (as facilities of concern)?
+# Test query for federation between SAWGraph test results and S2 spatial graph
+# In Penobscot county, what samples are near what wells?
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -14,22 +13,27 @@ PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
 PREFIX naics: <http://sawgraph.spatialai.org/v1/fio/naics#>
 PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
 
-SELECT DISTINCT ?facility ?well ?use WHERE {
-	SERVICE <repository:FIO> {
-    	?facility rdf:type us_frs:EPA-PFAS-Facility ;
-    		fio:ofIndustry naics:NAICS-Industry-Code-562212.
-        ?facility kwg-ont:sfWithin | kwg-ont:sfOverlaps ?s2cell .
-	}
+PREFIX coso: <http://sawgraph.spatialai.org/v1/contaminoso#>
+SELECT ?well ?use WHERE {
     SERVICE <repository:SAWGraph>
     {
         ?well a me_mgs:MGS-Well .
         ?well me_mgs:hasUse ?use.
         ?well me_mgs:ofWellType ?wellType.
-        ?well kwg-ont:sfWithin ?s2neighbor.
+        ?well kwg-ont:sfWithin ?s2cell.
     }        
     SERVICE <repository:S2L13_AdminRegions> {
 			?s2cell rdf:type kwg-ont:S2Cell_Level13 .
+        	?s2cell kwg-ont:sfWithin | kwg-ont:sfOverlaps kwgr:administrativeRegion.USA.23019 .
             ?s2cell kwg-ont:sfTouches ?s2neighbor.
-        	?s2neighbor kwg-ont:sfWithin | kwg-ont:sfOverlaps kwgr:administrativeRegion.USA.23019 .
     }
+    SERVICE <repository:SAWGraph>
+    {
+        {?sp kwg-ont:sfWithin ?s2cell.}
+        UNION
+        {?sp kwg-ont:sfWithin ?s2neighbor.}
+      	?sample a coso:MaterialSample .
+        ?sample coso:fromSamplePoint ?sp .
+          
+    }        
 } 
