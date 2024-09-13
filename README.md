@@ -1,5 +1,5 @@
-The ontologies folder is now deprecated. All ontologies that are reusable across the project and beyond are stored in separate repositories:
-[ContaminOSO](https://github.com/SAWGraph/contaminoso)
+Note: The ontologies folder is now deprecated. All ontologies that are reusable across the project and beyond are stored in separate repositories, such as:
+[ContaminOSO](https://github.com/SAWGraph/contaminoso), 
 [FIO](https://github.com/SAWGraph/fio)
 
 Ontologies specific to a dataset are to be stored in the "ontologies" subfolder for the dataset. E.g. the ontology for Maine's EGAD dataset is located: [datasets/maine/egad/ontology/](datasets/maine/egad/ontology/)
