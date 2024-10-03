@@ -1,6 +1,9 @@
 # Use Case 1: Testing Gaps
 # CQ 2b (medium complexity)
-# What surface water bodies are downstream from landfills or DoD sites?
+# This is an extension of CQ2 that specifically compares inclusion or exclusion of coastlines 
+# What surface water bodies are downstream from landfills or DoD sites?: Retrieve landfills and Department of Defense (DoD) sites that are near NHD surface water flowlines and, in addition, find all downstream flowlines (?fl_ds).
+# This one can also retrieve the geometries for all relevant spatial objects as well, which slows it down quite a bit.
+
 # Run this from the Hydrology repository
 
 PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
@@ -10,47 +13,47 @@ PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX naics: <http://sawgraph.spatialai.org/v1/fio/naics#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX saw_water: <http://sawgraph.spatialai.org/v1/saw_water#>
 PREFIX schema: <https://schema.org/>
 PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
 
-SELECT DISTINCT ?faclabel ?fl_ds_name (COUNT(?fl_ds_label) AS ?num_fl_ds) WHERE {
-    # Find flowlines that cross the S2 cell a facility (landfill or DoD site) is in and
-    #    find all flowlines downstream of them
-    ?fl rdf:type hyf:HY_FlowPath ;
-    	kwg-ont:sfCrosses ?fac_s2 ;
-    	hyf:downstreamWaterbody+ ?fl_ds .
-    # If available, pull the GNIS name for each flowline
-    OPTIONAL { ?fl schema:name ?fl_name . }
-    OPTIONAL { ?fl_ds schema:name ?fl_ds_name . }
-    # Retreive the flowline type for each flowline and filter out 'Coastline'
-    ?fl_ds rdfs:label ?fl_ds_label ;
-    FILTER (?fl_ds_label != 'Coastline'@en)
-    
+SELECT * WHERE {
+
     SERVICE <repository:FIO> {
-        {
-            SELECT * WHERE {
-                # Find landfills and their containing S2 cells
-                ?fac rdf:type fio:Facility ;
-                     fio:ofIndustry naics:NAICS-Industry-Code-562212 ;
-                     fio:ofIndustry ?code ;
-                     kwg-ont:sfWithin ?fac_s2 .
-                # If available, find additional information for each landfill
-                OPTIONAL { ?fac rdfs:label ?faclabel . }
-                OPTIONAL { ?code rdfs:label ?ind . }
-        	}
+        SELECT * WHERE {
+            ?fac rdf:type fio:Facility ;
+                 fio:ofIndustry ?code ;
+                 kwg-ont:sfWithin ?fac_s2 ;
+                 #geo:hasGeometry/geo:asWKT ?fac_wkt .
+            OPTIONAL { ?fac rdfs:label ?faclabel . }
+            OPTIONAL { ?code rdfs:label ?ind . }
+            FILTER (?code IN (naics:NAICS-IndustryCode-562212, naics:NAICS-IndustryCode-92811, naics:NAICS-IndustryCode-928110))
         }
-        UNION
-        {
-             SELECT * WHERE {
-                # Find DoD sites and their containing S2 cells
-                ?fac rdf:type us_frs:Federal-Facility ;
-               	  	 us_frs:primaryIndustry ?code ;
-                	 kwg-ont:sfWithin ?fac_s2 .
-                FILTER (?code IN (naics:NAICS-Industry-Code-92811, naics:NAICS-Industry-Code-928110))
-                # If available, find additional information for each DoD site
-                OPTIONAL { ?fac rdfs:label ?faclabel . }
-                OPTIONAL { ?code rdfs:label ?ind . }
-            }
-   		}
     }
-} GROUP BY ?faclabel ?fl_ds_name ORDER BY ?faclabel ?fl_ds_name
+	
+	# get the geometry of all relevant S2 Cells
+    # SERVICE <repository:S2L13_AdminRegions> {
+    #     SELECT * WHERE {
+    #         ?fac_s2 geo:hasGeometry/geo:asWKT ?fac_s2_wkt .
+    #     }
+    # }
+
+   SERVICE <repository:Hydrology> {
+		?fl rdf:type hyf:HY_FlowPath ;
+    	kwg-ont:sfCrosses ?fac_s2 ;
+		# find all flowlines downstream of them
+		# Using the hyf:downstreamWaterbodyTC relation, could also rely on the transitive closure using the "+" notation
+    	hyf:downstreamWaterbodyTC ?fl_ds ;		
+        saw_water:hasFTYPE ?fl_type ;
+    	# geo:hasGeometry/geo:asWKT ?fl_wkt .
+		# If available, pull the GNIS name for each flowline
+		OPTIONAL { ?fl schema:name ?fl_name . }
+		OPTIONAL { ?fl_ds schema:name ?fl_ds_name . }
+		# Retrieve the flowline type for each flowline and filter out 'Coastline'
+        ?fl_ds saw_water:hasFTYPE ?fl_ds_type .
+     	#?fl_ds	geo:hasGeometry/geo:asWKT ?fl_ds_wkt .
+		FILTER ( ?fl_type != "Coastline" )
+		FILTER ( ?fl_ds_type != "Coastline" )
+	}
+
+}
