@@ -8,6 +8,9 @@ Each dataset has its own namespace, separate namespaces for TBox and ABox:
 
 Each namespace is its own named graph
 ABox and TBox are their own named graph
+   http://sawgraph.spatialai.org/v1/namedgraph/me-egad
+   http://sawgraph.spatialai.org/v1/namedgraph/me-egad-data
+   http://sawgraph.spatialai.org/v1/namedgraph/me-egad-s2
 
 Class names: camel case, start with upper case, no special symbols except hyphens
 Object and Data properties: camel case, start with lower case
@@ -23,12 +26,14 @@ egad:1234
 Current Namespaces:
 @prefix coso:         <http://sawgraph.spatialai.org/v1/contaminoso#> .
 @prefix dcgeoid:      <https://datacommons.org/browser/geoId/> .
-@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .               # or terms ?
 @prefix gcx_cid:      <https://geoconnex.us/nhdplusv2/comid/> .   # This is temporary and will likely change.
 @prefix geo:          <http://www.opengis.net/ont/geosparql#> .
 @prefix gwml2:        <http://gwml2.org/def/gwml2#> .
 @prefix gsmlb:        <http://geosciml.org/def/gsmlb#> .
 @prefix hyf:          <https://www.opengis.net/def/schema/hy_features/hyf/> .
+@prefix il_isgs:      <http://sawgraph.spatialai.org/v1/il_isgs#> .
+@prefix il_isgs_data: <http://sawgraph.spatialai.org/v1/il_isgs_data#> .
 @prefix kwg-ont:      <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
 @prefix kwgr:         <http://stko-kwg.geog.ucsb.edu/lod/resource/> .
 @prefix me_egad:      <http://sawgraph.spatialai.org/v1/me-egad#> .
@@ -40,9 +45,11 @@ Current Namespaces:
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sawgeo:       <http://sawgraph.spatialai.org/v1/sawgeo#> .
+@prefix sawnhd:       <http://sawgraph.spatialai.org/v1/sawnhd#> .
 @prefix schema:       <https://schema.org/> .
 @prefix sf:           <http://www.opengis.net/ont/sf#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix spatial:      <http://purl.org/spatialai/spatial/spatial-full#> .
 @prefix wdp:          <https://www.wikidata.org/wiki/Property:> .
 @prefix xml:          <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
