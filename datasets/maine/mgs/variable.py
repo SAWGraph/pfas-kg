@@ -30,6 +30,8 @@ NAME_SPACE = "http://aiknowspfas.skai.maine.edu/"
 _PREFIX = {
     "aik-pfas": Namespace(f"{NAME_SPACE}lod/resource/"),
     "aik-pfas-ont": Namespace(f"{NAME_SPACE}lod/ontology/"),
+    "kwg-ont": Namespace(f'http://stko-kwg.geog.ucsb.edu/lod/ontology/'),
+    "dc": Namespace('https://datacommons.org/browser/'),
     "geo": Namespace("http://www.opengis.net/ont/geosparql#"),
     "sf": Namespace("http://www.opengis.net/ont/sf#"),
     "rdf": RDF,

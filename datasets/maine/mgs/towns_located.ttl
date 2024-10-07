@@ -1,0 +1,976 @@
+@prefix kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
+
+<https://datacommons.org/browser/geoId/2300119105> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300129255> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300138565> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300140035> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300140665> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300146160> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300160020> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300164570> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300177800> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300179585> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300300800> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300301220> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300307065> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300311020> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300311300> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300311335> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300312000> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300313900> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300315395> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300319210> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300321380> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300325615> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300326735> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300327120> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300328590> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300330690> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300330725> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300332195> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300332685> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300333385> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300335065> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300339300> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300339965> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300340595> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300341715> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300342450> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300342520> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300343990> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300345180> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300346685> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300348120> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300348575> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300348960> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300349415> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300354385> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300355435> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300356205> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300358060> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300360300> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300362400> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300364780> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300365025> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300365200> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300367790> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300369260> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300374405> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300378570> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300379270> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300379865> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300382770> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300383540> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300383785> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300386865> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300387215> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300502655> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300508430> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300510180> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300512300> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300515430> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300524495> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300526525> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300528240> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300531390> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300531600> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300541067> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300548085> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300548820> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300553860> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300560685> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300561945> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300566145> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300566775> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300586025> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300695> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300702235> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300710740> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300710915> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300712595> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300716165> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300724005> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300724775> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300734820> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300735625> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300737025> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300749345> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300749520> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300758445> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300761840> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300761875> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300774825> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300775980> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300781300> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300785850> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300901185> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300902165> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300902865> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300907800> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300907975> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300914905> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300916935> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300917145> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300919770> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300926350> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300926595> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300928450> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300928975> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300930970> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300938180> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300943430> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300947630> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300955505> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300955855> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300955890> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300957920> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300967300> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300969750> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300974580> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300974965> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300975280> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300975455> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300977345> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300977415> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300978925> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2300980040> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301100590> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301104020> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301104475> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301112350> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301124950> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301140175> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301143080> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301146405> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301147770> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301154560> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301159110> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301162190> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301163835> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301168385> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301178190> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301178745> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301179025> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301180880> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301182945> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301186165> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301301465> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301309725> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301315780> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301326805> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301333840> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301335135> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301351620> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301356135> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301363660> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301378115> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301379130> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301380215> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301380425> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301501010> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301506050> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301506855> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301507485> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301518475> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301522675> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301535695> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301546335> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301548645> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301549660> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301569645> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301570240> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301571955> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301579550> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301584140> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301585010> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301675> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301701325> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301704825> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301708150> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301708710> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301709550> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301710005> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301717250> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301717740> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301727505> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301729710> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301731110> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301731670> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301732370> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301733315> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301739422> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301741365> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301745285> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301749275> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301754000> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301755960> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301756625> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301758270> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301760405> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301764185> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301764290> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301774510> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301774685> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301775035> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301775595> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301778465> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301780635> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301783890> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301787355> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301901115> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301901500> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301906575> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301906680> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301909200> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301910670> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301910810> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301912105> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301912525> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301913365> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301914310> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301914380> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301917530> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301917950> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301918580> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301922535> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301922710> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301923620> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301923865> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301924110> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301927190> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301927645> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301929185> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301930795> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301933490> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301934190> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301934365> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301936325> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301937075> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301937760> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301938005> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301938530> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301938705> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301939475> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301941435> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301944270> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301944340> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301945005> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301945670> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301947560> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301949065> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301955565> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301955680> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301957045> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301957150> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301959950> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301967160> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301973250> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301973600> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301974055> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301978780> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301981055> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301986305> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2301987390> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302060> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302100> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302100100> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302101920> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302103740> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302105560> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302106400> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302108325> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302118195> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302130095> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302137095> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302137970> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302144830> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302146020> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302146580> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302156765> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302165865> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302166950> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302168140> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302170655> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302181405> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302185710> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302301570> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302306260> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302327295> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302358515> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302362645> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302376960> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302381930> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302387460> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302501395> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302501885> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302505000> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302507380> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302509655> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302509935> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302510495> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302514555> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302517285> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302517460> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302523410> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302524320> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302531355> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302532895> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302535345> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302542660> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302545110> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302547140> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302547455> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302549205> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302556520> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302559005> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302562995> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302564850> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302567238> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302568910> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302569155> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302569505> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302573845> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302576190> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302704125> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302707870> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302709270> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302726280> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302726420> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302735240> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302735450> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302737585> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302739755> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302746475> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302746790> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302747245> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302752845> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302756450> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302761210> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302766565> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302766635> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302775525> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302776610> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302777625> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302779480> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302786760> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302795> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302900380> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302900660> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302902480> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302902970> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302903670> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302903810> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302912175> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302912455> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302913610> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302913750> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302913820> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302914100> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302914940> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302915920> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302916410> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302916865> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302917355> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302920960> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302928660> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302931530> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302935905> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302936010> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302942100> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302943640> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302944760> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302945600> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302951375> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302957082> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302957090> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302957780> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302958165> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302961035> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302963275> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302963940> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302974125> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302975770> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302976895> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302978675> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302979375> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302981685> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302985185> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2302985290> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303100275> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303101605> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303109410> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303114485> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303116725> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303122955> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303133665> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303136535> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303136745> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303137270> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303138425> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303139195> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303139405> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303141750> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303148750> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303150325> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303154980> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303156870> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303167475> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303170030> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303180530> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303181475> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303355> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2303950> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2304685> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2304860> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2305350> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2305665> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2306085> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2306330> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2306925> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2307135> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2308780> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2309585> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2310565> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2311090> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2311230> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2311755> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2316200> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2319385> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2321730> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2323200> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2324635> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2326875> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2327085> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2327295> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2328835> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2329500> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2330550> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2331705> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2333980> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2338740> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2341575> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2341925> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2342485> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2343220> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2343675> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2345845> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2355120> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2355225> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2356240> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2360545> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2360825> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2361735> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2363590> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2364675> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2365725> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2371990> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2373635> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2376330> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2380250> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2380740> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2382105> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2386480> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2386620> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2387040> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2387985> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2569170> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2703466> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/2764264> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/geoId/3456100> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q13479877> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q16302954> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q30622623> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q30622647> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q3461582> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q5324826> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q5468814> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q5495282> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q8039965> a kwg-ont:AdministrativeRegion_3 .
+
+<https://datacommons.org/browser/wikidataId/Q845619> a kwg-ont:AdministrativeRegion_3 .
+

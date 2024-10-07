@@ -4,13 +4,16 @@
 * **Data source location:** 
   * [Drinking Water State | EPA Pfas analytic tools downloads ]() 
   * [SDWA Dataset | ECHO data downloads](https://echo.epa.gov/tools/data-downloads)
+  * [Water System Boundaries](https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/Water_System_Boundaries/FeatureServer)
 * **Additional data sources:** 
   * [SDWIS Federal Reports Search](https://sdwis.epa.gov/ords/sfdw_pub/r/sfdw/sdwis_fed_reports_public/200) 
-  * [CWS Service Area Boundaries](https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/Water_System_Boundaries/FeatureServer)
+ 
 * **Metadata description:** 
   * [Envirofacts model](https://enviro.epa.gov/envirofacts/metadata/model/sdwis)
   * [SDWA download summary](https://echo.epa.gov/tools/data-downloads/sdwa-download-summary#sdwis)
-* **Format of data returned:** XLSX, CSV,  (API available with json but has less tables)
+
+  * [Community Water System Service Area Boundaries](https://www.epa.gov/ground-water-and-drinking-water/community-water-system-service-area-boundaries?tab=map) , [Water System Boundaries](https://epa.maps.arcgis.com/home/item.html?id=80c6912ef14f46e480f5afd807767b4b), [ORB_SAB_Model Github](https://github.com/USEPA/ORD_SAB_Model)
+* **Format of data returned:** XLSX, CSV, (API available with json but has less tables), esri rest service (CWS boundaries)
 * **General Comments:**
 
 ## Schema Diagram
@@ -145,29 +148,64 @@ Table: service_area (one to many with PWSID)
 
 Table: sdwa_facilities.csv 
 
-| Attribute                  | Description | Lift to Graph | Ontology | Property |
-|----------------------------|-------------|---------------|----------|----------| 
-| SUBMISSIONYEARQUARTER      
-| PWSID                      
-| FACILITY_ID                
-| FACILITY_NAME              
-| STATE_FACILITY_ID          
-| FACILITY_ACTIVITY_CODE     
-| FACILITY_DEACTIVATION_DATE 
-| FACILITY_TYPE_CODE         | Code identifying the type of facility.
-| SUBMISSION_STATUS_CODE     
-| IS_SOURCE_IND              
-| WATER_TYPE_CODE            
-| AVAILABILITY_CODE          
-| SELLER_TREATMENT_CODE      
-| SELLER_PWSID               
-| SELLER_PWS_NAME            
-| FILTRATION_STATUS_CODE     
-| IS_SOURCE_TREATED_IND      
-| FIRST_REPORTED_DATE        
-| LAST_REPORTED_DATE         
+| Attribute                  | Description                            | Lift to Graph | Ontology | Property |
+|----------------------------|----------------------------------------|---------------|----------|----------| 
+| SUBMISSIONYEARQUARTER      |                                        |               |          |          |
+| PWSID                      |                                        |               |          |          |
+| FACILITY_ID                |                                        |               |          |          |
+| FACILITY_NAME              |                                        |               |          |          |
+| STATE_FACILITY_ID          |                                        |               |          |          |
+| FACILITY_ACTIVITY_CODE     |                                        |               |          |          |
+| FACILITY_DEACTIVATION_DATE |                                        |               |          |          |
+| FACILITY_TYPE_CODE         | Code identifying the type of facility. |               |          |          |
+| SUBMISSION_STATUS_CODE     |                                        |               |          |          |
+| IS_SOURCE_IND              |                                        |               |          |          |
+| WATER_TYPE_CODE            |                                        |               |          |          |
+| AVAILABILITY_CODE          |                                        |               |          |          |
+| SELLER_TREATMENT_CODE      |                                        |               |          |          |
+| SELLER_PWSID               |                                        |               |          |          |
+| SELLER_PWS_NAME            |                                        |               |          |          |
+| FILTRATION_STATUS_CODE     |                                        |               |          |          |
+| IS_SOURCE_TREATED_IND      |                                        |               |          |          |
+| FIRST_REPORTED_DATE        |                                        |               |          |          |
+| LAST_REPORTED_DATE         |                                        |               |          |          |
 
-Sample Material Type
+Water System Boundaries
+
+| Attribute                 | Description                                                                                                                                                                          | Lift to Graph | Ontology | Property |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|----------|----------|
+| OBJECTID                  | 
+| PWSID                     | 	Public water system identifier as assigned by SDWIS.                                                                                                                                | Yes           |          |          |
+| State                     | 
+| PWS_Name                  | Name of public water system as reported to SDWIS.                                                                                                                                    | Yes           |          |
+| Primacy_Agency            | The state or EPA region that holds primacy over the system and handles reporting.                                                                                                    | Yes           |          |
+| Pop_Cat_5                 | A category variable derived by SDWIS that denotes the number of people served by a system. Possible values are "<=500", "501-3,300", "3,301-10,000","10,000-100,000" and ">100,000". |               |          |
+| Population_Served_Count   | The reported population that the system serves.                                                                                                                                      | 
+| Service_Connections_Count | The reported number of service connections in the system.                                                                                                                            | 
+| Method                    | The method used to derive the service area. Possible values include "Census Place", "Decision Tree", "OSM", "Parcel", "Random Forest" and "State".                                   |
+| Service_Area_Type         | The primary type of area served by the system as reported to SDWIS                                                                                                                   | Yes           | 
+| Symbology_Field           | The symbology used for the web application, possible values are "MODELED" and "STATE".                                                                                               | No            |          |          |
+| Original_Data_Provider    | Source of data.                                                                                                                                                                      | 
+| Data_Provider_Type        | 	Type of source for original data.                                                                                                                                                   |               |          |
+| Boundary_Method           | 	How Original Data was Sourced.                                                                                                                                                      |               |          |
+| Method_Basis              | 	How original data was developed.                                                                                                                                                    |
+| Method_Details            |                                                                                                                                                                                      |
+| System_Type               | Type of system. The only value here is "Water Service Area"                                                                                                                          | No | 
+| Verification_Status       | 	Whether the service area has been verified to be correct.                                                                                                                           | 
+| Verification_Process      | 	How verification was performed.                                                                                                                                                     | 
+| Verifier_Type             | Type of entity that performed verification (ex: Non-Profit, Municipality)                                                                                                            | 
+| Publisher_Owner           | 
+| Data_Source_Link          | 
+| Secondary_ID              | 
+| Secondary_ID_Source       | 
+| Detailed_Facility_Report  | URL to frs registry based on pwsid                                                                                                                                                   | 
+| Date_Created              | 	Date of creation.                                                                                                                                                                   | 
+| Date_Modified             | 	Date service area was modified.                                                                                                                                                     |
+| Verification_Date         | Date of verification.                                                                                                                                                                | 
+| Shape_Area                | 
+| Shape_Length              | 
+
+
 
 Controlled Vocabulary - 
 Facility_type_Code

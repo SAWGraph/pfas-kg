@@ -48,3 +48,11 @@ us_sdwis:SampledFeature rdf:type owl:Class;
 
 us_sdwis:CombinedDistributionSystem rdf:type owl:Class;
     rdfs:subClassOf coso:Feature.
+
+us_sdwis:PWS-ServiceArea rdf:type owl:Class;
+    rdfs:subClassOf coso:Feature.
+
+## Object Properties
+us_sdwis:serviceArea rdf:type owl:ObjectProperty ;
+    rdfs:domain us_sdwis:PublicWaterSystem ;
+    rdfs:range us_sdwis:PWS-ServiceArea.

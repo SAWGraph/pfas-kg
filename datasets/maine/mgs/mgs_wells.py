@@ -11,16 +11,21 @@ import csv
 from datetime import datetime
 import sys
 import math
+import json
 import numpy as np
 from datetime import date
 from pyutil import *
 from pathlib import Path
 
+
+
 ## importing utility/variable file
-code_dir = Path(__file__).resolve().parent.parent
-#print(code_dir)
+code_dir = Path(__file__).resolve().parent.parent.parent.parent
+print(code_dir)
 sys.path.insert(0, str(code_dir))
-from variable import NAME_SPACE, _PREFIX
+from datasets.maine.mgs.variable import NAME_SPACE, _PREFIX
+from datasets import utilities
+
 
 ## declare variables
 logname = "log"
@@ -56,9 +61,10 @@ def main():
     mgs_wells_unlocated_df = pd.read_csv(data_dir / 'Maine_Well_Database_-_Unlocated_Wells.csv', header=0, encoding='ISO-8859-1', low_memory=False)
     logger = logging.getLogger('Data loaded to dataframe.')
 
-    kg = triplify_well_data(mgs_wells_unlocated_df, _PREFIX)
+    kg, towns = triplify_well_data(mgs_wells_unlocated_df, _PREFIX)
     kg_turtle_file = "mgs_wells_unlocated_output.ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
+    towns.serialize('towns_unlocated.ttl'.format(output_dir), format='turtle')
     logger = logging.getLogger('Finished triplifying MGS unlocated well data.')
 
     #located wells
@@ -66,9 +72,10 @@ def main():
                                          encoding='ISO-8859-1')
     logger = logging.getLogger('Data loaded to dataframe.')
 
-    kg2 = triplify_well_data(mgs_wells_located_df, _PREFIX)
+    kg2, towns2 = triplify_well_data(mgs_wells_located_df, _PREFIX)
     kg_turtle_file = "mgs_wells_located_output.ttl".format(output_dir)
     kg2.serialize(kg_turtle_file, format='turtle')
+    towns2.serialize('towns_located.ttl'.format(output_dir), format='turtle')
     logger = logging.getLogger('Finished triplifying MGS unlocated well data.')
 
 
@@ -91,7 +98,8 @@ def get_attributes(row):
     well_iri = me_mgs_data.term(f"d.MGS-Well.{well_no}")
     #print('well_iri: ', well_iri)
     # town
-    town_name_formatted = str(row['WELL_LOCATION_TOWN']).replace(' ', '_').replace('&', '').casefold().upper()
+    town_name_formatted = str(row['WELL_LOCATION_TOWN'])
+
     #town_iri = _PREFIX["aik-pfas"][f"{'town'}.{town_name_formatted}"]
     try:
         well_point = shapely.Point((row['LONGITUDE'], row['LATITUDE']))
@@ -105,9 +113,36 @@ def get_attributes(row):
 ## triplify the abox
 def triplify_well_data(df, _PREFIX):
     kg = Initial_KG(_PREFIX)
-
+    kg2 = Initial_KG(_PREFIX)
+    get_towns = False
     ## materialize each well record
     df.info()
+
+    if get_towns:
+        #get dcids for each unique town
+        towns = df.WELL_LOCATION_TOWN.unique()
+        town_dcid = {}
+        for town in towns:
+            town_name_formatted = str(town)+" town, MAINE"
+            resp = utilities.resolvePlaceName(town_name_formatted)
+            #print(town_name_formatted, resp.text)
+            try:
+                dcids = resp.json()['entities'][0]['resolvedIds']
+            except:
+                dcids = []
+            town_dcid[town] = dcids
+        with open('towns.txt', 'w') as town_dictionary:
+            town_dictionary.write(json.dumps(town_dcid))
+    else:
+        with open('towns.txt', 'r') as town_file:
+            town_dcid = json.load(town_file)
+            print(town_dcid)
+    for town in town_dcid.keys():
+        print(town, town_dcid[town])
+        if town_dcid[town] != []:
+            for place in town_dcid[town]:
+                kg2.add((_PREFIX['dc'][place], RDF.type, _PREFIX['kwg-ont']["AdministrativeRegion_3"]))
+
     for idx, row in df.iterrows():
 
         well_no, well_use, well_type, well_depth, well_overburden, well_iri, town_name_formatted, geom = get_attributes(row)
@@ -146,6 +181,9 @@ def triplify_well_data(df, _PREFIX):
         
         # todo lookup FIPS code for town
         #kg.add((well_iri, _PREFIX["aik-pfas"]['locatedIn'], town_iri))
+        if town_name_formatted in town_dcid.keys():
+            for place in town_dcid[town_name_formatted]:
+                    kg.add((well_iri, _PREFIX['kwg-ont']['sfWithin'], _PREFIX['dc'][place]))
 
         #if idx == 5:
             #break
@@ -173,7 +211,7 @@ def triplify_well_data(df, _PREFIX):
             f_use.write(wu)
     f_use.close()
 
-    return kg
+    return kg, kg2
 
 
 ## utility functions
