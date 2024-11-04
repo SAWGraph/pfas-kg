@@ -181,7 +181,7 @@ def triplify(df):
 
         #measurement
         kg.add((extra_iris['ReleaseObservation'], coso['hasResult'], extra_iris['Measurement']))
-        kg.add((extra_iris['Measurement'], qudt['quantityKind'], extra_iris['Amount']))
+        kg.add((extra_iris['Measurement'], qudt['quantityKind'], extra_iris['Amount'])) #this needs to change to quantityValue and quantityKind needs to be instantiated separately
         kg.add((extra_iris['Measurement'], RDF.type, us_epa_ghg['Measurement']))
 
         #amount

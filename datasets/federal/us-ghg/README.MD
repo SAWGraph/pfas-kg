@@ -17,31 +17,32 @@ GHG regulations are only facilities that emit 25,000 mtons of CO2 per year. Only
 * **Date range:** 2010 - present
 
 ## Schema Diagram
-[Preliminary Diagram (GHG tab)](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?viewport_loc=-498%2C-32%2C3272%2C1614%2Cs_7G8ANWcwl4&invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d)
 
-## Code 
+![GHG Schema](./SAWGraph%20-%20Scratch%20-%20GHG.png)
+
+[Preliminary Diagram (GHG tab)](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?viewport_loc=-498%2C-32%2C3272%2C1614%2Cs_7G8ANWcwl4&invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d)
 
 ## Raw Data Attribute List 
 
-| Attribute                | Description                                             | Lift to graph         | Ontology property          |
-|--------------------------|---------------------------------------------------------|-----------------------|----------------------------|
-| Facility                 | name of Facility                                        | No (already from FRS) |                            |
-| Year                     |                                                         | Yes                   |                            |
-| GHG Facility Id          |                                                         | Yes                   |                            |
-| ECHO Facility Report     |                                                         |                       |                            |
-| FRS ID                   |                                                         | Yes                   | URI of us_frs:FRS-Facility |
-| GHG Subpart              |                                                         | Yes                   |                            |
-| Chemical Name            | *semicolon separated                                    | Yes                   |                            |
-| Chemical Formula         | *comma separated                                        | Yes                   |                            |
-| CAS Number               | *comma separated                                        | Yes                   |                            |
-| Amount (metric tons)     | Total metric tons per year (sum of produced and vented) | Yes                   |                            |
-| State Territory or Tribe |                                                         |                       |                            |
-| EPA Region               |                                                         |                       |                            |
-| Latitude                 | *not the same as facility coordinate in frs             | Yes                   |                            |
-| Longitude                | *not the same as facility coordinate in frs             | Yes                   |                            |
-| EJSCREEN Report          |                                                         |                       |                            |
-| City                     |                                                         |                       |                            |
-| ZIP Code                 |                                                         |                       |                            |
+| Attribute  | Description   | Lift to graph  | Ontology property   |
+|--------------------------|-----------------------------|-----------------------|----------------------------|
+| Facility   | name of Facility     | No (already from FRS) |       |
+| Year       | | Yes     |       |
+| GHG Facility Id   | | Yes     |       |
+| ECHO Facility Report     | |  |       |
+| FRS ID     | | Yes     | URI of us_frs:FRS-Facility |
+| GHG Subpart       | | Yes     |   coso:observationAnnotation us_epa_ghg:GHG-Subpart    |
+| Chemical Name     | *semicolon separated | Yes     | us_epa:ghg:Chemical rdfs:label/ us_epa_ghg:chemicalName  xsd:string    |
+| Chemical Formula  | *comma separated     | Yes     | us_epa:ghg:Chemical us_epa_ghg:chemicalFormula   xsd:string   |
+| CAS Number | *comma separated     | Yes     |  us_epa:ghg:Chemical us_epa_ghg:casNumber xsd:string     |
+| Amount (metric tons)     | Total metric tons per year (sum of produced and vented) | Yes     |  qudt:numericValue xsd:float     |
+| State Territory or Tribe | |  |       |
+| EPA Region | |  |       |
+| Latitude   | *not the same as facility coordinate in frs      | ?    |       |
+| Longitude  | *not the same as facility coordinate in frs      | ?   |       |
+| EJSCREEN Report   | |  |       |
+| City       | |  |       |
+| ZIP Code   | |  |       |
 
 
 
