@@ -185,7 +185,7 @@ def triplify(df):
         #sample point - TODO:how should this relate to PWS-Facility?
         if 'samplePoint' in iris.keys():
             kg.add((iris['samplePoint'], RDF.type, prefixes['us_sdwis']['PWS-SamplePoint']))
-            kg.add((iris['samplePoint'], prefixes['us_sdwis']['SamplePointID'], Literal(sample['SamplePointID'], datatype=XSD.string)))
+            kg.add((iris['samplePoint'], prefixes['us_sdwis']['samplePointID'], Literal(sample['SamplePointID'], datatype=XSD.string)))
             kg.add((iris['sample'], prefixes['coso']['fromSamplePoint'], iris['samplePoint']))
 
         #observation
@@ -202,7 +202,7 @@ def triplify(df):
 
         #TODO handle the non-detects
 
-        #Amount quanity value - only create if there is a concentration? - need to handle nondetects above
+        #Amount quantity value - only create if there is a concentration? - need to handle nondetects above
         if 'Conc' in sample.keys():
             kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['amount']))
             kg.add((iris['amount'], RDF.type, prefixes['us_sdwis']['Amount']))

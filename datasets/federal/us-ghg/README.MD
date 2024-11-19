@@ -2,16 +2,17 @@
 * **Name of dataset:** Green House Gas Reporting Program 
 * **Source Agency:** EPA
 * **Data source location:** [US EPA PFAS analytic tools data ](https://echo.epa.gov/trends/pfas-tools#data) *only PFAS reporting under certain regulations
-* **Additional Data Sources:** [FLIGHT Facility Level Information on GreenHouse Gasses Tool](https://ghgdata.epa.gov/ghgp/main.do)
-[Greenhouse Gas Inventory Data Explorer](https://cfpub.epa.gov/ghgdata/inventoryexplorer/)
-[GHG Query Builder](https://enviro.epa.gov/query-builder/ghg)
-[State GHG Emissions and Removals](https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals) 
+* **Additional Data Sources:** 
+    * [FLIGHT Facility Level Information on GreenHouse Gasses Tool](https://ghgdata.epa.gov/ghgp/main.do)
+    * [Greenhouse Gas Inventory Data Explorer](https://cfpub.epa.gov/ghgdata/inventoryexplorer/)
+    * [GHG Query Builder](https://enviro.epa.gov/query-builder/ghg)
+    * [State GHG Emissions and Removals](https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals) 
 * **Metadata:** 
 GHG regulations are only facilities that emit 25,000 mtons of CO2 per year. Only certain facility types require flourinated GHG reporting. 
 
-[Frequently Requested Data](https://www.epa.gov/ghgreporting/data-sets)
-[Flourinated GHG Emissions and Supplies](https://www.epa.gov/ghgreporting/fluorinated-greenhouse-gas-emissions-and-supplies-reported-ghgrp)
-[](https://enviro.epa.gov/query-builder/ghg/SUBPART%20INFORMATION/RLPS_GHG_EMITTER_SUBPART)
+    * [Frequently Requested Data](https://www.epa.gov/ghgreporting/data-sets)
+    * [Flourinated GHG Emissions and Supplies](https://www.epa.gov/ghgreporting/fluorinated-greenhouse-gas-emissions-and-supplies-reported-ghgrp)
+    * [subpart information](https://enviro.epa.gov/query-builder/ghg/SUBPART%20INFORMATION/RLPS_GHG_EMITTER_SUBPART)
 * **Format of data:** xlsx (could use REST services)
 * **Date update interval:** Weekly
 * **Date range:** 2010 - present
@@ -27,8 +28,8 @@ GHG regulations are only facilities that emit 25,000 mtons of CO2 per year. Only
 | Attribute  | Description   | Lift to graph  | Ontology property   |
 |--------------------------|-----------------------------|-----------------------|----------------------------|
 | Facility   | name of Facility     | No (already from FRS) |       |
-| Year       | | Yes     |       |
-| GHG Facility Id   | | Yes     |       |
+| Year       | | Yes     | coso:hasTemporalCoverage      |
+| GHG Facility Id   | | Yes     | us_frs:FRS-Facility us_frs:hasGHGId xsd:string      |
 | ECHO Facility Report     | |  |       |
 | FRS ID     | | Yes     | URI of us_frs:FRS-Facility |
 | GHG Subpart       | | Yes     |   coso:observationAnnotation us_epa_ghg:GHG-Subpart    |

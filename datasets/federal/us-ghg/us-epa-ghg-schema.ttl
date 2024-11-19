@@ -21,11 +21,12 @@ us_epa_ghg:Amount rdf:type owl:Class;
 us_epa_ghg:Measurement rdf:type owl:Class;
     rdfs:subClassOf pfas:PFAS-VolumeMeasurement;
     rdfs:subClassOf coso:ContaminantVolumeMeasurement ;
+    rdfs:subClassOf coso:AggregatePFASMeasurement;
     rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
 us_epa_ghg:Chemical rdf:type owl:Class;
     rdfs:subClassOf coso:Substance.
 
-us_frs:FRS-Facility rdf:type owl:Class;
-    rdfs:subClassOf coso:ReleaseFeature.
+#us_frs:FRS-Facility rdf:type owl:Class;
+#    rdfs:subClassOf coso:ReleaseFeature.
 

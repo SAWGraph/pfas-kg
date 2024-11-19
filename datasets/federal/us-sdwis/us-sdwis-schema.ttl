@@ -56,3 +56,35 @@ us_sdwis:PWS-ServiceArea rdf:type owl:Class;
 us_sdwis:serviceArea rdf:type owl:ObjectProperty ;
     rdfs:domain us_sdwis:PublicWaterSystem ;
     rdfs:range us_sdwis:PWS-ServiceArea.
+
+us_sdwis:inCombinedSystem rdf:type owl:ObjectProperty ;
+    rdfs:domain us_sdwis:PublicWaterSystem ;
+    rdfs:range us_sdwis:CombinedDistributionSystem.
+
+## Data Properties
+
+us_sdwis:hasPWSID rdf:type owl:DataProperty;
+    rdfs:domain us_sdwis:PublicWaterSystem. 
+
+us_sdwis:hasName rdf:type owl:DataProperty;
+    rdfs:domain us_sdwis:PublicWaterSystem. 
+
+us_sdwis:populationServed rdf:type owl:DataProperty;
+    rdfs:domain us_sdwis:PublicWaterSystem.
+
+us_sdwis:sizeCategory rdf:type owl:DataProperty;
+    rdfs:domain us_sdwis:PublicWaterSystem.
+
+us_sdwis:hasMethod rdf:type owl:DataProperty ;
+    rdfs:domain us_sdwis:PWS-ServiceArea .
+
+us_sdwis:deactivationDate rdf:type owl:DataProperty ;
+    rdfs:domain us_sdwis:PublicWaterSystem .
+
+us_sdwis:hasOwnership rdf:type owl:DataProperty .
+
+us_sdwis:primarySource rdf:type owl:DataProperty. 
+
+us_sdwis:firstReport rdf:type owl:DataProperty.
+
+us_sdwis:lastReport rdf:type owl:DataProperty. 
