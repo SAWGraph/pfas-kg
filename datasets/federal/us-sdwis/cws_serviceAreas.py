@@ -43,6 +43,7 @@ prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['sosa'] = Namespace(f'http://www.w3.org/ns/sosa/')
 prefixes['sf'] = Namespace("http://www.opengis.net/ont/sf#")
+prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -110,8 +111,8 @@ def get_attributes(row):
 
 def get_iris(pws):
     iris = {}
-    iris['PWS'] = prefixes['us_sdwis_data']['d.PublicWaterSystem.'+ pws['PWSID']]
-    iris['SA'] = prefixes['us_sdwis_data']['d.PWS-ServiceArea.'+ pws['PWSID']]
+    iris['PWS'] = prefixes['gcx']['ref/pws/'+ pws['PWSID']]
+    iris['SA'] = prefixes['us_sdwis_data']['d.PWS-ServiceArea.'+ pws['PWSID']] #unsure what to use for this IRI
     iris['geom'] = prefixes['us_sdwis_data']['d.PWS-ServiceArea.geometry.'+ pws['PWSID']]
     #print(iris)
     return iris

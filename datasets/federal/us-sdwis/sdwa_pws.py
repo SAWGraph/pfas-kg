@@ -25,7 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = "IL"
+state = "ME"
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -44,6 +44,7 @@ prefixes['qudt'] = Namespace(f'https://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['sosa'] = Namespace(f'http://www.w3.org/ns/sosa/')
+prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -52,7 +53,7 @@ logging.basicConfig(filename=logname,
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
 
-logging.info("Running triplification for facilities")
+logging.info("Running triplification for Public Water Systems")
 
 
 def main():
@@ -155,7 +156,7 @@ def get_attributes(row):
 
 def get_iris(pws):
     iris = {}
-    iris['PWS'] = prefixes['us_sdwis_data']['d.PublicWaterSystem.'+ pws['PWSID']]
+    iris['PWS'] = prefixes['gcx']['ref/pws/'+ pws['PWSID']]
     if 'CDSID' in pws.keys():
         iris['CDS'] = prefixes['us_sdwis_data']['d.CombinedDistributionSystem.'+ pws['CDSID']]
     #print(iris)
