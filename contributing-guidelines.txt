@@ -32,7 +32,7 @@ Current Namespaces:
 @prefix gwml2:        <http://gwml2.org/def/gwml2#> .
 @prefix gsmlb:        <http://geosciml.org/def/gsmlb#> .
 @prefix hyf:          <https://www.opengis.net/def/schema/hy_features/hyf/> .
-@prefix hyfo:         <> .
+@prefix hyfo:         <http://hyfo.spatialai.org/v1/hyfo#> .
 @prefix il_isgs:      <http://sawgraph.spatialai.org/v1/il_isgs#> .
 @prefix il_isgs_data: <http://sawgraph.spatialai.org/v1/il_isgs_data#> .
 @prefix kwg-ont:      <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
