@@ -11,7 +11,7 @@ def dump_file(filename, geojson):
     output = root_dir / "data" / "il-epa" / filename
     # print(output)
     with open(output, 'w') as outfile:
-        json.dump(geojson, outfile)
+        json.dump(geojson, outfile, indent=1)
 
 def get_layer(url):
     '''Requests the geojson from the illinois EPA web server by layer id
