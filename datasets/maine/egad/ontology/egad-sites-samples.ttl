@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
 @prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
-@prefix qudt: <https://qudt.org/schema/qudt/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
@@ -361,6 +361,7 @@ me_egad:EGAD-SinglePFAS-Concentration rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-Site
 me_egad:EGAD-Site rdf:type owl:Class ;
+                  rdfs:subClassOf coso:Feature ;
                   rdfs:label "EGAD - Site" .
 
 

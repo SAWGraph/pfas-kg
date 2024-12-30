@@ -12,6 +12,7 @@ import sys
 import math
 import numpy as np
 from datetime import date
+from pathlib import Path
 from pyutil import *
 
 
@@ -34,62 +35,62 @@ pfas_parameter_dict = []
 
 
 ## data path
-root_folder = "C:/Users/Shirly/Documents/GitHub/kg-construction/"
-data_dir =  root_folder + "datasets/maine/egad/data/"
-metadata_dir = root_folder + "datasets/maine/egad/data/metadata/"
-output_dir = root_folder + "datasets/maine/egad/egad-maine-samples/"
+root_folder = Path(__file__).resolve().parent.parent.parent.parent
+data_dir =  root_folder/ "datasets/data/egad-maine-samples/"
+metadata_dir = root_folder /"datasets/maine/egad/metadata/"
+output_dir = root_folder/ "datasets/maine/egad/egad-maine-samples/"
 
 
 ## data dictioaries -- for controlled vocabularies
-with open(metadata_dir + 'analysis_lab.csv', mode='r') as infile:
+with open(metadata_dir / 'analysis_lab.csv', mode='r') as infile:
     reader = csv.reader(infile)
     lab_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'sample_type.csv', mode='r') as infile:
+with open(metadata_dir / 'sample_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     material_type_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'sample_collection_method.csv', mode='r') as infile:
+with open(metadata_dir / 'sample_collection_method.csv', mode='r') as infile:
     reader = csv.reader(infile)
     collection_method_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'sample_location.csv', mode='r') as infile:
+with open(metadata_dir / 'sample_location.csv', mode='r') as infile:
     reader = csv.reader(infile)
     location_type_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'sample_point_type.csv', mode='r') as infile:
+with open(metadata_dir / 'sample_point_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     point_type_dict = {rows[1]:rows[0] for rows in reader}
     
-with open(metadata_dir + 'site_type.csv', mode='r') as infile:
+with open(metadata_dir / 'site_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     site_type_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'pfas_parameter.csv', mode='r') as infile:
+with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
     reader = csv.reader(infile)
     pfas_parameter_dict = {rows[1]:rows[2] for rows in reader}
 
-with open(metadata_dir + 'pfas_parameter.csv', mode='r') as infile:
+with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
     reader = csv.reader(infile)
     pfas_parameter_kind_dict = {rows[1]:rows[3] for rows in reader}
 
-with open(metadata_dir + 'pfas_parameter.csv', mode='r') as infile:
+with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
     reader = csv.reader(infile)
     pfas_type_dict = {rows[1]:rows[3] for rows in reader}
 
-with open(metadata_dir + 'test_method.csv', mode='r') as infile:
+with open(metadata_dir / 'test_method.csv', mode='r') as infile:
     reader = csv.reader(infile)
     test_method_dict = {rows[0]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'validation_level.csv', mode='r') as infile:
+with open(metadata_dir / 'validation_level.csv', mode='r') as infile:
     reader = csv.reader(infile)
     validation_level_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'result_type.csv', mode='r') as infile:
+with open(metadata_dir / 'result_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     result_type_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'sample_treatment_status.csv', mode='r') as infile:
+with open(metadata_dir / 'sample_treatment_status.csv', mode='r') as infile:
     reader = csv.reader(infile)
     treatment_status_dict = {rows[1]:rows[0] for rows in reader}
 
@@ -106,7 +107,7 @@ logging.basicConfig(filename=logname,
 logging.info("Running triplification for EGAD sites and samples")
 
 def main():
-    egad_samples_df = pd.read_csv(data_dir + 'egad-sample-results-2024_5.csv', header=0, encoding='ISO-8859-1')
+    egad_samples_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", header=0)
     logger = logging.getLogger('Data loaded to dataframe.')
 
 
@@ -128,7 +129,10 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
     kg = Initial_KG(_PREFIX)
     
     ## materialize each record
+    rowcount = df.shape[0]
     for idx, row in df.iterrows():
+        if idx % 10000 == 0:
+            print(idx, 'of', rowcount)
         ## sample point record details
         samplepoint_number = row['SAMPLE_POINT_NUMBER'] # sample point number
         samplepoint_webname = row['SAMPLE_POINT_WEB_NAME'] # sample point web name
@@ -148,7 +152,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
                 
         ## specify sample feature instance and it's data properties
         kg.add( (samplefeature_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampledFeature"]) )
-        kg.add( (samplefeature_iri, RDFS['label'], Literal('EGAD sampled festure associated with sample point '+ str(samplepoint_number))) )
+        kg.add( (samplefeature_iri, RDFS['label'], Literal('EGAD sampled feature associated with sample point '+ str(samplepoint_number))) )
 
         samplepoint_type = point_type_dict[samplepoint_type]
         samplepoint_type = ''.join(e for e in samplepoint_type if e.isalnum())
@@ -170,7 +174,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
         analysis_id_formatted = ''.join(e for e in analysis_id if e.isalnum())
 
-        sample_date = datetime.strptime(row['SAMPLE_DATE'], '%m/%d/%Y') 
+        sample_date = pd.to_datetime(row['SAMPLE_DATE']) #datetime.strptime(str(), '%m/%d/%Y') 
         sample_date = rem_time(sample_date)
         sample_date_formatted = ''.join(e for e in str(sample_date) if e.isalnum())
         samplematerial_iri = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{material_type_dict[sampleobs_type]}"] 
@@ -217,27 +221,28 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             kg.add( (sampleobs_iri, _PREFIX["coso"]['observedAtSamplePoint'], samplepoint_iri) )
             kg.add( (sampleobs_iri, _PREFIX["coso"]['analyzedSample'], sample_iri) )
 
-            kg.add( (sampleobs_iri, _PREFIX["coso"]['fromSampledFeature'], samplefeature_iri) )
+            kg.add( (sampleobs_iri, _PREFIX["coso"]['hasFeatureOfInterest'], samplefeature_iri) )
             
 
             analysis_date = row['ANALYSIS_DATE'] # analysis date
             if pd.isnull(analysis_date):
                 #print(analysis_date)
-                print("Invalid analysis date")
+                #print("Invalid analysis date:", analysis_date)
+                pass
             else:
-                analysis_date = datetime.strptime(str(row['ANALYSIS_DATE']), '%m/%d/%Y')
-                analysis_date = rem_time(analysis_date)
-                analysis_date_formatted = ''.join(e for e in str(analysis_date) if e.isalnum())
+                analysis_date = pd.to_datetime(row['ANALYSIS_DATE']) #datetime.strptime(str(), '%m/%d/%Y')
+                #analysis_date = rem_time(analysis_date)
+                #analysis_date_formatted = ''.join(e for e in str(analysis_date) if e.isalnum())
                 kg.add( (sampleobs_iri, _PREFIX["coso"]['analysisDate'], Literal(analysis_date , datatype = XSD.date)) )
                     
             sample_date = row['SAMPLE_DATE'] # sampled date
             if pd.isnull(sample_date):
                 print("Invalid sample date")
             else:
-                sample_date = datetime.strptime(str(row['SAMPLE_DATE']), '%m/%d/%Y')
-                sample_date = rem_time(sample_date)
-                sample_date_formatted = ''.join(e for e in str(sample_date) if e.isalnum())
-                kg.add( (sampleobs_iri, _PREFIX["coso"]['sampledTime'], Literal(sample_date_formatted , datatype = XSD.date)) )
+                sample_date = pd.to_datetime(row['SAMPLE_DATE']) #datetime.strptime(str(row['SAMPLE_DATE']), '%m/%d/%Y')
+                #sample_date = rem_time(sample_date)
+                #sample_date_formatted = ''.join(e for e in str(sample_date) if e.isalnum())
+                kg.add( (sampleobs_iri, _PREFIX["coso"]['sampledTime'], Literal(sample_date, datatype = XSD.date)) )
                     
             analysis_method = row['TEST_METHOD'] # analysis method
             if(str(analysis_method) != ''):
@@ -256,11 +261,12 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             #kg.add( (sampleobs_iri, _PREFIX["sosa"]['hasFeatureOfInterest'], sample_iri) )
             kg.add( (sampleobs_iri, _PREFIX["me_egad"]['analyzedSample'], sample_iri) )
             kg.add( (sample_iri, _PREFIX["coso"]['fromSamplePoint'], samplepoint_iri) )
-            kg.add( (sample_iri, _PREFIX["coso"]['fromSamplePoint'], samplepoint_iri) )
+            #kg.add( (sample_iri, _PREFIX["coso"]['fromSamplePoint'], samplepoint_iri) )
             sampleparameter_iri = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs_parameter]}"]
             kg.add( (sampleobs_iri, _PREFIX["coso"]['ofSubstance'], sampleparameter_iri) )
             
             if (pfas_parameter_kind_dict[sampleobs_parameter] == 'Cumulative'):
+                kg.add( (sampleparameter_iri, RDF.type, _PREFIX['coso']['SubstanceCollection']))
                 kg.add( (sampleparameter_iri, _PREFIX["me_egad_data"]['dep_chemicalID'], Literal(chemical_number , datatype = XSD.string)) )
             else:
                 kg.add( (sampleparameter_iri, _PREFIX["coso"]['casNumber'], Literal(chemical_number , datatype = XSD.string)) )
@@ -274,7 +280,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
            
             units = row['PARAMETER_UNITS'] # units of measurement
 
-            #result_iri = _PREFIX["aik-pfas"][f"{'egad.result'}.{sample_id_formatted}.{chemical_number}.{sample_date_formatted}"]
+           
             result_iri = _PREFIX["me_egad_data"][f"{'result'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
             #kg.add( (result_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Concentration"]) )
 
@@ -337,7 +343,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
                 
 
             if (str(validation_qualifier) != '') and (str(validation_qualifier) != 'nan'):
-                validation_qualifier = str(validation_qualifier).replace("/", "-")
+                validation_qualifier = str(validation_qualifier).replace("/", "-").replace("*","star")
                 validationQualifier_iri = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{validation_qualifier}"] 
                 kg.add( (result_iri, _PREFIX["me_egad"]['validationQualifier'], validationQualifier_iri) )
 
@@ -349,13 +355,13 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             if (str(pfas_rl) != '') and (str(pfas_rl) != 'nan'):
                 rl_iri = _PREFIX["me_egad_data"][f"{'rl'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
                 kg.add( (rl_iri, RDF.type, _PREFIX["me_egad"]["EGAD-ReportingLimit"]) )
-                kg.add( (rl_iri, _PREFIX["me_egad"]['reportingLimit'], rl_iri) )
+                kg.add( (result_iri, _PREFIX["me_egad"]['reportingLimit'], rl_iri) )
                 kg.add( (rl_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_rl , datatype = XSD.decimal)) )
 
             if (str(pfas_mdl) != '') and (str(pfas_mdl) != 'nan'):
                 mdl_iri = _PREFIX["me_egad_data"][f"{'mdl'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
                 kg.add( (mdl_iri, RDF.type, _PREFIX["me_egad"]["EGAD-MethodDetectionLimit"]) )
-                kg.add( (mdl_iri, _PREFIX["me_egad"]['methodDetectionLimit'], rl_iri) )
+                kg.add( (result_iri, _PREFIX["me_egad"]['methodDetectionLimit'], mdl_iri) )
                 kg.add( (rl_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_mdl , datatype = XSD.decimal)) )
             
 

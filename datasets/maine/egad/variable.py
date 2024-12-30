@@ -41,7 +41,7 @@ _PREFIX = {
     "ssn": Namespace("http://www.w3.org/ns/ssn/"),
     "sosa": Namespace("http://www.w3.org/ns/sosa/"),
     "qudt": Namespace("http://qudt.org/schema/qudt/"),
-    "unit": Namespace("http://qudt.org/vocab/unit"),
+    "unit": Namespace("http://qudt.org/vocab/unit/"),
     "prov": Namespace("http://www.w3.org/ns/prov#"),
     "skos": Namespace("http://www.w3.org/2008/05/skos#")
 }
