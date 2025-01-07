@@ -16,6 +16,7 @@ from pyutil import *
 #import geopandas as gpd
 from shapely.geometry import Point
 import numpy
+from pathlib import Path
 
 
 ## importing utility/variable file
@@ -30,18 +31,18 @@ site_type_dict = []
 precision = 7
 
 ## data path
-root_folder = "C:/Users/Shirly/Documents/GitHub/kg-construction/"
-data_dir =  root_folder + "datasets/maine/egad/data/"
-metadata_dir = root_folder + "datasets/maine/egad/data/metadata/"
-output_dir = root_folder + "datasets/maine/egad/egad-maine-samples/"
+root_folder = Path(__file__).resolve().parent.parent.parent.parent
+data_dir =  root_folder / "datasets/data/egad-maine-samples/"
+metadata_dir = root_folder / "datasets/maine/egad/metadata/"
+output_dir = root_folder / "datasets/maine/egad/egad-maine-samples/"
 
 
 ## data dictioaries -- for controlled vocabularies
-with open(metadata_dir + 'sample_point_type.csv', mode='r') as infile:
+with open(metadata_dir / 'sample_point_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     point_type_dict = {rows[1]:rows[0] for rows in reader}
 
-with open(metadata_dir + 'site_type.csv', mode='r') as infile:
+with open(metadata_dir / 'site_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     site_type_dict = {rows[1]:rows[0] for rows in reader}
 
@@ -56,7 +57,8 @@ logging.basicConfig(filename=logname,
 logging.info("Running triplification for EGAD sites and samples")
 
 def main():
-    egad_sites_df = pd.read_csv(data_dir + 'sites-samples-2024.csv', header=0, encoding='ISO-8859-1')
+    egad_sites_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sites and Sample Points", header=0)
+    #pd.read_csv(data_dir / 'sites-samples-2024.csv', header=0, encoding='ISO-8859-1')
     logger = logging.getLogger('Data loaded to dataframe.')
     
     kg = triplify_egad_pfas_site_data(egad_sites_df, _PREFIX)

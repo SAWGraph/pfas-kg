@@ -10,6 +10,7 @@ import math
 import numpy as np
 #from pyutil import *
 import sys
+from pathlib import Path
 
 ## importing utility/variable file
 sys.path.insert(0, 'C:/Users/Shirly/Documents/GitHub/kg-construction/datasets/maine/egad')
@@ -23,9 +24,9 @@ metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location',
 #metadata_files = ['pfas_parameter']
 
 ## data path
-root_folder = "C:/Users/Shirly/Documents/GitHub/kg-construction/"
-data_dir =  root_folder + "datasets/maine/egad/data/metadata/"
-output_dir = root_folder + "datasets/maine/egad/output/"
+root_folder = Path(__file__).resolve().parent.parent.parent.parent
+data_dir =  root_folder / "datasets/maine/egad/metadata/"
+output_dir = root_folder / "datasets/maine/egad/output/"
 
 
 ## initiate log file
@@ -40,7 +41,7 @@ logging.info("Running triplification for EGAD metadata")
 def main():
     # iterate over files in data directory
     for filename in metadata_files:
-        data_df = pd.read_csv(data_dir + filename +'.csv', header=0, encoding='ISO-8859-1')
+        data_df = pd.read_csv(data_dir / f'{filename}.csv', header=0, encoding='ISO-8859-1')
         logger = logging.getLogger('Data loaded to dataframe')
         if filename == 'analysis_lab':
             kg = triplify_lab(data_df, _PREFIX)

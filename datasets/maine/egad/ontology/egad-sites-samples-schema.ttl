@@ -123,64 +123,6 @@ me_egad:validationQualifier rdf:type owl:ObjectProperty ;
                             rdfs:label "egad - validation qualifier" .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#analysisMethod
-coso:analysisMethod rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#analyzedSample
-coso:analyzedSample rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#fromSamplePoint
-coso:fromSamplePoint rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#observationAnnotation
-coso:observationAnnotation rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#observedAtSamplePoint
-coso:observedAtSamplePoint rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#ofSampleMaterialType
-coso:ofSampleMaterialType rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#ofSubstance
-coso:ofSubstance rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf sosa:observedProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#pointFromFeature
-coso:pointFromFeature rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#resultAnnotation
-coso:resultAnnotation rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#sampleAnnotation
-coso:sampleAnnotation rdf:type owl:ObjectProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#sampledTime
-coso:sampledTime rdf:type owl:ObjectProperty .
-
-
-###  http://www.opengis.net/ont/geosparql#hasGeometry
-geo:hasGeometry rdf:type owl:ObjectProperty .
-
-
-###  http://www.opengis.net/ont/geosparql#hasDefaultGeometry
-geo:hasDefaultGeometry rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf geo:hasGeometry .
-
-
-###  http://www.w3.org/ns/sosa/observedProperty
-sosa:observedProperty rdf:type owl:ObjectProperty .
-
-
 #################################################################
 #    Data properties
 #################################################################
@@ -233,19 +175,6 @@ me_egad:siteNumber rdf:type owl:DatatypeProperty ;
                    skos:definition "Site number in the EGAD dataset from the state of Maine." .
 
 
-###  http://sawgraph.spatialai.org/v1/contaminoso#analysisDate
-coso:analysisDate rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf sosa:resultTime .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#casNumber
-coso:casNumber rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf coso:substanceID ;
-               rdfs:label "cas number" .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#substanceID
-coso:substanceID rdf:type owl:DatatypeProperty .
 
 
 ###  http://sawgraph.spatialai.org/v1/sdwis#pwsidNumber
@@ -253,9 +182,6 @@ sdwis:pwsidNumber rdf:type owl:DatatypeProperty ;
                   rdfs:label "public system water identifier" ;
                   skos:definition "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reservation, and XXXXXXXXXX = the water system identification code assigned by the State." .
 
-
-###  http://www.w3.org/ns/sosa/resultTime
-sosa:resultTime rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -332,7 +258,7 @@ me_egad:EGAD-SampleDetailedLocation rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
-                                rdfs:subClassOf coso:MaterialType ;
+                                rdfs:subClassOf coso:SampleMaterialType ;
                                 rdfs:label "EGAD - Sample Material Type" .
 
 
@@ -380,118 +306,5 @@ me_egad:EGAD-ValidationLevel rdf:type owl:Class ;
 me_egad:EGAD-ValidationQualifier rdf:type owl:Class ;
                                  rdfs:subClassOf coso:ResultQualifier ;
                                  rdfs:label "EGAD - Validation Qualifier" .
-
-
-###  http://qudt.org/schema/qudt/QuantityValue
-qudt:QuantityValue rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#AggregateContaminantMeasurement
-coso:AggregateContaminantMeasurement rdf:type owl:Class ;
-                                     rdfs:subClassOf coso:ContaminantMeasurement .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantMeasurement
-coso:ContaminantMeasurement rdf:type owl:Class ;
-                            rdfs:subClassOf sosa:Result .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#ContaminantObservation
-coso:ContaminantObservation rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#Feature
-coso:Feature rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#MaterialSample
-coso:MaterialSample rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#MaterialType
-coso:MaterialType rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#ObservationAnnotation
-coso:ObservationAnnotation rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#Point
-coso:Point rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#ResultQualifier
-coso:ResultQualifier rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#SampleAnnotation
-coso:SampleAnnotation rdf:type owl:Class .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#SamplePoint
-coso:SamplePoint rdf:type owl:Class ;
-                 rdfs:subClassOf coso:Point .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#SampledFeature
-coso:SampledFeature rdf:type owl:Class ;
-                   rdfs:subClassOf coso:Feature .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#SingleContaminantMeasurement
-coso:SingleContaminantMeasurement rdf:type owl:Class ;
-                                  rdfs:subClassOf coso:ContaminantMeasurement .
-
-
-###  http://sawgraph.spatialai.org/v1/contaminoso#Substance
-coso:Substance rdf:type owl:Class ;
-               rdfs:subClassOf sosa:ObservableProperty .
-
-
-###  http://sawgraph.spatialai.org/v1/pfas#AggregatePFASConcentrationMeasurement
-pfas:AggregatePFASConcentrationMeasurement rdf:type owl:Class ;
-                                           rdfs:subClassOf coso:AggregateContaminantMeasurement .
-
-
-###  http://sawgraph.spatialai.org/v1/pfas#AnalysisMethod
-pfas:AnalysisMethod rdf:type owl:Class ;
-                    rdfs:subClassOf sosa:Procedure .
-
-
-###  http://sawgraph.spatialai.org/v1/pfas#MethodDetectionLimit
-pfas:MethodDetectionLimit rdf:type owl:Class ;
-                          rdfs:subClassOf coso:ResultQualifier .
-
-
-###  http://sawgraph.spatialai.org/v1/pfas#PFAS-ContaminantObservation
-pfas:PFAS-ContaminantObservation rdf:type owl:Class ;
-                                 rdfs:subClassOf coso:ContaminantObservation .
-
-
-###  http://sawgraph.spatialai.org/v1/pfas#ReportingLimit
-pfas:ReportingLimit rdf:type owl:Class ;
-                    rdfs:subClassOf coso:ResultQualifier .
-
-
-###  http://sawgraph.spatialai.org/v1/pfas#SinglePFASConcentrationMeasurement
-pfas:SinglePFASConcentrationMeasurement rdf:type owl:Class ;
-                                        rdfs:subClassOf coso:SingleContaminantMeasurement .
-
-
-###  http://www.opengis.net/ont/geosparql#Geometry
-geo:Geometry rdf:type owl:Class .
-
-
-###  http://www.w3.org/ns/sosa/ObservableProperty
-sosa:ObservableProperty rdf:type owl:Class .
-
-
-###  http://www.w3.org/ns/sosa/Procedure
-sosa:Procedure rdf:type owl:Class .
-
-
-###  http://www.w3.org/ns/sosa/Result
-sosa:Result rdf:type owl:Class .
-
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -362,7 +362,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
                 mdl_iri = _PREFIX["me_egad_data"][f"{'mdl'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
                 kg.add( (mdl_iri, RDF.type, _PREFIX["me_egad"]["EGAD-MethodDetectionLimit"]) )
                 kg.add( (result_iri, _PREFIX["me_egad"]['methodDetectionLimit'], mdl_iri) )
-                kg.add( (rl_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_mdl , datatype = XSD.decimal)) )
+                kg.add( (mdl_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_mdl , datatype = XSD.decimal)) )
             
 
         
