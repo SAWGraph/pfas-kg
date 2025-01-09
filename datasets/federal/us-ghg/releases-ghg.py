@@ -146,6 +146,9 @@ def get_iris(release):
 
 def triplify(df):
     kg = Initial_KG()
+    # add a second graph for the facility updates. 
+    facility_kg = Initial_KG()
+
     for idx, row in df.iterrows():
         # get attributes
         release = get_attributes(row)
@@ -154,25 +157,27 @@ def triplify(df):
         #print(extra_iris)
 
         #observation
-        kg.add((extra_iris['ReleaseObservation'], RDF.type, us_epa_ghg['ReleaseObservation']))
+        kg.add((extra_iris['ReleaseObservation'], RDF.type, us_epa_ghg['GHG-ReleaseObservation']))
         kg.add((extra_iris['ReleaseObservation'], coso['hasTemporalCoverage'],
                 extra_iris['TimeInterval']))  #TODO this needs beginning and end attributes
-        kg.add((extra_iris['ReleaseObservation'], us_epa_ghg['GHG-Subpart'], Literal(release['GHG_subpart'],
+        kg.add((extra_iris['ReleaseObservation'], us_epa_ghg['regulatedBy'], Literal(release['GHG_subpart'],
                                                                                      datatype=XSD.string)))  #TODO this should be done as a controlled vocabulary
 
         #facility
         if 'FRS_Facility' in extra_iris.keys():
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['FRS_Facility']))
             kg.add((extra_iris['FRS_Facility'], RDF.type, us_frs['FRS-Facility']))
-            kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #TODO this should move to a different graph to go in FIO repo
+            facility_kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #TODO this should move to a different graph to go in FIO repo
         elif 'GHG_Facility' in extra_iris.keys(): #this shouldn't run as long as all of the facilities missing FRS ID have been caught
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['GHG_Facility']))
-            kg.add((extra_iris['GHG_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
+            facility_kg.add((extra_iris['GHG_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
             #TODO GHG facilities should get geometry
+
+        #TODO release point
 
         #substance
         kg.add((extra_iris['ReleaseObservation'], coso['ofSubstance'], extra_iris['Chemical']))
-        kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['Chemical']))
+        kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['GHG-Chemical']))
         if 'ChemicalFormula' in release.keys():
             kg.add((extra_iris['Chemical'], us_epa_ghg['chemicalFormula'],
                     Literal(release['ChemicalFormula'], datatype=XSD.string)))
@@ -184,11 +189,13 @@ def triplify(df):
         kg.add((extra_iris['Measurement'], qudt['quantityKind'], extra_iris['Amount'])) #this needs to change to quantityValue and quantityKind needs to be instantiated separately
         kg.add((extra_iris['Measurement'], RDF.type, us_epa_ghg['Measurement']))
 
-        #amount
-
-        kg.add((extra_iris['Amount'], RDF.type, us_epa_ghg['Amount']))
+        #amount (quantity value)
+        kg.add((extra_iris['Amount'], RDF.type, qudt['QuantityValue']))
         kg.add((extra_iris['Amount'], qudt['numericValue'], Literal(release['Amount'], datatype=XSD.float)))
         kg.add((extra_iris['Amount'], qudt['unit'], unit['TON_Metric']))
+
+        #TODO quantity kind / coso:ContaminationProperty
+
     return kg
 
 
