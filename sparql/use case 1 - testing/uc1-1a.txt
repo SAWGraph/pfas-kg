@@ -1,0 +1,48 @@
+# CQ 1a
+# What wells are near (in same or a neighboring level 13 s2 cell as) a particular facility?
+# this query is currently working only for Maine because it uses the me_mgs namespace
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
+PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX coso: <http://sawgraph.spatialai.org/v1/contaminoso#>
+PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
+PREFIX us_frs_data: <http://sawgraph.spatialai.org/v1/us-frs-data#>
+
+select ?s2neighbor ?s ?use ?wellType where {
+
+    SERVICE <repository:FIO> 
+    {
+		#us_frs_data:d.FRS-Facility.110013917280 rdfs:label ?facilityName .
+        #fio:ofIndustry ?facilityIndustry;
+        #?s2 spatial:connectedTo us_frs_data:d.FRS-Facility.1100139172802.
+        ?s2 kwg-ont:sfContains us_frs_data:d.FRS-Facility.110013917280.
+		?s2 rdf:type kwg-ont:S2Cell_Level13.
+    }
+    SERVICE <repository:Spatial>
+    {
+        ?s2 kwg-ont:cellID ?s2ID.
+        ?s2 spatial:connectedTo ?s2neighbor.
+		?s2neighbor rdf:type kwg-ont:S2Cell_Level13.
+        #?s2neighbor kwg-ont:sfTouches ?s2NN.
+        #?s2NN kwg-ont:sfTouches ?s2NNN.
+        #?s2NNN kwg-ont:sfTouches ?s2NNNN.
+    }
+   SERVICE <repository:Hydrology>
+    {
+        ?s spatial:connectedTo ?s2neighbor.
+        ?s a me_mgs:MGS-Well .
+        ?s me_mgs:hasUse ?use.
+        ?s me_mgs:ofWellType ?wellType.
+        #?s a coso:SamplePoint.
+        #?s a me_egad:EGAD-SamplePoint.
+        #?s me_egad:samplePointType ?type. 
+        #?type rdfs:label ?typelabel.
+    }
+    
+} 
+limit 100

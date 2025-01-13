@@ -1,6 +1,7 @@
 # Use Case 1: Testing Gaps
 # CQ 1
 # What wells are near (in same s2 cell as)  sources (facilities of concern)?
+# this query is currently working only for Maine because it uses the me_mgs namespace
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
@@ -33,13 +34,14 @@ select ?s ?facility ?facilityName where {
         #?s2NN kwg-ont:sfTouches ?s2NNN.
         #?s2NNN kwg-ont:sfTouches ?s2NNNN.
     }
-    
+
     SERVICE <repository:FIO> 
     {
         ?facility rdf:type us_frs:EPA-PFAS-Facility.
         ?s2neighbors kwg-ont:sfContains ?facility.
     	?facility rdfs:label ?facilityName.   
-    }
+    }    
+
      
 } group by ?s ?facility ?facilityName 
 limit 100
