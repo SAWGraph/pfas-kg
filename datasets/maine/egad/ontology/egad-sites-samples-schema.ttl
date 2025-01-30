@@ -261,6 +261,10 @@ me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf coso:SampleMaterialType ;
                                 rdfs:label "EGAD - Sample Material Type" .
 
+###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
+me_egad:EGAD-SampleMaterialTypeQualifier rdf:type owl:Class ;
+                                rdfs:subClassOf coso:SampleMaterialType ;
+                                rdfs:label "EGAD - Sample Material Type Qualifier" .
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SamplePoint
 me_egad:EGAD-SamplePoint rdf:type owl:Class ;
