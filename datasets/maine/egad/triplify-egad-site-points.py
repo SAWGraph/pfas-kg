@@ -51,7 +51,7 @@ with open(metadata_dir / 'site_type.csv', mode='r') as infile:
 logging.basicConfig(filename=logname,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
+                    datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
 logging.info("Running triplification for EGAD sites and samples")
@@ -84,15 +84,17 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         site_number = row['SITE_NUMBER'] # site number
         site_name = row['SITE_NAME'] # site name
         site_type = row['SAMPLE_POINT_TYPE'] # site type
-        pwsid_number = row['PWSID_NO'] # public water system ID     
+        pwsid_number = row['PWSID_NO'] # public water system ID 
+        pwsid_iri = _PREFIX['gcx'][f'ref/pws/{pwsid_number}']  
 
         site_iri = _PREFIX["me_egad_data"][f"{'site'}.{site_number}"]
-        kg.add( (site_iri, RDF.type, _PREFIX["me_egad"]["EGAD-Site"]) )
+        kg.add( (site_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Site"]) )
         kg.add( (site_iri, RDFS['label'], Literal('EGAD site '+ str(site_number))) )
         kg.add( (site_iri, _PREFIX["me_egad"]['siteNumber'], Literal(site_number, datatype = XSD.integer)) )
         kg.add( (site_iri, _PREFIX["me_egad"]['siteName'], Literal(site_name, datatype = XSD.string)) )
         if (len(str(pwsid_number)) != 0) and (str(pwsid_number) != 'nan'):
-            kg.add( (site_iri, _PREFIX["sdwis"]['pwsidNumber'], Literal(pwsid_number, datatype = XSD.string)) )
+            kg.add( (site_iri, _PREFIX["us_sdwis"]['hasPWSID'], Literal(pwsid_number, datatype = XSD.string)) )
+            kg.add(( site_iri, OWL.sameAs, pwsid_iri))
         #town_name_formatted = row['MCD'].replace(' ', '_') 
         #town_iri = _PREFIX["me_egad_data"][f"{'town'}.{town_name_formatted}"]
         #kg.add( (site_iri, _PREFIX["me_egad"]['locatedIn'], town_iri))

@@ -70,7 +70,7 @@ def main():
 
 
     kg = triplify_data(sites_df, vocab_df, _PREFIX)
-    kg_turtle_file = "sites_types.ttl".format(output_dir)
+    kg_turtle_file = "egad_sites_types.ttl".format(output_dir)
     kg.serialize(kg_turtle_file, format='turtle')
     logger = logging.getLogger('Finished triplifying DEP sites.')
 

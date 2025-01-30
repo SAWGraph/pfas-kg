@@ -19,7 +19,7 @@ from variable import NAME_SPACE, _PREFIX
 ## declare variables
 logname = "log"
 
-metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location', 'sample_point_type', 'sample_type', 'site_type', 'pfas_parameter', 'test_method', 'concentration_qualifier', 'validation_level', 'result_type', 'sample_treatment_status']
+metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location', 'sample_point_type', 'sample_type', 'sample_type_qualifier', 'site_type', 'pfas_parameter', 'test_method', 'concentration_qualifier', 'validation_level', 'result_type', 'sample_treatment_status']
 
 #metadata_files = ['pfas_parameter']
 
@@ -33,7 +33,7 @@ output_dir = root_folder / "datasets/maine/egad/output/"
 logging.basicConfig(filename=logname,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
+                    datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
 logging.info("Running triplification for EGAD metadata")
@@ -53,6 +53,8 @@ def main():
             kg = triplify_point_type(data_df, _PREFIX)
         elif filename == 'sample_type':
             kg = triplify_sample_type(data_df, _PREFIX)
+        elif filename == 'sample_type_qualifier':
+            kg = triplify_sample_type_qualifier(data_df, _PREFIX)
         elif filename == 'site_type':
             kg = triplify_site_type(data_df, _PREFIX)
         elif filename == 'pfas_parameter':
@@ -195,6 +197,24 @@ def triplify_sample_type(df, _PREFIX):
 
    
     return kg
+
+def triplify_sample_type_qualifier(df, _PREFIX):
+    kg = Initial_KG(_PREFIX)
+    ## materialize each record
+    for idx, row in df.iterrows():
+        type_value = row['VALUE'] # material abbreviation
+        type_description = row['DESCRIPTION'] # material description
+
+        ## construct type IRI
+        type_iri = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{type_value}"]
+                
+        ## specify type instance and it's data properties
+        kg.add( (type_iri, RDF.type, OWL.NamedIndividual) )
+        kg.add( (type_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampleMaterialTypeQualifier"]) )
+        kg.add( (type_iri, RDFS['label'], Literal(str(type_description))) )
+        
+    return kg
+
 
 ## triplify the tbox for site type
 def triplify_site_type(df, _PREFIX):

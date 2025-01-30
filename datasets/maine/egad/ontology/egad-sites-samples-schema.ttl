@@ -290,6 +290,11 @@ me_egad:EGAD-Site rdf:type owl:Class ;
                   rdfs:subClassOf coso:Feature ;
                   rdfs:label "EGAD - Site" .
 
+###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-Site
+me_egad:EGAD-PFAS-Site rdf:type owl:Class ;
+                  rdfs:subClassOf me_egad:EGAD-Site;
+                  rdfs:label "EGAD - PFAS Site" .
+
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SiteType
 me_egad:EGAD-SiteType rdf:type owl:Class ;

@@ -50,6 +50,10 @@ with open(metadata_dir / 'sample_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     material_type_dict = {rows[1]:rows[0] for rows in reader}
 
+with open(metadata_dir / 'sample_type_qualifier.csv', mode='r') as infile:
+    reader = csv.reader(infile)
+    material_qualifier_dict = {rows[1]:rows[0] for rows in reader}
+
 with open(metadata_dir / 'sample_collection_method.csv', mode='r') as infile:
     reader = csv.reader(infile)
     collection_method_dict = {rows[1]:rows[0] for rows in reader}
@@ -101,7 +105,7 @@ with open(metadata_dir / 'sample_treatment_status.csv', mode='r') as infile:
 logging.basicConfig(filename=logname,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
+                    datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
 logging.info("Running triplification for EGAD sites and samples")
@@ -133,6 +137,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
     for idx, row in df.iterrows():
         if idx % 10000 == 0:
             print(idx, 'of', rowcount)
+            
         ## sample point record details
         samplepoint_number = row['SAMPLE_POINT_NUMBER'] # sample point number
         samplepoint_webname = row['SAMPLE_POINT_WEB_NAME'] # sample point web name
@@ -166,6 +171,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         analysis_id = row['ANALYSIS_LAB_SAMPLE_ID'] # ID assigned by an analysis lab
         sampleobs_analysislab = row['ANALYSIS_LAB'] # sample analysis lab
         sampleobs_type = row['SAMPLE_TYPE_UPDATE'] # sample type
+        sampleobs_typequalifier = row['SAMPLE_TYPE_QUALIFIER'] #sample type qualifier (species)
         sampleobs_parameter = row['PARAMETER_SHORTENED'] # pfas parameter
         
         
@@ -178,6 +184,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         sample_date = rem_time(sample_date)
         sample_date_formatted = ''.join(e for e in str(sample_date) if e.isalnum())
         samplematerial_iri = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{material_type_dict[sampleobs_type]}"] 
+        samplematerialqualifier_iri = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{material_qualifier_dict[sampleobs_typequalifier]}"]
         
         #sample_iri = _PREFIX["aik-pfas"][f"{'egad.sample'}.{samplepoint_number}.{analysis_id_formatted}.{sample_date_formatted}"]
         #sample_iri = _PREFIX["aik-pfas"][f"{'egad.sample'}.{sample_id_formatted}"]
@@ -191,6 +198,9 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
         if(str(sampleobs_type) != ''):
             kg.add( (sample_iri, _PREFIX["coso"]['ofSampleMaterialType'], samplematerial_iri) )
+
+        if sampleobs_typequalifier not in ['NOT APPLICABLE']:
+            kg.add( (sample_iri, _PREFIX["coso"]['ofSampleMaterialType'], samplematerialqualifier_iri) )
 
         if(str(row['SAMPLE_COLLECTION_METHOD']) != ''):
             kg.add( (sample_iri, _PREFIX["me_egad"]['sampleCollectionMethod'], _PREFIX["me_egad"][f"{'samplingMethod'}.{collection_method_dict[row['SAMPLE_COLLECTION_METHOD']]}"]) )
@@ -281,6 +291,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             units = row['PARAMETER_UNITS'] # units of measurement
 
            
+
             result_iri = _PREFIX["me_egad_data"][f"{'result'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
             #kg.add( (result_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Concentration"]) )
 
@@ -291,6 +302,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
                 kg.add( (sampleparameter_iri, _PREFIX["coso"]['casNumber'], Literal(chemical_number , datatype = XSD.string)) )
                 kg.add( (result_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SinglePFAS-Concentration"]) )
 
+            #TODO add quantity kinds
 
             kg.add( (result_iri, RDFS['label'], Literal('EGAD PFAS measurements for sample '+ str(sample_id))) )
             kg.add( (sampleobs_iri, _PREFIX["sosa"]['hasResult'], result_iri) )

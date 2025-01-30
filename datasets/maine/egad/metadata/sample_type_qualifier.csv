@@ -19,7 +19,7 @@ BLC,Black crappie (Pomoxis nigromaculatus)
 BLM,Blue mussel (Mytilus edulis)
 BLF,Bluefish (Pomatomus saltatrix)
 BG,BROKEN GLASSWARE (USE THIS CODE IN COMBINATION WITH SAMPLE COLLECTION METHOD NS =NO SAMPLE TAKEN)
-BKT,Brook trout (Salvelinus fontinalis) 
+BKT,Brook trout (Salvelinus fontinalis)
 BKTH,Brook trout (Salvelinus fontinalis) - hatchery
 BBH,Brown bullhead (Ameiurus nebulosus)
 BNT,Brown trout (Salmo trutta) 
@@ -39,6 +39,7 @@ BKDAD,DUPLICATE BACKGROUND SAMPLE - DOCUMENTED ANTHROPOGENIC
 BKDND,DUPLICATE BACKGROUND SAMPLE - DOCUMENTED NATURAL: CONCENTRATIONS OF SUBSTANCES PRESENT WITH MINIMAL HUMAN INFLUENCE
 BKUD,DUPLICATE BACKGROUND SAMPLE - UNDOCUMENTED SITE SPECIFIC
 CME,Eastern elliptio (Elliptio complanata)
+FD,FIELD DUPLICATE
 FLF,Fallfish (Semotilus corporalis)
 FP,FREE PRODUCT (USE THIS CODE IN COMBINATION WITH SAMPLE COLLECTION METHOD NS =NO SAMPLE TAKEN)
 FZ,FROZEN (USE THIS CODE IN COMBINATION WITH SAMPLE COLLECTION METHOD NS =NO SAMPLE TAKEN)
@@ -58,6 +59,7 @@ MUS,Muskellunge (Esox masquinongy)
 MU,MUTTON
 NPK,Northern pike (Esox lucius)
 NA,NOT APPLICABLE
+NES,NORMAL ENVIRONMENTAL SAMPLE
 POL,Pollock (Pollachius virens)
 PO,PORK
 PKS,Pumpkinseed (Lepomis gibbosus)

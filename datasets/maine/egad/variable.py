@@ -27,7 +27,7 @@ NAME_SPACE = "http://sawgraph.spatialai.org/v1/"
 _PREFIX = {
     "me_egad": Namespace(f"{NAME_SPACE}me-egad#"),
     "me_egad_data": Namespace(f"{NAME_SPACE}me-egad-data#"),
-    "sdwis": Namespace(f"{NAME_SPACE}sdwis#"),
+    "us_sdwis": Namespace(f"{NAME_SPACE}us-sdwis#"),
     "coso": Namespace(f"{NAME_SPACE}contaminoso#"),
     "coso-unit": Namespace(f"{NAME_SPACE}unit#"),
     "geo": Namespace("http://www.opengis.net/ont/geosparql#"),
@@ -43,7 +43,9 @@ _PREFIX = {
     "qudt": Namespace("http://qudt.org/schema/qudt/"),
     "unit": Namespace("http://qudt.org/vocab/unit/"),
     "prov": Namespace("http://www.w3.org/ns/prov#"),
-    "skos": Namespace("http://www.w3.org/2008/05/skos#")
+    "skos": Namespace("http://www.w3.org/2008/05/skos#"),
+    "gcx": Namespace(f'http://geoconnex.us/')
+
 }
 
 def camel_case(s):
