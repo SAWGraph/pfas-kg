@@ -25,7 +25,8 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = " ME"
+#state = False
+state = " IL"
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -44,6 +45,7 @@ prefixes['qudt'] = Namespace(f'https://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['sosa'] = Namespace(f'http://www.w3.org/ns/sosa/')
+prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -57,19 +59,33 @@ logging.info("Running triplification for facilities")
 
 def main():
     df = load_data()
-    kg = triplify(df)
+    global state
+    if state:
+        #run just one state if state variable already set
+        #filter to just one state
+        df = df[df['State'] == state]
+        print(df.info(verbose=True))
+        kg = triplify(df)
+        kg_turtle_file = f"us-pat-DrinkingWaterState-{state.strip()}.ttl".format(output_dir)
+        kg.serialize(kg_turtle_file, format='turtle')
+        logger = logging.getLogger(f'Finished triplifying sdwis samples for {state} .')
+    else:
+        #otherwise run all states
+        for state in df['State'].unique():
+            #filter to just one state
+            state_df= df[df['State'] == state]
+            print(state_df.info(verbose=True))
+            kg = triplify(state_df)
 
-    kg_turtle_file = f"us-pat-DrinkingWaterState-{state.strip()}.ttl".format(output_dir)
-    kg.serialize(kg_turtle_file, format='turtle')
-    logger = logging.getLogger('Finished triplifying ghg releases.')
+            kg_turtle_file = f"us-pat-DrinkingWaterState-{state.strip()}.ttl".format(output_dir)
+            kg.serialize(kg_turtle_file, format='turtle')
+            logger = logging.getLogger(f'Finished triplifying sdwis samples for {state} .')
 
 
 def load_data():
     df = pd.read_excel(data_dir / 'drinkingwater_state_bd611cce-c661-4b5b-bdb6-5c2d07a19098.xlsx', dtype=str) # , nrows=50
     print(df['State'].unique())
-    #filter to just one state
-    df = df[df['State'] == state]
-    print(df.info(verbose=True))
+    
     logger = logging.getLogger('Data loaded to dataframe.')
     return df
 
@@ -84,7 +100,7 @@ def Initial_KG():
 
 def get_attributes(row):
     sample = {
-        'PWSID': row['PWSID'],
+        'PWSID': str(row['PWSID']),
         'Name': row['PWS Name'],
 
         'PopServed': row['Population Served'],
@@ -95,7 +111,7 @@ def get_attributes(row):
         #'SampleType': row['Sample Type'], - for IL this just says its a special sample (SP) e.g. not routine
         'Count': row['Results'],
 
-        'Substance': str(row['Contaminant']).replace('+', '-'),
+        'Substance': str(row['Contaminant']).replace('+', '-').strip().replace(" ",""),
 
         'Method': row['Method'],
         'RL': row['Reporting Level'],
@@ -104,13 +120,13 @@ def get_attributes(row):
 
     #not all samples have ids
     if pd.notnull(row['Sample ID']):
-        sample['SampleID'] = row['Sample ID']
+        sample['SampleID'] = str(row['Sample ID']).replace(" ","")
     else:
         #construct from PWS(below), date, and sample location id (if exists)
         if pd.notnull(row['Sample Point ID']):
-            sample['SampleID'] = str(row['Sample Date']).replace('/', '') + '.'+str(row['Sample Point ID'])
+            sample['SampleID'] = str(row['Sample Date']).replace('/', '').replace(" ","") + '.'+str(row['Sample Point ID']).replace(" ","")
         else:
-            sample['SampleID'] = str(row['Sample Date']).replace('/', '')
+            sample['SampleID'] = str(row['Sample Date']).replace('/', '').replace(" ","")
 
     #if sample location has identifier
     if pd.notnull(row['Sample Point ID']):
@@ -118,9 +134,9 @@ def get_attributes(row):
     else:  #if we don't know anything about the sample location don't include it
         #construct sample location identifier
         if pd.notnull(row['Sample ID']):
-            sample['SamplePointID'] = str(row['Sample Date']).replace('/', '') + '.' + str(row['Sample ID'])
+            sample['SamplePointID'] = str(row['Sample Date']).replace('/', '').replace(" ","") + '-' + str(row['Sample ID'])
         else:
-            sample['SamplePointID'] = str(row['Sample Date']).replace('/', '')
+            sample['SamplePointID'] = str(row['Sample Date']).replace('/', '').replace(" ","")
 
     #concentrations and NDs
     if row['Concentration'] != '-':
@@ -131,6 +147,8 @@ def get_attributes(row):
     #units conversion
     unitLookup = {
         'NG/L': 'NanoGM-PER-L',
+        'ng/L': 'NanoGM-PER-L',
+        'ng/l': 'NanoGM-PER-L',
         'mg/L': 'MilliGM-PER-L',
         'ppt': 'NanoGM-PER-L',
         'UG/L': 'MicroGM-PER-L'
@@ -143,18 +161,18 @@ def get_attributes(row):
 
 def get_iris(sample):
     iris = {}
-    iris['sample'] = prefixes['us_sdwis_data']['d.PWS-Sample.'+ sample['PWSID']+ '.'+ sample['SampleID']]
+    iris['sample'] = prefixes['us_sdwis_data']['d.PWS-Sample.'+ str(sample['PWSID'])+ '.'+ str(sample['SampleID'])]
     if 'SamplePointID' in sample.keys():
-        iris['samplePoint'] = prefixes['us_sdwis_data']['d.PWS-SamplePoint.' + sample['PWSID'] + '.' + sample['SamplePointID']]
+        iris['samplePoint'] = prefixes['us_sdwis_data']['d.PWS-SamplePoint.' + str(sample['PWSID'] )+ '.' + str(sample['SamplePointID'])]
     iris['observation'] = prefixes['us_sdwis_data']['d.PWS-Observation.' + sample['PWSID'] + '.' + sample['SampleID']+'.' + sample['Substance']]
     iris['measurement']= prefixes['us_sdwis_data']['d.PWS-PFASConcentration.' + sample['PWSID'] + '.' + sample['SampleID'] + '.' + sample['Substance']]
-    iris['amount'] = prefixes['us_sdwis_data']['d.Amount.' + sample['PWSID'] + '.Sample-' + sample['SampleID']+'.Chemical-' + sample['Substance']]
+    iris['amount'] = prefixes['us_sdwis_data']['d.Amount.' + sample['PWSID'] + '.Sample-' + sample['SampleID']+'.Chemical-' + str(sample['Substance'])]
     if 'SubstanceCode' in sample.keys():
         iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.'+str(sample['SubstanceCode'])]
     else:
         iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.' + str(sample['Substance'])]
     #sample Material Type?
-    iris['PWS'] = prefixes['us_sdwis_data']['d.PublicWaterSystem.'+sample['PWSID']]
+    iris['PWS'] = prefixes['gcx']['ref/pws/'+ sample['PWSID']]
 
     #print(iris)
     return iris
@@ -173,7 +191,7 @@ def triplify(df):
         kg.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['PublicWaterSystem']))
         kg.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['SampledFeature']))
         kg.add((iris['PWS'], prefixes['us_sdwis']['hasPWSID'], Literal(sample['PWSID'], datatype=XSD.string)))
-        kg.add((iris['PWS'], prefixes['us_sdwis']['hasName'], Literal(sample['Name'], datatype=XSD.string)))
+        kg.add((iris['PWS'], prefixes['us_sdwis']['pwsName'], Literal(sample['Name'], datatype=XSD.string)))
         kg.add((iris['PWS'], prefixes['us_sdwis']['populationServed'], Literal(sample['PopServed'], datatype=XSD.int)))
         kg.add((iris['PWS'], prefixes['us_sdwis']['sizeCategory'], Literal(sample['SizeCat'], datatype=XSD.string)))
 
