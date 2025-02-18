@@ -218,3 +218,11 @@ datasets/maine/egad/test_method.ttl
 datasets/maine/egad/concentration_qualifier.ttl
 datasets/maine/egad/analysis_lab.ttl
 datasets/maine/egad/validation_level.ttl
+datasets/maine/egad/egad_sites_samples_output.ttl
+datasets/federal/us-sdwis/us-sdwis-sample-schema.ttl
+datasets/federal/us-sdwis/us-pat-SDWIS-IL.ttl
+datasets/federal/us-sdwis/us-pat-SDWIS-ME.ttl
+datasets/federal/us-ghg/us-ghg-facilities-IL.ttl
+datasets/federal/us-ghg/us-ghg-facilities-ME.ttl
+datasets/federal/us-ghg/us-ghg-releases-IL.ttl
+datasets/federal/us-ghg/us-ghg-releases-ME.ttl
