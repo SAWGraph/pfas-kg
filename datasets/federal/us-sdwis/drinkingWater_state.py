@@ -26,7 +26,7 @@ code_dir = Path(__file__).resolve().parent.parent
 ## declare variables
 logname = "log"
 #state = False
-state = " IL"
+state = " ME"
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -41,8 +41,9 @@ prefixes['us_sdwis'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-sdwis#')
 prefixes['us_sdwis_data'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-sdwis-data#')
 #prefixes['us_frs'] = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
 #prefixes['us_frs_data'] = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
-prefixes['qudt'] = Namespace(f'https://qudt.org/schema/qudt/')
+prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
+prefixes['pfas'] = Namespace(f'http://sawgraph.spatialai.org/v1/pfas#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['sosa'] = Namespace(f'http://www.w3.org/ns/sosa/')
 prefixes['gcx']= Namespace(f'http://geoconnex.us/')
@@ -51,7 +52,7 @@ prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 logging.basicConfig(filename=logname,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
+                    datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
 logging.info("Running triplification for facilities")
@@ -65,9 +66,11 @@ def main():
         #filter to just one state
         df = df[df['State'] == state]
         print(df.info(verbose=True))
-        kg = triplify(df)
+        kg, kg_pws = triplify(df)
         kg_turtle_file = f"us-pat-DrinkingWaterState-{state.strip()}.ttl".format(output_dir)
         kg.serialize(kg_turtle_file, format='turtle')
+        file2 = f'us-pat-SDWIS-{state.strip()}.ttl'.format(output_dir)
+        kg_pws.serialize(file2, format='turtle')
         logger = logging.getLogger(f'Finished triplifying sdwis samples for {state} .')
     else:
         #otherwise run all states
@@ -102,22 +105,30 @@ def get_attributes(row):
     sample = {
         'PWSID': str(row['PWSID']),
         'Name': row['PWS Name'],
-
         'PopServed': row['Population Served'],
         'SizeCat': row['Size'],
 
-
         'Date': datetime.strptime(row['Sample Date'],"%m/%d/%Y"),
         #'SampleType': row['Sample Type'], - for IL this just says its a special sample (SP) e.g. not routine
+        'Substance': str(row['Contaminant']).strip().replace(" ",""),
         'Count': row['Results'],
-
-        'Substance': str(row['Contaminant']).replace('+', '-').strip().replace(" ",""),
-
         'Method': row['Method'],
         'RL': row['Reporting Level'],
         'Qualifier': row['MRL/MDL']
     }
 
+    #substance 
+    if "+" in row['Contaminant'] or "Total" in row['Contaminant']:
+        #if substance contains + or Total, its an aggregate (substance collection)
+        sample['SubstanceColl'] = True  
+    
+    count = int(sample['Substance'].count('+'))+1
+
+    if count > 1:
+        sample['SubstanceShort'] = 'sum' + str(count) #shorten substance name if aggregate with +
+    else:
+        sample['SubstanceShort'] = sample['Substance']
+    
     #not all samples have ids
     if pd.notnull(row['Sample ID']):
         sample['SampleID'] = str(row['Sample ID']).replace(" ","")
@@ -164,14 +175,11 @@ def get_iris(sample):
     iris['sample'] = prefixes['us_sdwis_data']['d.PWS-Sample.'+ str(sample['PWSID'])+ '.'+ str(sample['SampleID'])]
     if 'SamplePointID' in sample.keys():
         iris['samplePoint'] = prefixes['us_sdwis_data']['d.PWS-SamplePoint.' + str(sample['PWSID'] )+ '.' + str(sample['SamplePointID'])]
-    iris['observation'] = prefixes['us_sdwis_data']['d.PWS-Observation.' + sample['PWSID'] + '.' + sample['SampleID']+'.' + sample['Substance']]
-    iris['measurement']= prefixes['us_sdwis_data']['d.PWS-PFASConcentration.' + sample['PWSID'] + '.' + sample['SampleID'] + '.' + sample['Substance']]
-    iris['amount'] = prefixes['us_sdwis_data']['d.Amount.' + sample['PWSID'] + '.Sample-' + sample['SampleID']+'.Chemical-' + str(sample['Substance'])]
-    if 'SubstanceCode' in sample.keys():
-        iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.'+str(sample['SubstanceCode'])]
-    else:
-        iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.' + str(sample['Substance'])]
-    #sample Material Type?
+    iris['observation'] = prefixes['us_sdwis_data']['d.PWS-Observation.' + sample['PWSID'] + '.' + sample['SampleID']+'.' + sample['SubstanceShort']]
+    iris['measurement']= prefixes['us_sdwis_data']['d.PWS-PFASMeasurement.' + sample['PWSID'] + '.' + sample['SampleID'] + '.' + sample['SubstanceShort']]
+    iris['amount'] = prefixes['us_sdwis_data']['d.QuantityValue.' + sample['PWSID'] + '.Sample-' + sample['SampleID']+'.Chemical-' + str(sample['SubstanceShort'])]
+    iris['substance'] = prefixes['us_sdwis_data']['d.PWS-PFAS.' + str(sample['SubstanceShort'])]
+    #TODO sample Material Type?
     iris['PWS'] = prefixes['gcx']['ref/pws/'+ sample['PWSID']]
 
     #print(iris)
@@ -180,6 +188,7 @@ def get_iris(sample):
 
 def triplify(df):
     kg = Initial_KG()
+    kg_pws = Initial_KG()
     for idx, row in df.iterrows():
         # get attributes
         sample = get_attributes(row)
@@ -188,16 +197,18 @@ def triplify(df):
         #print(iris)
 
         #pws
-        kg.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['PublicWaterSystem']))
-        kg.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['SampledFeature']))
-        kg.add((iris['PWS'], prefixes['us_sdwis']['hasPWSID'], Literal(sample['PWSID'], datatype=XSD.string)))
-        kg.add((iris['PWS'], prefixes['us_sdwis']['pwsName'], Literal(sample['Name'], datatype=XSD.string)))
-        kg.add((iris['PWS'], prefixes['us_sdwis']['populationServed'], Literal(sample['PopServed'], datatype=XSD.int)))
-        kg.add((iris['PWS'], prefixes['us_sdwis']['sizeCategory'], Literal(sample['SizeCat'], datatype=XSD.string)))
+        kg_pws.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['PublicWaterSystem']))
+        kg_pws.add((iris['PWS'], RDF.type, prefixes['us_sdwis']['SampledFeature']))
+        kg_pws.add((iris['PWS'], prefixes['us_sdwis']['hasPWSID'], Literal(sample['PWSID'], datatype=XSD.string)))
+        kg_pws.add((iris['PWS'], prefixes['us_sdwis']['pwsName'], Literal(sample['Name'], datatype=XSD.string)))
+        kg_pws.add((iris['PWS'], RDFS.label, Literal(sample['Name'], datatype=XSD.string)))
+        kg_pws.add((iris['PWS'], prefixes['us_sdwis']['populationServed'], Literal(sample['PopServed'], datatype=XSD.int)))
+        kg_pws.add((iris['PWS'], prefixes['us_sdwis']['sizeCategory'], Literal(sample['SizeCat'], datatype=XSD.string)))
 
         #MaterialSample
         kg.add((iris['sample'], RDF.type, prefixes['us_sdwis']['PWS-Sample']))
         kg.add((iris['sample'], prefixes['us_sdwis']['sampleID'], Literal(sample['SampleID'], datatype=XSD.string)))
+        kg.add((iris['sample'], prefixes['coso']['isSampleOf'], iris['PWS']))
         #TODO derive sample type from 'Sample Type'
 
         #sample point - TODO:how should this relate to PWS-Facility?
@@ -208,7 +219,7 @@ def triplify(df):
 
         #observation
         kg.add((iris['observation'], RDF.type, prefixes['us_sdwis']['PWS-Observation']))
-        #TODO determine if single or aggregate observation based on 'Results' count
+        
         kg.add((iris['observation'], prefixes['coso']['sampledFeature'], iris['PWS']))
         kg.add((iris['observation'], prefixes['coso']['ofSubstance'], iris['substance']))
         kg.add((iris['observation'], prefixes['sosa']['hasResult'], iris['measurement']))
@@ -216,8 +227,18 @@ def triplify(df):
         kg.add((iris['observation'], prefixes['coso']['sampleTime'], Literal(sample['Date'].strftime("%Y-%m-%d"), datatype=XSD.date)))
 
         #measurement
-        kg.add((iris['measurement'], RDF.type, prefixes['us_sdwis']['PWS-PFASConcentration']))
-
+        #TODO determine if single or aggregate observation based on 'Results' count and subsutanceColl
+        kg.add((iris['measurement'], RDF.type, prefixes['us_sdwis']['PWS-PFASMeasurement']))
+        if int(sample['Count']) > 1:
+            kg.add((iris['measurement'], RDF.type, prefixes['us_sdwis']['PWS-AggregatePFASConcentrationMeasurement']))
+            kg.add((iris['measurement'], RDF.type, prefixes['pfas']['AggregatePFASConcentrationMeasurement']))
+            #TODO label as temporal aggregate
+        elif 'SubstanceColl' in sample.keys():
+            kg.add((iris['measurement'], RDF.type, prefixes['us_sdwis']['PWS-AggregatePFASConcentrationMeasurement']))
+            kg.add((iris['measurement'], RDF.type, prefixes['pfas']['AggregatePFASConcentrationMeasurement']))
+            #TODO label as substance aggregate
+        else:
+            kg.add((iris['measurement'], RDF.type, prefixes['pfas']['SinglePFASConcentrationMeasurement']))
         #TODO handle the non-detects
 
         #Amount quantity value - only create if there is a concentration? - need to handle nondetects above
@@ -229,13 +250,16 @@ def triplify(df):
                 kg.add((iris['amount'], prefixes['qudt']['unit'], prefixes['qudt'][sample['Unit']]))
 
         #substance
-        kg.add((iris['substance'], RDF.type, prefixes['us_sdwis']['PWS-PFAS']))
+        if 'SubstanceColl' in sample.keys():
+            kg.add((iris['substance'], RDF.type, prefixes['coso']['SubstanceCollection']))
+        else:
+            kg.add((iris['substance'], RDF.type, prefixes['us_sdwis']['PWS-PFAS']))
         kg.add((iris['substance'], RDFS.label, Literal(sample['Substance'], datatype=XSD.string)))
 
 
 
 
-    return kg
+    return kg, kg_pws
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 @prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
-@prefix qudt: <https://qudt.org/schema/qudt/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
@@ -13,11 +13,14 @@ us_sdwis:PWS-PFAS rdf:type owl:Class;
 us_sdwis:Amount rdf:type owl:Class;
     rdfs:subClassOf qudt:QuantityValue.
 
-us_sdwis:PWS-PFASConcentration rdf:type owl:Class;
-    rdfs:subClassOf pfas:PFAS-ConcentrationMeasurement.
+us_sdwis:PWS-PFASMeasurement rdf:type owl:Class;
+    rdfs:subClassOf coso:ContaminantConcentrationMeasurement.
+
+us_sdwis:AggregatePFASConcentrationMeasurement rdf:type owl:Class;
+    rdfs:subClassOf pfas:AggregatePFASConcentrationMeasurement.
 
 us_sdwis:PWS-Observation rdf:type owl:Class;
-    rdfs:subClassOf pfas:PFAS-SampleContaminantObservation. 
+    rdfs:subClassOf pfas:PFAS-ContaminantSampleObservation. 
 
 us_sdwis:PWS-Sample rdf:type owl:Class;
     rdfs:subClassOf coso:MaterialSample. 
@@ -27,3 +30,6 @@ us_sdwis:PWS-SamplePoint rdf:type owl:Class;
 
 us_sdwis:SampledFeature rdf:type owl:Class;
     rdfs:subClassOf coso:SampledFeature.
+
+us_sdwis:PublicWaterSystem rdf:type owl:Class;
+    rdfs:subClassOf geo:Feature.
