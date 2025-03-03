@@ -26,34 +26,40 @@ egad:1234
 Current Namespaces:
 @prefix coso:         <http://sawgraph.spatialai.org/v1/contaminoso#> .
 @prefix dcgeoid:      <https://datacommons.org/browser/geoId/> .
-@prefix dcterms:      <http://purl.org/dc/terms/> .               # or terms ?
+@prefix dcterms:      <http://purl.org/dc/terms/> .               # or terms: ?
+@prefix fio:          <http://sawgraph.spatialai.org/v1/fio#> .
 @prefix gcx_cid:      <https://geoconnex.us/nhdplusv2/comid/> .   # This is temporary and will likely change.
 @prefix geo:          <http://www.opengis.net/ont/geosparql#> .
-@prefix gwml2:        <http://gwml2.org/def/gwml2#> .
 @prefix gsmlb:        <http://geosciml.org/def/gsmlb#> .
+@prefix gwml2:        <http://gwml2.org/def/gwml2#> .             # This does not dereference
 @prefix hyf:          <https://www.opengis.net/def/schema/hy_features/hyf/> .
 @prefix hyfo:         <http://hyfo.spatialai.org/v1/hyfo#> .
-@prefix il_isgs:      <http://sawgraph.spatialai.org/v1/il_isgs#> .
-@prefix il_isgs_data: <http://sawgraph.spatialai.org/v1/il_isgs_data#> .
+@prefix il_isgs:      <http://sawgraph.spatialai.org/v1/il-isgs#> .
+@prefix il_isgs_data: <http://sawgraph.spatialai.org/v1/il-isgs-data#> .
 @prefix kwg-ont:      <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
 @prefix kwgr:         <http://stko-kwg.geog.ucsb.edu/lod/resource/> .
 @prefix me_egad:      <http://sawgraph.spatialai.org/v1/me-egad#> .
 @prefix me_egad_data: <http://sawgraph.spatialai.org/v1/me-egad-data#> .
 @prefix me_mgs:       <http://sawgraph.spatialai.org/v1/me-mgs#> .
 @prefix me_mgs_data:  <http://sawgraph.spatialai.org/v1/me-mgs-data#> .
+@prefix naics:        <http://sawgraph.spatialai.org/v1/fio/naics#> .
+@prefix nhdplusv2:    <http://nhdplusv2.spatialai.org/v1/nhdplusv2#> .
 @prefix owl:          <http://www.w3.org/2002/07/owl#> .
 @prefix prov:         <http://www.w3.org/ns/prov#> .
 @prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
 @prefix qudt:         <http://qudt.org/schema/qudt/> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix saw_geo:       <http://sawgraph.spatialai.org/v1/saw_geo#> .
-@prefix saw_water:    <http://sawgraph.spatialai.org/v1/saw_water#> .
+@prefix saw_geo:      <http://sawgraph.spatialai.org/v1/saw_geo#> .
+@prefix saw_water:    <http://sawgraph.spatialai.org/v1/saw_water#> .    # Replaced by nhdplusv2
 @prefix schema:       <https://schema.org/> .
 @prefix sf:           <http://www.opengis.net/ont/sf#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa:         <http://www.w3.org/ns/sosa/> .
 @prefix spatial:      <http://purl.org/spatialai/spatial/spatial-full#> .
+@prefix stad:         <http://purl.org/spatialai/stad/v2/core/> .
 @prefix unit:         <http://qudt.org/vocab/unit/> .
+@prefix us_frs:       <http://sawgraph.spatialai.org/v1/us-frs#> .
 @prefix wdt:          <https://www.wikidata.org/prop/direct/> .
 @prefix xml:          <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
