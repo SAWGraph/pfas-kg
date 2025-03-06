@@ -1,0 +1,118 @@
+Domain,Unique Identifier,Code,Name,Last Change Date,Country Code,Fips Code
+State(StateCode),69,01,Aguascalientes,8/12/2006 12:56:50 AM,MX,1
+State(StateCode),70,02,Baja California,8/12/2006 12:56:50 AM,MX,2
+State(StateCode),71,03,Baja California Sur,8/12/2006 12:56:50 AM,MX,3
+State(StateCode),72,04,Campeche,8/12/2006 12:56:50 AM,MX,4
+State(StateCode),73,05,Chiapas,8/12/2006 12:56:50 AM,MX,5
+State(StateCode),74,06,Chihuahua,8/12/2006 12:56:50 AM,MX,6
+State(StateCode),75,07,Coahuila de Zaragoza,8/12/2006 12:56:50 AM,MX,7
+State(StateCode),76,08,Colima,8/12/2006 12:56:50 AM,MX,8
+State(StateCode),77,09,Distrito Federal,8/12/2006 12:56:50 AM,MX,9
+State(StateCode),78,10,Durango,8/12/2006 12:56:50 AM,MX,10
+State(StateCode),79,11,Guanajuato,8/12/2006 12:56:50 AM,MX,11
+State(StateCode),80,12,Guerrero,8/12/2006 12:56:50 AM,MX,12
+State(StateCode),81,13,Hidalgo,8/12/2006 12:56:50 AM,MX,13
+State(StateCode),82,14,Jalisco,8/12/2006 12:56:50 AM,MX,14
+State(StateCode),83,15,Mexico,8/12/2006 12:56:50 AM,MX,15
+State(StateCode),84,16,Michoacan de Ocampo,8/12/2006 12:56:50 AM,MX,16
+State(StateCode),85,17,Morelos,8/12/2006 12:56:50 AM,MX,17
+State(StateCode),86,18,Nayarit,8/12/2006 12:56:50 AM,MX,18
+State(StateCode),87,19,Nuevo Leon,8/12/2006 12:56:50 AM,MX,19
+State(StateCode),88,20,Oaxaca,8/12/2006 12:56:50 AM,MX,20
+State(StateCode),89,21,Puebla,8/12/2006 12:56:50 AM,MX,21
+State(StateCode),90,22,Queretaro de Arteaga,8/12/2006 12:56:50 AM,MX,22
+State(StateCode),91,23,Quintana Roo,8/12/2006 12:56:50 AM,MX,23
+State(StateCode),92,24,San Luis Potosi,8/12/2006 12:56:50 AM,MX,24
+State(StateCode),93,25,Sinaloa,8/12/2006 12:56:50 AM,MX,25
+State(StateCode),94,26,Sonora,8/12/2006 12:56:50 AM,MX,26
+State(StateCode),95,27,Tabasco,8/12/2006 12:56:50 AM,MX,27
+State(StateCode),96,28,Tamaulipas,8/12/2006 12:56:50 AM,MX,28
+State(StateCode),97,29,Tlaxcala,8/12/2006 12:56:50 AM,MX,29
+State(StateCode),98,30,Veracruz-Llave,8/12/2006 12:56:50 AM,MX,30
+State(StateCode),99,31,Yucatan,8/12/2006 12:56:50 AM,MX,31
+State(StateCode),100,32,Zacatecas,8/12/2006 12:56:50 AM,MX,32
+State(StateCode),55,67,Johnston Atoll,8/12/2006 12:56:50 AM,US,67
+State(StateCode),59,71,Midway Islands,8/12/2006 12:56:50 AM,US,71
+State(StateCode),61,76,Navassa Island,8/12/2006 12:56:50 AM,US,76
+State(StateCode),63,79,Wake Island,8/12/2006 12:56:50 AM,US,79
+State(StateCode),64,81,Baker Island,8/12/2006 12:56:50 AM,US,81
+State(StateCode),65,84,Howland Island,8/12/2006 12:56:50 AM,US,84
+State(StateCode),66,86,Jarvis Island,8/12/2006 12:56:50 AM,US,86
+State(StateCode),67,89,Kingman Reef,8/12/2006 12:56:50 AM,US,89
+State(StateCode),68,95,Palmyra Atoll,8/12/2006 12:56:50 AM,US,95
+State(StateCode),101,AB,Alberta,8/12/2006 12:56:50 AM,CA,1
+State(StateCode),2,AK,Alaska,8/12/2006 12:56:50 AM,US,2
+State(StateCode),1,AL,Alabama,2/24/2014 4:16:50 PM,US,1
+State(StateCode),4,AR,Arkansas,8/12/2006 12:56:50 AM,US,5
+State(StateCode),52,AS,American Samoa,8/12/2006 12:56:50 AM,US,60
+State(StateCode),3,AZ,Arizona,8/12/2006 12:56:50 AM,US,4
+State(StateCode),102,BC,British Columbia,8/12/2006 12:56:50 AM,CA,2
+State(StateCode),5,CA,California,8/12/2006 12:56:50 AM,US,6
+State(StateCode),6,CO,Colorado,8/12/2006 12:56:50 AM,US,8
+State(StateCode),7,CT,Connecticut,8/12/2006 12:56:50 AM,US,9
+State(StateCode),9,DC,District of Columbia,8/12/2006 12:56:50 AM,US,11
+State(StateCode),8,DE,Delaware,8/12/2006 12:56:50 AM,US,10
+State(StateCode),10,FL,Florida,8/12/2006 12:56:50 AM,US,12
+State(StateCode),53,FM,Micronesia,8/12/2006 12:56:50 AM,US,64
+State(StateCode),11,GA,Georgia,8/12/2006 12:56:50 AM,US,13
+State(StateCode),54,GU,Guam,8/12/2006 12:56:50 AM,US,66
+State(StateCode),12,HI,Hawaii,8/12/2006 12:56:50 AM,US,15
+State(StateCode),16,IA,Iowa,8/12/2006 12:56:50 AM,US,19
+State(StateCode),13,ID,Idaho,8/12/2006 12:56:50 AM,US,16
+State(StateCode),14,IL,Illinois,8/12/2006 12:56:50 AM,US,17
+State(StateCode),15,IN,Indiana,8/12/2006 12:56:50 AM,US,18
+State(StateCode),17,KS,Kansas,8/12/2006 12:56:50 AM,US,20
+State(StateCode),18,KY,Kentucky,8/12/2006 12:56:50 AM,US,21
+State(StateCode),19,LA,Louisiana,8/12/2006 12:56:50 AM,US,22
+State(StateCode),22,MA,Massachusetts,8/12/2006 12:56:50 AM,US,25
+State(StateCode),103,MB,Manitoba,8/12/2006 12:56:50 AM,CA,3
+State(StateCode),21,MD,Maryland,8/12/2006 12:56:50 AM,US,24
+State(StateCode),20,ME,Maine,8/12/2006 12:56:50 AM,US,23
+State(StateCode),56,MH,Marshall Islands,8/12/2006 12:56:50 AM,US,68
+State(StateCode),23,MI,Michigan,8/12/2006 12:56:50 AM,US,26
+State(StateCode),24,MN,Minnesota,8/12/2006 12:56:50 AM,US,27
+State(StateCode),26,MO,Missouri,8/12/2006 12:56:50 AM,US,29
+State(StateCode),57,MP,N. Mariana Islands,8/12/2006 12:56:50 AM,US,69
+State(StateCode),25,MS,Mississippi,8/12/2006 12:56:50 AM,US,28
+State(StateCode),27,MT,Montana,8/12/2006 12:56:50 AM,US,30
+State(StateCode),106,N9,Northwest Territorie (Pre 1999),8/12/2006 12:56:50 AM,CA,6
+State(StateCode),104,NB,New Brunswick,8/12/2006 12:56:50 AM,CA,4
+State(StateCode),34,NC,North Carolina,8/12/2006 12:56:50 AM,US,37
+State(StateCode),35,ND,North Dakota,8/12/2006 12:56:50 AM,US,38
+State(StateCode),28,NE,Nebraska,8/12/2006 12:56:50 AM,US,31
+State(StateCode),105,NF,Newfoundland,8/12/2006 12:56:50 AM,CA,5
+State(StateCode),30,NH,New Hampshire,8/12/2006 12:56:50 AM,US,33
+State(StateCode),31,NJ,New Jersey,8/12/2006 12:56:50 AM,US,34
+State(StateCode),32,NM,New Mexico,8/12/2006 12:56:50 AM,US,35
+State(StateCode),107,NS,Nova Scotia,8/12/2006 12:56:50 AM,CA,7
+State(StateCode),113,NT,Northwest Territories,3/4/2014 12:00:00 PM,CA,13
+State(StateCode),114,NU,Nunavut,3/4/2014 12:00:00 PM,CA,14
+State(StateCode),29,NV,Nevada,8/12/2006 12:56:50 AM,US,32
+State(StateCode),33,NY,New York,8/12/2006 12:56:50 AM,US,36
+State(StateCode),36,OH,Ohio,8/12/2006 12:56:50 AM,US,39
+State(StateCode),37,OK,Oklahoma,8/12/2006 12:56:50 AM,US,40
+State(StateCode),108,ON,Ontario,8/12/2006 12:56:50 AM,CA,8
+State(StateCode),38,OR,Oregon,8/12/2006 12:56:50 AM,US,41
+State(StateCode),39,PA,Pennsylvania,8/12/2006 12:56:50 AM,US,42
+State(StateCode),109,PE,Prince Edward Island,8/12/2006 12:56:50 AM,CA,9
+State(StateCode),60,PR,Puerto Rico,8/12/2006 12:56:50 AM,US,72
+State(StateCode),58,PW,Palau,8/12/2006 12:56:50 AM,US,70
+State(StateCode),110,QC,Quebec,8/12/2006 12:56:50 AM,CA,10
+State(StateCode),40,RI,Rhode Island,8/12/2006 12:56:50 AM,US,44
+State(StateCode),116,RM,Madeira,12/23/2024 12:41:31 AM,PT,
+State(StateCode),41,SC,South Carolina,8/12/2006 12:56:50 AM,US,45
+State(StateCode),42,SD,South Dakota,8/12/2006 12:56:50 AM,US,46
+State(StateCode),111,SK,Saskatchewan,8/12/2006 12:56:50 AM,CA,11
+State(StateCode),43,TN,Tennessee,8/12/2006 12:56:50 AM,US,47
+State(StateCode),44,TX,Texas,8/12/2006 12:56:50 AM,US,48
+State(StateCode),115,UM,Minor Outlying Islands,1/27/2023 1:01:11 PM,US,74
+State(StateCode),45,UT,Utah,8/12/2006 12:56:50 AM,US,49
+State(StateCode),47,VA,Virginia,8/12/2006 12:56:50 AM,US,51
+State(StateCode),62,VI,Virgin Islands,8/12/2006 12:56:50 AM,US,78
+State(StateCode),46,VT,Vermont,8/12/2006 12:56:50 AM,US,50
+State(StateCode),48,WA,Washington,8/12/2006 12:56:50 AM,US,53
+State(StateCode),50,WI,Wisconsin,8/12/2006 12:56:50 AM,US,55
+State(StateCode),49,WV,West Virginia,8/12/2006 12:56:50 AM,US,54
+State(StateCode),51,WY,Wyoming,8/12/2006 12:56:50 AM,US,56
+State(StateCode),112,YT,Yukon Territory,8/12/2006 12:56:50 AM,CA,12
+

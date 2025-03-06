@@ -1,0 +1,6 @@
+Domain,Unique Identifier,Code,Description,Last Change Date
+Reference Location Type(ReferenceLocationTypeCode),1,Control,a group or individual used as a standard of comparison for checking the results of a survey or experiment.,7/18/2008 11:58:17 AM
+Reference Location Type(ReferenceLocationTypeCode),2,Random,"Location made, or occurring without definite aim, reason, or pattern: characterized selection in which each item of a set has an equal probability of being chosen.",7/18/2008 11:58:18 AM
+Reference Location Type(ReferenceLocationTypeCode),3,Reference,strategically chosen areas of similar chemical and physical characteristics used to compare impacts of disturbed areas,7/18/2008 11:58:18 AM
+Reference Location Type(ReferenceLocationTypeCode),4,Treatment Site,"Any site that improves the quality of water to make it more acceptable for a specific end-use. The end use may be drinking, industrial water supply, irrigation, river flow maintenance, water recreation or many other uses, including being safely returned to the environment. ",7/18/2008 11:58:19 AM
+

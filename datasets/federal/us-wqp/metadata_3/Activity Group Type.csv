@@ -1,0 +1,8 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Activity Group Type(ActivityGroupTypeCode),3,Field Set,Used to group field activities,8/11/2006 11:41:00 PM
+Activity Group Type(ActivityGroupTypeCode),6,Other,Some other general group of activities - optionally qualified by the Activity Group Name,4/10/2020 12:48:18 PM
+Activity Group Type(ActivityGroupTypeCode),2,QC Sample,Used to group activities/samples with related quality control samples,7/10/2015 3:49:19 PM
+Activity Group Type(ActivityGroupTypeCode),4,Replicate,"Used to group samples/measurements of the same type, medium, etc",8/11/2006 11:41:00 PM
+Activity Group Type(ActivityGroupTypeCode),1,Subsample,Used to group samples with subsamples,7/26/2006 10:57:46 AM
+Activity Group Type(ActivityGroupTypeCode),5,Trip,Used to group activities collected during the same trip,4/10/2020 12:48:17 PM
+

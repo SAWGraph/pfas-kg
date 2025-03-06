@@ -1,0 +1,329 @@
+Domain,Unique Identifier,Code,Description,Last Change Date
+Result Measure Qualifier Deprecated(),6,"""",LCS or LCSD is outside acceptance limits.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),266,$,Incorrect sample container,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),77,*,Sample was warm when received,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),7,4,"MS, MSD: The analyte present in the original sample is greater than 4 times the matrix spike concentration; therefore, control limits are not applicable",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),290,A,Compound not analyzed,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),275,AL,Aldol condensation present. Analyte may not be present.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),200,ALK,"Estimate, Alkylated PAH Sum",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),201,ALT,Alternate Method,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),202,B,Detection in blank,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),221,BAC,"Correction Factor, background",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),8,BDJ,B D J; Detection in blank. Dilution required.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),402,BG,Analyte found in sample and associated blank and lock mass interference present,5/21/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),291,BH,Detection in blank. Holding time exceeded. ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),9,BJ,B J; Detected in blank.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),403,BJG,"Analyte found in sample and associated blank, the reported result is an estimate (the value is less than the minimum calibration level but greater than the estimated detection limit) and lock mass interference present",5/21/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),211,BJHQC,"Estimated value, compound also detected in LRB, holding time exceeded, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),277,BJHT,"Estimated value, compound also detected in LRB, holding time exceeded",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),278,BJQC,"Estimated value, compound also detected in LRB, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),10,BL,Detection in blank. Lowest available reporting limit for the analytical method used.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),11,BMDL,Concentration is less than method detection limit (MDL),1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),203,BQB,Below Quantitation Limit. Detection in blank.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),205,BQBJ,Below Quantitation Limit. Detection in blank. Estimated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),292,BQJ,Below Quantitation Limit. Estimated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),222,BQL,Below Quantitation Limit,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),224,BRL,Below Reporting Limit,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),219,BU,"Detection in blank.  Not Detected: The analyte was analyzed for, but was not detected at a level greater than or equal to the level of the adjusted Contract Required Quantitation Limit (CRQL) for sample and method. ",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),66,BVER,Continuing calibration blank criteria was not met,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),225,C,Presence of compound may be due to contamination of sample during laboratory processing,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),226,C25,Dual Column result difference >25%,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),227,CAJ,"Correction Factor, lab",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),228,CAN,"No Result Reported, analysis canceled",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),12,CB,C B; Co-eluting congener.  Detection in blank.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),13,CB+,CCB out high.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),14,CB+J,CCB out high. Estimated value between MDL and MQL.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),229,CBC,"No Result Reported, cannot be calculated",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),15,CBD,C B D; Co-eluting congener.  Detection in blank.  Dilution required,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),16,CBDJ,C B D J; Co-eluting congener.  Detection in blank.  Dilution required.  Estimated,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),17,CBJ,C B J; Co-eluting congener.  Detection in blank.  Estimated,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),280,CBL,"Correction Factor, blank",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),204,CBQBJ,Co-eluting congener. Below Quantitation Limit. Detection in blank. Estimated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),230,CC,co-eluting congener,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),276,CCB,Co-eluting congener. Detection in blank.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),206,CCBJ,Co-eluting congener. Detection in blank. Estimated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),223,CCBQ,Co-eluting congener. Below Quantitation Limit.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),279,CCBQJ,Co-eluting congener. Below Quantitation Limit. Estimated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),231,CCJ,Co-eluting congener. Estimated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),232,CCU,Co-eluting congener. Not Detected.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),18,CD,C D; Co-eluting congener.  Detection in blank.  Dilution required,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),281,CDI,"Correction Factor, dilution",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),19,CDJ,C D J; Co-eluting congener.  Dilution required.  Estimated,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),20,CEBDJ,C EMPC B D J; Co-eluting congener.  Estimated maximum possible concentration.  Detection in blank.  Dilution required.  Estimated.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),21,CECBJ,C EMPC B J; Co-eluting congener.  Estimated maximum possible concentration.  Detection in blank. Estimated.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),22,CECDJ,C EMPC D J; Co-eluting congener.  Estimated maximum possible concentration.  Dilution required.  Estimated.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),23,CEMCB,C EMPC B; Co-eluting congener.  Estimated maximum possible concentration.  Detection in blank,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),24,CEMPC,C EMPC; Co-eluting congener.  Estimated maximum possible concentration,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),25,CEPCD,C EMPC D; Co-eluting congener.  Estimated maximum possible concentration.  Dilution required.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),26,CEPCJ,C EMPC J; Co-eluting congener.  Estimated maximum possible concentration.  Estimated.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),27,CJ,Co-eluting congener.  Estimated value.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),67,CJQC,"Estimated value, possible contamination of sample during laboratory processing, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),233,CLC,"Correction Factor, other",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),234,CNT,Non-acceptable colony counts.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),235,CON,Value Confirmed,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),28,CU,Co-eluting congener.  Not detected.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),29,CUD,C U D; Co-eluting congener.  Not detected.  Dilution required,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),236,D,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required.  ",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),207,DB,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required.  Detection in blank.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),208,DBH,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required. Detection in blank. Holding time exceeded.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),30,DE,Serial dilution acceptance criteria not met.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),240,DEC,Value Decensored,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),282,DH,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required. Holding time exceeded",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),237,DHJ,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required. Holding time exceeded. Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),293,DJ,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required. Estimated:The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),241,DL,Not Detected: The analyte was not detected at a level >= to the Method Detection Limit for the analysis.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),238,DR,"Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required. Rejected: The sample results are unusable due to the quality of the data generated because certain criteria were not met. The analyte may or may not be present in the sample.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),239,DU,"Contract Required Quantitation Limit (CRQL) ... Not Detected: The analyte was analyzed for, but was not detected at a level greater than or equal to the level of the adjusted Contract Required Quantitation Limit (CRQL) for sample and method. ",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),242,E,Concentration of analyte being analyzed exceeded calibration range of instrument.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),31,ECBDJ,EMPC B D J; Estimated maximum possible concentration.  Detected in blank.  Dilution required.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),243,ECI,"Estimated Value, Coelution",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),244,EE,Identifies compounds whose concentration exceed the calibration range addition of the instrument for that specific analysis.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),2,EER,"No Result Reported, entry error",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),245,EFAI,Equipment failure,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),286,EHT,Sample or extract held beyond acceptable holding time.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),32,EMBDJ,EMPC BDJ; Estimated maximum possible concentration.  Detected in blank. Dilution required.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),33,EMCBD,Estimated maximum possible concentration.  Detected in blank. Dilution required.  Estimated value.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),34,EMCBJ,Estimated maximum possible concentration.  Estimated value.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),35,EMCDJ,Estimated maximum possible concentration.  Dilution required.  Estimated value.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),246,EMPC,Estimated Maximum Possible Concentration,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),36,EMPCB,EMPC B; Estimated maximum possible concentration.  Detected in blank,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),37,EMPCJ,EMPC J; Estimated maximum possible concentration.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),38,ENPNF,Estimated; Normal protocol not followed,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),39,EPCBD,EMPC B D; Estimated maximum possible concentration.  Detected in blank.  Dilution required,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),40,EPCBJ,EMPC B J; Estimated maximum possible concentration.  Detected in blank.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),41,EPCD,EMPC D; Estimated maximum possible concentration.  Detected in blank.  Dilution required.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),42,EPCDJ,EMPC D J; Estimated maximum possible concentration. Dilution required.  Estimated value,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),134,EQF,"Equipment failed, sample not analyzed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),247,ESD,"Estimated Value, serial dilution difference",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),248,EST,"Estimated Value, outside limit of precision",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),283,EVA,"Estimated Value, multiple Aroclors",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),79,EVAD,"Estimated Value, degradation",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),80,EVID,"Estimated Value, tentatively identified compound",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),81,F,Estimated value: compound failed initial calibration check (CCC) or QC criteria,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),43,F1F2,MS and/or MSD Recovery is outside acceptance limits and MS/MSD RPD exceeds control limits.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),44,F1F2B,"MS and/or MSD Recovery is outside acceptance limits, MS/MSD RPD exceeds control limits, and compound was found in the blank and sample.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),132,FBK,Analyte found in blank. Sample contamination indicated.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),267,FDB,"Dry Blank, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),82,FDC,"Drift Check, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),83,FDL,"Lab Duplicate, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),84,FEQ,Field Equipment Questionable,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),85,FFB,Failed. Field blank not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),249,FFD,"Field Duplicate, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),268,FFS,Failed. Field spike not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),86,FFT,Failed. Trip blank not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),87,FIS,"Internal Standard, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),88,FLA,Field Lab Anomaly,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),89,FLD,Failed. Lab duplicate not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),90,FLS,Failed. Lab spike recovery not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),45,FMD,Failed. Matrix Spike Duplicate not acceptable.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),269,FMS,Failed. Matrix spike recovery not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),91,FPC,"Performance Check, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),92,FPR,"Ongoing Precision and Recovery, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),93,FQC,"Quality Control, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),46,FQCU,"FQC,U -Quality Control, failed, Not Detected",2/28/2020 12:40:27 PM
+Result Measure Qualifier Deprecated(),94,FRS,"Lab Reference, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),95,FSD,"Lab Spike Duplicate, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),96,FSL,Failed. Spiked lab blank recovery not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),97,FSP,Failed. Surrogate spike recovery not acceptable.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),270,FUB,"Field Tubing Blank, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),98,G,lock mass interference present,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),47,GG,Reported Value Is Between MDL and the Practical Quantitation Level (Or Reporting Limit),1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),99,GT,The listed result is greater than the upper quantitation limit for either the analytical method or the meter used for the measurement. Equivalent to the Legacy STORET Remark Code of L: Actual Value is known to be greater than the value given.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),100,GXB,"Estimated Value, greater than 10x blank",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),250,H,Holding time exceeded: ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),209,HBJ,Holding time exceeded.  Detection in blank.  Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),251,HIB,Likely Biased High,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),252,HICC,Initial calibration criteria not met – high,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),112,HIM,High Moisture ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),110,HL,Holding time exceeded.  Lowest available reporting limit for the analytical method used.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),113,HLBL,"high labeled compound recovery in sample, estimated value, estimated value",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),114,HMSD,Matrix spike duplicate acceptance criteria not met – high,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),115,HMSR,"high matrix spike recovery, potential high bias",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),48,HMSRJ,"High matrix spike recovery, potential high bias, Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),116,HNRO,"high native analyte recovery in OPR (or LCS), potential high bias",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),400,HSRM,"Likely Biased High. Lab Reference, failed.",2/19/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),49,HTE,Hold time exceeded.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),117,HTH,Hard to Homogenize,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),253,HVER,"high calibration verification standard recovery, estimated value",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),118,I,Estimated value; compound failed initial calibration value,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),119,ICA,Incorrect Initial Calibration Associated with Sample,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),50,IDL,"Instrument Detection Limit, less than",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),120,INT,Interference suspected. Analyte may not be present.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),68,IQCOL,"ICV,CCV,ICB,CCB, ISA, ISB, CRI, CRA, DLCK or MRL standard: Instrument related QC is outside acceptance limits",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),273,ISAC,Internal standard acceptance criteria not met,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),121,ISP,Improper Sample Preservation,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),404,ISR,Internal Standard acceptance criteria not met***retired***use ISAC,6/22/2022 12:00:00 AM
+Result Measure Qualifier Deprecated(),284,ITNA,Incubation time not attained,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),122,ITNM,Incubation temperature not maintained,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),123,J,Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),145,J+,Estimated: The analyte was positively identified and the associated numerical value... +++.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),124,J-,"The analyte was positively identified; the associated numerical value is the approximate concentration of the analyte in the sample, and may have 
+a potential negative bias.
+",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),838,J-1Z,A full explanation is presented in the narrative. Holding time and/or preservation requirements not established for this method;BAL recommendations for holding time were not followed.,10/3/2023 12:40:34 PM
+Result Measure Qualifier Deprecated(),836,J-1ZJ,Estimated. A full explanation is presented in the narrative. Holding time and/or preservation requirements not established for this method;BAL recommendations for holding time were not followed.,9/28/2023 2:44:00 PM
+Result Measure Qualifier Deprecated(),102,J-HT,Approximate value analysis exceeded the holding time ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),837,J-J,Estimated. A full explanation is presented in the narrative.,10/2/2023 2:10:12 PM
+Result Measure Qualifier Deprecated(),136,J-MI,Approximate value due to matrix interference,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),141,J-QC,Approximate value due to quality control problems,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),142,J-R,"Approximate value result is below the reporting level but greater than the method detection limit: J, R",8/1/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),217,J-RB,"Approximate value result is below the reporting level but greater than the method detection limit. Detection in blank: B, J, R",8/1/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),108,J-RH,"Approximate value result is below the reporting level but greater than the method detection limit. Holding time exceeded: H, J, R",8/1/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),212,JB,Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample.  Detection in blank.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),255,JCN,"Sample Container Damaged, no sample lost",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),146,JCW,"Sample Container Damaged, sample lost",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),51,JDE,Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample. And serial dilution acceptance criteria not met.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),101,JH,Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample. Holding time exceeded. ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),300,JHL,Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample. Holding time exceeded.  Lowest available reporting limit for the analytical method used.,11/3/2020 3:06:58 PM
+Result Measure Qualifier Deprecated(),264,JHTF,Estimated value.  Holding time exceeded in the field,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),107,JHTQC,"Estimated value, exceeded holding time and QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),274,JL,Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample.  Lowest available reporting limit for the analytical method used.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),52,JLU,Result estimated low. Result is less than the MDL.,2/28/2020 12:40:32 PM
+Result Measure Qualifier Deprecated(),137,JMQC,"Estimated value, matrix interference, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),272,JRHQC,"Estimated value, between detection limit and reporting limit, holding time exceeded, QC problems: H, J, R, QC",8/1/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),109,JRHT,"Estimated value, between detection limit and reporting limit and exceeded holding time: H, J, R",8/1/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),143,JRQC,"Estimated value, between detection limit and reporting limit and QC problems: J, R, QC",8/1/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),405,JT,"Estimated. Not Detected: The analyte was analyzed for, but was not detected at a level greater than or equal to the level of the adjusted Contract Required Quantitation Limit (CRQL) for sample and method. ",6/22/2023 2:33:59 PM
+Result Measure Qualifier Deprecated(),1004,JZZ,Estimated: These data were qualified as blank-corrected and as undetected when the blank correction resulted in a concentration below the DL.,9/7/2023 9:54:13 AM
+Result Measure Qualifier Deprecated(),147,K,Value below the detection Limit.  For BOD: depletion is less than 1.0,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),69,KB,"Not detected, compound also detected in LRB",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),412,KBJ,"Peak deteced but did not meet quantification criteria (result reported represents the estimated maximum possible concentration), analyte found in sample and associated blank and the reported result is an estimate (the value is less than the minimum calibration level but greater than the estimated de",5/21/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),210,KBJHQ,"Estimated value, not detected, compound also detected in LRB, holding time exceeded, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),214,KBJQC,"Estimated value, not detected, compound also detected in LRB, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),149,KCF,"Known Contamination, field",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),125,KJ,"Estimated value, not detected",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),411,KJG,"Peak detected but did not meet quantification criteria (result reported represents the estimated maximum possible concentration), the reporterd result is an estimate (the value is less than the minimum calibration level but greater than the estimated detection limit) and lock mass interference prese",5/21/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),104,KJHQC,"Estimated value, not detected, holding time exceeded and QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),271,KJHT,"Estimated value, not detected and exceeded holding time",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),127,KJQC,"Estimated value, not detected and QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),150,KK,True bacterial concentration is assumed to be less than the reported value. ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),148,KN,"Not detected, presumptive evidence of nontarget compound",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),213,KNBJQ,"Estimated value, not detected, compound also detected in LRB, presumptive evidence of nontarget compound, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),103,KNJHT,"Estimated value, not detected, presumptive evidence of nontarget compound, holding time exceeded",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),126,KNJQC,"Not detected, presumptive evidence of non-target compound, estimated value, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),53,KRMDL,Reported value was at or below the method detection limit (MDL) and entered at the MDL,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),54,KRPQL,Reported value was at or below the reporting limit (PQL or LQL) and entered at the PQL,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),151,L,Lowest available reporting limit for the analytical method used.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),130,L5B,"Estimated Value, less than 5x blank",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),153,LAC,"No Result Reported, lab accident",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),154,LBF,"Lab Failed, sample not analyzed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),215,LBJQC,"Estimated value, greater than quantitation limit, compound also detected in LRB, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),287,LICC,Initial calibration criteria not met – low,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),155,LIS,Lab internal standard(s) added to sample.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),105,LJHQC,"Estimated value, greater than quantitation limit, holding time exceeded, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),129,LJQC,"Estimated value, greater than quantitation limit and QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),156,LL,True bacterial concentration is assumed to be greater than the reported value. ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),131,LLBL,"low labeled compound recovery in sample, estimated value",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),135,LLRO,"low labeled compound recovery in the OPR (or LCS), estimated value",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),157,LLS,Value less than lower quality control standard.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),158,LMSD,Matrix spike duplicate acceptance criteria not met – low,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),159,LMSR,"low matrix spike recovery, potential low bias",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),55,LMSRJ,"Low matrix spike recovery, potential low bias. Result is less than the MQL but greater than or equal to the MDL and the concentration is an approximate value.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),56,LMSRU,"low matrix spike recovery, potential low bias.  Result is less than the MDL.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),128,LNJQC,"Estimated value, greater than quantitation limit, presumptive evidence of nontarget compound, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),160,LNRO,"low native analyte recovery in OPR (or LCS), potential low bias",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),256,LOB,Likely Biased Low,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),161,LOPR,"low OPR (or LCS) recovery, potential low bias",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),401,LSRM,"Likely Biased Low. Lab Reference, failed.",2/19/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),162,LSSR,Surrogate standard acceptance criteria not met – low,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),3,LTL,"Operating Range, less than",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),163,LVER,"low calibration verification standard recovery, potential low bias",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),254,LXB,"Estimated Value, between 5-10x blank",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),164,M6F,More Than 6 Flags Applied,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),261,MI,Matrix Interference,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),165,MSR,Matrix spike acceptance criteria not met,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),76,MTHD2,2nd method (USGS),1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),138,MTRX,"possible matrix interference, estimated value",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),57,MTX,Matrix Interference.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),166,N,Presumptive evidence of a nontarget compound,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),70,NA,Not Applicable,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),168,NAI,"No Result Reported, interference",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),218,NB,Presumptive evidence of non-target compound; detected in blank,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),216,NBJQC,"Estimated value, presumptive evidence of nontarget compound, compound also detected in LRB, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),58,NFNSI,"While comparison of nutrient fractions (e.g. filtered > unfiltered) or nutrient species (e.g. PO4 > TP) results are not consistent, the results are within precision limits and are analytically equal.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),59,NFNSU,Comparison of nutrient fractions (e.g. filtered > unfiltered) or nutrient species (e.g. PO4 > TP) are not consistent. Results fall outside the normal limits of variability and do not meet Data Quality Objectives. Reanalyses were performed with consistent results. All QA limits and results were valid,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),257,NHS,Non-homogenous sample,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),139,NJ,"Estimated value, presumptive evidence of nontarget compound",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),106,NJHT,"Estimated value, presumptive evidence of nontarget compound, holding time exceeded",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),140,NJQC,"Estimated value, presumptive evidence of nontarget compound, QC problems",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),152,NL,"Estimated value, presumptive evidence of nontarget compound, greater than quantitation limit",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),169,NLBL,"no labeled compound recovery in sample, rejected",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),170,NLRO,"no labeled compound recovery in OPR (or LCS), rejected",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),60,NMSR,"no matrix spike recovery, rejected",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),171,NN,authentic recovery is not within method/contract control limits,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),172,NRO,Control sample acceptance criteria not met,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),71,NRP,No Result Possible,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),173,NRR,"No Result Reported, other",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),5,NRS,Non Representative Sample,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),174,NSQ,"No Result Reported, insufficient quantity of sample",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),4,NWL,"Operating Range, not within",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),288,OA3,"Outlier, across stations",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),175,OS3,"Outlier, single station",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),61,OTH,Other,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),285,OTHER,Other,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),176,OUT,Result value is defined as an outlier by data owner,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),62,PBH,"Estimated value, continuous probe biased high Quality control measures failed high at audit check during deployment. Could include pre, mid or post deployment check.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),63,PBL,"Estimated value, continuous probe biased low Quality control measures failed low at audit check during deployment. Could include pre, mid or post deployment check.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),414,PKB,Peak deteced but did not meet quantification criteria (result reported represents the estimated maximum possible concentration) and analyte found in sample and associated blank,5/21/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),413,PKBJ,"Peak deteced but did not meet quantification criteria (result reported represents the estimated maximum possible concentration), analyte found in sample and associated blank and the reported result is an estimate",5/21/2021 12:00:00 AM
+Result Measure Qualifier Deprecated(),415,PKJG,"Peak detected but did not meet quantification criteria, the reporterd result is an estimate (the value is less than the minimum calibration level but greater than the estimated detection limit) and lock mass interference present",5/21/2021 10:04:35 PM
+Result Measure Qualifier Deprecated(),177,PNQ,No Quantifiable Result Reported,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),178,PPD,"Spiked Blank Duplicate, failed",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),179,PRE,Presumptive evidence that analyte is present.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),180,Q,The result did not pass the lab quality checks and there was an insufficient amount of the sample for re-analysis.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),260,QC,QC problems,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),182,QCI,Quality Control incomplete,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),183,R,Rejected: The sample results are unusable due to the quality of the data generated because certain criteria were not met. The analyte may or may not be present in the sample. ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),406,REJ,"Estimated, Rejected",6/22/2023 2:33:53 PM
+Result Measure Qualifier Deprecated(),258,REX,Re-Prepared,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),133,RHT,Sample received hot,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),184,RIN,Re-Analyzed,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),185,RLRS,"Reporting limit raised, low total solids",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),186,RMAX,result is a maximum value,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),187,RNAF,result not affected by noted QC issue,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),188,RNON,result reported as non-detect due to blank contamination,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),289,RPDX,"RPD is MS/MSD pair exceeds criterion, estimated value",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),189,RPO,% RPD outside of acceptable limits,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),167,RPON,% RPD outside of acceptable limits.  Presumptive evidence of a nontarget compound.,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),64,RRUDL,"Lab reported a result value, however the lab's detection limit is not known/available for validation or comparison to the result.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),294,RRUDQ,"Lab reported a result value, but lab's detection limit not known/available for comparison to the result; however with parameter specific evaluation determined to be quantified.",1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),65,RSM,"Value verified by rerun, same method (USGS)",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),190,SBB,"Estimated Value, less than blank",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),191,SCA,"Suspected Contamination, lab analysis",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),192,SCF,"Suspected Contamination, field",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),193,SCP,"Suspected Contamination, lab preparation",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),194,SCX,"Suspected Contamination, unknown",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),72,SD%EL,MS/MSD RPD exceeds control limits,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),295,SD%SS,MS/MSD RPD exceeds control limits due to sample size difference. (TestAmerica Laboratory with a qualifier code of 'F4'),1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),73,SDROL,MS and/or MSD Recovery is outside acceptance limits,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),195,SLB,Spike level low compared to background,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),75,SM,same method (USGS),1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),196,SSR,Surrogate standard acceptance criteria not met,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),197,SUS,Result value is defined as suspect by data owner,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),198,T,Hardness by Calculation Method - Standard Methods 2340B - 19th Ed ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),296,TMLF,Time missing in logger file.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),259,TOC,Temperature outside of criteria,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),199,TT,analyte recalculated against alternate labelled compound(s,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),262,U,"Not Detected: The analyte was analyzed for, but was not detected at a level greater than or equal to the level of the adjusted Contract Required Quantitation Limit (CRQL) for sample and method. ",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),220,UB,"The analyte was detected in the
+ sample and in either the associated
+ laboratory blank or field blank. If
+ detected below the reporting limit
+ (RL) the analyte result was reported
+ as non-detected. If detected
+ above the RL, the analyte result was
+ reported as non-detected.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),297,UD,U D; Not Detected.  Dilution required.,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),111,UH,"Not Detected: The analyte was analyzed for, but was not detected at a level greater than or equal to the level of the adjusted Contract Required Quantitation Limit (CRQL) for sample and method. Holding time exceeded.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),144,UJ,Not Detected/Estimated: The analyte was not detected at a level greater than or equal to the adjusted CRQL or the reported adjusted CRQL is approximate and may be inaccurate or imprecise. ,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),835,UJ-1Z,Result is ≤ the MDL or client requested reporting limit (CRRL). Result reported as the MDL or CRRL. Estimated. A full explanation is presented in the narrative. Holding time and/or preservation requirements not established for this method;BAL recommendations for holding time were not followed.,9/28/2023 2:44:07 PM
+Result Measure Qualifier Deprecated(),407,UJL,Not Detected. Estimated: The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample.  Lowest available reporting limit for the analytical method used.,6/22/2023 2:33:46 PM
+Result Measure Qualifier Deprecated(),263,UNC,Value Not Confirmed,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),181,UQ,"Not Detected: The analyte was not detected at a level >= to the Reporting Level for the analysis. Also, the result did not pass the lab quality checks and there was an insufficient amount of the sample for re-analysis.",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),298,UREJ,Value below the detection Limit. Rejected: The sample results are unusable due to the quality of the data generated because certain criteria were not met. The analyte may or may not be present in the sample,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),1005,UZZ,Not Detected: These data were qualified as blank-corrected and as undetected when the blank correction resulted in a concentration below the DL.,9/7/2023 9:54:21 AM
+Result Measure Qualifier Deprecated(),299,V,Surrogate recoveries out of range,1/29/2020 10:41:39 AM
+Result Measure Qualifier Deprecated(),265,VVRR,Value verified by rerun,1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),74,Z,"Value verified by rerun, 2nd method (USGS)",1/14/2020 9:44:49 AM
+Result Measure Qualifier Deprecated(),78,^,Yield outside of contractual acceptable range (USGS),1/14/2020 9:44:49 AM
+

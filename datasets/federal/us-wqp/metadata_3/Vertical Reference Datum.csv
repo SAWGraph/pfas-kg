@@ -1,0 +1,8 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Vertical Reference Datum(VerticalCoordinateReferenceSystemDatumName),3,LTD,Local Tidal Datum,7/26/2006 10:57:50 AM
+Vertical Reference Datum(VerticalCoordinateReferenceSystemDatumName),2,NAVD88,North American Vertical Datum of 1988,7/26/2006 10:57:50 AM
+Vertical Reference Datum(VerticalCoordinateReferenceSystemDatumName),1,NGVD29,National Geodetic Vertical Datum of 1929,7/26/2006 10:57:50 AM
+Vertical Reference Datum(VerticalCoordinateReferenceSystemDatumName),5,OTHER,Other,7/26/2006 10:57:50 AM
+Vertical Reference Datum(VerticalCoordinateReferenceSystemDatumName),4,SEALV,Elevation From Mean Sea-Level,7/26/2006 10:57:50 AM
+Vertical Reference Datum(VerticalCoordinateReferenceSystemDatumName),6,UNKWN,Unknown,7/26/2006 10:57:50 AM
+

@@ -1,0 +1,22 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Result Weight Basis(ResultWeightBasisText),5,Ash Weight,The ash that is left over after baking and is the INORGANIC contents of the sample,12/17/2014 7:54:15 AM
+Result Weight Basis(ResultWeightBasisText),3,Ash-Free Dry,"Applies to samples dried at a high temperature (e.g., in a furnace at 550 C) used in soil sediment and tissue weight determination",7/26/2006 10:57:47 AM
+Result Weight Basis(ResultWeightBasisText),12,Bulk Weight,the (traditional) specific weight of a mixture including the empty spaces between the particulates.,12/21/2015 2:50:04 PM
+Result Weight Basis(ResultWeightBasisText),11,Dead,"Subject deceased, no blood sample; liver sample obtained",7/22/2015 12:00:00 AM
+Result Weight Basis(ResultWeightBasisText),13,Drained Weight,The weight of the solid portion of the product with the liquid drained ,12/21/2015 2:50:04 PM
+Result Weight Basis(ResultWeightBasisText),2,Dry,The material dried in a dry oven,7/26/2006 10:57:47 AM
+Result Weight Basis(ResultWeightBasisText),9,Duplicate,Second additional blood sample successfully obtained from subject,7/22/2015 12:00:00 AM
+Result Weight Basis(ResultWeightBasisText),10,Escaped,Subject escaped trap or handlers prior to sampling attempt,7/22/2015 12:00:00 AM
+Result Weight Basis(ResultWeightBasisText),15,Freeze-Dried Wt,The weight after freeze drying.,1/31/2025 9:03:16 AM
+Result Weight Basis(ResultWeightBasisText),80,Gravimetric Dry,Gravimetric analysis describes a set of methods in analytical chemistry for the quantitative determination of an analyte based on the mass of a solid.,3/30/2017 10:40:14 AM
+Result Weight Basis(ResultWeightBasisText),100,Interstitial,"of, forming, or occupying interstices. an impurity found in the ""pure"" state. living in the spaces between individual sand grains in the soil or aquatic sediments",3/31/2017 7:58:07 AM
+Result Weight Basis(ResultWeightBasisText),4,Lipid,The Lipid weight of a organism,10/29/2009 12:24:59 PM
+Result Weight Basis(ResultWeightBasisText),7,Not Sampled,Blood sample not obtained from subject,7/22/2015 12:00:00 AM
+Result Weight Basis(ResultWeightBasisText),8,Recaptured,"Blood sample previously obtained from subject during monitoring activity, no further sampling",7/22/2015 12:00:00 AM
+Result Weight Basis(ResultWeightBasisText),6,Sampled,Blood sample successfully obtained from subject,7/22/2015 12:00:00 AM
+Result Weight Basis(ResultWeightBasisText),14,Sieved Weight,The weight after sieving.,1/31/2025 9:03:17 AM
+Result Weight Basis(ResultWeightBasisText),120,TSP,Total suspended particles (TSP) is an archaic regulatory measure of the mass concentration of particulate matter (PM) in community air. It was defined by the (unintended) size-selectivity of the inlet,8/13/2020 4:49:16 PM
+Result Weight Basis(ResultWeightBasisText),1,Wet,The wet weight of the material,7/26/2006 10:57:47 AM
+Result Weight Basis(ResultWeightBasisText),140,high wt,"high molecular weight; Soluble, Insoluble/non-water absorbing (""non-swellable""), Water absorbing (""swellable"")",6/5/2021 1:14:14 PM
+Result Weight Basis(ResultWeightBasisText),141,low wt,"low molecular weight; a group of reactive chemoical, hypersensitivity, and direct toxicity",6/5/2021 1:14:14 PM
+

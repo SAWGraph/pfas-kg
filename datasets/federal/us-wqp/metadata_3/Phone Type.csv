@@ -1,0 +1,7 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Phone Type(TelephoneNumberTypeName),1,Fax,Type of phone number is for a facsimile machine.,7/26/2006 10:57:47 AM
+Phone Type(TelephoneNumberTypeName),2,Home,Type of phone number is for a home phone.,7/26/2006 10:57:47 AM
+Phone Type(TelephoneNumberTypeName),3,Mobile,Type of phone number is for a mobile phone.,7/26/2006 10:57:47 AM
+Phone Type(TelephoneNumberTypeName),4,Office,Type of phone number is for an office phone.,7/26/2006 10:57:47 AM
+Phone Type(TelephoneNumberTypeName),5,Pager,Type of phone number is for a pager.,7/26/2006 10:57:47 AM
+

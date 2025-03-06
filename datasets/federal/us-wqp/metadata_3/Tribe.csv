@@ -1,0 +1,612 @@
+Domain,Unique Identifier,Code,Name,State Code,EPA Region Code,EPA Name,EPA Identifier,Last Change Date
+Tribe(TribalCode),0,	000,Not assigned,,,,,10/4/2017 10:18:25 AM
+Tribe(TribalCode),1,	001,Eastern Band of Cherokee Indians of North Carolina,NC,4,Eastern Band of Cherokee Indians,100000076,7/26/2006 10:57:50 AM
+Tribe(TribalCode),585,	002,"Afognak, Native Village of",,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),2,	006,Onondaga Nation of New York,NY,2,Onondaga Nation,100000184,7/26/2006 10:57:50 AM
+Tribe(TribalCode),3,	007,St. Regis Band of Mohawk Indians of New York,NY,2,Saint Regis Mohawk Tribe,100000251,7/26/2006 10:57:50 AM
+Tribe(TribalCode),4,	008,Tonawanda Band of Seneca Indians of New York,NY,2,Tonawanda Band of Seneca,100000303,7/26/2006 10:57:50 AM
+Tribe(TribalCode),5,	009,Tuscarora Nation of New York,NY,2,Tuscarora Nation,100000312,7/26/2006 10:57:50 AM
+Tribe(TribalCode),6,	011,Oneida Nation of New York,NY,2,Oneida Indian Nation,100000182,7/26/2006 10:57:50 AM
+Tribe(TribalCode),7,	012,Seneca Nation of New York,NY,2,Seneca Nation of Indians,100000267,7/26/2006 10:57:50 AM
+Tribe(TribalCode),8,	013,Cayuga Nation of New York,NY,2,Cayuga Nation,100000034,7/26/2006 10:57:50 AM
+Tribe(TribalCode),9,	014,Passamaquoddy Tribe of Maine,ME,1,Passamaquoddy Tribe,100000195,7/26/2006 10:57:50 AM
+Tribe(TribalCode),587,	015,Passamaquoddy Tribe-Pleasant Point,,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),566,	016,Passamaquoddy Tribe of Maine (Indian Township),ME,1,Passamaquoddy Tribe of Maine (Indian Township)*,100000569,7/26/2017 8:00:23 AM
+Tribe(TribalCode),567,	017,Passamaquoddy Tribe of Maine (Pleasant Point),ME,1,Passamaquoddy Tribe of Maine (Pleasant Point)*,100000570,7/26/2017 8:00:23 AM
+Tribe(TribalCode),10,	018,Penobscot Tribe of Maine,ME,1,Penobscot Nation,100000199,7/26/2006 10:57:50 AM
+Tribe(TribalCode),11,	019,Houlton Band of Maliseet Indians of Maine,ME,1,Houlton Band of Maliseet Indians,100000106,7/26/2006 10:57:50 AM
+Tribe(TribalCode),12,	020,Mashantucket Pequot Tribe of Connecticut,CT,1,Mashantucket Pequot Indian Tribe,100000151,7/26/2006 10:57:50 AM
+Tribe(TribalCode),13,	021,"Seminole Tribe of Florida, Dania, Big Cypress, Brighton, Hollywood & Tampa Reservations",FL,4,Seminole Tribe of Florida,100000266,7/26/2006 10:57:50 AM
+Tribe(TribalCode),14,	026,Miccosukee Tribe of Indians of Florida,FL,4,Miccosukee Tribe of Indians,100000159,7/26/2006 10:57:50 AM
+Tribe(TribalCode),15,	027,Narragansett Indian Tribe of Rhode Island,RI,1,Narragansett Indian Tribe,100000170,7/26/2006 10:57:50 AM
+Tribe(TribalCode),16,	028,Poarch Band of Creek Indians of Alabama,AL; FL,4,Poarch Band of Creek Indians,100000204,7/26/2006 10:57:50 AM
+Tribe(TribalCode),17,	030,Wampanoag Tribe of Gay Head of Massachusetts,MA,1,Wampanoag Tribe of Gay Head (Aquinnah),100000322,7/26/2006 10:57:50 AM
+Tribe(TribalCode),18,	031,Aroostook Band of Micmac Indians of Maine,ME,1,Aroostook Band of Micmacs,100000009,7/26/2006 10:57:50 AM
+Tribe(TribalCode),19,	032,Catawba Indian Nation,SC,4,Catawba Indian Nation,100000033,7/26/2006 10:57:50 AM
+Tribe(TribalCode),20,	033,Mohegan Indian Tribe of Connecticut,CT,1,Mohegan Tribe of Indians of Connecticut,100000165,7/26/2006 10:57:50 AM
+Tribe(TribalCode),21,	034,"Jena Band of Choctaw Indians, Louisiana",LA,6,Jena Band of Choctaw Indians,100000116,7/26/2006 10:57:50 AM
+Tribe(TribalCode),580,	035,Mashpee Wampanoag Tribe,MA,1,Mashpee Wampanoag Tribe,100000152,7/15/2019 10:50:45 AM
+Tribe(TribalCode),582,	036,Shinnecock Indian Nation,NY,2,Shinnecock Indian Nation,100000273,7/15/2019 10:50:45 AM
+Tribe(TribalCode),581,	037,Pamunkey Indian Tribe,VA,3,Pamunkey Indian Tribe,100000590,7/15/2019 10:50:45 AM
+Tribe(TribalCode),589,	043,Orutsararmiut Tradional Native Council,,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),595,	083,Chignik Bay Tribal Council,,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),597,	087,Cheesh-Na Tribe (Chistochina),,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),599,	092,Chuloonawik Native Village,,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),22,	101,"Confederated Tribes of the Colville Reservation, Washington",WA,10,Confederated Tribes of the Colville Reservation,100000055,7/26/2006 10:57:50 AM
+Tribe(TribalCode),23,	102,"Spokane Tribe of the Spokane Reservation, Washington",WA,10,Spokane Tribe of the Spokane Reservation,100000287,7/26/2006 10:57:50 AM
+Tribe(TribalCode),24,	103,"Kalispel Indian Community of the Kalispel Reservation, Washington",WA,10,Kalispel Indian Community of the Kalispel Reservation,100000119,7/26/2006 10:57:50 AM
+Tribe(TribalCode),25,	105,"Confederated Tribes of the Chehalis Reservation, Washington",WA,10,Confederated Tribes of the Chehalis Reservation,100000054,7/26/2006 10:57:50 AM
+Tribe(TribalCode),26,	106,"Hoh Indian Tribe of the Hoh Indian Reservation, Washington",WA,10,Hoh Indian Tribe,100000102,7/26/2006 10:57:50 AM
+Tribe(TribalCode),27,	107,"Lummi Tribe of the Lummi Reservation, Washington",WA,10,Lummi Tribe of the Lummi Reservation,100000146,7/26/2006 10:57:50 AM
+Tribe(TribalCode),28,	108,"Makah Indian Tribe of the Makah Indian Reservation, Washington",WA,10,Makah Indian Tribe of the Makah Indian Reservation,100000148,7/26/2006 10:57:50 AM
+Tribe(TribalCode),29,	109,"Muckleshoot Indian Tribe of the Muckleshoot Reservation, Washington",WA,10,Muckleshoot Indian Tribe,100000168,7/26/2006 10:57:50 AM
+Tribe(TribalCode),30,	110,"Nisqually Indian Tribe of the Nisqually Reservation, Washington",WA,10,Nisqually Indian Tribe,100000173,7/26/2006 10:57:50 AM
+Tribe(TribalCode),31,	111,Nooksack Indian Tribe of Washington,WA,10,Nooksack Indian Tribe,100000174,7/26/2006 10:57:50 AM
+Tribe(TribalCode),32,	113,"Port Gamble Indian Community of the Port Gamble Reservation, Washington",WA,10,Port Gamble S'Klallam Tribe,100000208,7/26/2006 10:57:50 AM
+Tribe(TribalCode),33,	114,"Suquamish Indian Tribe of the Port Madison Reservation, Washington",WA,10,Suquamish Indian Tribe of the Port Madison Reservation,100000293,7/26/2006 10:57:50 AM
+Tribe(TribalCode),34,	115,"Puyallup Tribe of the Puyallup Reservation, Washington",WA,10,Puyallup Tribe of the Puyallup Reservation,100000228,7/26/2006 10:57:50 AM
+Tribe(TribalCode),35,	116,"Quileute Tribe of the Quileute Reservation, Washington",WA,10,Quileute Tribe of the Quileute Reservation,100000233,7/26/2006 10:57:50 AM
+Tribe(TribalCode),36,	117,"Quinault Tribe of the Quinault Reservation, Washington",WA,10,Quinault Indian Nation,100000234,7/26/2006 10:57:50 AM
+Tribe(TribalCode),37,	118,"Shoalwater Bay Tribe of the Shoalwater Bay Indian Reservation, Washington",WA,10,Shoalwater Bay Indian Tribe of the Shoalwater Bay Indian Reservation,100000274,7/26/2006 10:57:50 AM
+Tribe(TribalCode),38,	119,Sauk-Suiattle Indian Tribe of Washington ,WA,10,Sauk-Suiattle Indian Tribe,100000262,7/26/2006 10:57:50 AM
+Tribe(TribalCode),39,	120,"Skokomish Indian Tribe of the Skokomish Reservation, Washington",WA,10,Skokomish Indian Tribe,100000279,7/26/2006 10:57:50 AM
+Tribe(TribalCode),40,	121,"Squaxin Island Tribe of the Squaxin Island Reservation, Washington ",WA,10,Squaxin Island Tribe of the Squaxin Island Reservation,100000288,7/26/2006 10:57:50 AM
+Tribe(TribalCode),41,	122,"Swinomish Indians of the Swinomish Reservation, Washington",WA,10,Swinomish Indian Tribal Community,100000295,7/26/2006 10:57:50 AM
+Tribe(TribalCode),42,	123,"Tulalip Tribes of the Tulalip Reservation, Washington",WA,10,Tulalip Tribes of Washington,100000308,7/26/2006 10:57:50 AM
+Tribe(TribalCode),43,	124,"Confederated Tribes and Bands of the Yakama Nation, Washington",WA,10,Confederated Tribes and Bands of the Yakama Nation,100000062,7/26/2006 10:57:50 AM
+Tribe(TribalCode),44,	125,"Lower Elwha Tribal Community of the Lower Elwha Reservation, Washington",WA,10,Lower Elwha Tribal Community,100000144,7/26/2006 10:57:50 AM
+Tribe(TribalCode),45,	126,"Snoqualmie Tribe, Washington",WA,10,Snoqualmie Indian Tribe,100000282,7/26/2006 10:57:50 AM
+Tribe(TribalCode),46,	129,Jamestown S'Klallam Tribe of Washington,WA,10,Jamestown S'Klallam Tribe,100000114,7/26/2006 10:57:50 AM
+Tribe(TribalCode),47,	131,Upper Skagit Indian Tribe of Washington,WA,10,Upper Skagit Indian Tribe,100000317,7/26/2006 10:57:50 AM
+Tribe(TribalCode),48,	132,"Cowlitz Indian Tribe, Washington",WA,10,Cowlitz Indian Tribe,100000067,7/26/2006 10:57:50 AM
+Tribe(TribalCode),49,	133,"Samish Indian Tribe, Washington",WA,10,Samish Indian Nation,100000253,7/26/2006 10:57:50 AM
+Tribe(TribalCode),603,	134,Suquamish Indian Tribe,,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),605,	138,Snoqualmie Tribe,,,,,1/22/2020 9:49:02 AM
+Tribe(TribalCode),50,	139,Stillaguamish Tribe of Washington,WA,10,Stillaguamish Tribe of Indians of Washington,100000291,7/26/2006 10:57:50 AM
+Tribe(TribalCode),51,	140,Klamath Indian Tribe of Oregon,OR,10,Klamath Tribes,100000130,7/26/2006 10:57:50 AM
+Tribe(TribalCode),52,	141,Confederated Tribes of the Grand Ronde Community of Oregon,OR,10,Confederated Tribes of the Grand Ronde Community of Oregon,100000058,7/26/2006 10:57:50 AM
+Tribe(TribalCode),53,	142,"Confederated Tribes of the Siletz Reservation, Oregon",OR,10,Confederated Tribes of Siletz Indians of Oregon,100000059,7/26/2006 10:57:50 AM
+Tribe(TribalCode),54,	143,"Confederated Tribes of the Umatilla Reservation, Oregon",OR,10,Confederated Tribes of the Umatilla Indian Reservation,100000060,7/26/2006 10:57:50 AM
+Tribe(TribalCode),55,	144,Burns Paiute Tribe of the Burns Paiute Indian Colony of Oregon,OR,10,Burns Paiute Tribe,100000024,7/26/2006 10:57:50 AM
+Tribe(TribalCode),56,	145,Confederated Tribes of the Warm Springs Reservation of Oregon,OR,10,Confederated Tribes of the Warm Springs Reservation of Oregon,100000061,7/26/2006 10:57:50 AM
+Tribe(TribalCode),57,	152,"Confederated Tribes of the Coos, Lower Umpqua and Siuslaw Indians of Oregon",OR,10,"Confederated Tribes of the Coos, Lower Umpqua and Siuslaw Indians",100000056,7/26/2006 10:57:50 AM
+Tribe(TribalCode),58,	153,Cow Creek Band of Umpqua Indians of Oregon,OR,10,Cow Creek Band of Umpqua Tribe of Indians,100000066,7/26/2006 10:57:50 AM
+Tribe(TribalCode),59,	155,Coquille Tribe of Oregon,OR,10,Coquille Indian Tribe,100000063,7/26/2006 10:57:50 AM
+Tribe(TribalCode),578,	178,Shoshone-Bannock Tribes of Fort Hall Reservation of Idaho (Fort Hall Bannock Band),ID,10,Shoshone-Bannock Tribes of Fort Hall Reservation of Idaho (Fort Hall Bannock Band),100000583,7/26/2017 8:00:24 AM
+Tribe(TribalCode),579,	179,Shoshone-Bannock Tribes of Fort Hall Reservation of Idaho (Fort Hall Shoshone Band),ID,10,Shoshone-Bannock Tribes of Fort Hall Reservation of Idaho (Fort Hall Shoshone Band),100000584,7/26/2017 8:00:24 AM
+Tribe(TribalCode),60,	180,Shoshone-Bannock Tribes of the Fort Hall Reservation of Idaho,ID,10,Shoshone-Bannock Tribes of the Fort Hall Reservation,100000276,7/26/2006 10:57:50 AM
+Tribe(TribalCode),61,	181,"Coeur d'Alene Tribe of the Coeur d'Alene Reservation, Idaho",ID; MT,10,Coeur D'Alene Tribe,100000049,7/26/2006 10:57:50 AM
+Tribe(TribalCode),62,	182,Nez Perce Tribe of Idaho,ID,10,Nez Perce Tribe,100000172,7/26/2006 10:57:50 AM
+Tribe(TribalCode),63,	183,Kootenai Tribe of Idaho,ID,10,Kootenai Tribe of Idaho,100000131,7/26/2006 10:57:50 AM
+Tribe(TribalCode),64,	195,Northwestern Band of Shoshoni Nation of Utah,UT,8,Northwestern Band of the Shoshone Nation,100000177,7/26/2006 10:57:50 AM
+Tribe(TribalCode),65,	199,"Metlakatla Indian Community, Annette Island Reserve",,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),66,	201,Blackfeet Tribe of the Blackfeet Indian Reservation of Montana,MT,8,Blackfeet Tribe of the Blackfeet Indian Reservation of Montana,100000020,7/26/2006 10:57:50 AM
+Tribe(TribalCode),67,	202,Crow Tribe of Montana,MT,8,Crow Tribe of Montana,100000069,7/26/2006 10:57:50 AM
+Tribe(TribalCode),68,	203,"Confederated Salish & Kootenai Tribes of the Flathead Reservation, Montana",MT,8,Confederated Salish and Kootenai Tribes of the Flathead Reservation,100000053,7/26/2006 10:57:50 AM
+Tribe(TribalCode),69,	204,Fort Belknap Indian Community of the Fort Belknap Reservation of Montana,MT,8,Fort Belknap Indian Community of the Fort Belknap Reservation of Montana,100000086,7/26/2006 10:57:50 AM
+Tribe(TribalCode),70,	205,"Chippewa-Cree Indians of the Rocky Boy's Reservation, Montana",MT,8,"Chippewa Cree Indians of the Rocky Boy's Reservation, Montana",100000043,7/26/2006 10:57:50 AM
+Tribe(TribalCode),71,	206,"Assiniboine and Sioux Tribes of the Fort Peck Indian Reservation, Montana",MT,8,"Assiniboine and Sioux Tribes of the Fort Peck Indian Reservation, Montana",100000010,7/26/2006 10:57:50 AM
+Tribe(TribalCode),72,	207,"Northern Cheyenne Tribe of the Northern Cheyenne Indian Reservation, Montana",MT,8,"Northern Cheyenne Tribe of the Northern Cheyenne Indian Reservation, Montana",100000175,7/26/2006 10:57:50 AM
+Tribe(TribalCode),625,	241,Kasigluk Traditional Elders Council,,,,,1/22/2020 9:49:03 AM
+Tribe(TribalCode),638,	280,Arapahoe & Shoshone Tribes-Wind River Res,,,,,1/22/2020 9:49:04 AM
+Tribe(TribalCode),73,	281,"Arapahoe Tribe of the Wind River Reservation, Wyoming",WY,8,"Northern Arapaho Tribe of the Wind River Reservation, Wyoming",100000008,7/26/2006 10:57:50 AM
+Tribe(TribalCode),74,	282,"Shoshone Tribe of the Wind River Reservation, Wyoming",WY,8,"Eastern Shoshone Tribe of the Wind River Reservation, Wyoming",100000275,7/26/2006 10:57:50 AM
+Tribe(TribalCode),75,	301,"Three Affiliated Tribes of the Fort Berthold Reservation, North Dakota",ND,8,"Three Affiliated Tribes of the Fort Berthold Reservation, North Dakota",100000301,7/26/2006 10:57:50 AM
+Tribe(TribalCode),76,	302,Standing Rock Sioux Tribe of North & South Dakota,ND; SD,8,Standing Rock Sioux Tribe of North & South Dakota,100000289,7/26/2006 10:57:50 AM
+Tribe(TribalCode),77,	303,"Spirit Lake Tribe, North Dakota",ND,8,"Spirit Lake Tribe, North Dakota",100000286,7/26/2006 10:57:50 AM
+Tribe(TribalCode),78,	304,Turtle Mountain Band of Chippewa Indians of North Dakota,MT; ND; SD,8,Turtle Mountain Band of Chippewa Indians of North Dakota,100000311,7/26/2006 10:57:50 AM
+Tribe(TribalCode),79,	336,Tunica-Biloxi Indian Tribe of Louisiana,LA,6,Tunica-Biloxi Indian Tribe,100000309,7/26/2006 10:57:50 AM
+Tribe(TribalCode),80,	340,"Cheyenne River Sioux Tribe of the Cheyenne River Reservation, South Dakota",SD,8,"Cheyenne River Sioux Tribe of the Cheyenne River Reservation, South Dakota",100000040,7/26/2006 10:57:50 AM
+Tribe(TribalCode),81,	341,Flandreau Santee Sioux Tribe of South Dakota,SD,8,Flandreau Santee Sioux Tribe of South Dakota,100000084,7/26/2006 10:57:50 AM
+Tribe(TribalCode),82,	342,"Crow Creek Sioux Tribe of the Crow Creek Reservation, South Dakota",SD,8,"Crow Creek Sioux Tribe of the Crow Creek Reservation, South Dakota",100000070,7/26/2006 10:57:50 AM
+Tribe(TribalCode),83,	343,"Lower Brule Sioux Tribe of the Lower Brule Reservation, South Dakota ",SD,8,"Lower Brule Sioux Tribe of the Lower Brule Reservation, South Dakota",100000143,7/26/2006 10:57:50 AM
+Tribe(TribalCode),84,	344,"Oglala Sioux Tribe of the Pine Ridge Reservation, South Dakota",NE; SD,8,Oglala Sioux Tribe,100000179,7/26/2006 10:57:50 AM
+Tribe(TribalCode),85,	345,"Rosebud Sioux Tribe of the Rosebud Indian Reservation, South Dakota",SD,8,"Rosebud Sioux Tribe of the Rosebud Indian Reservation, South Dakota",100000244,7/26/2006 10:57:50 AM
+Tribe(TribalCode),86,	346,Yankton Sioux Tribe of South Dakota,SD,8,Yankton Sioux Tribe of South Dakota,100000331,7/26/2006 10:57:50 AM
+Tribe(TribalCode),87,	347,"Sisseton-Wahpeton Sioux Tribe of the Lake Traverse Reservation, South Dakota",ND; SD,8,"Sisseton-Wahpeton Oyate of the Lake Traverse Reservation, South Dakota",100000278,7/26/2006 10:57:50 AM
+Tribe(TribalCode),88,	380,Omaha Tribe of Nebraska,IA; NE,7,Omaha Tribe of Nebraska,100000181,7/26/2006 10:57:50 AM
+Tribe(TribalCode),89,	381,Ponca Tribe of Nebraska,IA; NE,7,Ponca Tribe of Nebraska,100000207,7/26/2006 10:57:50 AM
+Tribe(TribalCode),90,	382,Santee Sioux Tribe of the Santee Reservation of Nebraska,NE,7,"Santee Sioux Nation, Nebraska",100000261,7/26/2006 10:57:50 AM
+Tribe(TribalCode),91,	383,Winnebago Tribe of Nebraska,IA; NE,7,Winnebago Tribe of Nebraska,100000327,7/26/2006 10:57:50 AM
+Tribe(TribalCode),92,	400,"Minnesota Chippewa Tribe, Minnesota",MN,5,"Minnesota Chippewa Tribe, Minnesota (Six component reservations: Bois Forte Band (Nett Lake); Fond du Lac Band; Grand Portage Band; Leech Lake Band; Mille Lacs Band; White Earth Band)",100000161,7/26/2006 10:57:50 AM
+Tribe(TribalCode),93,	401,"Upper Sioux Community, Minnesota",MN; WI,5,"Upper Sioux Community, Minnesota",100000316,7/26/2006 10:57:50 AM
+Tribe(TribalCode),97,	402,Lower Sioux Indian Community in the State of Minnesota,MN,5,Lower Sioux Indian Community in the State of Minnesota (previously listed as the Lower Sioux Indian Community of Minnesota Mdewakanton Sioux Indians of the Lower Sioux Reservation in Minnesota),100000145,7/26/2017 7:31:51 AM
+Tribe(TribalCode),94,	403,Prairie Island Indian Community in the State of Minnesota,MN,5,Prairie Island Indian Community in the State of Minnesota,100000211,7/26/2006 10:57:50 AM
+Tribe(TribalCode),568,	404,"Minnesota Chippewa Tribe, Minnesota (Bois Forte Band (Nett Lake))",MN,5,"Minnesota Chippewa Tribe, Minnesota (Bois Forte Band (Nett Lake))**",100000571,7/26/2017 8:00:23 AM
+Tribe(TribalCode),569,	405,"Minnesota Chippewa Tribe, Minnesota (Fond du Lac Band)",MN,5,"Minnesota Chippewa Tribe, Minnesota (Fond du Lac Band)**",100000572,7/26/2017 8:00:23 AM
+Tribe(TribalCode),570,	406,"Minnesota Chippewa Tribe, Minnesota (Grand Portage Band)",MN,5,"Minnesota Chippewa Tribe, Minnesota (Grand Portage Band)**",100000573,7/26/2017 8:00:23 AM
+Tribe(TribalCode),571,	407,"Minnesota Chippewa Tribe, Minnesota (Leech Lake Band)",MN,5,"Minnesota Chippewa Tribe, Minnesota (Leech Lake Band)**",100000574,7/26/2017 8:00:23 AM
+Tribe(TribalCode),572,	408,"Minnesota Chippewa Tribe, Minnesota (Mille Lacs Band)",MN,5,"Minnesota Chippewa Tribe, Minnesota (Mille Lacs Band)**",100000575,7/26/2017 8:00:23 AM
+Tribe(TribalCode),95,	409,"Red Lake Band of Chippewa Indians, Minnesota",MN,5,"Red Lake Band of Chippewa Indians, Minnesota",100000237,7/26/2006 10:57:50 AM
+Tribe(TribalCode),573,	410,"Minnesota Chippewa Tribe, Minnesota (White Earth Band)",MN,5,"Minnesota Chippewa Tribe, Minnesota (White Earth Band)**",100000576,7/26/2017 8:00:23 AM
+Tribe(TribalCode),96,	411,Shakopee Mdewakanton Sioux Community of Minnesota,MN,5,Shakopee Mdewakanton Sioux Community of Minnesota,100000269,7/26/2006 10:57:50 AM
+Tribe(TribalCode),586,	415,Lower Sioux Indian Community in the State of Minnesota **duplicate**,MN,5,Lower Sioux Indian Community in the State of Minnesota (previously listed as the Lower Sioux Indian Community of Minnesota Mdewakanton Sioux Indians of the Lower Sioux Reservation in Minnesota),,8/9/2023 11:24:13 AM
+Tribe(TribalCode),663,	417,Bois Forte Band of Chippewa,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),665,	424,Qagan Toyagungin Tribe of Sand Point Village,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),98,	430,"Bad River Band of the Lake Superior Tribe of Chippewa Indians of the Bad River Reservation, Wisconsin",WI,5,"Bad River Band of the Lake Superior Tribe of Chippewa Indians of the Bad River Reservation, Wisconsin",100000012,7/26/2006 10:57:50 AM
+Tribe(TribalCode),99,	431,Lac Courte Oreilles Band of Lake Superior Chippewa Indians of Wisconsin,WI,5,Lac Courte Oreilles Band of Lake Superior Chippewa Indians of Wisconsin,100000134,7/26/2006 10:57:50 AM
+Tribe(TribalCode),100,	432,Lac du Flambeau Band of Lake Superior Chippewa Indians of the Lac du Flambeau Reservation of Wisconsin,WI,5,Lac du Flambeau Band of Lake Superior Chippewa Indians of the Lac du Flambeau Reservation of Wisconsin,100000135,7/26/2006 10:57:50 AM
+Tribe(TribalCode),101,	433,Oneida Tribe of Indians of Wisconsin,WI,5,Oneida Nation,100000183,7/26/2006 10:57:50 AM
+Tribe(TribalCode),102,	434,"Forest County Potawatomi Community, Wisconsin",WI,5,"Forest County Potawatomi Community, Wisconsin",100000085,7/26/2006 10:57:50 AM
+Tribe(TribalCode),103,	435,Red Cliff Band of Lake Superior Chippewa Indians of Wisconsin,WI,5,Red Cliff Band of Lake Superior Chippewa Indians of Wisconsin,100000236,7/26/2006 10:57:50 AM
+Tribe(TribalCode),104,	436,St. Croix Chippewa Indians of Wisconsin,WI,5,St. Croix Chippewa Indians of Wisconsin,100000250,7/26/2006 10:57:50 AM
+Tribe(TribalCode),105,	437,"Sokaogon Chippewa Community, Wisconsin",WI,5,"Sokaogon Chippewa Community, Wisconsin",100000284,7/26/2006 10:57:50 AM
+Tribe(TribalCode),106,	438,"Stockbridge Munsee Community, Wisconsin",WI,5,"Stockbridge Munsee Community, Wisconsin",100000290,7/26/2006 10:57:50 AM
+Tribe(TribalCode),107,	439,Ho-Chunk Nation of Wisconsin,WI,5,Ho-Chunk Nation of Wisconsin,100000101,7/26/2006 10:57:50 AM
+Tribe(TribalCode),108,	440,Menominee Indian Tribe of Wisconsin,WI,5,Menominee Indian Tribe of Wisconsin,100000155,7/26/2006 10:57:50 AM
+Tribe(TribalCode),109,	468,"Grand Traverse Band of Ottawa and Chippewa Indians, Michigan",MI,5,"Grand Traverse Band of Ottawa and Chippewa Indians, Michigan",100000094,7/26/2006 10:57:50 AM
+Tribe(TribalCode),110,	469,Sault Ste. Marie Tribe of Chippewa Indians of Michigan,MI,5,"Sault Ste. Marie Tribe of Chippewa Indians, Michigan",100000263,7/26/2006 10:57:50 AM
+Tribe(TribalCode),111,	470,"Bay Mills Indian Community, Michigan",MI,5,"Bay Mills Indian Community, Michigan",100000013,7/26/2006 10:57:50 AM
+Tribe(TribalCode),112,	471,"Hannahville Indian Community, Michigan",MI,5,"Hannahville Indian Community, Michigan",100000099,7/26/2006 10:57:50 AM
+Tribe(TribalCode),113,	472,Saginaw Chippewa Indian Tribe of Michigan,MI,5,Saginaw Chippewa Indian Tribe of Michigan,100000249,7/26/2006 10:57:50 AM
+Tribe(TribalCode),676,	473,Lac Vieux Desert Band of Lake Superior Chippewa Indians,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),114,	475,"Keweenaw Bay Indian Community, Michigan",MI,5,"Keweenaw Bay Indian Community, Michigan",100000124,7/26/2006 10:57:50 AM
+Tribe(TribalCode),115,	479,"Lac Vieux Desert Band of Lake Superior Chippewa Indians, Michigan",MI,5,Lac Vieux Desert Band of Lake Superior Chippewa Indians of Michigan,100000136,7/26/2006 10:57:50 AM
+Tribe(TribalCode),116,	480,"Pokagon Band of Potawatomi Indians, Michigan and Indiana",IN; MI,5,"Pokagon Band of Potawatomi Indians, Michigan and Indiana",100000205,7/26/2006 10:57:50 AM
+Tribe(TribalCode),117,	481,"Huron Potawatomi, Inc., Michigan",MI,5,"Nottawaseppi Huron Band of the Potawatomi, Michigan",100000178,7/26/2006 10:57:50 AM
+Tribe(TribalCode),118,	482,"Little River Band of Ottawa Indians, Michigan",MI,5,"Little River Band of Ottawa Indians, Michigan",100000138,7/26/2006 10:57:50 AM
+Tribe(TribalCode),119,	483,"Little Traverse Bay Bands of Odawa Indians, Michigan",MI,5,"Little Traverse Bay Bands of Odawa Indians, Michigan",100000139,7/26/2006 10:57:50 AM
+Tribe(TribalCode),120,	484,Match-e-be-nash-she-wish Band of Pottawatomi Indians of Michigan,MI,5,Match-e-be-nash-she-wish Band of Pottawatomi Indians of Michigan,100000153,7/26/2006 10:57:50 AM
+Tribe(TribalCode),121,	490,Sac & Fox Tribe of the Mississippi in Iowa,IA,7,Sac & Fox Tribe of the Mississippi in Iowa,100000246,7/26/2006 10:57:50 AM
+Tribe(TribalCode),122,	502,"Alturas Indian Rancheria, California",CA,9,"Alturas Indian Rancheria, California",100000006,7/26/2006 10:57:50 AM
+Tribe(TribalCode),123,	503,Scotts Valley Band of Pomo Indians of California,CA,9,Scotts Valley Band of Pomo Indians of California,100000264,7/26/2006 10:57:50 AM
+Tribe(TribalCode),124,	504,Berry Creek Rancheria of Maidu Indians of California,CA,9,Berry Creek Rancheria of Maidu Indians of California,100000015,7/26/2006 10:57:50 AM
+Tribe(TribalCode),125,	505,Guidiville Rancheria of California,CA,9,Guidiville Rancheria of California,100000097,5/6/2020 11:15:28 AM
+Tribe(TribalCode),126,	506,Big Sandy Rancheria of Mono Indians of California,CA,9,Big Sandy Rancheria of Western Mono Indians of California,100000018,7/26/2006 10:57:50 AM
+Tribe(TribalCode),127,	507,"Big Valley Band of Pomo Indians of the Big Valley Rancheria, California",CA,9,"Big Valley Band of Pomo Indians of the Big Valley Rancheria, California",100000019,7/26/2006 10:57:50 AM
+Tribe(TribalCode),128,	508,Buena Vista Rancheria of Me-Wuk Indians of California,CA,9,Buena Vista Rancheria of Me-Wuk Indians of California,100000023,7/26/2006 10:57:50 AM
+Tribe(TribalCode),129,	509,Lytton Rancheria of California,CA,9,Lytton Rancheria of California,100000147,7/26/2006 10:57:50 AM
+Tribe(TribalCode),130,	510,Cloverdale Rancheria of Pomo Indians of California,CA,9,Cloverdale Rancheria of Pomo Indians of California,100000047,7/26/2006 10:57:50 AM
+Tribe(TribalCode),131,	511,Cold Springs Rancheria of Mono Indians of California,CA,9,Cold Springs Rancheria of Mono Indians of California,100000050,7/26/2006 10:57:50 AM
+Tribe(TribalCode),132,	512,"Cachil DeHe Band of Wintun Indians of the Colusa Indian Community of the Colusa Rancheria, California",CA,9,"Cachil DeHe Band of Wintun Indians of the Colusa Indian Community of the Colusa Rancheria, California",100000026,7/26/2006 10:57:50 AM
+Tribe(TribalCode),133,	513,Cortina Indian Rancheria of Wintun Indians of California,CA,9,Kletsel Dehe Band of Wintun Indians,100000064,7/26/2006 10:57:50 AM
+Tribe(TribalCode),681,	514,Cloverdale Rancheria of Pomo Indians,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),134,	515,Dry Creek Rancheria of Pomo Indians of California,CA,9,"Dry Creek Rancheria Band of Pomo Indians, California",100000074,7/26/2006 10:57:50 AM
+Tribe(TribalCode),135,	516,Robinson Rancheria of Pomo Indians of California,CA,9,Robinson Rancheria,100000243,7/26/2006 10:57:50 AM
+Tribe(TribalCode),136,	517,Enterprise Rancheria of Maidu Indians of California,CA,9,Enterprise Rancheria of Maidu Indians of California,100000081,7/26/2006 10:57:50 AM
+Tribe(TribalCode),137,	518,Fort Bidwell Indian Community of the Fort Bidwell Reservation of California,CA,9,Fort Bidwell Indian Community of the Fort Bidwell Reservation of California,100000087,7/26/2006 10:57:50 AM
+Tribe(TribalCode),138,	519,Grindstone Indian Rancheria of Wintun- Wailaki Indians of California,CA,9,Grindstone Indian Rancheria of Wintun-Wailaki Indians of California,100000096,7/26/2006 10:57:50 AM
+Tribe(TribalCode),139,	520,"Utu Utu Gwaitu Paiute Tribe of the Benton Paiute Reservation, California",CA,9,"Utu Utu Gwaitu Paiute Tribe of the Benton Paiute Reservation, California",100000320,7/26/2006 10:57:50 AM
+Tribe(TribalCode),140,	521,"Hopland Band of Pomo Indians of the Hopland Rancheria, California",CA,9,"Hopland Band of Pomo Indians, California",100000105,7/26/2006 10:57:50 AM
+Tribe(TribalCode),141,	522,Jackson Rancheria of Me-Wuk Indians of California,CA,9,Jackson Band of Miwuk Indians,100000113,7/26/2006 10:57:50 AM
+Tribe(TribalCode),142,	523,Chicken Ranch Rancheria of Me-Wuk Indians of California,CA,9,Chicken Ranch Rancheria of Me-Wuk Indians of California,100000042,7/26/2006 10:57:50 AM
+Tribe(TribalCode),143,	524,"Cahto Indian Tribe of the Laytonville Rancheria, California",CA,9,Cahto Tribe of the Laytonville Rancheria,100000029,7/26/2006 10:57:50 AM
+Tribe(TribalCode),144,	525,"Fort Independence Indian Community of Paiute Indians of the Fort Independence Reservation, California",CA,9,"Fort Independence Indian Community of Paiute Indians of the Fort Independence Reservation, California",100000088,7/26/2006 10:57:50 AM
+Tribe(TribalCode),145,	527,"Manchester Band of Pomo Indians of the Manchester-Point Arena Rancheria, California",CA,9,"Manchester Band of Pomo Indians of the Manchester Rancheria, California",100000149,7/26/2006 10:57:50 AM
+Tribe(TribalCode),146,	528,Middletown Rancheria of Pomo Indians of California,CA,9,Middletown Rancheria of Pomo Indians of California,100000160,7/26/2006 10:57:50 AM
+Tribe(TribalCode),147,	529,Ione Band of Miwok Indians of California,CA,9,Ione Band of Miwok Indians of California,100000110,7/26/2006 10:57:50 AM
+Tribe(TribalCode),148,	530,"Big Pine Band of Owens Valley Paiute Shoshone Indians of the Big Pine Reservation, California",CA,9,Big Pine Paiute Tribe of the Owens Valley,100000017,7/26/2006 10:57:50 AM
+Tribe(TribalCode),149,	531,"Mechoopda Indian Tribe of Chico Rancheria, California",CA,9,"Mechoopda Indian Tribe of Chico Rancheria, California",100000154,7/26/2006 10:57:50 AM
+Tribe(TribalCode),150,	532,Northfork Rancheria of Mono Indians of California,CA,9,Northfork Rancheria of Mono Indians of California,100000176,7/26/2006 10:57:50 AM
+Tribe(TribalCode),151,	533,Paskenta Band of Nomlaki Indians of California,CA,9,Paskenta Band of Nomlaki Indians of California,100000194,7/26/2006 10:57:50 AM
+Tribe(TribalCode),152,	534,Picayune Rancheria of Chukchansi Indians of California,CA,9,Picayune Rancheria of Chukchansi Indians of California,100000201,7/26/2006 10:57:50 AM
+Tribe(TribalCode),153,	535,Pinoleville Rancheria of Pomo Indians of California,CA,9,"Pinoleville Pomo Nation, California",100000202,7/26/2006 10:57:50 AM
+Tribe(TribalCode),154,	536,"Pit River Tribe, California",CA,9,"Pit River Tribe, California (includes XL Ranch, Big Bend, Likely, Lookout, Montgomery Creek, and Roaring Creek Rancherias)",100000203,7/26/2006 10:57:50 AM
+Tribe(TribalCode),155,	537,Potter Valley Rancheria of Pomo Indians of California,CA,9,"Potter Valley Tribe, California",100000209,7/26/2006 10:57:50 AM
+Tribe(TribalCode),156,	538,"Redding Rancheria, California",CA,9,"Redding Rancheria, California",100000238,7/26/2006 10:57:50 AM
+Tribe(TribalCode),157,	539,Redwood Valley Rancheria of Pomo Indians of California,CA,9,Redwood Valley or Little River Band of Pomo Indians of the Redwood Valley Rancheria California,100000239,7/26/2006 10:57:50 AM
+Tribe(TribalCode),158,	540,"Round Valley Indian Tribes of the Round Valley Reservation, California",CA,9,"Round Valley Indian Tribes, Round Valley Reservation, California",100000245,7/26/2006 10:57:50 AM
+Tribe(TribalCode),159,	541,Rumsey Indian Rancheria of Wintun Indians of California,CA,9,"Yocha Dehe Wintun Nation, California",100000335,7/26/2006 10:57:50 AM
+Tribe(TribalCode),160,	542,"Santa Rosa Indian Community of the Santa Rosa Rancheria, California",CA,9,"Santa Rosa Indian Community of the Santa Rosa Rancheria, California",100000258,7/26/2006 10:57:50 AM
+Tribe(TribalCode),161,	545,Greenville Rancheria of Maidu Indians of California,CA,9,Greenville Rancheria,100000095,7/26/2006 10:57:50 AM
+Tribe(TribalCode),162,	546,"Shingle Springs Band of Miwok Indians, Shingle Springs Rancheria, California",CA,9,"Shingle Springs Band of Miwok Indians, Shingle Springs Rancheria (Verona Tract), California",100000272,7/26/2006 10:57:50 AM
+Tribe(TribalCode),163,	547,"Kashia Band of Pomo Indians of the Stewarts Point Rancheria, California",CA,9,"Kashia Band of Pomo Indians of the Stewarts Point Rancheria, California",100000121,7/26/2006 10:57:50 AM
+Tribe(TribalCode),164,	549,"Paiute-Shoshone Indians of the Bishop Community of the Bishop Colony, California",CA,9,Bishop Paiute Tribe,100000189,7/26/2006 10:57:50 AM
+Tribe(TribalCode),165,	550,"Susanville Indian Rancheria, California",CA,9,"Susanville Indian Rancheria, California",100000294,7/26/2006 10:57:50 AM
+Tribe(TribalCode),166,	551,Table Mountain Rancheria of California,CA,9,Table Mountain Rancheria,100000297,7/26/2006 10:57:50 AM
+Tribe(TribalCode),167,	553,"Tule River Indian Tribe of the Tule River Reservation, California",CA,9,"Tule River Indian Tribe of the Tule River Reservation, California",100000307,7/26/2006 10:57:50 AM
+Tribe(TribalCode),168,	554,"Big Lagoon Rancheria, California",CA,9,"Big Lagoon Rancheria, California",100000016,7/26/2006 10:57:50 AM
+Tribe(TribalCode),169,	555,Karuk Tribe of California,CA,9,Karuk Tribe,100000120,7/26/2006 10:57:50 AM
+Tribe(TribalCode),170,	556,"Resighini Rancheria, California",CA,9,"Resighini Rancheria, California",100000241,7/26/2006 10:57:50 AM
+Tribe(TribalCode),171,	558,"Blue Lake Rancheria, California",CA,9,"Blue Lake Rancheria, California",100000021,7/26/2006 10:57:50 AM
+Tribe(TribalCode),172,	559,"Elk Valley Rancheria, California",CA,9,"Elk Valley Rancheria, California",100000079,7/26/2006 10:57:50 AM
+Tribe(TribalCode),173,	560,"Bear River Band of the Rohnerville Rancheria, California",CA,9,"Bear River Band of the Rohnerville Rancheria, California",100000014,7/26/2006 10:57:50 AM
+Tribe(TribalCode),174,	561,"Hoopa Valley Tribe, California",CA,9,"Hoopa Valley Tribe, California",100000103,7/26/2006 10:57:50 AM
+Tribe(TribalCode),175,	562,"Yurok Tribe of the Yurok Reservation, California",CA,9,"Yurok Tribe of the Yurok Reservation, California",100000338,7/26/2006 10:57:50 AM
+Tribe(TribalCode),176,	563,Quartz Valley Indian Community of the Quartz Valley Reservation of California,CA,9,Quartz Valley Indian Community of the Quartz Valley Reservation of California,100000231,7/26/2006 10:57:50 AM
+Tribe(TribalCode),177,	564,"Smith River Rancheria, California",CA,9,Tolowa Dee-ni' Nation,100000281,7/26/2006 10:57:50 AM
+Tribe(TribalCode),178,	565,"Table Bluff Reservation-Wiyot Tribe, California",CA,9,"Wiyot Tribe, California",100000329,7/26/2006 10:57:50 AM
+Tribe(TribalCode),179,	566,"Cher-Ae Heights Indian Community of the Trinidad Rancheria, California Reservation, California",CA,9,"Cher-Ae Heights Indian Community of the Trinidad Rancheria, California",100000037,7/26/2006 10:57:50 AM
+Tribe(TribalCode),180,	567,"Augustine Band of Cahuilla Mission Indians of the Augustine Reservation, California",CA,9,"Augustine Band of Cahuilla Indians, California",100000011,7/26/2006 10:57:50 AM
+Tribe(TribalCode),181,	568,"Cabazon Band of Cahuilla Mission Indians of the Cabazon Reservation, California",CA,9,"Cabazon Band of Mission Indians, California",100000025,7/26/2006 10:57:50 AM
+Tribe(TribalCode),182,	569,"Cahuilla Band of Mission Indians of the Cahuilla Reservation, California",CA,9,Cahuilla Band of Indians,100000028,7/26/2006 10:57:50 AM
+Tribe(TribalCode),183,	570,"Campo Band of Diegueno Mission Indians of the Campo Indian Reservation, California",CA,9,"Campo Band of Diegueno Mission Indians of the Campo Indian Reservation, California",100000031,7/26/2006 10:57:50 AM
+Tribe(TribalCode),184,	571,"Capitan Grande Band of Diegueno Mission Indians of California: Barona Group, California Viejas Group, California",CA,9,"Capitan Grande Band of Diegueno Mission Indians of California (Barona Group of Capitan Grande Band of Mission Indians of the Barona Reservation, California; Viejas (Baron Long) Group of Capitan Grande Band of Mission Indians of the Viejas Reservation, California)",100000032,7/26/2006 10:57:50 AM
+Tribe(TribalCode),576,	572,"Capitan Grande Band of Diegueno Mission Indians of California: Barona Group of the Barona Reservation, California",CA,9,"Capitan Grande Band of Diegueno Mission Indians of California: Barona Group of Capitan Grande Band of Mission Indians of the Barona Reservation, California",100000581,7/26/2017 8:00:24 AM
+Tribe(TribalCode),185,	573,"Cuyapaipe Community of Diegueno Mission Indians of the Cuyapaipe Reservation, California",CA,9,"Ewiiaapaayp Band of Kumeyaay Indians, California",100000082,7/26/2006 10:57:50 AM
+Tribe(TribalCode),186,	574,"Inaja Band of Diegueno Mission Indians of the Inaja and Cosmit Reservation, California",CA,9,"Inaja Band of Diegueno Mission Indians of the Inaja and Cosmit Reservation, California",100000109,7/26/2006 10:57:50 AM
+Tribe(TribalCode),187,	575,Jamul Indian Village of California,CA,9,Jamul Indian Village of California,100000115,7/26/2006 10:57:50 AM
+Tribe(TribalCode),188,	576,"La Jolla Band of Luiseno Mission Indians of the La Jolla Reservation, California",CA,9,"La Jolla Band of Luiseno Indians, California",100000132,7/26/2006 10:57:50 AM
+Tribe(TribalCode),189,	577,"La Posta Band of Diegueno Mission Indians of the La Posta Indian Reservation, California",CA,9,"La Posta Band of Diegueno Mission Indians of the La Posta Indian Reservation, California",100000133,7/26/2006 10:57:50 AM
+Tribe(TribalCode),190,	578,"Los Coyotes Band of Cahuilla Mission Indians of the Los Coyotes Reservation, California",CA,9,"Los Coyotes Band of Cahuilla and Cupeno Indians, California",100000141,7/26/2006 10:57:50 AM
+Tribe(TribalCode),191,	579,"Manzanita Band of Diegueno Mission Indians of the Manzanita Reservation, California",CA,9,"Manzanita Band of Diegueno Mission Indians of the Manzanita Reservation, California",100000150,7/26/2006 10:57:50 AM
+Tribe(TribalCode),192,	580,"Mesa Grande Band of Diegueno Mission Indians of the Mesa Grande Reservation, California",CA,9,"Mesa Grande Band of Diegueno Mission Indians of the Mesa Grande Reservation, California",100000156,7/26/2006 10:57:50 AM
+Tribe(TribalCode),193,	582,"Morongo Band of Cahuilla Mission Indians of the Morongo Reservation, California",CA,9,"Morongo Band of Mission Indians, California",100000167,7/26/2006 10:57:50 AM
+Tribe(TribalCode),194,	583,"Pala Band of Luiseno Mission Indians of the Pala Reservation, California",CA,9,Pala Band of Mission Indians,100000192,7/26/2006 10:57:50 AM
+Tribe(TribalCode),195,	584,"Agua Caliente Band of Cahuilla Indians of the Agua Caliente Indian Reservation, California",CA,9,"Agua Caliente Band of Cahuilla Indians of the Agua Caliente Indian Reservation, California",100000002,7/26/2006 10:57:50 AM
+Tribe(TribalCode),196,	585,"Pauma Band of Luiseno Mission Indians of the Pauma & Yuima Reservation, California",CA,9,"Pauma Band of Luiseno Mission Indians of the Pauma & Yuima Reservation, California",100000196,7/26/2006 10:57:50 AM
+Tribe(TribalCode),197,	586,"Pechanga Band of Luiseno Mission Indians of the Pechanga Reservation, California",CA,9,"Pechanga Band of Luiseno Mission Indians of the Pechanga Reservation, California",100000198,7/26/2006 10:57:50 AM
+Tribe(TribalCode),198,	587,"Rincon Band of Luiseno Mission Indians of the Rincon Reservation, California",CA,9,"Rincon Band of Luiseno Mission Indians of Rincon Reservation, California",100000242,7/26/2006 10:57:50 AM
+Tribe(TribalCode),199,	588,"San Manual Band of Serrano Mission Indians of the San Manual Reservation, California",CA,9,"San Manuel Band of Mission Indians, California",100000256,7/26/2006 10:57:50 AM
+Tribe(TribalCode),200,	589,San Pasqual Band of Diegueno Mission Indians of California,CA,9,San Pasqual Band of Diegueno Mission Indians of California,100000257,7/26/2006 10:57:50 AM
+Tribe(TribalCode),201,	590,"Santa Rosa Band of Cahuilla Mission Indians of the Santa Rosa Reservation, California",CA,9,"Santa Rosa Band of Cahuilla Indians, California",100000259,7/26/2006 10:57:50 AM
+Tribe(TribalCode),202,	591,"Santa Ynez Band of Chumash Mission Indians of the Santa Ynez Reservation, California",CA,9,"Santa Ynez Band of Chumash Mission Indians of the Santa Ynez Reservation, California",100000260,7/26/2006 10:57:50 AM
+Tribe(TribalCode),203,	592,"Santa Ysabel Band of Diegueno Mission Indians of the Santa Ysabel Reservation, California",CA,9,"Iipay Nation of Santa Ysabel, California",100000108,7/26/2006 10:57:50 AM
+Tribe(TribalCode),204,	593,"Soboba Band of Luiseno Indians, California",CA,9,"Soboba Band of Luiseno Indians, California",100000283,7/26/2006 10:57:50 AM
+Tribe(TribalCode),205,	594,Sycuan Band of Diegueno Mission Indians of California,CA,9,Sycuan Band of the Kumeyaay Nation,100000296,7/26/2006 10:57:50 AM
+Tribe(TribalCode),206,	595,Torres-Martinez Band of Cahuilla Mission Indians of California,CA,9,"Torres Martinez Desert Cahuilla Indians, California",100000306,7/26/2006 10:57:50 AM
+Tribe(TribalCode),207,	597,Ramona Band or Village of Cahuilla Mission Indians of California,CA,9,"Ramona Band of Cahuilla, California",100000235,7/26/2006 10:57:50 AM
+Tribe(TribalCode),208,	598,Twenty-Nine Palms Band of Mission Indians of California,CA,9,Twenty-Nine Palms Band of Mission Indians of California,100000313,7/26/2006 10:57:50 AM
+Tribe(TribalCode),577,	599,Capitan Grande Band of Diegueno Mission Indians of California: Viejas (Baron Long) Group of the Viejas Reservation,CA,9,"Capitan Grande Band of Diegueno Mission Indians of California: Viejas (Baron Long) Group of Capitan Grande Band of Mission Indians of the Viejas Reservation, California",100000582,7/26/2017 8:00:24 AM
+Tribe(TribalCode),209,	601,"Yavapai-Apache Nation of the Camp Verde Indian Reservation, Arizona",AZ,9,"Yavapai-Apache Nation of the Camp Verde Indian Reservation, Arizona",100000332,7/26/2006 10:57:50 AM
+Tribe(TribalCode),210,	602,Cocopah Tribe of Arizona,AZ,9,Cocopah Tribe of Arizona,100000048,7/26/2006 10:57:50 AM
+Tribe(TribalCode),211,	603,"Colorado River Indian Tribes of the Colorado River Indian Reservation, Arizona and California",AZ; CA,9,"Colorado River Indian Tribes of the Colorado River Indian Reservation, Arizona and California",100000051,7/26/2006 10:57:50 AM
+Tribe(TribalCode),212,	604,"Fort Mojave Indian Tribe of Arizona, California & Nevada",AZ; CA; NV,9,"Fort Mojave Indian Tribe of Arizona, California & Nevada",100000091,7/26/2006 10:57:50 AM
+Tribe(TribalCode),213,	605,"Havasupai Tribe of the Havasupai Reservation, Arizona",AZ,9,"Havasupai Tribe of the Havasupai Reservation, Arizona",100000100,7/26/2006 10:57:50 AM
+Tribe(TribalCode),214,	606,"Hualapai Indian Tribe of the Hualapai Indian Reservation, Arizona",AZ,9,"Hualapai Indian Tribe of the Hualapai Indian Reservation, Arizona",100000107,7/26/2006 10:57:50 AM
+Tribe(TribalCode),215,	607,"White Mountain Apache Tribe of the Fort Apache Reservation, Arizona",AZ,9,"White Mountain Apache Tribe of the Fort Apache Reservation, Arizona",100000324,7/26/2006 10:57:50 AM
+Tribe(TribalCode),216,	608,Hopi Tribe of Arizona,AZ,9,Hopi Tribe of Arizona,100000104,7/26/2006 10:57:50 AM
+Tribe(TribalCode),217,	610,Tohono O'Odham Nation of Arizona,AZ,9,Tohono O'odham Nation of Arizona,100000302,7/26/2006 10:57:50 AM
+Tribe(TribalCode),682,	611,Tohono O'odham Nation,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),218,	612,"Ak Chin Indian Community of the Maricopa Indian Reservation, Arizona",AZ,9,Ak-Chin Indian Community,100000003,7/26/2006 10:57:50 AM
+Tribe(TribalCode),219,	613,"Fort McDowell Yavapai Nation, Arizona",AZ,9,"Fort McDowell Yavapai Nation, Arizona",100000090,7/26/2006 10:57:50 AM
+Tribe(TribalCode),220,	614,"Gila River Indian Community of the Gila River Indian Reservation, Arizona",AZ,9,"Gila River Indian Community of the Gila River Indian Reservation, Arizona",100000093,7/26/2006 10:57:50 AM
+Tribe(TribalCode),221,	615,"Salt River Pima-Maricopa Indian Community of the Salt River Reservation, Arizona",AZ,9,"Salt River Pima-Maricopa Indian Community of the Salt River Reservation, Arizona",100000252,7/26/2006 10:57:50 AM
+Tribe(TribalCode),222,	616,"San Carlos Apache Tribe of the San Carlos Reservation, Arizona",AZ,9,"San Carlos Apache Tribe of the San Carlos Reservation, Arizona",100000254,7/26/2006 10:57:50 AM
+Tribe(TribalCode),223,	617,"Kaibab Band of Paiute Indians of the Kaibab Indian Reservation, Arizona",AZ,9,"Kaibab Band of Paiute Indians of the Kaibab Indian Reservation, Arizona",100000118,7/26/2006 10:57:50 AM
+Tribe(TribalCode),224,	618,"Yavapai-Prescott Tribe of the Yavapai Reservation, Arizona",AZ,9,Yavapai-Prescott Indian Tribe,100000333,7/26/2006 10:57:50 AM
+Tribe(TribalCode),225,	621,"Cedarville Rancheria, California",CA,9,"Cedarville Rancheria, California",100000035,7/26/2006 10:57:50 AM
+Tribe(TribalCode),226,	622,"Graton Rancheria, California",CA,9,"Federated Indians of Graton Rancheria, California",100000083,7/26/2006 10:57:50 AM
+Tribe(TribalCode),227,	624,"Paiute-Shoshone Indians of the Lone Pine Community of the Lone Pine Reservation, California",CA,9,Lone Pine Paiute-Shoshone Tribe,100000191,7/26/2006 10:57:50 AM
+Tribe(TribalCode),228,	626,Mooretown Rancheria of Maidu Indians of California,CA,9,Mooretown Rancheria of Maidu Indians of California,100000166,7/26/2006 10:57:50 AM
+Tribe(TribalCode),684,	627,Pit River Tribe of California,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),229,	628,"California Valley Miwok Tribe, California",CA,9,"California Valley Miwok Tribe, California",100000030,7/26/2006 10:57:50 AM
+Tribe(TribalCode),230,	629,Sherwood Valley Rancheria of Pomo Indians of California,CA,9,Sherwood Valley Rancheria of Pomo Indians of California,100000271,7/26/2006 10:57:50 AM
+Tribe(TribalCode),583,	630,Tejon Indian Tribe,CA,9,Tejon Indian Tribe,100000298,7/15/2019 10:50:45 AM
+Tribe(TribalCode),231,	632,"Elem Indian Colony of Pomo Indians of the Sulphur Bank Rancheria, California",CA,9,"Elem Indian Colony of Pomo Indians of the Sulphur Bank Rancheria, California",100000078,7/26/2006 10:57:50 AM
+Tribe(TribalCode),232,	634,Tuolumne Band of Me-Wuk Indians of the Tuolumne Rancheria of California,CA,9,Tuolumne Band of Me-Wuk Indians of the Tuolumne Rancheria of California,100000310,7/26/2006 10:57:50 AM
+Tribe(TribalCode),565,	635,"Wilton Rancheria, California",CA,9,"Wilton Rancheria, California",100000326,7/26/2017 7:38:10 AM
+Tribe(TribalCode),233,	636,Upper Lake Band of Pomo Indians of Upper Lake Rancheria of California,CA,9,"Habematolel Pomo of Upper Lake, California",100000098,7/26/2006 10:57:50 AM
+Tribe(TribalCode),234,	637,United Auburn Indian Community of the Auburn Rancheria of California,CA,9,United Auburn Indian Community of the Auburn Rancheria of California,100000314,7/26/2006 10:57:50 AM
+Tribe(TribalCode),235,	638,Coyote Valley Band of Pomo Indians of California,CA,9,Coyote Valley Band of Pomo Indians of California,100000068,7/26/2006 10:57:50 AM
+Tribe(TribalCode),564,	639,Koi Nation of Northern California (Former Tejon),CA,9,Koi Nation of Northern California,100000140,7/26/2017 7:38:10 AM
+Tribe(TribalCode),236,	640,Te-Moak Tribe of Western Shoshone Indians of Nevada,NV,9,Te-Moak Tribe of Western Shoshone Indians of Nevada (Four constituent bands: Battle Mountain Band; Elko Band; South Fork Band; and Wells Band),100000299,7/26/2006 10:57:50 AM
+Tribe(TribalCode),237,	641,"Shoshone-Paiute Tribes of the Duck Valley Reservation, Nevada",ID; NV,9,"Shoshone-Paiute Tribes of the Duck Valley Reservation, Nevada",100000277,7/26/2006 10:57:50 AM
+Tribe(TribalCode),238,	642,"Duckwater Shoshone Tribe of the Duckwater Reservation, Nevada",NV,9,"Duckwater Shoshone Tribe of the Duckwater Reservation, Nevada",100000075,7/26/2006 10:57:50 AM
+Tribe(TribalCode),574,	643,Te-Moak Tribe of Western Shoshone Indians of Nevada (Elko Band),NV,9,Te-Moak Tribe of Western Shoshone Indians of Nevada (Elko Band)***,100000578,7/26/2017 8:00:24 AM
+Tribe(TribalCode),239,	644,Ely Shoshone Tribe of Nevada ,NV,9,Ely Shoshone Tribe of Nevada,100000080,7/26/2006 10:57:50 AM
+Tribe(TribalCode),240,	645,"Paiute-Shoshone Tribe of the Fallon Reservation and Colony, Nevada",NV,9,"Paiute-Shoshone Tribe of the Fallon Reservation and Colony, Nevada",100000190,7/26/2006 10:57:50 AM
+Tribe(TribalCode),241,	646,"Fort McDermitt Paiute and Shoshone Tribes of the Fort McDermitt Indian Reservation, Nevada and Oregon",NV; OR,9,"Fort McDermitt Paiute and Shoshone Tribes of the Fort McDermitt Indian Reservation, Nevada and Oregon",100000089,7/26/2006 10:57:50 AM
+Tribe(TribalCode),242,	648,"Las Vegas Tribe of Paiute Indians of the Las Vegas Indian Colony, Nevada",NV,9,"Las Vegas Tribe of Paiute Indians of the Las Vegas Indian Colony, Nevada",100000137,7/26/2006 10:57:50 AM
+Tribe(TribalCode),243,	649,"Lovelock Paiute Tribe of the Lovelock Indian Colony, Nevada",NV,9,"Lovelock Paiute Tribe of the Lovelock Indian Colony, Nevada",100000142,7/26/2006 10:57:50 AM
+Tribe(TribalCode),244,	650,Moapa Band of Paiute Indians of the Moapa,NV,9,"Moapa Band of Paiute Indians of the Moapa River Indian Reservation, Nevada",100000163,7/26/2006 10:57:50 AM
+Tribe(TribalCode),245,	651,"River Indian Reservation, Nevada Pyramid Lake Paiute Tribe of the Pyramid Lake Reservation, Nevada",NV,9,"Pyramid Lake Paiute Tribe of the Pyramid Lake Reservation, Nevada",100000229,7/26/2006 10:57:50 AM
+Tribe(TribalCode),246,	653,"Reno-Sparks Indian Colony, Nevada",NV,9,"Reno-Sparks Indian Colony, Nevada",100000240,7/26/2006 10:57:50 AM
+Tribe(TribalCode),247,	655,Summit Lake Paiute Tribe of Nevada,NV,9,Summit Lake Paiute Tribe of Nevada,100000292,7/26/2006 10:57:50 AM
+Tribe(TribalCode),248,	656,"Walker River Paiute Tribe of the Walker River Reservation, Nevada",NV,9,"Walker River Paiute Tribe of the Walker River Reservation, Nevada",100000321,7/26/2006 10:57:50 AM
+Tribe(TribalCode),685,	658,Paiute-Shoshone Tribe of the Fallon Reservation and Colony,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),249,	659,Winnemucca Indian Colony of Nevada,NV,9,Winnemucca Indian Colony of Nevada,100000328,7/26/2006 10:57:50 AM
+Tribe(TribalCode),250,	660,"Yerington Paiute Tribe of the Yerington Colony & Campbell Ranch, Nevada",NV,9,"Yerington Paiute Tribe of the Yerington Colony & Campbell Ranch, Nevada",100000334,7/26/2006 10:57:50 AM
+Tribe(TribalCode),251,	661,"Yomba Shoshone Tribe of the Yomba Reservation, Nevada",NV,9,"Yomba Shoshone Tribe of the Yomba Reservation, Nevada",100000336,7/26/2006 10:57:50 AM
+Tribe(TribalCode),575,	662,Te-Moak Tribe of Western Shoshone Indians of Nevada (South Fork Band),NV,9,Te-Moak Tribe of Western Shoshone Indians of Nevada (South Fork Band)***,100000579,7/26/2017 8:00:24 AM
+Tribe(TribalCode),686,	663,Yerington Paiute Tribe,,,,,1/22/2020 9:49:05 AM
+Tribe(TribalCode),252,	665,Pascua Yaqui Tribe of Arizona,AZ,9,Pascua Yaqui Tribe of Arizona,100000193,7/26/2006 10:57:50 AM
+Tribe(TribalCode),253,	672,Washoe Tribe of Nevada & California,CA; NV,9,"Washoe Tribe of Nevada & California (Carson Colony, Dresslerville Colony, Woodfords Community, Stewart Community, & Washoe Ranches)",100000323,7/26/2006 10:57:50 AM
+Tribe(TribalCode),254,	674,Tonto Apache Tribe of Arizona,AZ,9,Tonto Apache Tribe of Arizona,100000305,7/26/2006 10:57:50 AM
+Tribe(TribalCode),255,	681,"Confederated Tribes of the Goshute Reservation, Nevada and Utah",NV; UT,9,"Confederated Tribes of the Goshute Reservation, Nevada and Utah",100000057,7/26/2006 10:57:50 AM
+Tribe(TribalCode),256,	682,Skull Valley Band of Goshute Indians of Utah,UT,8,Skull Valley Band of Goshute Indians of Utah,100000280,7/26/2006 10:57:50 AM
+Tribe(TribalCode),257,	687,"Ute Indian Tribe of the Uintah & Ouray Reservation, Utah",UT,8,"Ute Indian Tribe of the Uintah & Ouray Reservation, Utah",100000318,7/26/2006 10:57:50 AM
+Tribe(TribalCode),258,	689,San Juan Southern Paiute Tribe of Arizona,AZ,9,San Juan Southern Paiute Tribe of Arizona,100000255,7/26/2006 10:57:50 AM
+Tribe(TribalCode),259,	691,Bridgeport Paiute Indian Colony of California,CA,9,Bridgeport Indian Colony,100000022,7/26/2006 10:57:50 AM
+Tribe(TribalCode),260,	692,Paiute Indian Tribe of Utah,UT,8,"Paiute Indian Tribe of Utah (Cedar Band of Paiutes, Kanosh Band of Paiutes, Koosharem Band of Paiutes, Indian Peaks Band of Paiutes, and Shivwits Band of Paiutes)",100000188,7/26/2006 10:57:50 AM
+Tribe(TribalCode),261,	693,Death Valley Timbi-Sha Shoshone Band of California,CA; NV,9,Timbisha Shoshone Tribe,100000071,7/26/2006 10:57:50 AM
+Tribe(TribalCode),262,	695,"Chemehuevi Indian Tribe of the Chemehuevi Reservation, California",CA,9,"Chemehuevi Indian Tribe of the Chemehuevi Reservation, California",100000036,7/26/2006 10:57:50 AM
+Tribe(TribalCode),263,	696,"Quechan Tribe of the Fort Yuma Indian Reservation, California & Arizona",AZ; CA,9,"Quechan Tribe of the Fort Yuma Indian Reservation, California & Arizona",100000232,7/26/2006 10:57:50 AM
+Tribe(TribalCode),264,	697,"Lower Lake Rancheria, California",,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),265,	701,"Jicarilla Apache Nation, New Mexico",NM,6,"Jicarilla Apache Nation, New Mexico",100000117,7/26/2006 10:57:50 AM
+Tribe(TribalCode),266,	702,"Mescalero Apache Tribe of the Mescalero Reservation, New Mexico",NM,6,"Mescalero Apache Tribe of the Mescalero Reservation, New Mexico",100000157,7/26/2006 10:57:50 AM
+Tribe(TribalCode),267,	703,"Pueblo of Acoma, New Mexico",NM,6,"Pueblo of Acoma, New Mexico",100000212,7/26/2006 10:57:50 AM
+Tribe(TribalCode),268,	704,"Pueblo of Cochiti, New Mexico",NM,6,"Pueblo of Cochiti, New Mexico",100000213,7/26/2006 10:57:50 AM
+Tribe(TribalCode),269,	705,"Pueblo of Isleta, New Mexico",NM,6,"Pueblo of Isleta, New Mexico",100000215,7/26/2006 10:57:50 AM
+Tribe(TribalCode),270,	706,"Pueblo of Jemez, New Mexico",NM,6,"Pueblo of Jemez, New Mexico",100000214,7/26/2006 10:57:50 AM
+Tribe(TribalCode),271,	707,"Pueblo of Laguna, New Mexico",NM,6,"Pueblo of Laguna, New Mexico",100000216,7/26/2006 10:57:50 AM
+Tribe(TribalCode),272,	708,"Pueblo of Nambe, New Mexico",NM,6,"Pueblo of Nambe, New Mexico",100000217,7/26/2006 10:57:50 AM
+Tribe(TribalCode),273,	709,"Pueblo of Picuris, New Mexico",NM,6,"Pueblo of Picuris, New Mexico",100000218,7/26/2006 10:57:50 AM
+Tribe(TribalCode),274,	710,"Pueblo of Pojoaque, New Mexico",NM,6,"Pueblo of Pojoaque, New Mexico",100000219,7/26/2006 10:57:50 AM
+Tribe(TribalCode),275,	711,"Pueblo of Sandia, New Mexico",NM,6,"Pueblo of Sandia, New Mexico",100000222,7/26/2006 10:57:50 AM
+Tribe(TribalCode),276,	712,"Pueblo of San Felipe, New Mexico",NM,6,"Pueblo of San Felipe, New Mexico",100000220,7/26/2006 10:57:50 AM
+Tribe(TribalCode),277,	713,"Pueblo of San Ildefonso, New Mexico",NM,6,"Pueblo of San Ildefonso, New Mexico",100000221,7/26/2006 10:57:50 AM
+Tribe(TribalCode),278,	714,"Pueblo of San Juan, New Mexico",NM,6,"Ohkay Owingeh, New Mexico",100000180,7/26/2006 10:57:50 AM
+Tribe(TribalCode),279,	715,"Pueblo of Santa Ana, New Mexico",NM,6,"Pueblo of Santa Ana, New Mexico",100000223,7/26/2006 10:57:50 AM
+Tribe(TribalCode),280,	716,"Pueblo of Santa Clara, New Mexico",NM,6,"Pueblo of Santa Clara, New Mexico",100000224,7/26/2006 10:57:50 AM
+Tribe(TribalCode),281,	717,"Pueblo of Santo Domingo, New Mexico",NM,6,Santo Domingo Pueblo,100000123,7/26/2006 10:57:50 AM
+Tribe(TribalCode),282,	718,"Pueblo of Taos, New Mexico",NM,6,"Pueblo of Taos, New Mexico",100000225,7/26/2006 10:57:50 AM
+Tribe(TribalCode),283,	719,"Pueblo of Tesuque, New Mexico",NM,6,"Pueblo of Tesuque, New Mexico",100000226,7/26/2006 10:57:50 AM
+Tribe(TribalCode),284,	720,"Pueblo of Zia, New Mexico",NM,6,"Pueblo of Zia, New Mexico",100000227,7/26/2006 10:57:50 AM
+Tribe(TribalCode),285,	721,"Zuni Tribe of the Zuni Reservation, New Mexico",AZ; NM,6,"Zuni Tribe of the Zuni Reservation, New Mexico",100000339,7/26/2006 10:57:50 AM
+Tribe(TribalCode),687,	722,Ramah Navajo (recognized under Navajo),,,,,1/22/2020 9:49:06 AM
+Tribe(TribalCode),286,	725,Ysleta Del Sur Pueblo of Texas,TX,6,Ysleta del Sur Pueblo,100000337,7/26/2006 10:57:50 AM
+Tribe(TribalCode),287,	750,"Southern Ute Indian Tribe of the Southern Ute Reservation, Colorado",CO,8,"Southern Ute Indian Tribe of the Southern Ute Reservation, Colorado",100000285,7/26/2006 10:57:50 AM
+Tribe(TribalCode),288,	751,"Ute Mountain Tribe of the Ute Mountain Reservation, Colorado, New Mexico & Utah",CO; NM,8,Ute Mountain Ute Tribe,100000319,7/26/2006 10:57:50 AM
+Tribe(TribalCode),688,	754,Ute Mountain Tribe,,,,,1/22/2020 9:49:06 AM
+Tribe(TribalCode),289,	780,"Navajo Nation, Arizona, New Mexico & Utah",AZ; NM; UT,9,"Navajo Nation, Arizona, New Mexico, & Utah",100000171,7/26/2006 10:57:50 AM
+Tribe(TribalCode),689,	796,Navajo Nation,,,,,1/22/2020 9:49:06 AM
+Tribe(TribalCode),290,	801,Cheyenne-Arapaho Tribes of Oklahoma,OK,6,"Cheyenne and Arapaho Tribes, Oklahoma",100000039,7/26/2006 10:57:50 AM
+Tribe(TribalCode),291,	802,Kiowa Indian Tribe of Oklahoma,OK,6,Kiowa Indian Tribe of Oklahoma,100000129,7/26/2006 10:57:50 AM
+Tribe(TribalCode),292,	803,Fort Sill Apache Tribe of Oklahoma,AZ; NM; OK,6,Fort Sill Apache Tribe of Oklahoma,100000092,7/26/2006 10:57:50 AM
+Tribe(TribalCode),293,	804,"Wichita and Affiliated Tribes, Oklahoma",OK,6,"Wichita and Affiliated Tribes (Wichita, Keechi, Waco, & Tawakonie), Oklahoma",100000325,7/26/2006 10:57:50 AM
+Tribe(TribalCode),294,	806,Caddo Indian Tribe of Oklahoma,OK,6,Caddo Nation of Oklahoma,100000027,7/26/2006 10:57:50 AM
+Tribe(TribalCode),295,	807,"Delaware Nation, Oklahoma",OK,6,"Delaware Nation, Oklahoma",100000072,7/26/2006 10:57:50 AM
+Tribe(TribalCode),296,	808,"Comanche Nation, Oklahoma",OK,6,"Comanche Nation, Oklahoma",100000052,7/26/2006 10:57:50 AM
+Tribe(TribalCode),297,	809,Apache Tribe of Oklahoma,OK,6,Apache Tribe of Oklahoma,100000007,7/26/2006 10:57:50 AM
+Tribe(TribalCode),298,	810,"Kaw Nation, Oklahoma",OK,6,"Kaw Nation, Oklahoma",100000122,7/26/2006 10:57:50 AM
+Tribe(TribalCode),299,	811,"Otoe-Missouria Tribe of Indians, Oklahoma",OK,6,"Otoe-Missouria Tribe of Indians, Oklahoma",100000187,7/26/2006 10:57:50 AM
+Tribe(TribalCode),300,	812,Pawnee Nation of Oklahoma,OK,6,Pawnee Nation of Oklahoma,100000197,7/26/2006 10:57:50 AM
+Tribe(TribalCode),301,	813,Ponca Tribe of Indians of Oklahoma,OK,6,Ponca Tribe of Indians of Oklahoma,100000206,7/26/2006 10:57:50 AM
+Tribe(TribalCode),302,	814,Tonkawa Tribe of Indians of Oklahoma,OK,6,Tonkawa Tribe of Indians of Oklahoma,100000304,7/26/2006 10:57:50 AM
+Tribe(TribalCode),303,	816,"Delaware Tribe of Indians, Oklahoma",OK,6,Delaware Tribe of Indians,100000073,7/26/2006 10:57:50 AM
+Tribe(TribalCode),304,	820,Absentee-Shawnee Tribe of Indians of Oklahoma,OK,6,Absentee-Shawnee Tribe of Indians of Oklahoma,100000001,7/26/2006 10:57:50 AM
+Tribe(TribalCode),305,	821,"Citizen Potawatomi Nation, Oklahoma",OK,6,"Citizen Potawatomi Nation, Oklahoma",100000046,7/26/2006 10:57:50 AM
+Tribe(TribalCode),306,	822,Iowa Tribe of Oklahoma,OK,6,Iowa Tribe of Oklahoma,100000112,7/26/2006 10:57:50 AM
+Tribe(TribalCode),307,	823,Kickapoo Tribe of Oklahoma,OK,6,Kickapoo Tribe of Oklahoma,100000127,7/26/2006 10:57:50 AM
+Tribe(TribalCode),308,	824,"Sac & Fox Nation, Oklahoma",OK,6,"Sac & Fox Nation, Oklahoma",100000248,7/26/2006 10:57:50 AM
+Tribe(TribalCode),690,	825,Delaware Tribe of Indians,,,,,1/22/2020 9:49:06 AM
+Tribe(TribalCode),309,	826,Kickapoo Traditional Tribe of Texas,TX,6,Kickapoo Traditional Tribe of Texas,100000128,7/26/2006 10:57:50 AM
+Tribe(TribalCode),310,	830,Alabama-Coushatta Tribes of Texas,TX,6,Alabama-Coushatta Tribe of Texas,100000004,7/26/2006 10:57:50 AM
+Tribe(TribalCode),692,	850,Sun'aq Tribe of Kodiak,,,,,1/22/2020 9:49:06 AM
+Tribe(TribalCode),311,	860,Iowa Tribe of Kansas and Nebraska,KS; NE,7,Iowa Tribe of Kansas and Nebraska,100000111,7/26/2006 10:57:50 AM
+Tribe(TribalCode),312,	861,Kickapoo Tribe of Indians of the Kickapoo Reservation in Kansas,KS,7,Kickapoo Tribe of Indians of the Kickapoo Reservation in Kansas,100000126,7/26/2006 10:57:50 AM
+Tribe(TribalCode),313,	862,"Prairie Band of Potawatomi Nation, Kansas",KS,7,Prairie Band Potawatomi Nation,100000210,7/26/2006 10:57:50 AM
+Tribe(TribalCode),314,	863,Sac & Fox Nation of Missouri in Kansas and Nebraska,KS; NE,7,Sac & Fox Nation of Missouri in Kansas and Nebraska,100000247,7/26/2006 10:57:50 AM
+Tribe(TribalCode),315,	901,"Alabama-Quassarte Tribal Town, Oklahoma",OK,6,Alabama-Quassarte Tribal Town,100000005,7/26/2006 10:57:50 AM
+Tribe(TribalCode),316,	902,"Kialegee Tribal Town, Oklahoma",OK,6,Kialegee Tribal Town,100000125,7/26/2006 10:57:50 AM
+Tribe(TribalCode),317,	903,"Thlopthlocco Tribal Town, Oklahoma",OK,6,Thlopthlocco Tribal Town,100000300,7/26/2006 10:57:50 AM
+Tribe(TribalCode),318,	904,United Keetoowah Band of Cherokee Indians in Oklahoma,OK,6,United Keetoowah Band of Cherokee Indians in Oklahoma,100000315,7/26/2006 10:57:50 AM
+Tribe(TribalCode),319,	905,"Cherokee Nation, Oklahoma",OK,6,Cherokee Nation,100000038,7/26/2006 10:57:50 AM
+Tribe(TribalCode),320,	906,"Chickasaw Nation, Oklahoma",OK,6,The Chickasaw Nation,100000041,7/26/2006 10:57:50 AM
+Tribe(TribalCode),321,	907,Choctaw Nation of Oklahoma,OK,6,The Choctaw Nation of Oklahoma,100000045,7/26/2006 10:57:50 AM
+Tribe(TribalCode),322,	908,"Muscogee Nation, Oklahoma",KS; OK,6,The Muscogee (Creek) Nation,100000169,7/26/2006 10:57:50 AM
+Tribe(TribalCode),323,	909,Seminole Nation of Oklahoma,OK,6,The Seminole Nation of Oklahoma,100000265,7/26/2006 10:57:50 AM
+Tribe(TribalCode),324,	911,"Shawnee Tribe, Oklahoma",OK,6,Shawnee Tribe,100000270,7/26/2006 10:57:50 AM
+Tribe(TribalCode),325,	920,"Quapaw Tribe of Indians, Oklahoma",KS; OK,6,Quapaw Nation,100000230,7/26/2006 10:57:50 AM
+Tribe(TribalCode),326,	921,Eastern Shawnee Tribe of Oklahoma,MO; OK,6,Eastern Shawnee Tribe of Oklahoma,100000077,7/26/2006 10:57:50 AM
+Tribe(TribalCode),327,	922,Ottawa Tribe of Oklahoma,OK,6,Ottawa Tribe of Oklahoma,100000186,7/26/2006 10:57:50 AM
+Tribe(TribalCode),328,	923,Seneca-Cayuga Tribe of Oklahoma,OK,6,Seneca-Cayuga Nation,100000268,7/26/2006 10:57:50 AM
+Tribe(TribalCode),329,	924,Wyandotte Tribe of Oklahoma,KS; OK,6,Wyandotte Nation,100000330,7/26/2006 10:57:50 AM
+Tribe(TribalCode),330,	925,Miami Tribe of Oklahoma,OK,6,Miami Tribe of Oklahoma,100000158,7/26/2006 10:57:50 AM
+Tribe(TribalCode),331,	926,Peoria Tribe of Indians of Oklahoma,OK,6,Peoria Tribe of Indians of Oklahoma,100000200,7/26/2006 10:57:50 AM
+Tribe(TribalCode),332,	927,Modoc Tribe of Oklahoma,OK,6,Modoc Nation,100000164,7/26/2006 10:57:50 AM
+Tribe(TribalCode),333,	930,"Osage Tribe, Oklahoma",OK,6,The Osage Nation,100000185,7/26/2006 10:57:50 AM
+Tribe(TribalCode),334,	970,Chitimacha Tribe of Louisiana,LA,6,Chitimacha Tribe of Louisiana,100000044,7/26/2006 10:57:50 AM
+Tribe(TribalCode),335,	971,Coushatta Tribe of Louisiana,LA,6,Coushatta Tribe of Louisiana,100000065,7/26/2006 10:57:50 AM
+Tribe(TribalCode),336,	980,"Mississippi Band of Choctaw Indians, Mississippi",MS; TN,4,Mississippi Band of Choctaw Indians,100000162,7/26/2006 10:57:50 AM
+Tribe(TribalCode),337,	A01,Village of Afognak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),338,	A02,Agdaagux Tribe of King Cove,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),339,	A03,Native Village of Akhiok,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),340,	A04,Native Village of Akutan,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),341,	A05,Native Village of Aleknagik,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),342,	A06,Native Village of Atka,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),343,	A07,Native Village of Belkofski,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),344,	A08,Native Village of Cantwell,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),345,	A09,Native Village of Chanega,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),346,	A10,Chickaloon Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),347,	A11,Native Village of Chignik Lagoon,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),348,	A12,Chignik Lake Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),349,	A13,Native Village of Chignik,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),350,	A14,Cheesh-Na Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),351,	A15,Native Village of Chitina,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),352,	A16,Village of Clarks Point,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),353,	A17,Curyung Tribal Council,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),354,	A18,Egegik Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),355,	A19,Eklutna Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),356,	A20,Native Village of Ekuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),357,	A21,Ekwok Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),358,	A22,Native Village of Eyak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),359,	A23,Native Village of False Pass,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),360,	A24,Native Village of Gakona,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),361,	A25,Gulkana Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),362,	A26,Igiugig Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),363,	A27,Village of Iliamna,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),364,	A28,Ivanoff Bay Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),365,	A29,Kaguyak Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),366,	A30,Native Village of Kanatak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),367,	A31,Native Village of Karluk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),368,	A32,Kenaitze Indian Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),369,	A33,King Salmon Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),370,	A34,Native Village of Kluti Kaah,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),371,	A35,Knik Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),372,	A36,Kokhanok Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),373,	A37,New Koliganek Village Council,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),374,	A38,Native Village of Larsen Bay,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),584,	A39,Lesnoi Village,,,,,1/21/2020 10:19:47 AM
+Tribe(TribalCode),375,	A40,Levelock Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),376,	A41,Manokotak Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),377,	A42,Mentasta Traditional Council,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),378,	A43,Naknek Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),379,	A44,Native Village of Nanwalek,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),380,	A45,Native Village of Nelson Lagoon,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),381,	A46,New Stuyahok Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),382,	A47,Newhalen Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),383,	A48,Native Village of Nikolski,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),384,	A49,Ninilchik Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),385,	A50,Nondalton Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),386,	A51,Village of Old Harbor,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),387,	A52,Native Village of Ouzinkie,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),388,	A53,Pauloff Harbor Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),389,	A54,Pedro Bay Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),390,	A55,Native Village of Perryville,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),391,	A56,Native Village of Pilot Point,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),392,	A57,Native Village of Port Graham,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),393,	A58,Native Village of Port Heiden,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),394,	A59,Native Village of Port Lions,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),395,	A60,Portage Creek Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),396,	A61,Pribilof Islands Aleut Communities of St. Paul & St. George Islands,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),397,	A62,Qagan Tayagungin Tribe of Sand Point Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),398,	A63,Qawalangin Tribe of Unalaska,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),399,	A64,Saint George Island,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),400,	A65,Saint Paul Island,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),401,	A66,Village of Salamatoff,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),402,	A67,Seldovia Village Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),403,	A68,Shoonaq' Tribe of Kodiak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),404,	A69,South Naknek Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),405,	A70,Native Village of Tatitlek,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),406,	A71,Native Village of Tazlina,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),407,	A72,Traditional Village of Togiak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),408,	A73,Twin Hills Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),409,	A74,Native Village of Tyonek,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),410,	A75,Ugashik Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),411,	A76,Native Village of Unga,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),412,	B01,Akiachak Native Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),413,	B02,Akiak Native Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),414,	B03,Village of Alakanuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),415,	B04,Algaaciq Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),416,	B05,Yupiit of Andreafski,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),417,	B06,Village of Aniak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),418,	B07,Village of Atmautluak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),419,	B08,Village of Bill Moore's Slough,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),420,	B09,Village of Chefornak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),421,	B10,Chevak Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),422,	B11,Native Village of Chuathbaluk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),423,	B12,Chuloonawick Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),424,	B13,Village of Crooked Creek,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),425,	B14,Native Village of Eek,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),426,	B15,Emmonak Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),427,	B16,Native Village of Georgetown,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),428,	B17,Native Village of Goodnews Bay,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),429,	B18,Native Village of Hamilton,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),430,	B19,Native Village of Hooper Bay,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),431,	B20,Village of Kalskag,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),432,	B21,Native Village of Kasigluk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),433,	B22,Native Village of Kipnuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),434,	B23,Native Village of Kongiganak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),435,	B24,Village of Kotlik,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),436,	B25,Organized Village of Kwethluk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),437,	B26,Native Village of Kwigillingok,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),438,	B27,Native Village of Kwinhagak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),439,	B28,Lime Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),440,	B29,Village of Lower Kalskag,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),441,	B30,Native Village of Marshall,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),442,	B31,Native Village of Mekoryuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),443,	B32,Asa'carsarmiut Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),444,	B33,Native Village of Napaimute,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),445,	B34,Native Village of Napakiak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),446,	B35,Native Village of Napaskiak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),447,	B36,Newtok Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),448,	B37,Native Village of Nightmute,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),449,	B38,Native Village of Nunapitchuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),450,	B39,Village of Ohogamiut,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),451,	B40,Orutsararmuit Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),452,	B41,Oscarville Traditional Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),453,	B42,Native Village of Paimiut,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),454,	B43,Pilot Station Traditional Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),455,	B44,Native Village of Pitka's Point,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),456,	B45,Platinum Traditional Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),457,	B46,Village of Red Devil,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),458,	B47,Iqurmuit Traditional Council,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),459,	B48,Native Village of Scammon Bay,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),460,	B49,Native Village of Sheldon's Point,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),461,	B50,Village of Sleetmute,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),462,	B51,Village of Stony River,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),463,	B52,Nunakauyarmiut Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),464,	B53,Tuluksak Native Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),465,	B54,Native Village of Tuntutuliak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),466,	B55,Native Village of Tununak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),467,	B56,Umkumiute Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),468,	F01,Alatna Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),469,	F02,Allakaket Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),470,	F03,Village of Anaktuvuk Pass,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),471,	F04,Anvik Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),472,	F05,Arctic Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),473,	F06,Atqasuk Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),474,	F07,Native Village of Barrow Inupiat Traditional Government,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),475,	F08,Beaver Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),476,	F09,Birch Creek Tribe,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),477,	F10,Chalkyitsik Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),478,	F11,Circle Native Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),479,	F12,Village of Dot Lake,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),480,	F13,Native Village of Eagle,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),481,	F14,Evansville Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),482,	F15,Native Village of Fort Yukon,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),483,	F16,Galena Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),484,	F17,Organized Village of Grayling,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),485,	F18,Healy Lake Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),486,	F19,Holy Cross Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),487,	F20,Hughes Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),488,	F21,Huslia Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),489,	F22,Inupiat Community of the Arctic Slope,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),490,	F23,Kaktovik Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),491,	F24,Village of Kaltag,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),492,	F25,Koyukuk Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),493,	F26,Manley Hot Springs Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),494,	F27,Mcgrath Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),495,	F28,Native Village of Minto,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),496,	F29,Native Village of Venetie Tribal Government,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),497,	F30,Nenana Native Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),498,	F31,Nikolai Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),499,	F32,Northway Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),500,	F33,Native Village of Nuiqsut,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),501,	F34,Nulato Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),502,	F35,Native Village of Point Hope,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),503,	F36,Native Village of Point Lay,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),504,	F37,Rampart Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),505,	F38,Native Village of Ruby,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),506,	F39,Shageluk Native Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),507,	F40,Native Village of Stevens,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),508,	F41,Takotna Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),509,	F42,Native Village of Tanacross,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),510,	F43,Native Village of Tanana,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),511,	F44,Telida Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),512,	F45,Native Village of Tetlin,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),513,	F46,Village of Venetie,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),514,	F47,Village of Wainwright,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),693,	K80,Hopi Tribe,,,,,1/22/2020 9:49:06 AM
+Tribe(TribalCode),515,	N01,Native Village of Ambler,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),516,	N02,Native Village of Brevig Mission,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),517,	N03,Native Village of Buckland,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),518,	N04,Chinik Eskimo Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),519,	N05,Native Village of Council,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),520,	N06,Native Village of Deering,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),521,	N07,Native Village of Diomede,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),522,	N08,Native Village of Elim,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),523,	N09,Native Village of Gambell,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),524,	N10,Native Village of Kiana,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),525,	N11,King Island Native Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),526,	N12,Native Village of Kivalina,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),527,	N13,Native Village of Kobuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),528,	N14,Native Village of Kotzebue,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),529,	N15,Native Village of Koyuk,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),530,	N16,Native Village of Mary's Igloo,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),531,	N17,Native Village of Noatak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),532,	N18,Nome Eskimo Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),533,	N19,Noorvik Native Community,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),534,	N20,Native Village of Saint Michael,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),535,	N21,Native Village of Savoonga,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),536,	N22,Native Village of Selawik,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),537,	N23,Native Village of Shaktoolik,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),538,	N24,Native Village of Shishmaref,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),539,	N25,Native Village of Shungnak,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),540,	N26,Village of Solomon,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),541,	N27,Stebbins Community Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),542,	N28,Native Village of Teller,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),543,	N29,Native Village of Unalakleet,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),544,	N30,Native Village of Wales,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),545,	N31,Native Village of White Mountain,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),546,	S01,Angoon Community Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),547,	S02,Central Council of the Tlingit & Haida Indian Tribes,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),548,	S03,Chilkat Indian Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),549,	S04,Chilkoot Indian Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),550,	S05,Craig Community Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),551,	S06,Douglas Indian Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),552,	S07,Hoonah Indian Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),553,	S08,Hydaburg Cooperative Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),554,	S09,Organized Village of Kake,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),555,	S10,Organized Village of Kasaan,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),556,	S11,Ketchikan Indian Corporation,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),557,	S12,Klawock Cooperative Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),558,	S13,Petersburg Indian Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),559,	S14,Organized Village of Saxman,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),560,	S15,Sitka Tribe of Alaska,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),561,	S16,Skagway Village,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),562,	S17,Wrangell Cooperative Association,,,,,7/26/2006 10:57:50 AM
+Tribe(TribalCode),563,	S18,Yakutat Tlingit Tribe,,,,,7/26/2006 10:57:50 AM
+

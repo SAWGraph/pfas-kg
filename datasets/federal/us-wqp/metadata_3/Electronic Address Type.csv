@@ -1,0 +1,5 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Electronic Address Type(ElectronicAddressTypeName),1,Email,"The electronic address type defined as an electronic mail (e-mail) address consisting of a username, the @ sign, and a mail domain name.",7/26/2006 10:57:47 AM
+Electronic Address Type(ElectronicAddressTypeName),2,Internet,The electronic address type defined as an interconnected system of networks that connects computers around the world via the TCP/IP protocol.,7/26/2006 10:57:47 AM
+Electronic Address Type(ElectronicAddressTypeName),3,Intranet,"The electronic address type defined as a privately maintained computer network that can be accessed only by authorized persons, especially members or employees of the organization that owns it.",7/26/2006 10:57:47 AM
+

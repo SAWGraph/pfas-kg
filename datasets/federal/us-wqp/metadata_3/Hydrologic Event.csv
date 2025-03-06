@@ -1,0 +1,23 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Hydrologic Event(HydrologicEvent),18,Affected by fire,Drainage basin for sample was affected by fire prior to sampling,5/31/2022 12:00:00 AM
+Hydrologic Event(HydrologicEvent),17,Algal bloom,Sample potentially affected by the excessive presence of algae,5/31/2022 12:00:00 AM
+Hydrologic Event(HydrologicEvent),1,Backwater,,4/10/2020 12:51:38 PM
+Hydrologic Event(HydrologicEvent),2,Dambreak,,4/10/2020 12:51:38 PM
+Hydrologic Event(HydrologicEvent),3,Drought,,4/10/2020 12:51:38 PM
+Hydrologic Event(HydrologicEvent),19,Earthquake,"a sudden and violent shaking of the ground, as a result of movements within the earth's crust or volcanic action",5/31/2022 12:00:00 AM
+Hydrologic Event(HydrologicEvent),4,Flood,,4/10/2020 12:52:10 PM
+Hydrologic Event(HydrologicEvent),20,Glacial lake outbreak ,"a sudden release of water (Glacial Lake Outburst) from a lake fed by glacier melt that has formed at the side, in front, within, beneath, or on the surface of a glacier.",5/31/2022 12:00:00 AM
+Hydrologic Event(HydrologicEvent),5,Hurricane,,4/10/2020 12:52:10 PM
+Hydrologic Event(HydrologicEvent),21,Mudflow,a fluid or hardened stream or avalanche of mud.,5/31/2022 12:00:00 AM
+Hydrologic Event(HydrologicEvent),7,Not Determined (historical),,4/10/2020 12:52:38 PM
+Hydrologic Event(HydrologicEvent),6,Not applicable,,4/10/2020 12:52:11 PM
+Hydrologic Event(HydrologicEvent),8,Regulated flow,,4/10/2020 12:52:39 PM
+Hydrologic Event(HydrologicEvent),9,Routine sample,,4/10/2020 12:52:39 PM
+Hydrologic Event(HydrologicEvent),10,Snowmelt,,4/10/2020 12:53:24 PM
+Hydrologic Event(HydrologicEvent),11,Spill,,4/10/2020 12:53:24 PM
+Hydrologic Event(HydrologicEvent),12,Spring breakup,,4/10/2020 12:53:24 PM
+Hydrologic Event(HydrologicEvent),13,Storm,"a violent atmospheric disturbance, characterized by low barometric pressure, cloud cover, precipitation, strong winds, and possibly lightning and thunder",4/14/2023 12:34:30 PM
+Hydrologic Event(HydrologicEvent),14,Tidal action,,4/10/2020 12:53:54 PM
+Hydrologic Event(HydrologicEvent),15,Under ice cover,,4/10/2020 12:53:54 PM
+Hydrologic Event(HydrologicEvent),16,Volcanic action,,4/10/2020 12:54:02 PM
+

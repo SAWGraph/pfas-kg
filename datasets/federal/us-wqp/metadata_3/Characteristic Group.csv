@@ -1,0 +1,54 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Characteristic Group(),2,Biological,,6/15/2018 9:44:33 AM
+Characteristic Group(),55,"Biological, Algae",,3/6/2023 12:44:19 PM
+Characteristic Group(),56,"Biological, Algae, Cyanobacteria",,3/6/2023 12:44:19 PM
+Characteristic Group(),57,"Biological, Algae, Cyanobacteria, Photosynthetic Pigments",,3/6/2023 12:44:19 PM
+Characteristic Group(),58,"Biological, Algae, Cyanobacteria, Photosynthetic,Phycocyanin",,3/6/2023 12:44:19 PM
+Characteristic Group(),60,"Biological, Algae, Phytoplankton",,3/6/2023 12:44:19 PM
+Characteristic Group(),61,"Biological, Algae, Phytoplankton, Aquatic Plants",,3/6/2023 12:44:20 PM
+Characteristic Group(),62,"Biological, Algae, Phytoplankton, Cyanobacteria",,3/6/2023 12:44:20 PM
+Characteristic Group(),63,"Biological, Algae, Phytoplankton, Cyanobacteria, Periphyton",,3/6/2023 12:44:20 PM
+Characteristic Group(),65,"Biological, Algae, Phytoplankton, Photosynthetic Pigments",,3/6/2023 12:44:20 PM
+Characteristic Group(),59,"Biological, Algae,Cyanobacteria,Photosynthetic,Phycoerythrin",,3/6/2023 12:44:19 PM
+Characteristic Group(),64,"Biological, Algae,Phytoplankton,Cyanobacteria,Photosynthetic",,3/6/2023 12:44:20 PM
+Characteristic Group(),66,"Biological, Aquatic Plants",,3/6/2023 12:44:20 PM
+Characteristic Group(),67,"Biological, Carbon Production",,3/6/2023 12:44:20 PM
+Characteristic Group(),53,"Biological, Counts",,2/27/2023 10:35:35 AM
+Characteristic Group(),52,"Biological, Fish",,2/27/2023 10:35:35 AM
+Characteristic Group(),68,"Biological, Fish Habitat, Filamentous Algae",,3/6/2023 12:44:20 PM
+Characteristic Group(),69,"Biological, Habitat, Algae, Aquatic Plants",,3/6/2023 12:44:20 PM
+Characteristic Group(),70,"Biological, Habitat, Algae, Phytoplankton",,3/6/2023 12:44:20 PM
+Characteristic Group(),71,"Biological, Habitat, Aquatic Plants",,3/6/2023 12:44:20 PM
+Characteristic Group(),72,"Biological, Habitat, Filamentous Algae",,3/6/2023 12:44:20 PM
+Characteristic Group(),73,"Biological, Habitat, Plants",,3/6/2023 12:44:20 PM
+Characteristic Group(),74,"Biological, Photosynthetic Pigments",,3/6/2023 12:44:20 PM
+Characteristic Group(),75,"Biological, Plants",,3/6/2023 12:44:20 PM
+Characteristic Group(),76,"Biological, Primary Production",,3/6/2023 12:44:20 PM
+Characteristic Group(),54,"Cyanotoxins, Phytotoxins",,2/27/2023 12:45:14 PM
+Characteristic Group(),3,Habitat,,6/15/2018 9:44:33 AM
+Characteristic Group(),4,Information,,6/15/2018 9:44:33 AM
+Characteristic Group(),5,"Inorganics, Major, Metals",,6/15/2018 9:44:33 AM
+Characteristic Group(),6,"Inorganics, Major, Non-metals",,6/15/2018 9:44:33 AM
+Characteristic Group(),7,"Inorganics, Minor, Metals",,6/15/2018 9:44:33 AM
+Characteristic Group(),8,"Inorganics, Minor, Non-metals",,6/15/2018 9:44:33 AM
+Characteristic Group(),9,Microbiological,,6/15/2018 9:44:33 AM
+Characteristic Group(),1,Not Assigned,Not Assigned values for field.,3/15/2023 2:33:04 PM
+Characteristic Group(),10,Nutrient,,6/15/2018 9:44:33 AM
+Characteristic Group(),21,"Organics, BDEs",,5/15/2022 12:00:00 AM
+Characteristic Group(),11,"Organics, Other",,6/15/2018 9:44:33 AM
+Characteristic Group(),12,"Organics, PCBs",,6/15/2018 9:44:33 AM
+Characteristic Group(),13,"Organics, Pesticide",,6/15/2018 9:44:33 AM
+Characteristic Group(),20,"PFAS,Perfluorinated Alkyl Substance",,4/9/2020 8:41:19 AM
+Characteristic Group(),1040,"PFOA, Perfluorooctanoic Acid","renamed from PFOS, Perfluorooctane Sulfonate",6/19/2020 11:06:09 AM
+Characteristic Group(),1060,"PFOS, Perfluorooctane Sulfonate","renamed from PFOA, Perfluorooctanoic Acid",6/19/2020 11:06:09 AM
+Characteristic Group(),23,Periphyton,,2/27/2023 10:35:35 AM
+Characteristic Group(),14,Physical,,6/15/2018 9:44:33 AM
+Characteristic Group(),51,"Physical, Habitat",,2/27/2023 10:35:35 AM
+Characteristic Group(),50,"Phytoplankton, Cyanobacteria, Photosynthetic Pigments",,2/27/2023 10:35:35 AM
+Characteristic Group(),15,Population/Community,,6/15/2018 9:44:33 AM
+Characteristic Group(),22,Productivity,,2/27/2023 10:35:35 AM
+Characteristic Group(),16,Radiochemical,,6/15/2018 9:44:33 AM
+Characteristic Group(),17,Sediment,,6/15/2018 9:44:33 AM
+Characteristic Group(),18,Stable Isotopes,,6/15/2018 9:44:33 AM
+Characteristic Group(),19,Toxicity,,6/15/2018 9:44:33 AM
+

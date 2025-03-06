@@ -1,0 +1,20 @@
+Domain,Unique Identifier,Name,Description,Last Change Date
+Well Formation Type(FormationTypeText),2,"Bedrock, Carbonate",A class of sedimentary rocks composed primarily of carbonate minerals.,6/20/2017 6:54:04 AM
+Well Formation Type(FormationTypeText),1,"Bedrock, Fractured",,6/20/2017 6:54:04 AM
+Well Formation Type(FormationTypeText),75,"Bedrock, Interbedded sandstone/carbonate",,6/20/2017 6:54:02 AM
+Well Formation Type(FormationTypeText),76,"Bedrock, Interbedded sandstone/shale",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),77,"Bedrock, Interbedded sandstone/shale/carbonate",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),73,"Bedrock, Interbedded sediments",,6/20/2017 6:54:02 AM
+Well Formation Type(FormationTypeText),74,"Bedrock, Interbedded siltstone/carbonate/gypsum",,6/20/2017 6:54:02 AM
+Well Formation Type(FormationTypeText),72,"Bedrock, Massive sandstone",,6/20/2017 6:54:01 AM
+Well Formation Type(FormationTypeText),79,"Bedrock, Soluble Carbonate - Karst",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),78,"Bedrock, Soluble gypsum/dolomite with shale interb",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),7,Geologic,A formation is a body of strata of predominantly one type. The concept of formally defined layers or strata is central to the geologic discipline of stratigraphy,10/15/2014 12:00:00 AM
+Well Formation Type(FormationTypeText),6,Hydrogeologic,Is the area of geology that deals with the distribution and movement of groundwater in the soil and rocks of the Earth's crust (commonly in aquifers).,10/15/2014 12:00:00 AM
+Well Formation Type(FormationTypeText),4,Mixed,a eformulate coalition formation in a mixed-motive situation as a process in which two group members join their resources,4/29/2013 4:14:41 PM
+Well Formation Type(FormationTypeText),82,"Sediment, Alluvium/Terrace",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),81,"Sediment, Isolated Terrace",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),80,"Sediment, Terrace",,6/20/2017 6:54:03 AM
+Well Formation Type(FormationTypeText),3,"Sediment, Unconsolidated","a well report/boring was sufficient to describe the surficial materials (soil) or to describe  unconsolidated rock, sediments in an undefined area. most commonly reported on monitoring well construction reports.",6/20/2017 6:54:04 AM
+Well Formation Type(FormationTypeText),5,Soil Horizon,"A layer parallel to the soil surface, whose physical, chemical and biological characteristics differ from the layers above and beneath.",10/15/2014 12:00:00 AM
+

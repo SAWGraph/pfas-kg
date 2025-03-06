@@ -1,0 +1,8 @@
+Domain,Unique Identifier,Name,Units Required,Bounds Required
+Frequency Class Type(),6,Behavioral Activity,N,N
+Frequency Class Type(),1,Biological Abnormality,N,N
+Frequency Class Type(),3,Lifestage,N,N
+Frequency Class Type(),2,Measured Characteristic,Y,Y
+Frequency Class Type(),5,Miscellaneous,N,N
+Frequency Class Type(),4,Sex,N,N
+
