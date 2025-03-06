@@ -153,7 +153,7 @@ A physical organization may have multiple Organization records in WQX.  For exam
 
 ## Schema Diagram
 
-![Schema Diagram](./wqp_sites_samples_schema_diagram.png)
+[WIP Schema Diagram](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?viewport_loc=-1421%2C149%2C3359%2C1620%2C0MKUwZHd6e-j&invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d)
 
 **Legend description:**
 
