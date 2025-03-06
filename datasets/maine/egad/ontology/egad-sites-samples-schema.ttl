@@ -196,45 +196,49 @@ me_egad:EGAD-AggregatePFAS-Concentration rdf:type owl:Class ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-AnalysisMethod
 me_egad:EGAD-AnalysisMethod rdf:type owl:Class ;
                             rdfs:subClassOf pfas:AnalysisMethod ;
+                            rdfs:subClassOf qudt:Enumeration;
                             rdfs:label "EGAD - Analysis Method" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-LabQualifier
 me_egad:EGAD-LabQualifier rdf:type owl:Class ;
                           rdfs:subClassOf coso:ResultQualifier ;
+                          rdfs:subClassOf qudt:Enumeration;
                           rdfs:label "EGAD - Lab Qualifier" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-MethodDetectionLimit
 me_egad:EGAD-MethodDetectionLimit rdf:type owl:Class ;
-                                  rdfs:subClassOf qudt:QuantityValue ,
-                                                  pfas:MethodDetectionLimit ;
+                                  rdfs:subClassOf pfas:MethodDetectionLimit ;
+                                  rdfs:subClassOf qudt:QuantityValue ;
                                   rdfs:label "EGAD - Method Detection Limit" ;
                                   skos:definition "Areas with land use activities which are potential and/or actual sources of contamination and areas where biological and surface water sampling is conducted." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-PFAS-Observation
 me_egad:EGAD-PFAS-Observation rdf:type owl:Class ;
-                              rdfs:subClassOf pfas:PFAS-ContaminantObservation ;
+                              rdfs:subClassOf pfas:PFAS-ContaminantSampleObservation ;
                               rdfs:label "EGAD - PFAS Observation" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-PFAS-ParameterName
 me_egad:EGAD-PFAS-ParameterName rdf:type owl:Class ;
                                 rdfs:subClassOf coso:Substance ;
+                                rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - PFAS Parameter Name" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ReportingLimit
 me_egad:EGAD-ReportingLimit rdf:type owl:Class ;
-                            rdfs:subClassOf qudt:QuantityValue ,
-                                            pfas:ReportingLimit ;
+                            rdfs:subClassOf pfas:ReportingLimit ;
+                            rdfs:subClassOf qudt:QuantityValue ;
                             rdfs:label "EGAD - Reporting Limit" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ResultType
 me_egad:EGAD-ResultType rdf:type owl:Class ;
                         rdfs:subClassOf coso:ObservationAnnotation ;
+                        rdfs:subClassOf qudt:Enumeration;
                         rdfs:label "EGAD - Result Type" .
 
 
@@ -247,29 +251,38 @@ me_egad:EGAD-Sample rdf:type owl:Class ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleCollectionMethod
 me_egad:EGAD-SampleCollectionMethod rdf:type owl:Class ;
                                     rdfs:subClassOf coso:SampleAnnotation ;
+                                    rdfs:subClassOf qudt:Enumeration;
                                     rdfs:label "EGAD - Sample Collection Method" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleDetailedLocation
 me_egad:EGAD-SampleDetailedLocation rdf:type owl:Class ;
                                     rdfs:subClassOf coso:SampleAnnotation ;
+                                    rdfs:subClassOf qudt:Enumeration;
                                     rdfs:label "EGAD - Sample Detailed Location" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf coso:SampleMaterialType ;
+                                rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - Sample Material Type" .
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialTypeQualifier rdf:type owl:Class ;
                                 rdfs:subClassOf coso:SampleMaterialType ;
+                                rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - Sample Material Type Qualifier" .
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SamplePoint
 me_egad:EGAD-SamplePoint rdf:type owl:Class ;
                          rdfs:subClassOf coso:SamplePoint ;
                          rdfs:label "EGAD - Sample Point" .
+
+###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SamplePointType
+me_egad:EGAD-SamplePointType rdf:type owl:Class ;
+                         rdfs:subClassOf qudt:Enumeration;
+                         rdfs:label "EGAD - Sample Point Type" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleTreatmentStatus
@@ -302,18 +315,21 @@ me_egad:EGAD-PFAS-Site rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SiteType
 me_egad:EGAD-SiteType rdf:type owl:Class ;
+                      rdfs:subClassOf qudt:Enumeration;
                       rdfs:label "EGAD - Site Type" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ValidationLevel
 me_egad:EGAD-ValidationLevel rdf:type owl:Class ;
                              rdfs:subClassOf coso:ResultQualifier ;
+                             rdfs:subClassOf qudt:Enumeration;
                              rdfs:label "EGAD - Validation Level" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ValidationQualifier
 me_egad:EGAD-ValidationQualifier rdf:type owl:Class ;
                                  rdfs:subClassOf coso:ResultQualifier ;
+                                 rdfs:subClassOf qudt:Enumeration;
                                  rdfs:label "EGAD - Validation Qualifier" .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
