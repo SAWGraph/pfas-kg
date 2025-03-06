@@ -14,6 +14,7 @@ import numpy as np
 from datetime import date
 from pathlib import Path
 from pyutil import *
+from shapely.geometry import Point
 
 
 
@@ -41,7 +42,7 @@ metadata_dir = root_folder /"datasets/maine/egad/metadata/"
 output_dir = root_folder/ "datasets/maine/egad/egad-maine-samples/"
 
 
-## data dictioaries -- for controlled vocabularies
+## data dictionaries -- for controlled vocabularies
 with open(metadata_dir / 'analysis_lab.csv', mode='r') as infile:
     reader = csv.reader(infile)
     lab_dict = {rows[1]:rows[0] for rows in reader}
@@ -111,26 +112,175 @@ logging.basicConfig(filename=logname,
 logging.info("Running triplification for EGAD sites and samples")
 
 def main():
-    egad_samples_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", header=0)
+    egad_samples_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", header=0, engine='openpyxl')
     logger = logging.getLogger('Data loaded to dataframe.')
+    print(egad_samples_df.info(verbose=True, show_counts=True))
 
-
-    kg = triplify_egad_pfas_sample_data(egad_samples_df, _PREFIX)
+    kg, kg_result = triplify_egad_pfas_sample_data(egad_samples_df, _PREFIX)
     kg_turtle_file = "egad_samples_output.ttl".format(output_dir)
     kg.serialize(kg_turtle_file,format='turtle')
+    kg_result.serialize("egad_observation_output.ttl".format(output_dir), format='turtle')
     logger = logging.getLogger('Finished triplifying EGAD PFAS sample data.')
     
-def Initial_KG(_PREFIX):
-    prefixes: Dict[str, str] = _PREFIX
+def Initial_KG(prefixes: dict[str, str]) -> Graph:
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
     return kg
 
+def get_attributes(row):
+    """Select and format attributes from input data"""
+    ## sample point record details
+    samplepoint = {
+        'number': row['SAMPLE_POINT_NUMBER'], # sample point number
+        'webname': row['SAMPLE_POINT_WEB_NAME'], # sample point web name
+        'type': ''.join(e for e in point_type_dict[row['SAMPLE_POINT_TYPE']] if e.isalnum()) # sample point type
+    }
 
-## triplify the abox
+    ## sample record 
+    sample = {
+        'id': row['SAMPLE_ID'], # sample point ID
+        'id_formatted': ''.join(e for e in row['SAMPLE_ID'] if e.isalnum())
+    }
+
+    if pd.notnull(row['SAMPLE_DATE']):
+        sample['date'] = pd.to_datetime(row['SAMPLE_DATE'])
+        sample['date_formatted'] = sample['date'].strftime('%Y%m%d')
+    if pd.notnull(row['SAMPLE_LOCATION']) and row['SAMPLE_LOCATION'] != "UNKNOWN":
+        sample['location'] = row['SAMPLE_LOCATION']
+    if pd.notnull(row['SAMPLE_COLLECTION_METHOD']) and row['SAMPLE_COLLECTION_METHOD'] != 'UNKNOWN':
+        sample['collection_method'] = row['SAMPLE_COLLECTION_METHOD']
+    if pd.notnull( row['TREATMENT_STATUS']) and row['TREATMENT_STATUS'] != 'UNKNOWN' and row['TREATMENT_STATUS'] != 'NOT APPLICABLE':
+        sample['treatment_status'] = row['TREATMENT_STATUS'] # sample treatment status
+    
+    ## observation
+    sampleobs = {
+        'analysislab': row['ANALYSIS_LAB'], # sample analysis lab
+        'parameter': row['PARAMETER_SHORTENED'], # pfas parameter    
+        'parameter_formatted': ''.join(e for e in row['PARAMETER_SHORTENED'] if e.isalnum()),
+        'chemical_number': row['CAS_NO'],
+    }
+
+    if pd.notnull(row['SAMPLE_TYPE_UPDATE']):
+        sampleobs['type'] = row['SAMPLE_TYPE_UPDATE'] # sample type
+    if pd.notnull(row['SAMPLE_TYPE_QUALIFIER']) and row['SAMPLE_TYPE_QUALIFIER'] not in ['NOT APPLICABLE']:
+        sampleobs['typequalifier'] = row['SAMPLE_TYPE_QUALIFIER'] #sample type qualifier (species)
+
+    ### analysis 
+    sampleobs['analysis_id'] = row['ANALYSIS_LAB_SAMPLE_ID'] # ID assigned by an analysis lab
+    sampleobs['analysis_id_formatted'] = ''.join(e for e in sampleobs['analysis_id'] if e.isalnum())
+    sampleobs['lab'] = row['ANALYSIS_LAB']
+    if pd.notnull(row['ANALYSIS_DATE']):
+        sampleobs['analysis_date'] = pd.to_datetime(row['ANALYSIS_DATE']) #datetime.strptime(str(), '%m/%d/%Y')  # analysis date
+
+    if pd.notnull(row['TEST_METHOD']):
+        sampleobs['analysis_method'] = row['TEST_METHOD'] # analysis method
+
+    ## contaminant measurement (result) record details
+    result = {}
+    result['pfas_concentration'] = row['CONCENTRATION'] # concentration
+    result['pfas_concentration_units'] = row['PARAMETER_UNITS'] # concentration-unit
+
+    if pd.notnull(row['RESULT_TYPE']):
+        result['type'] = row['RESULT_TYPE'] # result type
+
+    if pd.notnull(row['REPORTING_LIMIT']):
+        result['pfas_rl'] = row['REPORTING_LIMIT'] # reporting limit
+    if  pd.notnull(row['MDL']):
+        result['pfas_mdl'] = row['MDL'] # method detection limit
+    if  pd.notnull(row['VALIDATION_LEVEL']):
+        result['validation_level'] = str(row['VALIDATION_LEVEL']) # validation level
+    if  pd.notnull(row['VALIDATION QUALIFIER']):
+        result['validation_qualifier'] = str(row['VALIDATION QUALIFIER']).replace("/", "-").replace("*","s")  # validation qualifier
+    if  pd.notnull(row['LAB_QUALIFIER']):
+        result['lab_qualifier'] = str(row['LAB_QUALIFIER']).replace("/", "-").replace("*", "s") # lab qualifier
+    result['units'] = row['PARAMETER_UNITS'] # units of measurement
+            
+
+    return samplepoint, sample, sampleobs, result
+
+def get_iris(samplepoint, sample, sampleobs, result):
+    """Build iris for any objects"""
+    iris = {}
+    ## construct sample point IRI
+    iris['samplepoint'] = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint['number']}"]
+
+    ## construct sample feature IRI
+    iris['samplefeature'] = _PREFIX["me_egad_data"][f"{'sampledFeature'}.{samplepoint['number']}"]
+
+    iris['samplepoint_type'] = _PREFIX["me_egad"][f"{'featureType'}.{samplepoint['type']}"]
+
+    iris['sample'] = _PREFIX["me_egad_data"][f"{'sample'}.{lab_dict[sampleobs['lab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}"] #sample id is not unique
+    iris['sampleobs'] = _PREFIX["me_egad_data"][f"{'observation'}.{lab_dict[sampleobs['lab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+
+    if 'type' in sampleobs.keys():
+        iris['samplematerial'] = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{material_type_dict[sampleobs['type']]}"] 
+    if 'typequalifier' in sampleobs.keys():
+        iris['samplematerialqualifier'] = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{material_qualifier_dict[sampleobs['typequalifier']]}"]
+
+    if 'location' in sample.keys():
+        iris['samplelocation'] = _PREFIX["me_egad"][f"{'sampleLocation'}.{location_type_dict[sample['location']]}"] 
+
+    if 'treatment_status' in sample.keys():
+        iris['sampletreatment'] = _PREFIX["me_egad"][f"{'treatmentStatus'}.{treatment_status_dict[sample['treatment_status']]}"]  
+
+    if 'analysis_method' in sampleobs.keys():
+        iris['analysis_method'] = _PREFIX["me_egad"][f"{'testMethod'}.{test_method_dict[sampleobs['analysis_method']]}"]
+
+    if 'type' in result.keys():
+        iris['result_type'] = _PREFIX["me_egad"][f"{'resultType'}.{result_type_dict[result['type']]}"]
+
+    ## construct analysis lab, sample material and measured PFAS parameter IRI
+    iris['analysislab'] = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs['analysislab']]}"]
+    iris['substance'] = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
+    iris['result'] = _PREFIX["me_egad_data"][f"{'result'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['lab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['quantity'] = _PREFIX["me_egad_data"][f"{'quantityValue'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['lab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+
+    ## unit qudt 
+    if result['pfas_concentration_units'] == "NG/G":
+        iris['unit'] = _PREFIX["unit"]['MicroGM-PER-KiloGM'] #equivalent to ng/g
+    elif result['pfas_concentration_units'] == "MG/KG":
+        iris['unit'] = _PREFIX["me_egad"]['unit.MG-KG']
+    elif result['pfas_concentration_units'] == "%":
+        iris['unit'] = _PREFIX["me_egad"]['unit.percent'] #this could just be unit:PERCENT
+    elif result['pfas_concentration_units'] == "NG/L":
+        iris['unit'] = _PREFIX["unit"]['NanoGM-PER-L']
+    elif result['pfas_concentration_units'] == "NG/ML":
+        iris['unit'] = _PREFIX["unit"]['NanoGM-PER-MicroL']
+    elif result['pfas_concentration_units'] == "MG/L":
+        iris['unit'] = _PREFIX["unit"]['MilliGM-PER-L']
+    elif result['pfas_concentration_units'] == "UG/KG":
+        iris['unit'] =  _PREFIX["unit"]['MicroGM-PER-KiloGM']
+    elif result['pfas_concentration_units'] == "UG/L":
+        iris['unit'] = _PREFIX["unit"]['MicroGM-PER-L']
+
+    # validation
+    if 'validation_level' in result.keys(): 
+        if (str(result['validation_level']).startswith("Tier II: EPA-NE REGION 1 GUIDELINES")):
+            validation_string = 'TierII-EPA-NE-REGION-1-GUIDELINES'
+            iris['validationLevel'] = _PREFIX["me_egad"][f"{'validationLevel'}.{validation_string}"] 
+        else:
+            iris['validationLevel'] = _PREFIX["me_egad"][f"{'validationLevel'}.{validation_level_dict[result['validation_level']]}"] 
+
+    if 'validation_qualifier' in result.keys():
+            iris['validationQualifier'] = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{result['validation_qualifier']}"] 
+
+    if 'lab_qualifier' in result.keys():
+            iris['labQualifier'] = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{result['lab_qualifier']}"] 
+
+    if 'pfas_rl' in result.keys():
+            iris['rl'] = _PREFIX["me_egad_data"][f"{'rl'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['lab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    if 'pfas_mdl' in result.keys():
+            iris['mdl'] = _PREFIX["me_egad_data"][f"{'mdl'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['lab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+
+    return iris
+
+
+
 def triplify_egad_pfas_sample_data(df, _PREFIX):
+    ## triplify the abox
     kg = Initial_KG(_PREFIX)
+    kg_result = Initial_KG(_PREFIX)
     
     ## materialize each record
     rowcount = df.shape[0]
@@ -138,247 +288,136 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         if idx % 10000 == 0:
             print(idx, 'of', rowcount)
             
-        ## sample point record details
-        samplepoint_number = row['SAMPLE_POINT_NUMBER'] # sample point number
-        samplepoint_webname = row['SAMPLE_POINT_WEB_NAME'] # sample point web name
-        samplepoint_type = row['SAMPLE_POINT_TYPE'] # sample point type
-        
-        ## construct sample point IRI
-        samplepoint_iri = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint_number}"]
+        samplepoint, sample, sampleobs, result = get_attributes(row)
+        iris = get_iris(samplepoint, sample, sampleobs, result)
                 
         ## specify sample point instance and it's data properties
-        kg.add( (samplepoint_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SamplePoint"]) )
-        kg.add( (samplepoint_iri, RDFS['label'], Literal('EGAD sample point '+ str(samplepoint_number))) )
-        kg.add( (samplepoint_iri, _PREFIX["me_egad"]['samplePointNumber'], Literal(samplepoint_number, datatype = XSD.integer)) )
-        kg.add( (samplepoint_iri, _PREFIX["me_egad"]['samplePointWebName'], Literal(samplepoint_webname, datatype = XSD.string)) )
+        kg.add( (iris['samplepoint'], RDF.type, _PREFIX["me_egad"]["EGAD-SamplePoint"]) )
+        kg.add( (iris['samplepoint'], RDFS['label'], Literal('EGAD sample point '+ str(samplepoint['number']))) )
+        kg.add( (iris['samplepoint'], _PREFIX["me_egad"]['samplePointNumber'], Literal(samplepoint['number'], datatype = XSD.integer)) )
+        kg.add( (iris['samplepoint'], _PREFIX["me_egad"]['samplePointWebName'], Literal(samplepoint['webname'], datatype = XSD.string)) )
+        kg.add( (iris['samplepoint'], _PREFIX["coso"]['pointFromFeature'], iris['samplefeature']) )
 
-        ## construct sample feature IRI
-        samplefeature_iri = _PREFIX["me_egad_data"][f"{'sampledFeature'}.{samplepoint_number}"]
                 
         ## specify sample feature instance and it's data properties
-        kg.add( (samplefeature_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampledFeature"]) )
-        kg.add( (samplefeature_iri, RDFS['label'], Literal('EGAD sampled feature associated with sample point '+ str(samplepoint_number))) )
-
-        samplepoint_type = point_type_dict[samplepoint_type]
-        samplepoint_type = ''.join(e for e in samplepoint_type if e.isalnum())
-        samplepoint_type_iri = _PREFIX["me_egad"][f"{'featureType'}.{samplepoint_type}"]
+        kg.add( (iris['samplefeature'], RDF.type, _PREFIX["me_egad"]["EGAD-SampledFeature"]) )
+        kg.add( (iris['samplefeature'], RDFS['label'], Literal('EGAD sampled feature associated with sample point '+ str(samplepoint['number']))) )
+        kg.add( (iris['samplefeature'], _PREFIX["me_egad"]['sampledFeatureType'], iris['samplepoint_type']) )
+        kg.add( (iris['samplepoint_type'], RDF.type, _PREFIX["me_egad"]['EGAD-SamplePointType'] ))
         
-        kg.add( (samplefeature_iri, _PREFIX["me_egad"]['sampledFeatureType'], samplepoint_type_iri) )
-        kg.add( (samplepoint_iri, _PREFIX["coso"]['pointFromFeature'], samplefeature_iri) )
+        ## material sample
+        kg.add( (iris['sample'], RDF.type, _PREFIX["me_egad"]["EGAD-Sample"]) )
+        kg.add( (iris['sample'], RDFS['label'], Literal('EGAD sample '+ str(sample['id']))) )
+        kg.add( (iris['sample'], _PREFIX["me_egad"]['sampleID'], Literal(sample['id'], datatype = XSD.string)) )
+        kg.add( (iris['sample'], _PREFIX["coso"]['fromSamplePoint'], iris['samplepoint']) )
 
-        ## sample record and construct its IRI
-        sample_id = row['SAMPLE_ID'] # sample point ID
-        analysis_id = row['ANALYSIS_LAB_SAMPLE_ID'] # ID assigned by an analysis lab
-        sampleobs_analysislab = row['ANALYSIS_LAB'] # sample analysis lab
-        sampleobs_type = row['SAMPLE_TYPE_UPDATE'] # sample type
-        sampleobs_typequalifier = row['SAMPLE_TYPE_QUALIFIER'] #sample type qualifier (species)
-        sampleobs_parameter = row['PARAMETER_SHORTENED'] # pfas parameter
+
+        ### material sample type
+        if 'type' in sampleobs.keys():
+            kg.add( (iris['sample'], _PREFIX["coso"]['sampleOfMaterialType'], iris['samplematerial']) )
+
+        if 'typequalifier' in sampleobs.keys():
+            kg.add( (iris['sample'], _PREFIX["coso"]['sampleOfMaterialType'], iris['samplematerialqualifier']) )
+
+        ### material sample annotations
+        if 'samplelocation' in iris.keys():
+            kg.add( (iris['sample'], _PREFIX["me_egad"]['sampleCollectionLocation'], iris['samplelocation']) )
+
+        if 'collection_method' in sample.keys():
+            kg.add( (iris['sample'], _PREFIX["me_egad"]['sampleCollectionMethod'], _PREFIX["me_egad"][f"{'samplingMethod'}.{collection_method_dict[sample['collection_method']]}"]) )
+
+        if 'sampletreatment' in iris.keys():
+            kg.add( (iris['sample'], _PREFIX["me_egad"]['sampleTreatmentStatus'], iris['sampletreatment']) )
+
+
+        ## Observation 
+    
+        #kg.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedBy'], Literal(sampleobs['lab'] , datatype = XSD.string)) ) #TODO Convert to object property
+        kg_result.add( (iris['sampleobs'], RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Observation"]) )
+        kg_result.add( (iris['sampleobs'], RDFS['label'], Literal('EGAD PFAS observation for sample '+ str(sample['id']))) )
+        kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['observedAtSamplePoint'], iris['samplepoint']) )
+        kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedSample'], iris['sample']) )
+        kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['hasFeatureOfInterest'], iris['samplefeature']) )
         
+
+        if 'analysis_date' in sampleobs.keys():
+            kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['analysisDate'], Literal(sampleobs['analysis_date'] , datatype = XSD.date)) )
+
+        if 'date' in sample.keys(): #attach sample date to observation
+            kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['sampledTime'], Literal(sample['date'], datatype = XSD.date)) )
+                
+        if 'analysis_method' in sampleobs.keys():
+            kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['analysisMethod'], iris['analysis_method']) )
+
+        if 'type' in result.keys():
+            kg_result.add( (iris['sampleobs'], _PREFIX["me_egad"]['resultType'], iris['result_type']) )
         
-        sample_id_formatted = ''.join(e for e in sample_id if e.isalnum())
-        sampleobs_parameter_formatted = ''.join(e for e in sampleobs_parameter if e.isalnum())
-
-        analysis_id_formatted = ''.join(e for e in analysis_id if e.isalnum())
-
-        sample_date = pd.to_datetime(row['SAMPLE_DATE']) #datetime.strptime(str(), '%m/%d/%Y') 
-        sample_date = rem_time(sample_date)
-        sample_date_formatted = ''.join(e for e in str(sample_date) if e.isalnum())
-        samplematerial_iri = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{material_type_dict[sampleobs_type]}"] 
-        samplematerialqualifier_iri = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{material_qualifier_dict[sampleobs_typequalifier]}"]
+        kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedBy'], iris['analysislab']) )
+        #kg.add( (sampleobs_iri, _PREFIX["sosa"]['hasFeatureOfInterest'], iris['sample']) )
+        kg_result.add( (iris['sampleobs'], _PREFIX["me_egad"]['analyzedSample'], iris['sample']) )
+        kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['ofSubstance'], iris['substance']) )
         
-        #sample_iri = _PREFIX["aik-pfas"][f"{'egad.sample'}.{samplepoint_number}.{analysis_id_formatted}.{sample_date_formatted}"]
-        #sample_iri = _PREFIX["aik-pfas"][f"{'egad.sample'}.{sample_id_formatted}"]
-        sample_iri = _PREFIX["me_egad_data"][f"{'sample'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}"]
-        kg.add( (sample_iri, RDF.type, _PREFIX["me_egad"]["EGAD-Sample"]) )
-        kg.add( (sample_iri, RDFS['label'], Literal('EGAD sample '+ str(sample_id))) )
-        kg.add( (sample_iri, _PREFIX["me_egad"]['sampleID'], Literal(sample_id, datatype = XSD.string)) )
-        if(str(row['SAMPLE_LOCATION']) != ''):
-            samplelocation_iri = _PREFIX["me_egad"][f"{'sampleLocation'}.{location_type_dict[row['SAMPLE_LOCATION']]}"] 
-            kg.add( (sample_iri, _PREFIX["me_egad"]['sampleCollectionLocation'], samplelocation_iri) )
+        ## Substance and contaminantMeasurement (result)  
+        if (pfas_parameter_kind_dict[sampleobs['parameter']] == 'Cumulative'):
+            #kg.add( (iris['substance'], RDF.type, _PREFIX['coso']['SubstanceCollection']))
+            kg_result.add( (iris['substance'], _PREFIX["me_egad_data"]['dep_chemicalID'], Literal(sampleobs['chemical_number'] , datatype = XSD.string)) )
+            kg_result.add( (iris['result'], RDF.type, _PREFIX["me_egad"]["EGAD-AggregatePFAS-Concentration"]) )
+        else:
+            kg_result.add( (iris['substance'], _PREFIX["coso"]['casNumber'], Literal(sampleobs['chemical_number']  , datatype = XSD.string)) ) #TODO update to reused relation, ignore ones that are custom DEP
+            kg_result.add( (iris['result'], RDF.type, _PREFIX["me_egad"]["EGAD-SinglePFAS-Concentration"]) )
+        
+        #TODO add quantity kinds
+        kg_result.add( (iris['sampleobs'], _PREFIX["coso"]['hasResult'], iris['result']) )
+        kg_result.add( (iris['result'], RDFS['label'], Literal('EGAD PFAS measurements for sample '+ str(sample['id']))) )        
+        kg_result.add( (iris['result'], _PREFIX["qudt"]['quantityValue'], iris['quantity']) )
 
-        if(str(sampleobs_type) != ''):
-            kg.add( (sample_iri, _PREFIX["coso"]['ofSampleMaterialType'], samplematerial_iri) )
+        ## Quantity Value
 
-        if sampleobs_typequalifier not in ['NOT APPLICABLE']:
-            kg.add( (sample_iri, _PREFIX["coso"]['ofSampleMaterialType'], samplematerialqualifier_iri) )
-
-        if(str(row['SAMPLE_COLLECTION_METHOD']) != ''):
-            kg.add( (sample_iri, _PREFIX["me_egad"]['sampleCollectionMethod'], _PREFIX["me_egad"][f"{'samplingMethod'}.{collection_method_dict[row['SAMPLE_COLLECTION_METHOD']]}"]) )
-
-        sample_treatment_status = row['TREATMENT_STATUS'] # sample treatment status
-        if(str(sample_treatment_status) != '') and (str(sample_treatment_status) != 'nan'):
-            sampletreatment_iri = _PREFIX["me_egad"][f"{'treatmentStatus'}.{treatment_status_dict[sample_treatment_status]}"] 
-            kg.add( (sample_iri, _PREFIX["me_egad"]['sampleTreatmentStatus'], sampletreatment_iri) )
-
-        #kg.add( (samplepoint_iri, _PREFIX["sosa"]['hasSample'], sample_iri) )
-        #kg.add( (sample_iri, _PREFIX["sosa"]['isSampleOf'], samplepoint_iri) ) # materialize inverse relation
-
-
-        ## construct sample observation IRI     
-        chemical_number = row['CAS_NO']
-        analysis_lab = row['ANALYSIS_LAB']
-        ## sample results record details
-        pfas_concentration = row['CONCENTRATION'] # concentration
-        pfas_concentration_units = row['PARAMETER_UNITS'] # concentration-unit
-
-        if is_valid(pfas_concentration):
-
-            sampleobs_iri = _PREFIX["me_egad_data"][f"{'observation'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
-            #kg.add( (sampleobs_iri, _PREFIX["coso"]['analyzedBy'], Literal(analysis_lab , datatype = XSD.string)) )
-
-            kg.add( (sampleobs_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Observation"]) )
-            kg.add( (sampleobs_iri, RDFS['label'], Literal('EGAD PFAS observation for sample '+ str(sample_id))) )
-            kg.add( (sampleobs_iri, _PREFIX["coso"]['observedAtSamplePoint'], samplepoint_iri) )
-            kg.add( (sampleobs_iri, _PREFIX["coso"]['analyzedSample'], sample_iri) )
-
-            kg.add( (sampleobs_iri, _PREFIX["coso"]['hasFeatureOfInterest'], samplefeature_iri) )
-            
-
-            analysis_date = row['ANALYSIS_DATE'] # analysis date
-            if pd.isnull(analysis_date):
-                #print(analysis_date)
-                #print("Invalid analysis date:", analysis_date)
-                pass
-            else:
-                analysis_date = pd.to_datetime(row['ANALYSIS_DATE']) #datetime.strptime(str(), '%m/%d/%Y')
-                #analysis_date = rem_time(analysis_date)
-                #analysis_date_formatted = ''.join(e for e in str(analysis_date) if e.isalnum())
-                kg.add( (sampleobs_iri, _PREFIX["coso"]['analysisDate'], Literal(analysis_date , datatype = XSD.date)) )
-                    
-            sample_date = row['SAMPLE_DATE'] # sampled date
-            if pd.isnull(sample_date):
-                print("Invalid sample date")
-            else:
-                sample_date = pd.to_datetime(row['SAMPLE_DATE']) #datetime.strptime(str(row['SAMPLE_DATE']), '%m/%d/%Y')
-                #sample_date = rem_time(sample_date)
-                #sample_date_formatted = ''.join(e for e in str(sample_date) if e.isalnum())
-                kg.add( (sampleobs_iri, _PREFIX["coso"]['sampledTime'], Literal(sample_date, datatype = XSD.date)) )
-                    
-            analysis_method = row['TEST_METHOD'] # analysis method
-            if(str(analysis_method) != ''):
-                analysis_method_iri = _PREFIX["me_egad"][f"{'testMethod'}.{test_method_dict[analysis_method]}"]
-                kg.add( (sampleobs_iri, _PREFIX["coso"]['analysisMethod'], analysis_method_iri) )
-
-            result_type = row['RESULT_TYPE'] # result type
-            if(str(result_type) != ''):
-                result_type_iri = _PREFIX["me_egad"][f"{'resultType'}.{result_type_dict[result_type]}"]
-                kg.add( (sampleobs_iri, _PREFIX["me_egad"]['resultType'], result_type_iri) )
-
-                    
-            ## construct analysis lab, sample material and measured PFAS parameter IRI
-            analysislab_iri = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs_analysislab]}"]
-            kg.add( (sampleobs_iri, _PREFIX["coso"]['analyzedBy'], analysislab_iri) )
-            #kg.add( (sampleobs_iri, _PREFIX["sosa"]['hasFeatureOfInterest'], sample_iri) )
-            kg.add( (sampleobs_iri, _PREFIX["me_egad"]['analyzedSample'], sample_iri) )
-            kg.add( (sample_iri, _PREFIX["coso"]['fromSamplePoint'], samplepoint_iri) )
-            #kg.add( (sample_iri, _PREFIX["coso"]['fromSamplePoint'], samplepoint_iri) )
-            sampleparameter_iri = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs_parameter]}"]
-            kg.add( (sampleobs_iri, _PREFIX["coso"]['ofSubstance'], sampleparameter_iri) )
-            
-            if (pfas_parameter_kind_dict[sampleobs_parameter] == 'Cumulative'):
-                kg.add( (sampleparameter_iri, RDF.type, _PREFIX['coso']['SubstanceCollection']))
-                kg.add( (sampleparameter_iri, _PREFIX["me_egad_data"]['dep_chemicalID'], Literal(chemical_number , datatype = XSD.string)) )
-            else:
-                kg.add( (sampleparameter_iri, _PREFIX["coso"]['casNumber'], Literal(chemical_number , datatype = XSD.string)) )
-
-
-            pfas_rl = row['REPORTING_LIMIT'] # reporting limit
-            pfas_mdl = row['MDL'] # method detection limit
-            validation_level = str(row['VALIDATION_LEVEL']) # validation level
-            validation_qualifier = row['VALIDATION QUALIFIER'] # validation qualifier
-            lab_qualifier = row['LAB_QUALIFIER'] # lab qualifier
-           
-            units = row['PARAMETER_UNITS'] # units of measurement
-
-           
-
-            result_iri = _PREFIX["me_egad_data"][f"{'result'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
-            #kg.add( (result_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Concentration"]) )
-
-            if (pfas_parameter_kind_dict[sampleobs_parameter] == 'Cumulative'):
-                kg.add( (sampleparameter_iri, _PREFIX["me_egad_data"]['dep_chemicalID'], Literal(chemical_number , datatype = XSD.string)) )
-                kg.add( (result_iri, RDF.type, _PREFIX["me_egad"]["EGAD-AggregatePFAS-Concentration"]) )
-            else:
-                kg.add( (sampleparameter_iri, _PREFIX["coso"]['casNumber'], Literal(chemical_number , datatype = XSD.string)) )
-                kg.add( (result_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SinglePFAS-Concentration"]) )
-
-            #TODO add quantity kinds
-
-            kg.add( (result_iri, RDFS['label'], Literal('EGAD PFAS measurements for sample '+ str(sample_id))) )
-            kg.add( (sampleobs_iri, _PREFIX["sosa"]['hasResult'], result_iri) )
-
-            quantity_iri = _PREFIX["me_egad_data"][f"{'quantityValue'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
-            kg.add( (result_iri, _PREFIX["qudt"]['quantityValue'], quantity_iri) )
-
+        if is_valid(result['pfas_concentration']):  #only materialize quantity value if there is a concentration 
             #if is_valid(pfas_concentration):
-            kg.add( (quantity_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_concentration , datatype = XSD.decimal)) )
-            if pfas_concentration_units == "NG/G":
-                unit_iri = _PREFIX["me_egad"]['unit.NG-G']
-                kg.add( (unit_iri, RDF.type, _PREFIX["unit"]["Unit"]) )
-                kg.add( (unit_iri, RDFS['label'], Literal('NANOGRAMS PER GRAM')) )
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], unit_iri) )
-            elif pfas_concentration_units == "MG/KG":
-                unit_iri = _PREFIX["me_egad"]['unit.MG-KG']
-                kg.add( (unit_iri, RDF.type, _PREFIX["unit"]["Unit"]) )
-                kg.add( (unit_iri, RDFS['label'], Literal('MILLIGRAMS PER KILOGRAM')) )
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], unit_iri) )
-            elif pfas_concentration_units == "%":
-                unit_iri = _PREFIX["me_egad"]['unit.percent']
-                kg.add( (unit_iri, RDF.type, _PREFIX["unit"]["Unit"]) )
-                kg.add( (unit_iri, RDFS['label'], Literal('PERCENT')) )
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], unit_iri) )
-            elif pfas_concentration_units == "NG/L":
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], _PREFIX["unit"]['NanoGM-PER-L']) )
-            elif pfas_concentration_units == "NG/ML":
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], _PREFIX["unit"]['NanoGM-PER-MicroL']) )
-            elif pfas_concentration_units == "MG/L":
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], _PREFIX["unit"]['MilliGM-PER-L']) )
-            elif pfas_concentration_units == "UG/KG":
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], _PREFIX["unit"]['MicroGM-PER-KiloGM']) )
-            elif pfas_concentration_units == "UG/L":
-                kg.add( (quantity_iri, _PREFIX["qudt"]['unit'], _PREFIX["unit"]['MicroGM-PER-L']) )
+            kg_result.add( (iris['quantity'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_concentration'] , datatype = XSD.decimal)) )
+            ## Unit
+            kg_result.add( (iris['quantity'], _PREFIX["qudt"]['unit'], iris['unit']) )
+            ### describe units that arent in qudt
+            if result['pfas_concentration_units'] == "NG/G":
+                kg_result.add( (iris['unit'], RDF.type, _PREFIX["qudt"]["Unit"]) )
+                kg_result.add( (iris['unit'], RDFS['label'], Literal('NANOGRAMS PER GRAM')) )
+            elif result['pfas_concentration_units'] == "MG/KG":
+                kg_result.add( (iris['unit'], RDF.type, _PREFIX["qudt"]["Unit"]) )
+                kg_result.add( (iris['unit'], RDFS['label'], Literal('MILLIGRAMS PER KILOGRAM')) )
+            elif result['pfas_concentration_units'] == "%":
+                kg_result.add( (iris['unit'], RDF.type, _PREFIX["qudt"]["Unit"]) )
+                kg_result.add( ( iris['unit'], OWL.sameAs, _PREFIX['unit']['PERCENT']))
+                kg_result.add( (iris['unit'], RDFS['label'], Literal('PERCENT')) )
+
+            
             #if is_valid(pfas_mdl):
             #    kg.add( (result_iri, _PREFIX["me_egad"]['egad_pfas_mdl'], Literal(str(pfas_mdl) + ' ' +units, datatype = cdt)) )
             #if is_valid(pfas_ql):
             #   kg.add( (result_iri, _PREFIX["me_egad"]['egad_pfas_ql'], Literal(str(pfas_ql) + ' ' +units, datatype = cdt)) )
-            if (str(validation_level) != '') and (str(validation_level) != 'nan'): 
-                #try:
-                if (validation_level.startswith("Tier II: EPA-NE REGION 1 GUIDELINES")):
-                    validation_string = 'TierII-EPA-NE-REGION-1-GUIDELINES'
-                    validationLevel_iri = _PREFIX["me_egad"][f"{'validationLevel'}.{validation_string}"] 
-                else:
-                    validationLevel_iri = _PREFIX["me_egad"][f"{'validationLevel'}.{validation_level_dict[validation_level]}"] 
-                kg.add( (result_iri, _PREFIX["me_egad"]['validationLevel'], validationLevel_iri) )
-    ##            except KeyError as e:
-    ##                print(validation_level)
-    ##                print('Validation level - Key error')
+            
+        if 'validationLevel' in iris.keys():
+            kg_result.add( (iris['result'], _PREFIX["me_egad"]['validationLevel'], iris['validationLevel']) )
                 
+        if 'validationQualifier' in iris.keys():
+            kg_result.add( (iris['result'], _PREFIX["me_egad"]['validationQualifier'], iris['validationQualifier']) )
 
-            if (str(validation_qualifier) != '') and (str(validation_qualifier) != 'nan'):
-                validation_qualifier = str(validation_qualifier).replace("/", "-").replace("*","star")
-                validationQualifier_iri = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{validation_qualifier}"] 
-                kg.add( (result_iri, _PREFIX["me_egad"]['validationQualifier'], validationQualifier_iri) )
+        if 'labQualifier' in iris.keys():
+            kg_result.add( (iris['result'], _PREFIX["me_egad"]['labQualifier'], iris['labQualifier']) )
 
-            if (str(lab_qualifier) != '') and (str(lab_qualifier) != 'nan'):
-                lab_qualifier = str(lab_qualifier).replace("/", "-")
-                lab_qualifier = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{lab_qualifier}"] 
-                kg.add( (result_iri, _PREFIX["me_egad"]['labQualifier'], lab_qualifier) )
+        if 'rl' in iris.keys():
+            kg_result.add( (iris['result'], _PREFIX["me_egad"]['reportingLimit'], iris['rl']) )
+            #kg.add( (iris['rl'], RDF.type, _PREFIX["me_egad"]["EGAD-ReportingLimit"]) )
+            kg_result.add( (iris['rl'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_rl'] , datatype = XSD.decimal)) )
 
-            if (str(pfas_rl) != '') and (str(pfas_rl) != 'nan'):
-                rl_iri = _PREFIX["me_egad_data"][f"{'rl'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
-                kg.add( (rl_iri, RDF.type, _PREFIX["me_egad"]["EGAD-ReportingLimit"]) )
-                kg.add( (result_iri, _PREFIX["me_egad"]['reportingLimit'], rl_iri) )
-                kg.add( (rl_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_rl , datatype = XSD.decimal)) )
-
-            if (str(pfas_mdl) != '') and (str(pfas_mdl) != 'nan'):
-                mdl_iri = _PREFIX["me_egad_data"][f"{'mdl'}.{analysis_id_formatted}.{lab_dict[sampleobs_analysislab]}.{sample_date_formatted}.{chemical_number}"]
-                kg.add( (mdl_iri, RDF.type, _PREFIX["me_egad"]["EGAD-MethodDetectionLimit"]) )
-                kg.add( (result_iri, _PREFIX["me_egad"]['methodDetectionLimit'], mdl_iri) )
-                kg.add( (mdl_iri, _PREFIX["qudt"]['numericValue'], Literal(pfas_mdl , datatype = XSD.decimal)) )
+        if 'mdl' in iris.keys():
+            kg_result.add( (iris['result'], _PREFIX["me_egad"]['methodDetectionLimit'], iris['mdl']) )
+            #kg.add( (iris['mdl'], RDF.type, _PREFIX["me_egad"]["EGAD-MethodDetectionLimit"]) )
+            kg_result.add( (iris['mdl'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_mdl'] , datatype = XSD.decimal)) )
             
 
         
-    return kg
+    return kg, kg_result
 
 
 ## utility functions

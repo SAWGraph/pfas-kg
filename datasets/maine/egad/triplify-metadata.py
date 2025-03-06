@@ -246,6 +246,7 @@ def triplify_site_type(df, _PREFIX):
 def triplify_pfas_parameter(df, _PREFIX):
     kg = Initial_KG(_PREFIX)
     
+    #print(df.info(verbose=True))
     ## materialize each record
     for idx, row in df.iterrows():
         ## parameter record details
@@ -261,6 +262,13 @@ def triplify_pfas_parameter(df, _PREFIX):
         kg.add( (parameter_iri, RDFS['label'], Literal(str(parameter_name))) )
         kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterAbbreviation'], Literal(parameter_abbreviation, datatype = XSD.string)) )
         kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterName'], Literal(parameter_name, datatype = XSD.string)) )
+
+        if (row['QuantityKind'] == 'Cumulative'):
+            kg.add( (parameter_iri, RDF.type, _PREFIX['coso']['SubstanceCollection']))
+        #kg.add( (iris['substance'], _PREFIX["me_egad_data"]['dep_chemicalID'], Literal(sampleobs['chemical_number'] , datatype = XSD.string)) )
+        else:
+            kg.add( (parameter_iri, RDF.type, _PREFIX['coso']['Substance']))
+        #kg.add( (iris['substance'], _PREFIX["coso"]['casNumber'], Literal(sampleobs['chemical_number']  , datatype = XSD.string)) ) #TODO update to reused relation, ignore ones that are custom DEP
        
    
     return kg
@@ -298,7 +306,7 @@ def triplify_concentration_qualifier(df, _PREFIX):
         qualfier_name = row['VALUE'] # qualfier value
         qualfier_description = row['DESCRIPTION'] # qualfier description
         qualfier_group = row['PARAMETER_GROUP'] # parameter group 
-        qualfier_name = qualfier_name.replace("/", "-")
+        qualfier_name = qualfier_name.replace("/", "-").replace('*', "s")
         
         ## construct type IRI
         qualfier_iri = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{qualfier_name}"]
