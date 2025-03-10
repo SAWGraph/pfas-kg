@@ -226,3 +226,6 @@ datasets/federal/us-ghg/us-ghg-facilities-IL.ttl
 datasets/federal/us-ghg/us-ghg-facilities-ME.ttl
 datasets/federal/us-ghg/us-ghg-releases-IL.ttl
 datasets/federal/us-ghg/us-ghg-releases-ME.ttl
+datasets/federal/us-wqp/wqp-metadata.py
+datasets/federal/us-wqp/old_code/wqp-observations.py
+datasets/federal/us-wqp/old_code/wqp-station.py
