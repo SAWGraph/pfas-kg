@@ -1,0 +1,113 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
+@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+#@prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
+@prefix prov: <http://www.w3.org/ns/prov#>.
+
+#Classes
+us_wqp:WQP-Sample rdf:type owl:Class;
+    rdfs:subClassOf coso:MaterialSample;
+    rdfs:label "WQP - Sample".
+
+us_wqp:WQP-PFAS-Observation rdf:type owl:Class;
+    rdfs:subClassOf coso:ContaminantSampleObservation,
+        #pfas:PFAS-ContaminantSampleObservation,
+        [rdf:type owl:Restriction ;
+        owl:allValuesFrom us_wqp:Lab ;
+        owl:onProperty prov:wasAttributedTo].
+
+us_wqp:SampleMedia rdf:type owl:Class;
+    rdfs:subClassOf coso:SampleMaterialType;
+    rdfs:subClassOf qudt:Enumeration. 
+
+us_wqp:Taxon rdf:type owl:Class;
+    rdfs:subClassOf coso:SampleMaterialType;
+    rdfs:subClassOf qudt:Enumeration. 
+
+us_wqp:AnalyticalMethod rdf:type owl:Class;
+    rdfs:subClassOf coso:AnalysisMethod,
+        #pfas:AnalysisMethod,
+        qudt:Enumeration. 
+
+us_wqp:SampleCollectionMethod rdf:type owl:Class;
+    rdfs:subClassOf coso:SampleAnnotation, #this should be more specific
+            sosa:Procedure,
+            qudt:Enumeration. 
+
+us_wqp:Characteristic rdf:type owl:Class;
+    rdfs:subClassOf coso:Substance.
+
+us_wqp:Site rdf:type owl:Class;
+    rdfs:subClassOf coso:SamplePoint. 
+
+us_wqp:WQP-SampledFeature rdf:type owl:Class;
+    rdfs:subClassOf coso:SampledFeature. 
+
+us_wqp:WQP-Location_Type rdf:type owl:Class;
+    rdfs:subClassOf qudt:Enumeration. 
+
+us_wqp:Project rdf:type owl:Class;
+    rdfs:subClassOf coso:SampleAnnotation. 
+#TODO add property chains to infer class based on each location type in CV
+
+us_wqp:CensoringLevel rdfs:subClassOf coso:DetectionLimit. 
+
+us_wqp:MethodDetectionLevel rdfs:subClassOf coso:DetectionLimit. 
+
+us_wqp:LaboratoryReportingLevel rdfs:subClassOf coso:QuantitationLimit. 
+
+us_wqp:LowerQuantitationLimit rdfs:subClassOf coso:QuantitationLimit. 
+
+us_wqp:WQP-Single-PFAS-Concentration rdf:type owl:Class;
+    rdfs:subClassOf coso:SingleContaminantMeasurement, 
+        coso:ContaminantRelativeMeasurement. 
+
+us_wqp:Organization rdf:type owl:Class;
+    rdfs:subClassOf prov:Organization. 
+
+us_wqp:Lab rdf:type owl:Class;
+    rdfs:subClassOf us_wqp:Organization.
+    #additional organization classes defined in controlled vocab
+
+## properties
+
+us_wqp:hasProjectId rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf coso:sampleAnnotation;
+    rdfs:domain us_wqp:WQP-Activity;
+    rdfs:range us_wqp:Project.
+
+us_wqp:sampleCollectionMethod rdf:type owl:ObjectProperty;
+    rdfs:subPropertyOf coso:sampleAnnotation;
+    rdfs:domain us_wqp:WQP-Activity;
+    rdfs:range us_wqp:SampleCollectionMethod.  
+
+us_wqp:sampleID rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf coso:sampleAnnotation.
+
+us_wqp:siteId rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:AnnotationProperty. 
+
+us_wqp:siteName rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:AnnotationProperty. 
+
+us_wqp:groupName rdf:type owl:DatatypeProperty;
+    rdfs:domain us_wqp:Characteristic.
+
+us_wqp:srsID rdf:type owl:DatatypeProperty; 
+    rdfs:domain us_wqp:Characteristic;
+    rdfs:subPropertyOf coso:substanceID. 
+
+us_wqp:locationType rdf:type owl:ObjectProperty;
+    rdfs:domain us_wqp:WQP-SampledFeature;
+    rdfs:range us_wqp:WQP-Location_Type. 
+
+us_wqp:organizationId rdf:type owl:DatatypeProperty.
+
+us_wqp:organizationDescription rdf:type owl:DatatypeProperty. 
+
+us_wqp:featureDescription rdf:type owl:DatatypeProperty. 
+
+us_wqp:rank rdf:type owl:DatatypeProperty. 
+

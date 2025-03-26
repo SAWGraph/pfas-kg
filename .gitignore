@@ -229,3 +229,4 @@ datasets/federal/us-ghg/us-ghg-releases-ME.ttl
 datasets/federal/us-wqp/wqp-metadata.py
 datasets/federal/us-wqp/old_code/wqp-observations.py
 datasets/federal/us-wqp/old_code/wqp-station.py
+datasets/federal/us-wqp/controlledVocab/wqp_controlledVocab.zip

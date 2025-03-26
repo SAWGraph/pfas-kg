@@ -1,0 +1,21 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
+
+us_wqp:taxonGroup.AquaticVegetation rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.BacteriaVirus rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.BenthicMacroinvertebrates rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.Corals rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.Diatoms rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.FishNekton rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.Invertebrates rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.PhytoplanktonZooplankton rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp:taxonGroup.TerrestrialVegetation rdfs:subClassOf us_wqp:Taxon .
+

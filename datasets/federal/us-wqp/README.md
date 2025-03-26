@@ -41,11 +41,11 @@ A physical organization may have multiple Organization records in WQX.  For exam
 
 | Site/Station data attribute | Description | Lift to graph | Ontology property |
 | --- | --- | --- |--- |
-| Org_Identifier | A designator used to uniquely identify a unique business establishment within a context. |
-| Org_FormalName | The legal designator (i.e. formal name) of an organization. |
-| Project_Identifier| A designator used to uniquely identify a data collection project within a context of an organization. |
-| Project_Name | The name assigned by the Organization (project leader or principal investigator) to the project.|
-| Project_QAPPApproved
+| Org_Identifier | A designator used to uniquely identify a unique business establishment within a context. | Yes | us_wqp:Site us_wqp:ofOrganization prov:Organization (with WQP specific subclasses)
+| Org_FormalName | The legal designator (i.e. formal name) of an organization. | Yes | prov:Organization rdfs:label
+| Project_Identifier| A designator used to uniquely identify a data collection project within a context of an organization. | Yes | us_wqp:WQP-Activity us_wqp:hasProjectId us_wqp:Project
+| Project_Name | The name assigned by the Organization (project leader or principal investigator) to the project.| us_wqp:Project rdfs:label
+| Project_QAPPApproved | 
 | Project_QAPPApprovalAgency
 | Location_Identifier | A designator used to describe the unique name, number, or code assigned to identify the monitoring location. | Yes | |
 | Location_Name
@@ -90,7 +90,7 @@ A physical organization may have multiple Organization records in WQX.  For exam
 | Result_ResultDetectionCondition
 | Result_Characteristic
 | Result_CharacteristicUserSupplied
-| Result_CASNumber
+| Result_CASNumber| 
 | Result_SampleFraction
 | ResultBiological_Taxon
 | ResultBiological_SampleTissueAnatomy
@@ -153,17 +153,17 @@ A physical organization may have multiple Organization records in WQX.  For exam
 
 ## Schema Diagram
 
+![image](SAWGraph - Scratch - WQP.png)
 [WIP Schema Diagram](https://lucid.app/lucidchart/16e658ef-6f61-4ce3-a770-0c410ecb194a/edit?viewport_loc=-1421%2C149%2C3359%2C1620%2C0MKUwZHd6e-j&invitationId=inv_ea094a2c-59da-4347-b175-700b91e5623d)
 
 **Legend description:**
 
-* Yellow boxes - classes specific for *egad-maine-sample* dataset.
-* Pink boxes - classes in the generic PFAS schema
+* Green boxes - classes specific for *WQP* dataset.
+* Orange boxes - classes in the generic PFAS schema
 * Blue boxes - classes from external standard ontologies (e.g., SOSA, GeoSPARQL, OWL-Time, PROV)
 * Purple boxes - classes specific for *egad-maine-sample* dataset that are also controlled vocabularies
 * Dark grey boes - the controlled vocabularies presented as examples from the EGAD lookup tables
-* arrow with filled ends - object/data properties
-* arrow with unfilled ends - subclass relation
+* triangle arrow - subclass relation
 * arrow with unfilled ends and a short line - instance (rdf:type) relation
 
 ## Sample Data
@@ -173,3 +173,4 @@ A physical organization may have multiple Organization records in WQX.  For exam
 ## Contributors
 
 * [Shirly Stephen](https://github.com/shirlysteph)
+* [Katrina Schweikert](https://github.com/kschweikert)
