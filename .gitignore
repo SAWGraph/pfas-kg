@@ -230,3 +230,17 @@ datasets/federal/us-wqp/wqp-metadata.py
 datasets/federal/us-wqp/old_code/wqp-observations.py
 datasets/federal/us-wqp/old_code/wqp-station.py
 datasets/federal/us-wqp/controlledVocab/wqp_controlledVocab.zip
+datasets/federal/us-wqp/old_code/variable.py
+datasets/federal/us-wqp/old_code/metadata/Activity Media Subdivision.csv
+datasets/federal/us-wqp/old_code/metadata/Activity Media.csv
+datasets/federal/us-wqp/old_code/metadata/ActivityType.CSV
+datasets/federal/us-wqp/old_code/metadata/Analytical Method.csv
+datasets/federal/us-wqp/old_code/metadata/Characteristic.csv
+datasets/federal/us-wqp/old_code/metadata/LocalAquifer.CSV
+datasets/federal/us-wqp/old_code/metadata/MonitoringLocationType.CSV
+datasets/federal/us-wqp/old_code/metadata/NationalAquifer.CSV
+datasets/federal/us-wqp/old_code/metadata/Organization.CSV
+datasets/federal/us-wqp/old_code/metadata/SampleCollectionMethod.CSV
+datasets/federal/us-wqp/old_code/metadata/WellType.csv
+datasets/federal/us-wqp/old_code/wqp-metadata.py
+.gitignore
