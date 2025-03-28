@@ -261,12 +261,23 @@ me_egad:EGAD-SampleDetailedLocation rdf:type owl:Class ;
                                     rdfs:subClassOf qudt:Enumeration;
                                     rdfs:label "EGAD - Sample Detailed Location" .
 
-
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf coso:SampleMaterialType ;
                                 rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - Sample Material Type" .
+
+coso:WaterSample owl:equivalentClass [
+  rdf:type owl:Restriction ;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.SW
+] .
+
+coso:AnimalBloodSample owl:equivalentClass [
+  rdf:type owl:Restriction ;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.BE, me_egad_data:sampleMaterialType.BD
+] .
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialTypeQualifier rdf:type owl:Class ;
