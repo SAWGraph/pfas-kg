@@ -4,8 +4,7 @@
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
-@prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -190,12 +189,13 @@ sdwis:pwsidNumber rdf:type owl:DatatypeProperty ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-AggregatePFAS-Concentration
 me_egad:EGAD-AggregatePFAS-Concentration rdf:type owl:Class ;
-                                         rdfs:subClassOf pfas:AggregatePFASConcentrationMeasurement .
+                                         rdfs:subClassOf coso:AggregateContaminantMeasurement, 
+                                            coso:ContaminantRelativeMeasurement.
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-AnalysisMethod
 me_egad:EGAD-AnalysisMethod rdf:type owl:Class ;
-                            rdfs:subClassOf pfas:AnalysisMethod ;
+                            rdfs:subClassOf coso:AnalysisMethod ;
                             rdfs:subClassOf qudt:Enumeration;
                             rdfs:label "EGAD - Analysis Method" .
 
@@ -209,15 +209,15 @@ me_egad:EGAD-LabQualifier rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-MethodDetectionLimit
 me_egad:EGAD-MethodDetectionLimit rdf:type owl:Class ;
-                                  rdfs:subClassOf pfas:MethodDetectionLimit ;
-                                  rdfs:subClassOf qudt:QuantityValue ;
+                                  rdfs:subClassOf coso:DetectionLimit ;
+                                  rdfs:subClassOf qudt:Quantity ;
                                   rdfs:label "EGAD - Method Detection Limit" ;
                                   skos:definition "Areas with land use activities which are potential and/or actual sources of contamination and areas where biological and surface water sampling is conducted." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-PFAS-Observation
 me_egad:EGAD-PFAS-Observation rdf:type owl:Class ;
-                              rdfs:subClassOf pfas:PFAS-ContaminantSampleObservation ;
+                              rdfs:subClassOf coso:ContaminantSampleObservation ;
                               rdfs:label "EGAD - PFAS Observation" .
 
 
@@ -230,8 +230,8 @@ me_egad:EGAD-PFAS-ParameterName rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ReportingLimit
 me_egad:EGAD-ReportingLimit rdf:type owl:Class ;
-                            rdfs:subClassOf pfas:ReportingLimit ;
-                            rdfs:subClassOf qudt:QuantityValue ;
+                            rdfs:subClassOf coso:QuantitationLimit ;
+                            rdfs:subClassOf qudt:Quantity ;
                             rdfs:label "EGAD - Reporting Limit" .
 
 
@@ -299,7 +299,8 @@ me_egad:EGAD-SampledFeature rdf:type owl:Class ;
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SinglePFAS-Concentration
 me_egad:EGAD-SinglePFAS-Concentration rdf:type owl:Class ;
-                                      rdfs:subClassOf pfas:SinglePFASConcentrationMeasurement .
+                                      rdfs:subClassOf coso:ContaminantRelativeMeasurement,
+                                        coso:SingleContaminantMeasurement .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-Site
