@@ -12,6 +12,7 @@
 @prefix sdwis: <http://sawgraph.spatialai.org/v1/sdwis#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix me_egad: <http://sawgraph.spatialai.org/v1/me-egad#> .
+@prefix me_egad_data: <http://sawgraph.spatialai.org/v1/me-egad-data#> .
 
 <http://sawgraph.spatialai.org/v1/me-egad#> rdf:type owl:Ontology ;
                                              terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
@@ -267,17 +268,17 @@ me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - Sample Material Type" .
 
-coso:WaterSample owl:equivalentClass [
-  rdf:type owl:Restriction ;
+me_egad_data:DefEGADWaterSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad_data:sampleMaterialType.SW
-] .
+  ]);
+     rdfs:subClassOf coso:WaterSample. 
 
-coso:AnimalBloodSample owl:equivalentClass [
-  rdf:type owl:Restriction ;
+me_egad_data:DefEGADAnimalBloodSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad_data:sampleMaterialTypeQualifier.BE, me_egad_data:sampleMaterialType.BD
-] .
+  ]) ;
+     rdfs:subClassOf coso:AnimalBloodSample. 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialTypeQualifier rdf:type owl:Class ;
