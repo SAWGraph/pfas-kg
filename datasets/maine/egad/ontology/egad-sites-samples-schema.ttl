@@ -268,11 +268,11 @@ me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - Sample Material Type" .
 
-me_egad_data:DefEGADWaterSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
+me_egad_data:DefEGADRawWaterSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad_data:sampleMaterialType.SW
   ]);
-     rdfs:subClassOf coso:WaterSample. 
+     rdfs:subClassOf coso:RawWaterSample. 
 
 me_egad_data:DefEGADAnimalBloodSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
