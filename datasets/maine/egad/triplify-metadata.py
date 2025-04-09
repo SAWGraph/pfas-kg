@@ -26,7 +26,7 @@ metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location',
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent.parent
 data_dir =  root_folder / "datasets/maine/egad/metadata/"
-output_dir = root_folder / "datasets/maine/egad/output/"
+output_dir = root_folder / "datasets/maine/egad/controlledVocab/"
 
 
 ## initiate log file
@@ -72,12 +72,12 @@ def main():
 
             
         data_df.iloc[0:0]
-        kg_turtle_file = filename+".ttl".format(output_dir)
+        kg_turtle_file = output_dir / f"{filename}.ttl"
         kg.serialize(kg_turtle_file,format='turtle')
 
 
 def Initial_KG(_PREFIX):
-    prefixes: Dict[str, str] = _PREFIX
+    prefixes = _PREFIX
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
@@ -98,8 +98,9 @@ def triplify_lab(df, _PREFIX):
         lab_iri = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_value}"]
                 
         ## specify lab instance and it's data properties
-        kg.add( (lab_iri, RDF.type, _PREFIX["prov"]["Organization"]) )
-        kg.add( (lab_iri, RDFS['label'], Literal(str(lab_description))) )
+        if pd.notnull(lab_value):
+            kg.add( (lab_iri, RDF.type, _PREFIX["prov"]["Organization"]) )
+            kg.add( (lab_iri, RDFS['label'], Literal(str(lab_description))) )
         #kg.add( (lab_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(lab_description, datatype = XSD.string)) )
 
    
@@ -116,7 +117,7 @@ def triplify_collection_method(df, _PREFIX):
         collection_description = row['DESCRIPTION'] # collection description
         
         ## construct collection IRI
-        collection_iri = _PREFIX["me_egad"][f"{'samplingMethod'}.{collection_value}"]
+        collection_iri = _PREFIX["me_egad_data"][f"{'samplingMethod'}.{collection_value}"]
                 
         ## specify collection instance and it's data properties
         kg.add( (collection_iri, RDF.type, OWL.NamedIndividual) )
@@ -139,7 +140,7 @@ def triplify_location(df, _PREFIX):
         location_description = row['DESCRIPTION'] # location description
         
         ## construct collection IRI
-        location_iri = _PREFIX["me_egad"][f"{'sampleLocation'}.{location_value}"]
+        location_iri = _PREFIX["me_egad_data"][f"{'sampleLocation'}.{location_value}"]
                 
         ## specify location instance and it's data properties
         kg.add( (location_iri, RDF.type, OWL.NamedIndividual) )
@@ -163,7 +164,7 @@ def triplify_point_type(df, _PREFIX):
         point_value_formatted = ''.join(e for e in point_value if e.isalnum())
         
         ## construct point IRI
-        point_iri = _PREFIX["me_egad"][f"{'featureType'}.{point_value_formatted}"]
+        point_iri = _PREFIX["me_egad_data"][f"{'featureType'}.{point_value_formatted}"]
                 
         ## specify point instance and it's data properties
         #kg.add( (point_iri, RDFS.subClassOf, _PREFIX["me_egad"]["Feature"]) )
@@ -187,7 +188,7 @@ def triplify_sample_type(df, _PREFIX):
         type_description = row['DESCRIPTION'] # material description
         
         ## construct type IRI
-        type_iri = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{type_value}"]
+        type_iri = _PREFIX["me_egad_data"][f"{'sampleMaterialType'}.{type_value}"]
                 
         ## specify type instance and it's data properties
         kg.add( (type_iri, RDF.type, OWL.NamedIndividual) )
@@ -206,7 +207,7 @@ def triplify_sample_type_qualifier(df, _PREFIX):
         type_description = row['DESCRIPTION'] # material description
 
         ## construct type IRI
-        type_iri = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{type_value}"]
+        type_iri = _PREFIX["me_egad_data"][f"{'sampleMaterialTypeQualifier'}.{type_value}"]
                 
         ## specify type instance and it's data properties
         kg.add( (type_iri, RDF.type, OWL.NamedIndividual) )
@@ -229,7 +230,7 @@ def triplify_site_type(df, _PREFIX):
         site_value_formatted = ''.join(e for e in site_value if e.isalnum())
         
         ## construct site IRI
-        site_iri = _PREFIX["me_egad"][f"{'siteType'}.{site_value_formatted}"]
+        site_iri = _PREFIX["me_egad_data"][f"{'siteType'}.{site_value_formatted}"]
                 
         ## specify site instance and it's data properties
         #kg.add( (site_iri, RDFS.subClassOf, _PREFIX["me_egad"]["Feature"]) )
@@ -254,7 +255,7 @@ def triplify_pfas_parameter(df, _PREFIX):
         parameter_abbreviation = row['Abbreviation'] # parameter abbreviation
         
         ## construct type IRI
-        parameter_iri = _PREFIX["me_egad"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
+        parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
                 
         ## specify type instance and it's data properties
         kg.add( (parameter_iri, RDF.type, OWL.NamedIndividual) )
@@ -287,7 +288,7 @@ def triplify_test_method(df, _PREFIX):
         ## construct type IRI
         method_name = method_name.replace(' ', "")
         method_name = method_name.replace("/", "")
-        method_iri = _PREFIX["me_egad"][f"{'testMethod'}.{method_name}"]
+        method_iri = _PREFIX["me_egad_data"][f"{'testMethod'}.{method_name}"]
                 
         ## specify type instance and it's data properties
         kg.add( (method_iri, RDF.type, OWL.NamedIndividual) )
@@ -309,7 +310,7 @@ def triplify_concentration_qualifier(df, _PREFIX):
         qualfier_name = qualfier_name.replace("/", "-").replace('*', "s")
         
         ## construct type IRI
-        qualfier_iri = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{qualfier_name}"]
+        qualfier_iri = _PREFIX["me_egad_data"][f"{'concentrationQualifier'}.{qualfier_name}"]
                 
         ## specify type instance and it's data properties
         kg.add( (qualfier_iri, RDF.type, OWL.NamedIndividual) )
@@ -334,7 +335,7 @@ def triplify_validation_level(df, _PREFIX):
         ## construct type IRI
         validation_level_name = validation_level_name.replace(' ', "")
         validation_level_name = validation_level_name.replace("/", "")
-        validation_level_iri = _PREFIX["me_egad"][f"{'validationLevel'}.{validation_level_name}"]
+        validation_level_iri = _PREFIX["me_egad_data"][f"{'validationLevel'}.{validation_level_name}"]
                 
         ## specify type instance and it's data properties
         kg.add( (validation_level_iri, RDF.type, OWL.NamedIndividual) )
@@ -356,7 +357,7 @@ def triplify_result_type(df, _PREFIX):
         ## construct type IRI
         result_type_value = result_type_value.replace(' ', "")
         result_type_value = result_type_value.replace("/", "")
-        result_type_iri = _PREFIX["me_egad"][f"{'resultType'}.{result_type_value}"]
+        result_type_iri = _PREFIX["me_egad_data"][f"{'resultType'}.{result_type_value}"]
                 
         ## specify type instance and it's data properties
         kg.add( (result_type_iri, RDF.type, OWL.NamedIndividual) )
@@ -376,7 +377,7 @@ def triplify_treatment_status(df, _PREFIX):
         treatment_status_description = row['DESCRIPTION'] # treatment status description
         
         ## construct type IRI
-        treatment_status_iri = _PREFIX["me_egad"][f"{'treatmentStatus'}.{row['VALUE']}"]
+        treatment_status_iri = _PREFIX["me_egad_data"][f"{'treatmentStatus'}.{row['VALUE']}"]
                 
         ## specify type instance and it's data properties
         kg.add( (treatment_status_iri, RDF.type, OWL.NamedIndividual) )

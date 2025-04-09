@@ -244,3 +244,6 @@ datasets/federal/us-wqp/old_code/metadata/SampleCollectionMethod.CSV
 datasets/federal/us-wqp/old_code/metadata/WellType.csv
 datasets/federal/us-wqp/old_code/wqp-metadata.py
 .gitignore
+datasets/maine/egad/egad_observation_output.ttl
+datasets/maine/egad/egad_result_output.ttl
+datasets/maine/egad/egad_sites_types.ttl

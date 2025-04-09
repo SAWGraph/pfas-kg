@@ -148,6 +148,7 @@ me_egad:parameterName rdf:type owl:DatatypeProperty ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#sampleID
 me_egad:sampleID rdf:type owl:DatatypeProperty ;
                  rdfs:label "sample identifier" ;
+                 rdfs:subPropertyOf 
                  skos:definition "Sample identifier in the EGAD dataset from the state of Maine." .
 
 
@@ -173,7 +174,6 @@ me_egad:siteName rdf:type owl:DatatypeProperty ;
 me_egad:siteNumber rdf:type owl:DatatypeProperty ;
                    rdfs:label "site number" ;
                    skos:definition "Site number in the EGAD dataset from the state of Maine." .
-
 
 
 
