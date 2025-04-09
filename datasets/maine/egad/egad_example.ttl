@@ -51,6 +51,18 @@ me_egad_data:sample.AAWHL192275901.20190529 a me_egad:EGAD-Sample ;
     me_egad:sampleCollectionMethod me_egad_data:samplingMethod.GS ;
     me_egad:sampleID "SW-3"^^xsd:string .
 
+me_egad_data:samplePoint.152663 a me_egad:EGAD-SamplePoint ;
+    rdfs:label "EGAD sample point 152663" ;
+    me_egad:samplePointNumber 152663 ;
+    me_egad:samplePointWebName "840 003 243 771 487_BEAUTY"^^xsd:string ;
+    coso:pointFromFeature me_egad_data:sampledFeature.152663.
+
+me_egad_data:samplePoint.63787 a me_egad:EGAD-SamplePoint ;
+    rdfs:label "EGAD sample point 63787" ;
+    me_egad:samplePointNumber 63787 ;
+    me_egad:samplePointWebName "SW-3"^^xsd:string ;
+    coso:pointFromFeature me_egad_data:sampledFeature.63787.
+
 me_egad_data:sampledFeature.152663 a me_egad:EGAD-SampledFeature ;
     rdfs:label "EGAD sampled feature associated with sample point 152663" ;
     me_egad:sampledFeatureType me_egad_data:featureType.BLDG .
@@ -76,7 +88,8 @@ me_egad_data:result.L192275901.AAWH.20190529.1763231 a me_egad:EGAD-SinglePFAS-C
     me_egad:reportingLimit me_egad_data:rl.L192275901.AAWH.20190529.1763231 ;
     me_egad:validationLevel me_egad_data:validationLevel.DEP .
 
-me_egad_data:quantityValue.C0591FS.BNO.20230918.375951 qudt:numericValue 17500.0 ;
+me_egad_data:quantityValue.C0591FS.BNO.20230918.375951 a coso:DetectQuantityValue ;
+    qudt:numericValue 17500.0 ;
     qudt:unit unit:NanoGM-PER-L .
 
 me_egad_data:mdl.C0591FS.BNO.20230918.375951 qudt:numericValue 125.0 ;
@@ -85,7 +98,8 @@ me_egad_data:mdl.C0591FS.BNO.20230918.375951 qudt:numericValue 125.0 ;
 me_egad_data:rl.C0591FS.BNO.20230918.375951 qudt:numericValue 800.0 ;
     qudt:unit unit:NanoGM-PER-L .
 
-me_egad_data:quantityValue.L192275901.AAWH.20190529.1763231 qudt:numericValue 32.0 ;
+me_egad_data:quantityValue.L192275901.AAWH.20190529.1763231 a coso:DetectQuantityValue ;
+    qudt:numericValue 32.0 ;
     qudt:unit unit:NanoGM-PER-L .
 
 me_egad_data:mdl.L192275901.AAWH.20190529.1763231 qudt:numericValue 0.47 ;
