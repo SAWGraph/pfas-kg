@@ -1,8 +1,8 @@
-# Get the names of all PFAS Chemicals
+# Find the name of the PFAS Chemical with the DTXSID 8031865
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
 select * where {
     ?s rdfs:subClassOf <http://example.com/0000004> .
     ?s rdfs:label ?l.
-} limit 100
+    ?s <http://example.com/0000003_0> "DTXSID8031865".
+} 
