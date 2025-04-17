@@ -225,7 +225,6 @@ me_egad:EGAD-PFAS-ParameterName rdf:type owl:Class ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ReportingLimit
 me_egad:EGAD-ReportingLimit rdf:type owl:Class ;
                             rdfs:subClassOf coso:QuantitationLimit ;
-                            rdfs:subClassOf qudt:Quantity ;
                             rdfs:label "EGAD - Reporting Limit" .
 
 
