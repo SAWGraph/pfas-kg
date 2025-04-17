@@ -17,7 +17,9 @@
 <http://sawgraph.spatialai.org/v1/me-egad#> rdf:type owl:Ontology ;
                                              terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
                                              terms:created "2024-07-26" ;
-                                             terms:creator "The SAWGraph Project"@en ;
+                                             terms:creator <http://orcid.org/0000-0002-5331-5052> ,
+                                                           <http://orcid.org/0000-0003-3547-8058> ,
+                                                            <https://orcid.org/0000-0003-3271-6700> ;;
                                              terms:description "This ontology supports SAWGraph"@en ;
                                              terms:title "Ontology for Maine Environmental and Geographic Analysis Database (EGAD) PFAS Dataset"@en ;
                                              owl:versionInfo "1.0"@en .
@@ -132,54 +134,45 @@ me_egad:dep_chemicalID rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf coso:substanceID ;
                        rdfs:label "egad - chemical identifier" .
 
-
-###  <http://sawgraph.spatialai.org/v1/me-egad#parameterAbbreviation
-me_egad:parameterAbbreviation rdf:type owl:DatatypeProperty ;
-                              rdfs:label "parameter abbreviation" ;
-                              skos:definition "Abbreviation of the PFAS parameter (single chemical or aggregate set of chemicals) measured in the EGAD dataset from the state of Maine." .
-
-
-###  <http://sawgraph.spatialai.org/v1/me-egad#parameterName
-me_egad:parameterName rdf:type owl:DatatypeProperty ;
-                      rdfs:label "parameter name" ;
-                      skos:definition "Name of the PFAS parameter (single chemical or aggregate set of chemicals) measured in the EGAD dataset from the state of Maine." .
-
-
 ###  <http://sawgraph.spatialai.org/v1/me-egad#sampleID
 me_egad:sampleID rdf:type owl:DatatypeProperty ;
                  rdfs:label "sample identifier" ;
-                 rdfs:subPropertyOf 
+                 rdfs:subPropertyOf dcterms:identifier ;
                  skos:definition "Sample identifier in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#samplePointNumber
 me_egad:samplePointNumber rdf:type owl:DatatypeProperty ;
                           rdfs:label "sample point number" ;
+                          rdfs:subPropertyOf dcterms:identifier ;
                           skos:definition "Sample point number in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#samplePointWebName
 me_egad:samplePointWebName rdf:type owl:DatatypeProperty ;
                            rdfs:label "sample point web name" ;
+                           rdfs:subPropertyOf skos:altLabel ;
                            skos:definition "Sample point web name in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#siteName
 me_egad:siteName rdf:type owl:DatatypeProperty ;
                  rdfs:label "site name" ;
+                 rdfs:subPropertyOf skos:altLabel ;
                  skos:definition "Site name in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#siteNumber
 me_egad:siteNumber rdf:type owl:DatatypeProperty ;
                    rdfs:label "site number" ;
+                   rdfs:subPropertyOf dcterms:identifier ;
                    skos:definition "Site number in the EGAD dataset from the state of Maine." .
-
 
 
 ###  http://sawgraph.spatialai.org/v1/sdwis#pwsidNumber
 sdwis:pwsidNumber rdf:type owl:DatatypeProperty ;
                   rdfs:label "public system water identifier" ;
+                  rdfs:subPropertyOf dcterms:identifier ;
                   skos:definition "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reservation, and XXXXXXXXXX = the water system identification code assigned by the State." .
 
 
@@ -202,7 +195,7 @@ me_egad:EGAD-AnalysisMethod rdf:type owl:Class ;
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-LabQualifier
-me_egad:EGAD-LabQualifier rdf:type owl:Class ;
+me_egad:EGAD-ConcentrationQualifier rdf:type owl:Class ;
                           rdfs:subClassOf coso:ResultQualifier ;
                           rdfs:subClassOf qudt:Enumeration;
                           rdfs:label "EGAD - Lab Qualifier" .
@@ -268,18 +261,6 @@ me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf qudt:Enumeration;
                                 rdfs:label "EGAD - Sample Material Type" .
 
-me_egad_data:DefEGADRawWaterSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
-  owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SW
-  ]);
-     rdfs:subClassOf coso:RawWaterSample. 
-
-me_egad_data:DefEGADAnimalBloodSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
-  owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.BE, me_egad_data:sampleMaterialType.BD
-  ]) ;
-     rdfs:subClassOf coso:AnimalBloodSample. 
-
 ###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialTypeQualifier rdf:type owl:Class ;
                                 rdfs:subClassOf coso:SampleMaterialType ;
@@ -337,12 +318,5 @@ me_egad:EGAD-ValidationLevel rdf:type owl:Class ;
                              rdfs:subClassOf coso:ResultQualifier ;
                              rdfs:subClassOf qudt:Enumeration;
                              rdfs:label "EGAD - Validation Level" .
-
-
-###  <http://sawgraph.spatialai.org/v1/me-egad#EGAD-ValidationQualifier
-me_egad:EGAD-ValidationQualifier rdf:type owl:Class ;
-                                 rdfs:subClassOf coso:ResultQualifier ;
-                                 rdfs:subClassOf qudt:Enumeration;
-                                 rdfs:label "EGAD - Validation Qualifier" .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

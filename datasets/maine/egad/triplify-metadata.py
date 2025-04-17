@@ -98,7 +98,7 @@ def triplify_lab(df, _PREFIX):
         lab_iri = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_value}"]
                 
         ## specify lab instance and it's data properties
-        if pd.notnull(lab_value):
+        if pd.notnull(lab_value) and lab_value != 'ZZ':
             kg.add( (lab_iri, RDF.type, _PREFIX["prov"]["Organization"]) )
             kg.add( (lab_iri, RDFS['label'], Literal(str(lab_description))) )
         #kg.add( (lab_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(lab_description, datatype = XSD.string)) )
@@ -261,8 +261,9 @@ def triplify_pfas_parameter(df, _PREFIX):
         kg.add( (parameter_iri, RDF.type, OWL.NamedIndividual) )
         kg.add( (parameter_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-ParameterName"]) )
         kg.add( (parameter_iri, RDFS['label'], Literal(str(parameter_name))) )
-        kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterAbbreviation'], Literal(parameter_abbreviation, datatype = XSD.string)) )
-        kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterName'], Literal(parameter_name, datatype = XSD.string)) )
+        kg.add( (parameter_iri, _PREFIX["skos"]['altLabel'], Literal(parameter_abbreviation, datatype = XSD.string)) )
+        #kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterAbbreviation'], Literal(parameter_abbreviation, datatype = XSD.string)) )
+        #kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterName'], Literal(parameter_name, datatype = XSD.string)) )
 
         if (row['QuantityKind'] == 'Cumulative'):
             kg.add( (parameter_iri, RDF.type, _PREFIX['coso']['SubstanceCollection']))
@@ -306,7 +307,7 @@ def triplify_concentration_qualifier(df, _PREFIX):
         ## qualfier record details
         qualfier_name = row['VALUE'] # qualfier value
         qualfier_description = row['DESCRIPTION'] # qualfier description
-        qualfier_group = row['PARAMETER_GROUP'] # parameter group 
+        #qualfier_group = row['PARAMETER_GROUP'] # parameter group 
         qualfier_name = qualfier_name.replace("/", "-").replace('*', "s")
         
         ## construct type IRI
@@ -314,10 +315,10 @@ def triplify_concentration_qualifier(df, _PREFIX):
                 
         ## specify type instance and it's data properties
         kg.add( (qualfier_iri, RDF.type, OWL.NamedIndividual) )
-        kg.add( (qualfier_iri, RDF.type, _PREFIX["me_egad"]["EGAD-ValidationQualifier"]) )
-        kg.add( (qualfier_iri, RDF.type, _PREFIX["me_egad"]["EGAD-LabQualifier"]) )
+        kg.add( (qualfier_iri, RDF.type, _PREFIX["me_egad"]["EGAD-ConcentrationQualifier"]) )
+        #kg.add( (qualfier_iri, RDF.type, _PREFIX["me_egad"]["EGAD-LabQualifier"]) )
         kg.add( (qualfier_iri, RDFS['label'], Literal(str(qualfier_description))) )
-        kg.add( (qualfier_iri, _PREFIX["me_egad"]['parameterGroup'], Literal(str(qualfier_group))) )
+       # kg.add( (qualfier_iri, _PREFIX["me_egad"]['parameterGroup'], Literal(str(qualfier_group))) )
    
     return kg
 

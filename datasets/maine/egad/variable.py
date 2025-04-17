@@ -43,7 +43,8 @@ _PREFIX = {
     "unit": Namespace("http://qudt.org/vocab/unit/"),
     "prov": Namespace("http://www.w3.org/ns/prov#"),
     "skos": Namespace("http://www.w3.org/2004/02/skos/core#"),
-    "gcx": Namespace(f'http://geoconnex.us/')
+    "gcx": Namespace(f'http://geoconnex.us/'),
+    "dcterms": Namespace(f'http://purl.org/dc/terms/')
 
 }
 

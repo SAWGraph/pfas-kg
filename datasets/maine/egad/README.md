@@ -16,16 +16,16 @@
 * [GDrive Output Directory](https://drive.google.com/drive/folders/18HynzQhZStMQj-CuM2U0NUtLUdBybWEx)
 
 ## Raw Data Attribute List and Mapping with Ontology Concepts (TO UPDATE)
-| Sheet 2 attribute | Description | Lift to graph | Ontology property |
-| --- | --- | --- |--- |
-| MCD | Administrative region | Yes | Have to decide |
-| SITE_NUMBER | Site number | Yes | egad_siteNumber |
-| SITE_NAME | Site name | Yes | egad_siteName |
+| Sheet 2 attribute | Description | Lift to graph | Ontology property | Ontology Class |
+| --- | --- | --- |--- | --- |
+| MCD | Administrative region ||  | |
+| SITE_NUMBER | Site number | Yes | egad_siteNumber | Literal |
+| SITE_NAME | Site name | Yes | egad_siteName | Literal | 
 | SITE_UTM_X | | No | |
 | SITE_UTM_Y | | No | |
-| SITE_LATITUDE | Site latitude | Yes | geo:Geometry; sf:Point |
-| SITE_LONGITUDE | Site longitude | Yes | geo:Geometry; sf:Point |
-| PWSID_NO | | No | |
+| SITE_LATITUDE | Site latitude | Yes | geo:Geometry |
+| SITE_LONGITUDE | Site longitude | Yes | geo:Geometry|
+| PWSID_NO | | Yes | |
 | SAMPLE_POINT_NUMBER | Sample number[^1] | Yes | egad_samplePointNumber |
 | SAMPLE_POINT_WEB_NAME | Sample name | Yes | egad_samplePointWebName |
 | SAMPLE_POINT_TYPE | Type of sampled point (see List 1) | Yes | rdf:type |
@@ -37,13 +37,13 @@
 [^1]: SAMPLE_POINT_NAME is a DEP defined ID used in uploading and storing data in EGAD. It is important that this ID be exact and consistent. It is a location identifier, not a sample ID. In contrast, SAMPLE_ID is an all-purpose identifier field that can vary from sample to sample and event to event. Samplers, labs, consultants, etc. are free to use the SAMPLE_ID field as they choose, or as defined on a chain of custody form. For many DEP projects/sample events, the Sample Point Name and the Sample ID will be the same, but it does not have to be. 
  
 
-| Sheet 3 attribute | Description | Lift to graph | Ontology property |
+| Sheet 3 attribute | Description | Lift to graph | Ontology property | Ontology Class
 | --- | --- | --- | --- |
-| SAMPLE_POINT_NUMBER | Sample number[^1] | Yes | egad_samplePointNumber |
-| SAMPLE_POINT_WEB_NAME | Sample name | Yes | egad_samplePointWebName |
-| SAMPLE_POINT_TYPE | Type of sampled point (see List 1) | Yes | rdf:type |
-| ANALYSIS_LAB | | Yes | wasAnalysedBy |
-| SAMPLE_ID | Sample ID | No | egad_sampleID |
+| SAMPLE_POINT_NUMBER | Sample number[^1] | Yes | *samplePointNumber | Literal |
+| SAMPLE_POINT_WEB_NAME | Sample name | Yes | *samplePointWebName | Literal xsd:string |
+| SAMPLE_POINT_TYPE | Type of sampled point (see List 1) | Yes | me_egad:sampledFeatureType, me_egad:samplePointType | me_egad:EGAD-SamplePointType |
+| ANALYSIS_LAB | | Yes | prov:wasAttributedTo | prov:Organization
+| SAMPLE_ID | Sample ID | No | egad_sampleID | 
 | ANALYSIS_LAB_SAMPLE_ID | | No | |
 | QC_TYPE | | No | |
 | RESULT_TYPE | | No | |
@@ -121,3 +121,4 @@ See [EGAD lookup tables](https://www.maine.gov/dep/maps-data/egad/documents/EGAD
 
 ## Contributors
 * [Shirly Stephen](https://github.com/shirlysteph)
+* [Katrina Schweikert](https://github.com/)

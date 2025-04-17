@@ -54,7 +54,7 @@ logging.basicConfig(filename=logname,
                     datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
-logging.info("Running triplification for EGAD sites and samples")
+logging.info("Running triplification for EGAD site points")
 
 def main():
     egad_sites_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sites and Sample Points", header=0)
@@ -95,9 +95,6 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         if (len(str(pwsid_number)) != 0) and (str(pwsid_number) != 'nan'):
             kg.add( (site_iri, _PREFIX["us_sdwis"]['hasPWSID'], Literal(pwsid_number, datatype = XSD.string)) )
             kg.add(( site_iri, OWL.sameAs, pwsid_iri))
-        #town_name_formatted = row['MCD'].replace(' ', '_') 
-        #town_iri = _PREFIX["me_egad_data"][f"{'town'}.{town_name_formatted}"]
-        #kg.add( (site_iri, _PREFIX["me_egad"]['locatedIn'], town_iri))
         
         site_latitude = row['SITE_LATITUDE']
         site_longitude = row['SITE_LONGITUDE']

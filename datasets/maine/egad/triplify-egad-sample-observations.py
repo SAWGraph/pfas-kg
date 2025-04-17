@@ -2,6 +2,7 @@ import os
 from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
 from rdflib import Namespace
 from rdflib import Graph
+from rdflib.tools import chunk_serializer
 from rdflib import URIRef, BNode, Literal
 import pandas as pd
 import encodings
@@ -19,21 +20,11 @@ from shapely.geometry import Point
 
 
 ## importing utility/variable file
-sys.path.insert(0, 'C:/Users/Shirly/Documents/GitHub/kg-construction/datasets/maine/egad')
 from variable import NAME_SPACE, _PREFIX
 
 
 ## declare variables
 logname = "log"
-cdt = URIRef("http://w3id.org/lindt/custom_datatypes#ucum")
-lab_dict = []
-material_type_dict = []
-collection_method_dict = []
-point_type_dict = []
-location_type_dict = []
-site_type_dict = []
-pfas_parameter_dict = []
-
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent.parent
@@ -67,10 +58,6 @@ with open(metadata_dir / 'sample_location.csv', mode='r') as infile:
 with open(metadata_dir / 'sample_point_type.csv', mode='r') as infile:
     reader = csv.reader(infile)
     point_type_dict = {rows[1]:rows[0] for rows in reader}
-    
-#with open(metadata_dir / 'site_type.csv', mode='r') as infile:
-#    reader = csv.reader(infile)
-#    site_type_dict = {rows[1]:rows[0] for rows in reader}
 
 with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
     reader = csv.reader(infile)
@@ -79,10 +66,6 @@ with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
 with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
     reader = csv.reader(infile)
     pfas_parameter_kind_dict = {rows[1]:rows[3] for rows in reader}
-
-with open(metadata_dir / 'pfas_parameter.csv', mode='r') as infile:
-    reader = csv.reader(infile)
-    pfas_type_dict = {rows[1]:rows[3] for rows in reader}
 
 with open(metadata_dir / 'test_method.csv', mode='r') as infile:
     reader = csv.reader(infile)
@@ -100,8 +83,6 @@ with open(metadata_dir / 'sample_treatment_status.csv', mode='r') as infile:
     reader = csv.reader(infile)
     treatment_status_dict = {rows[1]:rows[0] for rows in reader}
 
-    
-
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -113,19 +94,25 @@ logging.basicConfig(filename=logname,
 logging.info("Running triplification for EGAD sites and samples")
 
 def main():
-    #ignore NOT APPLICABLE and UNKNOWN data values
+    #Load data - ignore NOT APPLICABLE and UNKNOWN data values
     egad_samples_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
     logger = logging.getLogger('Data loaded to dataframe.')
-    print(egad_samples_df.info(verbose=True, show_counts=True))
+    print(egad_samples_df.info(verbose=True, show_counts=True)) #show the columns available from the raw data
 
+    # triplify
     kg, kg_obs, kg_result = triplify_egad_pfas_sample_data(egad_samples_df, _PREFIX)
+
+    # output turtle files
     kg_turtle_file = "egad_samples_output.ttl".format(output_dir)
     kg.serialize(kg_turtle_file,format='turtle')
     kg_obs.serialize("egad_observation_output.ttl".format(output_dir), format='turtle')
+    #chunk_serializer.serialize_in_chunks(kg_obs, max_file_size_kb=100000, file_name_stem="egad_observation_output_", output_dir=output_dir.as_uri(), write_prefixes=True)
     kg_result.serialize('egad_result_output.ttl'.format(output_dir), format='turtle')
+    
     logger = logging.getLogger('Finished triplifying EGAD PFAS sample data.')
     
 def Initial_KG(prefixes: dict[str, str]) -> Graph:
+    ''' Create the Graph'''
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
@@ -210,7 +197,7 @@ def get_attributes(row):
     return samplepoint, sample, sampleobs, result
 
 def get_iris(samplepoint, sample, sampleobs, result):
-    """Build iris for any objects"""
+    """Build iris for object instances"""
     iris = {}
     ## main sample entity iris
     iris['samplepoint'] = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint['number']}"]
@@ -243,11 +230,11 @@ def get_iris(samplepoint, sample, sampleobs, result):
     if 'type' in result.keys():
         iris['result_type'] = _PREFIX["me_egad_data"][f"{'resultType'}.{result_type_dict[result['type']]}"]
 
-    ## construct analysis lab, sample material and measured PFAS parameter IRI
-    iris['analysislab'] = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs['analysislab']]}"]
-    iris['substance'] = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
+    ## Result and Quantity and related Controlled Vocabs
     iris['result'] = _PREFIX["me_egad_data"][f"{'result'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     iris['quantity'] = _PREFIX["me_egad_data"][f"{'quantityValue'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['analysislab'] = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs['analysislab']]}"]
+    iris['substance'] = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
 
     ## unit qudt 
     if result['pfas_concentration_units'] == "NG/G":
@@ -266,15 +253,16 @@ def get_iris(samplepoint, sample, sampleobs, result):
         iris['unit'] =  _PREFIX["unit"]['MicroGM-PER-KiloGM']
     elif result['pfas_concentration_units'] == "UG/L":
         iris['unit'] = _PREFIX["unit"]['MicroGM-PER-L']
-
+    
     # validation
     if 'validation_level' in result.keys(): 
         if (str(result['validation_level']).startswith("Tier II: EPA-NE REGION 1 GUIDELINES")):
-            validation_string = 'TierII-EPA-NE-REGION-1-GUIDELINES'
+            validation_string = 'T2'
             iris['validationLevel'] = _PREFIX["me_egad_data"][f"{'validationLevel'}.{validation_string}"] 
         else:
             iris['validationLevel'] = _PREFIX["me_egad_data"][f"{'validationLevel'}.{validation_level_dict[result['validation_level']]}"] 
-
+    
+    # concentration qualifier
     if 'validation_qualifier' in result.keys():
             iris['validationQualifier'] = _PREFIX["me_egad_data"][f"{'concentrationQualifier'}.{result['validation_qualifier']}"] 
 
@@ -310,8 +298,8 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         ## specify sample point instance and it's data properties
         kg.add( (iris['samplepoint'], RDF.type, _PREFIX["me_egad"]["EGAD-SamplePoint"]) )
         kg.add( (iris['samplepoint'], RDFS['label'], Literal('EGAD sample point '+ str(samplepoint['number']))) )
-        kg.add( (iris['samplepoint'], _PREFIX["me_egad"]['samplePointNumber'], Literal(samplepoint['number'], datatype = XSD.integer)) )
-        kg.add( (iris['samplepoint'], _PREFIX["me_egad"]['samplePointWebName'], Literal(samplepoint['webname'], datatype = XSD.string)) )
+        kg.add( (iris['samplepoint'], _PREFIX["dcterms"]['identifier'], Literal(samplepoint['number'], datatype = XSD.integer)) )
+        kg.add( (iris['samplepoint'], _PREFIX["skos"]['altLabel'], Literal(samplepoint['webname'], datatype = XSD.string)) )
         kg.add( (iris['samplepoint'], _PREFIX["coso"]['pointFromFeature'], iris['samplefeature']) )
 
                 
@@ -325,7 +313,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         ## material sample
         kg.add( (iris['sample'], RDF.type, _PREFIX["me_egad"]["EGAD-Sample"]) )
         kg.add( (iris['sample'], RDFS['label'], Literal('EGAD sample '+ str(sample['id']))) )
-        kg.add( (iris['sample'], _PREFIX["me_egad"]['sampleID'], Literal(sample['id'], datatype = XSD.string)) )
+        kg.add( (iris['sample'], _PREFIX["dcterms"]['identifier'], Literal(sample['id'], datatype = XSD.string)) )
         kg.add( (iris['sample'], _PREFIX["coso"]['fromSamplePoint'], iris['samplepoint']) )
 
 
@@ -348,14 +336,11 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
         if 'sample_agent' in iris.keys():
             kg.add((iris['sample'], _PREFIX["prov"]['wasAttributedTo'], iris['sample_agent'] ))
-            kg.add((iris['sample_agent'], RDF.type, _PREFIX["prov"]['Agent']))
-            kg.add((iris['sample_agent'], RDFS.label, Literal(sample['sampled_by'], datatype=XSD.string)))
-
-        
+            kg.add((iris['sample_agent'], RDF.type, _PREFIX["prov"]['Agent'])) #this is a mix of organizations and individuals
+            kg.add((iris['sample_agent'], RDFS.label, Literal(sample['sampled_by'], datatype=XSD.string)))      
 
 
         ## Observation 
-    
         kg_obs.add( (iris['sampleobs'], RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Observation"]) )
         kg_obs.add( (iris['sampleobs'], RDFS['label'], Literal('EGAD PFAS observation for sample '+ str(sample['id']))) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['observedAtSamplePoint'], iris['samplepoint']) )
@@ -378,7 +363,6 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
         if 'type' in result.keys():
             kg_obs.add( (iris['sampleobs'], _PREFIX["me_egad"]['resultType'], iris['result_type']) )
-        
 
         
         ## contaminantMeasurement (result) and substance and quantity kind
@@ -398,11 +382,10 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
 
         ## Quantity Value
-
         if is_valid(result['pfas_concentration']):  #only materialize quantity value if there is a concentration 
-            #if is_valid(pfas_concentration):
             kg_result.add((iris['quantity'], RDF.type, _PREFIX['coso']['DetectQuantityValue']))
             kg_result.add( (iris['quantity'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_concentration'] , datatype = XSD.decimal)) )
+            
             ## Unit
             kg_result.add( (iris['quantity'], _PREFIX["qudt"]['hasUnit'], iris['unit']) )
             ### describe units that arent in qudt
@@ -439,8 +422,6 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             kg_result.add( (iris['result'], _PREFIX["me_egad"]['methodDetectionLimit'], iris['mdl']) )
             kg_result.add( (iris['mdl'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_mdl'] , datatype = XSD.decimal)) ) 
             kg_result.add((iris['mdl'], _PREFIX['qudt']['hasUnit'], iris['unit'])) #assume the method detection limit is same unit as result
-            
-
         
     return kg, kg_obs, kg_result
 
@@ -456,6 +437,7 @@ def is_valid(value):
 def rem_time(d):
     s = date(d.year,d.month, d.day)
     return s
+
 
 
 
