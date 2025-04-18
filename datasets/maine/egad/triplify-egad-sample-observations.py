@@ -191,7 +191,18 @@ def get_attributes(row):
         result['validation_qualifier'] = str(row['VALIDATION QUALIFIER']).replace("/", "-").replace("*","s")  # validation qualifier
     if  pd.notnull(row['LAB_QUALIFIER']):
         result['lab_qualifier'] = str(row['LAB_QUALIFIER']).replace("/", "-").replace("*", "s") # lab qualifier
-    result['units'] = row['PARAMETER_UNITS'] # units of measurement
+    
+    unit_dict = {"NG/G": 'NanoGM-PER-GM',
+                 "MG/KG": 'MilliGM-PER-KiloGM',
+                  "%": 'PERCENT',
+                  "NG/L": 'NanoGM-PER-L',
+                  "NG/ML": 'NanoGM-PER-MicroL',
+                  "MG/L": 'MilliGM-PER-L',
+                  "UG/KG": 'MicroGM-PER-KiloGM', 
+                  "UG/L": 'MicroGM-PER-L'
+                 }
+    
+    result['units'] = unit_dict[row['PARAMETER_UNITS']] # units of measurement standardized name
             
 
     return samplepoint, sample, sampleobs, result
@@ -238,21 +249,10 @@ def get_iris(samplepoint, sample, sampleobs, result):
 
     ## unit qudt 
     if result['pfas_concentration_units'] == "NG/G":
-        iris['unit'] = _PREFIX["coso"]['NanoGM-PER-GM'] #numerically equivalent to unit:MicroGM-PER-KiloGM, but different preferred label, etc. 
-    elif result['pfas_concentration_units'] == "MG/KG":
-        iris['unit'] = _PREFIX["me_egad"]['unit.MG-KG']
-    elif result['pfas_concentration_units'] == "%":
-        iris['unit'] = _PREFIX["me_egad"]['unit.percent'] #this could just be unit:PERCENT
-    elif result['pfas_concentration_units'] == "NG/L":
-        iris['unit'] = _PREFIX["unit"]['NanoGM-PER-L']
-    elif result['pfas_concentration_units'] == "NG/ML":
-        iris['unit'] = _PREFIX["unit"]['NanoGM-PER-MicroL']
-    elif result['pfas_concentration_units'] == "MG/L":
-        iris['unit'] = _PREFIX["unit"]['MilliGM-PER-L']
-    elif result['pfas_concentration_units'] == "UG/KG":
-        iris['unit'] =  _PREFIX["unit"]['MicroGM-PER-KiloGM']
-    elif result['pfas_concentration_units'] == "UG/L":
-        iris['unit'] = _PREFIX["unit"]['MicroGM-PER-L']
+        iris['unit'] = _PREFIX["coso"][result['units']] #numerically equivalent to unit:MicroGM-PER-KiloGM, but different preferred label, etc. 
+    else:
+        iris['unit'] = _PREFIX["unit"][result['units']]
+
     
     # validation
     if 'validation_level' in result.keys(): 

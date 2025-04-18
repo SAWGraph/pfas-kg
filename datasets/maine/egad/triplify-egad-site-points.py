@@ -87,52 +87,67 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         pwsid_number = row['PWSID_NO'] # public water system ID 
         pwsid_iri = _PREFIX['gcx'][f'ref/pws/{pwsid_number}']  
 
-        site_iri = _PREFIX["me_egad_data"][f"{'site'}.{site_number}"]
-        kg.add( (site_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Site"]) )
-        kg.add( (site_iri, RDFS['label'], Literal('EGAD site '+ str(site_number))) )
-        kg.add( (site_iri, _PREFIX["me_egad"]['siteNumber'], Literal(site_number, datatype = XSD.integer)) )
-        kg.add( (site_iri, _PREFIX["me_egad"]['siteName'], Literal(site_name, datatype = XSD.string)) )
-        if (len(str(pwsid_number)) != 0) and (str(pwsid_number) != 'nan'):
-            kg.add( (site_iri, _PREFIX["us_sdwis"]['hasPWSID'], Literal(pwsid_number, datatype = XSD.string)) )
-            kg.add(( site_iri, OWL.sameAs, pwsid_iri))
-        
         site_latitude = row['SITE_LATITUDE']
         site_longitude = row['SITE_LONGITUDE']
+
+        samplepoint_number = row['SAMPLE_POINT_NUMBER'] # sample point number
+        samplepoint_web_name = row['SAMPLE_POINT_WEB_NAME'] # sample point web name
+        samplepoint_type = row['SAMPLE_POINT_TYPE'] # sample point type
+        
+
         if len(str(site_latitude)) != 0 and (str(site_latitude) != 'nan'):
             site_latitude = round(site_latitude, precision)
             #print(site_latitude)
             site_longitude = round(site_longitude, precision)
             site_geometry = Point(site_longitude, site_latitude)
-            sitegeometry_iri = _PREFIX["me_egad_data"][f"{'site.geometry'}.{site_number}"]
+
+        samplepoint_type = point_type_dict[samplepoint_type]
+        samplepoint_type = ''.join(e for e in samplepoint_type if e.isalnum())
+        samplepoint_latitude = row['SAMPLE_POINT_LATITUDE']
+        samplepoint_longitude = row['SAMPLE_POINT_LONGITUDE']
+        if len(str(samplepoint_latitude)) != 0 and (str(samplepoint_latitude) != 'nan'):
+            samplepoint_latitude = round(samplepoint_latitude, precision)
+            samplepoint_longitude = round(samplepoint_longitude, precision)
+            samplepoint_geometry = Point(samplepoint_longitude, samplepoint_latitude)
+
+        ## iris
+        site_iri = _PREFIX["me_egad_data"][f"{'site'}.{site_number}"]
+        sitegeometry_iri = _PREFIX["me_egad_data"][f"{'site.geometry'}.{site_number}"]
+        samplepoint_iri = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint_number}"]
+        samplepoint_type_iri = _PREFIX["me_egad"][f"{'featureType'}.{samplepoint_type}"]
+        samplepointgeometry_iri = _PREFIX["me_egad_data"][f"{'samplePoint.geometry'}.{samplepoint_number}"]
+        
+        ## triplify 
+
+        ### site
+        kg.add( (site_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-Site"]) )
+        #kg.add( (site_iri, RDFS['label'], Literal('EGAD site '+ str(site_number))) )
+        kg.add( (site_iri, _PREFIX["me_egad"]['siteNumber'], Literal(site_number, datatype = XSD.integer)) )
+        kg.add( (site_iri, RDFS['label'], Literal(site_name, datatype = XSD.string)) )
+        if (len(str(pwsid_number)) != 0) and (str(pwsid_number) != 'nan'):
+            kg.add( (site_iri, _PREFIX["us_sdwis"]['hasPWSID'], Literal(pwsid_number, datatype = XSD.string)) )
+            kg.add(( site_iri, OWL.sameAs, pwsid_iri))
+        
+        ### site geometry
+        if len(str(site_latitude)) != 0 and (str(site_latitude) != 'nan'):
             kg.add( (sitegeometry_iri, RDF.type, _PREFIX["geo"]["Geometry"]) )
             kg.add( (sitegeometry_iri, RDF.type, _PREFIX["sf"]["Point"]) )
             kg.add( (site_iri, _PREFIX['geo']['hasDefaultGeometry'], sitegeometry_iri) )
             kg.add( (site_iri, _PREFIX['geo']['hasGeometry'], sitegeometry_iri) )
             kg.add( (sitegeometry_iri, _PREFIX["geo"]["asWKT"], Literal(site_geometry, datatype=_PREFIX["geo"]["wktLiteral"])) )
 
-        ## sample point record details
-        samplepoint_number = row['SAMPLE_POINT_NUMBER'] # sample point number
-        samplepoint_web_name = row['SAMPLE_POINT_WEB_NAME'] # sample point web name
-        samplepoint_type = row['SAMPLE_POINT_TYPE'] # sample point type
-        samplepoint_iri = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint_number}"]
+        ### sample point record details
+        
         kg.add( (samplepoint_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SamplePoint"]) )
-        kg.add( (samplepoint_iri, RDFS['label'], Literal('EGAD sample point '+ str(samplepoint_number))) )
-        samplepoint_type = point_type_dict[samplepoint_type]
-        samplepoint_type = ''.join(e for e in samplepoint_type if e.isalnum())
-        samplepoint_type_iri = _PREFIX["me_egad"][f"{'featureType'}.{samplepoint_type}"]
+        kg.add( (samplepoint_iri, RDFS['label'], Literal('EGAD sample point '+ str(samplepoint_number))) )        
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['samplePointType'], samplepoint_type_iri) )
-        samplepoint_latitude = row['SAMPLE_POINT_LATITUDE']
-        samplepoint_longitude = row['SAMPLE_POINT_LONGITUDE']
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['associatedSite'], site_iri) )
 ##        if len(str(samplepoint_web_name)) != 0:
 ##            kg.add( (samplepoint_iri, _PREFIX["me_egad"]['samplePointWebName'], Literal(samplepoint_web_name, datatype = XSD.string)) )
 ##        
-        if len(str(samplepoint_latitude)) != 0 and (str(samplepoint_latitude) != 'nan'):
-            samplepoint_latitude = round(samplepoint_latitude, precision)
-            samplepoint_longitude = round(samplepoint_longitude, precision)
-            samplepoint_geometry = Point(samplepoint_longitude, samplepoint_latitude)
-            samplepointgeometry_iri = _PREFIX["me_egad_data"][f"{'samplePoint.geometry'}.{samplepoint_number}"]
 
+            
+        if len(str(samplepoint_latitude)) != 0 and (str(samplepoint_latitude) != 'nan'):
             kg.add( (samplepointgeometry_iri, RDF.type, _PREFIX["geo"]["Geometry"]) )
             kg.add( (samplepointgeometry_iri, RDF.type, _PREFIX["sf"]["Point"]) )
             kg.add( (samplepoint_iri, _PREFIX['geo']['hasDefaultGeometry'], samplepointgeometry_iri) )

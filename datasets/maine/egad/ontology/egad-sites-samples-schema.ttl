@@ -75,12 +75,14 @@ me_egad:labQualifier rdf:type owl:ObjectProperty ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#methodDetectionLimit
 me_egad:methodDetectionLimit rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf coso:resultAnnotation ;
+                             rdfs:range me_egad:EGAD-MethodDetectionLimit ;
                              rdfs:label "egad - method detection limit" .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#reportingLimit
 me_egad:reportingLimit rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf coso:resultAnnotation ;
+                       rdfs:range me_egad:EGAD-ReportingLimit ;
                        rdfs:label "egad - reporting limit" .
 
 
@@ -153,13 +155,6 @@ me_egad:samplePointWebName rdf:type owl:DatatypeProperty ;
                            rdfs:label "sample point web name" ;
                            rdfs:subPropertyOf skos:altLabel ;
                            skos:definition "Sample point web name in the EGAD dataset from the state of Maine." .
-
-
-###  <http://sawgraph.spatialai.org/v1/me-egad#siteName
-me_egad:siteName rdf:type owl:DatatypeProperty ;
-                 rdfs:label "site name" ;
-                 rdfs:subPropertyOf skos:altLabel ;
-                 skos:definition "Site name in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#siteNumber

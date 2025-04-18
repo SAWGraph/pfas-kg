@@ -33,6 +33,7 @@ logname = "log"
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/maine_dep_esri_server/"
+reference_dir = root_folder / "data/egad-maine-samples/"
 metadata_dir = root_folder / "maine/egad/metadata/"
 output_dir = root_folder / "maine/egad/"
 
@@ -55,17 +56,30 @@ logging.info("Running triplification for egad sites")
 
 def main():
     #load data to df
-    sites_df = geopandas.read_file(root_folder / "data" / "maine_dep_esri_server" / f"egad_sites_0.geojson")
+    sites_df = geopandas.read_file( data_dir / f"egad_sites_0.geojson")
     i = 1
     while i < 11:
-        df = geopandas.read_file(root_folder / "data" / "maine_dep_esri_server" / f"egad_sites_{i}.geojson")
+        df = geopandas.read_file( data_dir / f"egad_sites_{i}.geojson")
         sites_df = pd.concat((sites_df,df), ignore_index=True)
         i += 1
+
     sites_df.sindex
-    print(sites_df.info())
+    print(len(sites_df))
+
+    # see which sites are actually pfas associated
+    egad_sites_df = pd.read_excel( reference_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sites and Sample Points", usecols=['SITE_NUMBER', 'SITE_NAME'], header=0)
+    #print(egad_sites_df.info())
+    pfas_sites = egad_sites_df['SITE_NUMBER'].unique()
+    #print(pfas_sites)
+    #print(sites_df['EGAD_SEQ'])
+    
+    #limit to only pfas sites
+    sites_df = sites_df[sites_df['EGAD_SEQ'].isin(pfas_sites)]
+
+    #lookup site type shortnames
     vocab_df = pd.read_csv(metadata_dir / 'site_type.csv', header=0, encoding='ISO-8859-1') #, index_col='DESCRIPTION'
-    print(vocab_df.info())
-    print(vocab_df['DESCRIPTION'])
+    #print('SITE TYPES: ', vocab_df.info())
+    #print(vocab_df['DESCRIPTION'].unique())
     logger = logging.getLogger('Data loaded to dataframe.')
 
 
@@ -90,35 +104,35 @@ def triplify_data(df, vocab, _PREFIX):
     ## materialize each site
     pd.set_option('display.max_columns', 15)
     print(df.info())
-    #print(df.head())
-    #parcels = sc.get_boundary('parcel')
-    # parcel relation
-    #df = sc.get_region(df, parcels)
+    #print(df['SITE_TYPE'].unique())
 
     for idx, row in df.iterrows():
-        site_type = row['SITE_TYPE'] #.title().replace(' ', '').replace('/', 'Or').replace(',','').replace('(','').replace(')','')
-        #print(str(site_type)) #DESCRIPTION of site type
-
-
+        ## load values and format
+        
+        site_type = row['SITE_TYPE'] 
         #get value of site type
         site_value = vocab.loc[vocab['DESCRIPTION'] == site_type]['VALUE'].item()
         site_value_formatted = ''.join(e for e in site_value if e.isalnum()) #remove spaces and special characters
-        #print(site_value_formatted)
-        type_iri = _PREFIX["me_egad"][f"{'siteType'}.{site_value_formatted}"]
-
+        
         site = row['EGAD_SEQ']
         site_geometry = Point(row['LONGITUDE'], row['LATITUDE'])
-        egad_site_iri = _PREFIX["me_egad_data"][f'site.{site}']
-        egad_geometry_iri = _PREFIX["me_egad_data"][f'egad.site.geometry.{site}']
-        #geom = row['geometry']
+
         narrative = row['NARATIVE_SUMMARY']
         desc = row['SITE_DESCRIPTION']
         address = row['ADDRESS_LINE']
+        
+        
+        ## iris
+        type_iri = _PREFIX["me_egad_data"][f"{'siteType'}.{site_value_formatted}"]
+        egad_site_iri = _PREFIX["me_egad_data"][f'site.{site}']
+        egad_geometry_iri = _PREFIX["me_egad_data"][f'egad.site.geometry.{site}']
+
+        #triplifty
 
         kg.add((egad_site_iri, RDF.type, _PREFIX["me_egad"][f'EGAD-Site']))
         kg.add((egad_site_iri, _PREFIX["me_egad"]['siteNumber'], Literal(int(row['EGAD_SEQ']), datatype = XSD.integer)))
-        kg.add((egad_site_iri, _PREFIX["me_egad"]['siteName'], Literal(row['CURRENT_SITE_NAME'], datatype=XSD.string)))
-        kg.add((egad_site_iri, RDFS['label'], Literal('EGAD site ' + str(row['EGAD_SEQ']))))
+        kg.add((egad_site_iri, RDFS['label'], Literal(row['CURRENT_SITE_NAME'], datatype=XSD.string)))
+        #kg.add((egad_site_iri, RDFS['label'], Literal('EGAD site ' + str(row['EGAD_SEQ']))))
         kg.add((egad_site_iri, _PREFIX["me_egad"]['siteType'], type_iri))
 
         if str(site_geometry) != "POINT EMPTY":
@@ -128,7 +142,6 @@ def triplify_data(df, vocab, _PREFIX):
             kg.add((egad_geometry_iri, RDF.type, _PREFIX["geo"]["Geometry"]))
             kg.add((egad_geometry_iri, RDF.type, _PREFIX["sf"]["Point"]))
             kg.add((egad_geometry_iri, _PREFIX["geo"]["asWKT"], Literal(site_geometry, datatype=_PREFIX["geo"]["wktLiteral"])))
-        #can we also infer more information (including owl:sameAs?) about the site based on the siteType?
 
 
         #other attributes
