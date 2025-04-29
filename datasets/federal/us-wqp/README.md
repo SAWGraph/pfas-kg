@@ -45,7 +45,7 @@ A physical organization may have multiple Organization records in WQX.  For exam
 | Org_FormalName | The legal designator (i.e. formal name) of an organization. | Yes | prov:Organization rdfs:label
 | Project_Identifier| A designator used to uniquely identify a data collection project within a context of an organization. | Yes | us_wqp:WQP-Activity us_wqp:hasProjectId us_wqp:Project
 | Project_Name | The name assigned by the Organization (project leader or principal investigator) to the project.| us_wqp:Project rdfs:label
-| Project_QAPPApproved | 
+| Project_QAPPApproved |
 | Project_QAPPApprovalAgency
 | Location_Identifier | A designator used to describe the unique name, number, or code assigned to identify the monitoring location. | Yes | |
 | Location_Name
@@ -90,7 +90,7 @@ A physical organization may have multiple Organization records in WQX.  For exam
 | Result_ResultDetectionCondition
 | Result_Characteristic
 | Result_CharacteristicUserSupplied
-| Result_CASNumber| 
+| Result_CASNumber|
 | Result_SampleFraction
 | ResultBiological_Taxon
 | ResultBiological_SampleTissueAnatomy

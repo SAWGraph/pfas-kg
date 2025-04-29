@@ -301,6 +301,8 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
 ## triplify the controlled vocabulary for test methods
 def triplify_test_method(df, _PREFIX, usage):
     kg = Initial_KG(_PREFIX)
+    print(usage)
+    print(df['VALUE'].unique())
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -314,7 +316,7 @@ def triplify_test_method(df, _PREFIX, usage):
         method_iri = _PREFIX["me_egad_data"][f"{'testMethod'}.{method_name}"]
                 
         ## specify type instance and it's data properties
-        if method_description in usage:
+        if method_name in usage:
             kg.add( (method_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (method_iri, RDF.type, _PREFIX["me_egad"]["EGAD-AnalysisMethod"]) )
             kg.add( (method_iri, RDFS['label'], Literal(str(method_description))) )       
