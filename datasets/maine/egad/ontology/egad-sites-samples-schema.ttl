@@ -139,14 +139,14 @@ me_egad:dep_chemicalID rdf:type owl:DatatypeProperty ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#sampleID
 me_egad:sampleID rdf:type owl:DatatypeProperty ;
                  rdfs:label "sample identifier" ;
-                 rdfs:subPropertyOf dcterms:identifier ;
+                 rdfs:subPropertyOf terms:identifier ;
                  skos:definition "Sample identifier in the EGAD dataset from the state of Maine." .
 
 
 ###  <http://sawgraph.spatialai.org/v1/me-egad#samplePointNumber
 me_egad:samplePointNumber rdf:type owl:DatatypeProperty ;
                           rdfs:label "sample point number" ;
-                          rdfs:subPropertyOf dcterms:identifier ;
+                          rdfs:subPropertyOf terms:identifier ;
                           skos:definition "Sample point number in the EGAD dataset from the state of Maine." .
 
 
@@ -160,14 +160,14 @@ me_egad:samplePointWebName rdf:type owl:DatatypeProperty ;
 ###  <http://sawgraph.spatialai.org/v1/me-egad#siteNumber
 me_egad:siteNumber rdf:type owl:DatatypeProperty ;
                    rdfs:label "site number" ;
-                   rdfs:subPropertyOf dcterms:identifier ;
+                   rdfs:subPropertyOf terms:identifier ;
                    skos:definition "Site number in the EGAD dataset from the state of Maine." .
 
 
 ###  http://sawgraph.spatialai.org/v1/sdwis#pwsidNumber
 sdwis:pwsidNumber rdf:type owl:DatatypeProperty ;
                   rdfs:label "public system water identifier" ;
-                  rdfs:subPropertyOf dcterms:identifier ;
+                  rdfs:subPropertyOf terms:identifier ;
                   skos:definition "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reservation, and XXXXXXXXXX = the water system identification code assigned by the State." .
 
 
