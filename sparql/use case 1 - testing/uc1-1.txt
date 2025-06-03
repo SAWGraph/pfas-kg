@@ -1,47 +1,33 @@
 # Use Case 1: Testing Gaps
 # CQ 1
-# What wells are near (in same s2 cell as)  sources (facilities of concern)?
-# this query is currently working only for Maine because it uses the me_mgs namespace
+# What wells are near (in same s2 cell as) sources (facilities of concern)?
+# This query is currently limited to Maine because it uses the me_mgs namespace
 
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
-PREFIX coso: <http://sawgraph.spatialai.org/v1/contaminoso#>
 PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
-select ?s ?facility ?facilityName where {
-    SERVICE <repository:SAWGraph>
-    {
-        ?s a me_mgs:MGS-Well .
-        ?s me_mgs:hasUse ?use.
-        ?s me_mgs:ofWellType ?wellType.
-    	
-        #?s a coso:SamplePoint.
-        #?s a me_egad:EGAD-SamplePoint.
-        #?s me_egad:samplePointType ?type. 
-        #?type rdfs:label ?typelabel.
 
-        
-        ?s kwg-ont:sfWithin ?s2.
-    }
-    
-    SERVICE <repository:S2L13_AdminRegions>
-    {
-        ?s2 kwg-ont:cellID ?s2ID.
-        ?s2 kwg-ont:sfTouches ?s2neighbors.
-        #?s2neighbors kwg-ont:sfTouches ?s2NN.
-        #?s2NN kwg-ont:sfTouches ?s2NNN.
-        #?s2NNN kwg-ont:sfTouches ?s2NNNN.
-    }
-
+SELECT ?well ?wellUse ?wellType ?facilityName ?facility WHERE {
     SERVICE <repository:FIO> 
     {
-        ?facility rdf:type us_frs:EPA-PFAS-Facility.
-        ?s2neighbors kwg-ont:sfContains ?facility.
-    	?facility rdfs:label ?facilityName.   
-    }    
+        ?facility rdf:type us_frs:EPA-PFAS-Facility ;
+        		  rdfs:label ?facilityName .
+        ?s2 kwg-ont:sfContains ?facility .
+    }   
 
-     
-} group by ?s ?facility ?facilityName 
-limit 100
+    SERVICE <repository:Spatial>
+    {
+        ?s2 kwg-ont:cellID ?s2ID .
+    }
+    
+    SERVICE <repository:Hydrology>
+    {
+        ?well a me_mgs:MGS-Well ;
+              me_mgs:hasUse ?wellUse ;
+              me_mgs:ofWellType ?wellType ;
+              kwg-ont:sfWithin ?s2 .
+    }
+    
+} ORDER BY ?facilityName ?wellUse
