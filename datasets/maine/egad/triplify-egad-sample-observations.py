@@ -300,8 +300,8 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         ## specify sample point instance and it's data properties
         kg.add( (iris['samplepoint'], RDF.type, _PREFIX["me_egad"]["EGAD-SamplePoint"]) )
         kg.add( (iris['samplepoint'], RDFS['label'], Literal('EGAD sample point '+ str(samplepoint['number']))) )
-        kg.add( (iris['samplepoint'], _PREFIX["dcterms"]['identifier'], Literal(samplepoint['number'], datatype = XSD.integer)) )
-        kg.add( (iris['samplepoint'], _PREFIX["skos"]['altLabel'], Literal(samplepoint['webname'], datatype = XSD.string)) )
+        #kg.add( (iris['samplepoint'], _PREFIX["dcterms"]['identifier'], Literal(samplepoint['number'], datatype = XSD.integer)) )
+        #kg.add( (iris['samplepoint'], _PREFIX["skos"]['altLabel'], Literal(samplepoint['webname'], datatype = XSD.string)) )
         kg.add( (iris['samplepoint'], _PREFIX["coso"]['pointFromFeature'], iris['samplefeature']) )
 
                 
