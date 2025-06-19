@@ -104,11 +104,13 @@ def main():
 
     # output turtle files
     kg_turtle_file = "egad_samples_output.ttl".format(output_dir)
+    print('finished triplifying')
     kg.serialize(kg_turtle_file,format='turtle')
     kg_obs.serialize("egad_observation_output.ttl".format(output_dir), format='turtle')
     #chunk_serializer.serialize_in_chunks(kg_obs, max_file_size_kb=100000, file_name_stem="egad_observation_output_", output_dir=output_dir.as_uri(), write_prefixes=True)
+    print('finished observations output')
     kg_result.serialize('egad_result_output.ttl'.format(output_dir), format='turtle')
-    
+    print('finished results output')
     logger = logging.getLogger('Finished triplifying EGAD PFAS sample data.')
     
 def Initial_KG(prefixes: dict[str, str]) -> Graph:
@@ -212,7 +214,7 @@ def get_iris(samplepoint, sample, sampleobs, result):
     iris = {}
     ## main sample entity iris
     iris['samplepoint'] = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint['number']}"]
-    iris['samplefeature'] = _PREFIX["me_egad_data"][f"{'sampledFeature'}.{samplepoint['number']}"]
+    iris['samplefeature'] = _PREFIX["me_egad_data"][f"{'sampledFeature'}.{samplepoint['number']}"] #TODO this is sometimes a site
     iris['sample'] = _PREFIX["me_egad_data"][f"{'sample'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}"] #sample id is not unique
     iris['sampleobs'] = _PREFIX["me_egad_data"][f"{'observation'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     if 'sampled_by' in sample.keys():
@@ -245,7 +247,7 @@ def get_iris(samplepoint, sample, sampleobs, result):
     iris['result'] = _PREFIX["me_egad_data"][f"{'result'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     iris['quantity'] = _PREFIX["me_egad_data"][f"{'quantityValue'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     iris['analysislab'] = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs['analysislab']]}"]
-    iris['substance'] = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
+    iris['substance'] = _PREFIX["me_egad_data"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
 
     ## unit qudt 
     if result['pfas_concentration_units'] == "NG/G":

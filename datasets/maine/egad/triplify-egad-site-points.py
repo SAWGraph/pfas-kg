@@ -1,5 +1,5 @@
 import os
-from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, DCTERMS
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
@@ -139,7 +139,9 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         ### sample point record details
         
         kg.add( (samplepoint_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SamplePoint"]) )
-        kg.add( (samplepoint_iri, RDFS['label'], Literal('EGAD sample point '+ str(samplepoint_number))) )        
+        kg.add( (samplepoint_iri, RDFS['label'], Literal('EGAD sample point '+ str(samplepoint_number))) ) 
+        kg.add( (samplepoint_iri, _PREFIX['me_egad']['samplePointWebName'], Literal(samplepoint_web_name, datatype= XSD.string)))
+        kg.add( (samplepoint_iri, _PREFIX['me_egad']['samplePointNumber'], Literal(samplepoint_number, datatype=XSD.string)))       
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['samplePointType'], samplepoint_type_iri) )
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['associatedSite'], site_iri) )
 ##        if len(str(samplepoint_web_name)) != 0:

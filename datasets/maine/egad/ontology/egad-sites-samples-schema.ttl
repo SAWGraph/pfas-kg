@@ -15,11 +15,13 @@
 @prefix me_egad_data: <http://sawgraph.spatialai.org/v1/me-egad-data#> .
 
 <http://sawgraph.spatialai.org/v1/me-egad#> rdf:type owl:Ontology ;
-                                             terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
+                                             terms:contributor <http://orcid.org/0000-0002-5331-5052> ,
+                                                           <http://orcid.org/0000-0003-3547-8058> ,
+                                                            <https://orcid.org/0000-0003-3271-6700> ;
                                              terms:created "2024-07-26" ;
                                              terms:creator <http://orcid.org/0000-0002-5331-5052> ,
                                                            <http://orcid.org/0000-0003-3547-8058> ,
-                                                            <https://orcid.org/0000-0003-3271-6700> ;;
+                                                            <https://orcid.org/0000-0003-3271-6700> ;
                                              terms:description "This ontology supports SAWGraph"@en ;
                                              terms:title "Ontology for Maine Environmental and Geographic Analysis Database (EGAD) PFAS Dataset"@en ;
                                              owl:versionInfo "1.0"@en .
