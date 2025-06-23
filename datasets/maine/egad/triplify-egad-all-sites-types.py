@@ -20,6 +20,10 @@ from pyutil import *
 from pathlib import Path
 from shapely.geometry import Point
 
+# This script triplifies all EGAD sites that have a PFAS result and adds site type information (comparing it to the latest PFAS samples excel file). 
+# this script should be run after the site type jsons are downloaded in maine-dep-geodata-download.py
+
+
 ## importing utility/variable file
 code_dir = Path(__file__).resolve().parent.parent
 #print(code_dir)

@@ -22,7 +22,7 @@ from datetime import datetime
 
 
 
-NAME_SPACE = "http://sawgraph.spatialai.org/v1/"
+NAME_SPACE = "http://w3id.org/sawgraph/v1/"
 
 _PREFIX = {
     "me_egad": Namespace(f"{NAME_SPACE}me-egad#"),

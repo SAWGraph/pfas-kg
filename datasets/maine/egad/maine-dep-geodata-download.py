@@ -93,8 +93,8 @@ def get_source_layer(layer):
         Wetland (52)
         Wood Products Facility (53)
         MaineDEP EGAD Site Types (54)
-    """
-    getCount = urllib3.request("GET", f'https://gis.maine.gov/arcgis/rest/services/dep/MaineDEP_EGAD_Site_Types/MapServer/{layer}/query?where=OBJECTID+>+-1&text=&returnIdsOnly=false&returnCountOnly=true&returnDistinctValues=false&resultOffset=&f=pjson')
+    """                       
+    getCount = urllib3.request("GET", f'https://gis.maine.gov/mapservices/rest/services/dep/MaineDEP_EGAD_Site_Types/MapServer/{layer}/query?where=OBJECTID+>+-1&text=&returnIdsOnly=false&returnCountOnly=true&returnDistinctValues=false&resultOffset=&f=pjson')
     #print(getCount.data)
     count = re.findall(r'\d+', str(getCount.data))
     print(count)
@@ -102,7 +102,7 @@ def get_source_layer(layer):
     i = 0
     json_dump = []
     while n < int(count[0]):
-        resp = urllib3.request("GET", f'https://gis.maine.gov/arcgis/rest/services/dep/MaineDEP_EGAD_Site_Types/MapServer/{layer}/query?where=OBJECTID+%3E+-1&outFields=*&returnGeometry=true&featureEncoding=esriDefault&resultOffset={n}&f=geojson')
+        resp = urllib3.request("GET", f'https://gis.maine.gov/mapservices/rest/services/dep/MaineDEP_EGAD_Site_Types/MapServer/{layer}/query?where=OBJECTID+%3E+-1&outFields=*&returnGeometry=true&featureEncoding=esriDefault&resultOffset={n}&f=geojson')
         type(resp.data)
         n += 3000
         json_dump.append(resp.data)
