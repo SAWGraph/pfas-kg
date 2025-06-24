@@ -350,7 +350,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['hasFeatureOfInterest'], iris['samplefeature']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["prov"]['wasAttributedTo'], iris['analysislab']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedSample'], iris['sample']) )
-        kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['ofSubstance'], iris['substance']) )
+        kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['ofDatasetSubstance'], iris['substance']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['hasResult'], iris['result']) )
 
         if 'analysis_date' in sampleobs.keys():
