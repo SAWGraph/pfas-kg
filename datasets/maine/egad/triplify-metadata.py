@@ -1,5 +1,5 @@
 import os
-from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, SKOS
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
@@ -19,9 +19,9 @@ from variable import NAME_SPACE, _PREFIX
 ## declare variables
 logname = "log"
 
-metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location', 'sample_point_type', 'sample_type', 'sample_type_qualifier', 'site_type', 'pfas_parameter', 'test_method', 'concentration_qualifier', 'validation_level', 'result_type', 'sample_treatment_status']
-
-#metadata_files = ['pfas_parameter']
+metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location', 'sample_point_type', 'sample_type', 'sample_type_qualifier', 'site_type', 'pfas_parameter', 'test_method', 'concentration_qualifier', 'validation_level', 'result_type', 'sample_treatment_status', 'ChemicalMapping']
+#this variable can be manipulated to only run some of the metadata
+metadata_files = ['ChemicalMapping']
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent.parent
@@ -40,8 +40,8 @@ logging.basicConfig(filename=logname,
 logging.info("Running triplification for EGAD metadata")
 
 def main():
-    #load data to which instances of the controlled vocabulary are actually used
-    egad_samples_df = pd.read_excel(dataset_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", usecols=['SAMPLE_POINT_TYPE', 'ANALYSIS_LAB','SAMPLE_TYPE_UPDATE', 'SAMPLE_TYPE_QUALIFIER', 'SAMPLE_LOCATION', 'TREATMENT_STATUS', 'SAMPLE_COLLECTION_METHOD',  'TEST_METHOD', 'RESULT_TYPE', 'PARAMETER_SHORTENED', 'VALIDATION_LEVEL'], header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
+    #load data to learn which instances of the controlled vocabulary are actually used in pfas data
+    egad_samples_df = pd.read_excel(dataset_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", usecols=['SAMPLE_POINT_TYPE', 'ANALYSIS_LAB','SAMPLE_TYPE_UPDATE', 'SAMPLE_TYPE_QUALIFIER', 'SAMPLE_LOCATION', 'TREATMENT_STATUS', 'SAMPLE_COLLECTION_METHOD',  'TEST_METHOD', 'RESULT_TYPE', 'PARAMETER_SHORTENED', 'PARAMETER_NAME','VALIDATION_LEVEL'], header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
     unq_sample_point_type = egad_samples_df['SAMPLE_POINT_TYPE'].unique()
     unq_analysis_lab = egad_samples_df['ANALYSIS_LAB'].unique()
     unq_sample_type_update = egad_samples_df['SAMPLE_TYPE_UPDATE'].unique()
@@ -52,8 +52,10 @@ def main():
     unq_test_method = egad_samples_df['TEST_METHOD'].unique()
     unq_result_type = egad_samples_df['RESULT_TYPE'].unique()
     unq_param = egad_samples_df['PARAMETER_SHORTENED'].unique()
+    unq_param_named = pd.read_csv(data_dir / f'pfas_parameter.csv', header=0, encoding='ISO-8859-1')
     unq_valid = egad_samples_df['VALIDATION_LEVEL'].unique()
 
+    # load files and send each to its own triplification function 
     for filename in metadata_files:
         data_df = pd.read_csv(data_dir / f'{filename}.csv', header=0, encoding='ISO-8859-1')
         logger = logging.getLogger('Data loaded to dataframe')
@@ -83,8 +85,11 @@ def main():
             kg = triplify_result_type(data_df, _PREFIX, unq_result_type)
         elif filename == 'sample_treatment_status':
             kg = triplify_treatment_status(data_df, _PREFIX, unq_treatment_status)
+        elif filename == 'ChemicalMapping':
+            kg = triplify_param_mapping(data_df, _PREFIX, unq_param_named)
 
-            
+
+        # output the resulting triples for each metadata file
         data_df.iloc[0:0]
         kg_turtle_file = output_dir / f"{filename}.ttl"
         kg.serialize(kg_turtle_file,format='turtle')
@@ -296,6 +301,26 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
         
    
     return kg
+
+def triplify_param_mapping(df, _PREFIX, lookup:pd.DataFrame):
+    kg = Initial_KG(_PREFIX)
+    
+    lookup = lookup.set_index('Parameter')
+    combined = df.join(lookup, on='ï»¿INPUT')
+    for idx, row in combined.iterrows():
+        id = row['DTXSID']
+        parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
+        dtxsid_iri = _PREFIX['comptox'][f"CompTox_DTXSID{id}"]
+
+        kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
+        kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['CompTox_ChemicalEntity']))
+        kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
+        
+
+
+    return kg
+
+
 
 
 ## triplify the controlled vocabulary for test methods

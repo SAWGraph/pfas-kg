@@ -1,0 +1,246 @@
+@prefix comptox: <http://w3id.org/comptox/> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+me_egad_data:parameter.10-2_FTS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID50892578 .
+
+me_egad_data:parameter.11CL-PF3OUDS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID40892507 .
+
+me_egad_data:parameter.3-3_FTC_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID00379268 .
+
+me_egad_data:parameter.4-2_FTS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID30891564 .
+
+me_egad_data:parameter.5-3_FTC_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID20874028 .
+
+me_egad_data:parameter.6-2_FTS comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID6067331 .
+
+me_egad_data:parameter.6-2_FTS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID6067331 .
+
+me_egad_data:parameter.7-3_FTC_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID90382620 .
+
+me_egad_data:parameter.8-2_FTS comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID00192353 .
+
+me_egad_data:parameter.8-2_FTS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID00192353 .
+
+me_egad_data:parameter.ADONA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID40881350 .
+
+me_egad_data:parameter.FBSA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID30880251 .
+
+me_egad_data:parameter.FHXSA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID50469320 .
+
+me_egad_data:parameter.HFPO-DA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID70880215 .
+
+me_egad_data:parameter.N-ETFOSA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID1032646 .
+
+me_egad_data:parameter.N-EtFOSAA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID5062760 .
+
+me_egad_data:parameter.N-EtFOSAA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID5062760 .
+
+me_egad_data:parameter.N-EtFOSAA_A_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID5062760 .
+
+me_egad_data:parameter.N-EtFOSE comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID6027426 .
+
+me_egad_data:parameter.N-MEFOSA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID1067629 .
+
+me_egad_data:parameter.N-MEFOSE comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID7027831 .
+
+me_egad_data:parameter.N-MeFOSAA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID10624392 .
+
+me_egad_data:parameter.N-MeFOSAA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID10624392 .
+
+me_egad_data:parameter.N-MeFOSAA_A_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID10624392 .
+
+me_egad_data:parameter.N-MeFOSSA_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID10624392 .
+
+me_egad_data:parameter.N-etFOSSA_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID5062760 .
+
+me_egad_data:parameter.PFBA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID4059916 .
+
+me_egad_data:parameter.PFBS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID5030030 .
+
+me_egad_data:parameter.PFDA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3031860 .
+
+me_egad_data:parameter.PFDH_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID30382063 .
+
+me_egad_data:parameter.PFDOA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8031861 .
+
+me_egad_data:parameter.PFDOS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID20873011 .
+
+me_egad_data:parameter.PFDS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3040148 .
+
+me_egad_data:parameter.PFEES_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID50379814 .
+
+me_egad_data:parameter.PFHPA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID1037303 .
+
+me_egad_data:parameter.PFHPS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8059920 .
+
+me_egad_data:parameter.PFHXA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3031862 .
+
+me_egad_data:parameter.PFHXDA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID1070800 .
+
+me_egad_data:parameter.PFHXS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID7040150 .
+
+me_egad_data:parameter.PFHXS_A_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID7040150 .
+
+me_egad_data:parameter.PFMB_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID60500450 .
+
+me_egad_data:parameter.PFMP_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID70191136 .
+
+me_egad_data:parameter.PFNA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8031863 .
+
+me_egad_data:parameter.PFOA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8031865 .
+
+me_egad_data:parameter.PFOA_A_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8031865 .
+
+me_egad_data:parameter.PFODA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID1066071 .
+
+me_egad_data:parameter.PFOSA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3038939 .
+
+me_egad_data:parameter.PFOS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3031864 .
+
+me_egad_data:parameter.PFOS_A_L comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3031864 .
+
+me_egad_data:parameter.PFPEA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID6062599 .
+
+me_egad_data:parameter.PFPES_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8062600 .
+
+me_egad_data:parameter.PFRPS_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID30870531 .
+
+me_egad_data:parameter.PFTEA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID3059921 .
+
+me_egad_data:parameter.PFTRIA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID90868151 .
+
+me_egad_data:parameter.PFUNDA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8047553 .
+
+comptox:CompTox_DTXSIDDTXSID00379268 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "3:3 Fluorotelomer carboxylic acid" .
+
+comptox:CompTox_DTXSIDDTXSID1032646 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "N-Ethylperfluorooctane sulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID1037303 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoroheptanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID1066071 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorooctadecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID1067629 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "N-Methylperfluorooctanesulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID1070800 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorohexadecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID20873011 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorododecanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID20874028 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "2H,2H,3H,3H-Perfluorooctanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID3031860 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorodecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID3031862 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorohexanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID30382063 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoro-3,6-dioxaheptanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID3038939 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorooctanesulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID3040148 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorodecanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID3059921 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorotetradecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID30870531 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoropropanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID30880251 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorobutanesulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID30891564 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "4:2 Fluorotelomer sulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID4059916 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorobutanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID40881350 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "4,8-Dioxa-3H-perfluorononanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID40892507 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "11-Chloroperfluoro-3-oxaundecanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID5030030 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorobutanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID50379814 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoro-2-ethoxyethanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID50469320 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorohexanesulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID50892578 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "10:2 Fluorotelomer sulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID6027426 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "N-Ethyl-N-(2-hydroxyethyl)perfluorooctane sulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID60500450 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoro(4-methoxybutanoic acid)" .
+
+comptox:CompTox_DTXSIDDTXSID6062599 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoropentanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID70191136 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoro-3-methoxypropanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID7027831 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "N-Methyl-N-(2-hydroxyethyl)perfluorooctanesulfonamide" .
+
+comptox:CompTox_DTXSIDDTXSID70880215 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoro-2-methyl-3-oxahexanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID8031861 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorododecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID8031863 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorononanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID8047553 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoroundecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID8059920 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoroheptanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID8062600 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluoropentanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID90382620 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "3-(Perfluoroheptyl)propanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID90868151 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorotridecanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID00192353 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "8:2 Fluorotelomer sulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID3031864 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorooctanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID6067331 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "6:2 Fluorotelomer sulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID7040150 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorohexanesulfonic acid" .
+
+comptox:CompTox_DTXSIDDTXSID8031865 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "Perfluorooctanoic acid" .
+
+comptox:CompTox_DTXSIDDTXSID10624392 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "2-(N-Methylperfluorooctanesulfonamido)acetic acid" .
+
+comptox:CompTox_DTXSIDDTXSID5062760 a comptox:CompTox_ChemicalEntity ;
+    rdfs:label "2-(N-Ethylperfluorooctanesulfonamido)acetic acid" .
+
