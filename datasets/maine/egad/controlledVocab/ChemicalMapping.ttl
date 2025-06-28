@@ -1,4 +1,5 @@
 @prefix comptox: <http://w3id.org/comptox/> .
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -111,6 +112,22 @@ me_egad_data:parameter.PFTEA_A comptox:sameAsComptoxSubstance comptox:CompTox_DT
 me_egad_data:parameter.PFTRIA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID90868151 .
 
 me_egad_data:parameter.PFUNDA_A comptox:sameAsComptoxSubstance comptox:CompTox_DTXSIDDTXSID8047553 .
+
+me_egad_data:parameter.SUM_OF_5_PFAS coso:hasMember me_egad_data:parameter.PFHPA,
+        me_egad_data:parameter.PFHXS,
+        me_egad_data:parameter.PFNA,
+        me_egad_data:parameter.PFOA,
+        me_egad_data:parameter.PFOS .
+
+me_egad_data:parameter.SUM_OF_6_PFAS coso:hasMember me_egad_data:parameter.PFDA,
+        me_egad_data:parameter.PFHPA,
+        me_egad_data:parameter.PFHXS,
+        me_egad_data:parameter.PFNA,
+        me_egad_data:parameter.PFOA,
+        me_egad_data:parameter.PFOS .
+
+me_egad_data:parameter.SUM_PFOA_PFOS coso:hasMember me_egad_data:parameter.PFOA,
+        me_egad_data:parameter.PFOS .
 
 comptox:CompTox_DTXSIDDTXSID00379268 a comptox:CompTox_ChemicalEntity ;
     rdfs:label "3:3 Fluorotelomer carboxylic acid" .

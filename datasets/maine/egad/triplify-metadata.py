@@ -315,7 +315,22 @@ def triplify_param_mapping(df, _PREFIX, lookup:pd.DataFrame):
         kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
         kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['CompTox_ChemicalEntity']))
         kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
-        
+
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFNA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFDA']))
+
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_PFOA_PFOS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_PFOA_PFOS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
+
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFNA']))
+    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
 
 
     return kg

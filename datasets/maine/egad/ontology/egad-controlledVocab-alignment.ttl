@@ -11,9 +11,9 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
-@prefix me_egad_data: <me-egad-data:> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix comptox: <w3id.org/comptox/>.
+@prefix comptox: <http://w3id.org/comptox/>.
 
 <http://w3id.org/sawgraph/v1/me-egad#controlledVocab> rdf:type owl:Ontology ;
                                              terms:contributor <http://orcid.org/0000-0002-5331-5052> ,
@@ -50,17 +50,24 @@ me_egad_data:DefEGADSoilSample owl:intersectionOf (coso:MaterialSample [rdf:type
   owl:hasValue me_egad_data:sampleMaterialType.SL]);
     rdfs:subClassOf coso:SoilSample.
 
-me_egad_data:DefEGADBeefBloodSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction;
-  owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.BE, me_egad_data:sampleMaterialType.BD
-  ]) ;
-     rdfs:subClassOf coso:AnimalBloodSample. 
+#me_egad_data:DefEGADBeefBloodSample owl:intersectionOf (
+#  coso:MaterialSample 
+#  [rdf:type owl:Restriction;
+#  owl:onProperty coso:sampleOfMaterialType;
+#  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.BE] 
+#  [rdf:type owl:Restriction;
+#  owl:onProperty coso:sampleOfMaterialType;
+#  owl:hasValue me_egad_data:sampleMaterialType.BD]) ;
+#       rdfs:subClassOf coso:AnimalBloodSample. 
 
-me_egad_data:DefEGADPorkBloodSample owl:intersectionOf (coso:MaterialSample [rdf:type owl:Restriction; 
-  owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.PO, me_egad_data:sampleMaterialType.BD
-  ]) ;
-     rdfs:subClassOf coso:AnimalBloodSample. 
+#me_egad_data:DefEGADPorkBloodSample owl:intersectionOf (
+#  coso:MaterialSample [rdf:type owl:Restriction; 
+#  owl:onProperty coso:sampleOfMaterialType;
+#  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.PO] 
+# [rdf:type owl:Restriction; 
+#  owl:onProperty coso:sampleOfMaterialType;
+#  owl:hasValue me_egad_data:sampleMaterialType.BD]) ;
+#     rdfs:subClassOf coso:AnimalBloodSample. 
 
 
 # sample material type to FOODON organism material and/or food product 

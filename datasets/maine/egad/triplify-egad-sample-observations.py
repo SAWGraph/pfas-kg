@@ -273,9 +273,9 @@ def get_iris(samplepoint, sample, sampleobs, result):
 
     #share quantities for rl and mdl based on values, precision, and units
     if 'pfas_rl' in result.keys():
-            iris['rl'] = _PREFIX["me_egad_data"][f"rl.{result['pfas_rl']}.{result['pfas_concentration_units']}"]
+            iris['rl'] = _PREFIX["me_egad_data"][f"rl.{result['pfas_rl']}.{result['units']}"]
     if 'pfas_mdl' in result.keys():
-            iris['mdl'] = _PREFIX["me_egad_data"][f"mdl.{result['pfas_mdl']}.{result['pfas_concentration_units']}"]
+            iris['mdl'] = _PREFIX["me_egad_data"][f"mdl.{result['pfas_mdl']}.{result['units']}"]
             #[f"mdl.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
 
     return iris
@@ -376,17 +376,19 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             kg_result.add( (iris['substance'], _PREFIX["me_egad"]['dep_chemicalID'], Literal(sampleobs['chemical_number'] , datatype = XSD.string)) )
             kg_result.add( (iris['result'], RDF.type, _PREFIX["me_egad"]["EGAD-AggregatePFAS-Concentration"]) )
             kg_result.add((iris['result'], _PREFIX['qudt']['hasQuantityKind'], _PREFIX['coso']['AggregateContaminantConcentrationQuantityKind']))
+            #kg_result.add((iris['sampleobs'], _PREFIX['coso']['observedProperty'], _PREFIX['coso']['AggregateContaminantConcentrationQuantityKind']))
         ### single
         else:
             kg_result.add( (iris['substance'], _PREFIX["coso"]['casNumber'], Literal(sampleobs['chemical_number']  , datatype = XSD.string)) ) #TODO update to reused relation, ignore ones that are custom DEP
             kg_result.add( (iris['result'], RDF.type, _PREFIX["me_egad"]["EGAD-SinglePFAS-Concentration"]) )
             kg_result.add((iris['result'], _PREFIX['qudt']['hasQuantityKind'], _PREFIX['coso']['SingleContaminantConcentrationQuantityKind']))
+            #kg_result.add((iris['sampleobs'], _PREFIX['coso']['observedProperty'], _PREFIX['coso']['SingleContaminantConcentrationQuantityKind']))
 
 
         ## Quantity Value
         if is_valid(result['pfas_concentration']):  #only materialize quantity value if there is a concentration 
             kg_result.add((iris['quantity'], RDF.type, _PREFIX['coso']['DetectQuantityValue']))
-            kg_result.add( (iris['quantity'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_concentration'] , datatype = XSD.decimal)) )
+            kg_result.add( (iris['sampleobs'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_concentration'] , datatype = XSD.decimal)) )
             
             ## Unit
             kg_result.add( (iris['quantity'], _PREFIX["qudt"]['hasUnit'], iris['unit']) )
