@@ -2,17 +2,16 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
-@prefix pfas: <http://sawgraph.spatialai.org/v1/pfas#> .
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stad: <http://sawgraph.spatialai.org/v1/stad#> .
-@prefix us_frs: <http://sawgraph.spatialai.org/v1/us-frs#> .
-@prefix us_ghg: <http://sawgraph.spatialai.org/v1/us-ghg#> .
-@prefix us_frs_data: <http://sawgraph.spatialai.org/v1/us-frs-data#> .
+@prefix epa-frs: <http://w3id.org/fio/v1/epa-frs#> .
+@prefix us_ghg: <http://w3id.org/sawgraph/v1/us-ghg#> .
+
 @base <http://www.w3.org/2002/07/owl#> .
 
-<http://sawgraph.spatialai.org/v1/us-epa-ghg#> rdf:type owl:Ontology ;
+<http://w3id.org/sawgraph/v1/us-epa-ghg#> rdf:type owl:Ontology ;
  terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
                                              terms:created "2025-01-09" ;
                                              terms:creator "The SAWGraph Project"@en ;
@@ -34,26 +33,23 @@ us_ghg:GHG-Chemical-Collection rdf:type owl:Class ;
 
 ###  http://sawgraph.spatialai.org/v1/us-ghg#Measurement
 us_ghg:GHG-Measurement rdf:type owl:Class ;
-                       rdfs:subClassOf pfas:AggregatePFASVolumeMeasurement ;
                        rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
 
 ###  http://sawgraph.spatialai.org/v1/us-ghg#ReleaseObservation
 us_ghg:GHG-ReleaseObservation rdf:type owl:Class ;
-                              rdfs:subClassOf pfas:PFAS-ContaminantReleaseObservation .
+                              rdfs:subClassOf coso:ContaminantReleaseObservation .
 
 us_ghg:GHGSubpart rdf:type owl:Class ;
     rdfs:subClassOf coso:ObservationAnnotation. 
 
-
-# DataProperties
-
-us_ghg:regulatedBy rdf:type owl:Dataproperty ;
-    rdfs:subPropertyOf coso:observationAnnotation .
+#################################################################
+# Object Properties
+#################################################################
 
 us_ghg:ghgSubpart rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf coso:observationAnnotation ;
-    rdfs:range us_epa_ghg:GHGSubpart . 
+    rdfs:range us_ghg:GHGSubpart . 
 
 
 

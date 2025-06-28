@@ -1,5 +1,5 @@
 import os
-from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, SOSA, TIME
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
@@ -25,7 +25,7 @@ code_dir = Path(__file__).resolve().parent.parent
 
 ## declare variables
 logname = "log"
-state = ' IL'
+state = ' ME'
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
@@ -34,13 +34,13 @@ metadata_dir = None
 output_dir = root_folder / "federal/us-ghg/"
 
 ##namespaces
-us_epa_ghg = Namespace(f'http://sawgraph.spatialai.org/v1/us-ghg#')
-us_epa_ghg_data = Namespace(f'http://sawgraph.spatialai.org/v1/us-ghg-data#')
-us_frs = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs#")
-us_frs_data = Namespace(f"http://sawgraph.spatialai.org/v1/us-frs-data#")
+us_epa_ghg = Namespace(f'http://w3id.org/sawgraph/v1/us-ghg#')
+us_epa_ghg_data = Namespace(f'http://w3id.org/sawgraph/v1/us-ghg-data#')
+us_frs = Namespace(f"http://w3id.org/fio/v1/epa-frs#")
+us_frs_data = Namespace(f"http://w3id.org/fio/v1/epa-frs-data#")
 qudt = Namespace(f'http://qudt.org/schema/qudt/')
 unit = Namespace(f'http://qudt.org/vocab/unit/')
-coso = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
+coso = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 geo = Namespace(f'http://www.opengis.net/ont/geosparql#')
 
 ## initiate log file
@@ -78,10 +78,10 @@ def Initial_KG():
     kg = Graph()
     # for prefix in prefixes:
     #    kg.bind(prefix, prefixes[prefix])
-    kg.bind('us_epa_ghg', us_epa_ghg)
-    kg.bind('us_epa_ghg_data', us_epa_ghg_data)
-    kg.bind('us_frs', us_frs)
-    kg.bind('us_frs_data', us_frs_data)
+    kg.bind('us-epa-ghg', us_epa_ghg)
+    kg.bind('us-epa-ghg-data', us_epa_ghg_data)
+    kg.bind('epa-frs', us_frs)
+    kg.bind('epa-frs-data', us_frs_data)
     kg.bind('qudt', qudt)
     kg.bind('unit', unit)
     kg.bind('coso', coso)
@@ -169,8 +169,9 @@ def triplify(df):
 
         #observation
         kg.add((extra_iris['ReleaseObservation'], RDF.type, us_epa_ghg['GHG-ReleaseObservation']))
-        kg.add((extra_iris['ReleaseObservation'], coso['hasTemporalCoverage'],
-                extra_iris['TimeInterval']))  #TODO this needs beginning and end attributes
+        kg.add((extra_iris['ReleaseObservation'], SOSA.phenomenonTime,
+                extra_iris['TimeInterval'])) 
+        kg.add((extra_iris['TimeInterval'], TIME.inXSDgYear, Literal( release['Year'],datatype=XSD.gYear)))
         kg.add((extra_iris['ReleaseObservation'], us_epa_ghg['ghgSubpart'], extra_iris['Subpart']))
         kg.add((extra_iris['Subpart'], RDFS.label, Literal(release['GHG_subpart'], datatype=XSD.string)))  
 
@@ -178,7 +179,7 @@ def triplify(df):
         if 'FRS_Facility' in extra_iris.keys():
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['FRS_Facility']))
             kg.add((extra_iris['FRS_Facility'], RDF.type, us_frs['FRS-Facility']))
-            facility_kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #TODO this should move to a different graph to go in FIO repo
+            facility_kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #this graph goes to FIO repo
         elif 'GHG_Facility' in extra_iris.keys(): #this shouldn't run as long as all of the facilities missing FRS ID have been caught
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['GHG_Facility']))
             facility_kg.add((extra_iris['GHG_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string)))
@@ -187,8 +188,8 @@ def triplify(df):
         #TODO release point
 
         #substance
-        kg.add((extra_iris['ReleaseObservation'], coso['ofSubstance'], extra_iris['Chemical']))
-        kg.add((extra_iris['Chemical'], us_epa_ghg['chemicalName'], Literal(release['Chemical'], datatype=XSD.string)))
+        kg.add((extra_iris['ReleaseObservation'], coso['ofDatasetSubstance'], extra_iris['Chemical']))
+        kg.add((extra_iris['Chemical'], RDFS.label, Literal(release['Chemical'], datatype=XSD.string)))
         #kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['GHG-Chemical']))
         if 'ChemicalFormula' in release.keys():
             kg.add((extra_iris['Chemical'], us_epa_ghg['chemicalFormula'], Literal(release['ChemicalFormula'], datatype=XSD.string))) #TODO this data has a mess of comma separated, comma in formula and alternates separated by semicolon. This will require some regex to clean up
