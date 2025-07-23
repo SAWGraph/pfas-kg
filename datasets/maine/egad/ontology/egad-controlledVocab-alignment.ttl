@@ -44,6 +44,10 @@ me_egad_data:DefEGADGroundWaterSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad_data:sampleMaterialType.PO]
+  [rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.AR
+  ]
   );
      rdfs:subClassOf coso:GroundWaterSample. #need to add sample location 
 
@@ -60,6 +64,9 @@ me_egad_data:DefEGADDrinkingWaterSample owl:unionOf ([rdf:type owl:Restriction;
 );
 
      rdfs:subClassOf coso:DrinkingWaterSample. #need to add sample location 
+
+	
+me_egad_data:sampleMaterialType.PW rdf:type coso:WaterSample. 
 
 me_egad_data:DefEGADFilteredWaterSample owl:unionOf (
     [rdf:type owl:Restriction;
@@ -102,23 +109,38 @@ me_egad_data:DefEGADSoilSample owl:equivalentClass [rdf:type owl:Restriction;
     rdfs:subClassOf coso:SoilSample.
 
 #me_egad_data:sampleMaterialType.SD #sediment
-me_egad_data:DefEGADSedimentSample owl:equivalentClass [rdf:type owl:Restriction;
+#me_egad_data:sampleMaterialType.SWS #surface water substrate
+me_egad_data:DefEGADSedimentSample owl:unionOf ( [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SD];
+  owl:hasValue me_egad_data:sampleMaterialType.SD]
+  [rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.SWS
+  ]);
     rdfs:subClassOf coso:SedimentSample.
 
 #me_egad_data:sampleMaterialType.MA #manure
-me_egad_data:DefEGADSolidWasteSample owl:equivalentClass
+#me_egad_data:sampleMaterialType.CO #compost #ash #flyash
+me_egad_data:DefEGADSolidWasteSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad_data:sampleMaterialType.MA
-  ];
+  ]
+  [rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.AS #ash
+  ]
+  [	rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.FA #fly ash
+]);
   rdfs:subClassOf coso:SolidWasteSample. 
 
 #me_egad_data:sampleMaterialType.L #leachate 
 #me_egad_data:sampleMaterialType.RIN #rinsate 
 #	me_egad_data:sampleMaterialType.WW #wastewater
-
+#me_egad_data:sampleMaterialType.SPG #septage
+#me_egad_data:sampleMaterialType.SU #sludge
 me_egad_data:DefEGADWasteWaterSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
@@ -128,19 +150,52 @@ me_egad_data:DefEGADWasteWaterSample owl:unionOf (
   owl:hasValue me_egad_data:sampleMaterialType.RIN]
     [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.WW]);
+  owl:hasValue me_egad_data:sampleMaterialType.WW]
+  [rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.SPG
+]
+[rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.SU
+]);
   rdfs:subClassOf coso:WasteWaterSample. 
 
+#me_egad_data:sampleMaterialType.BC #bedrock chips
+#me_egad_data:sampleMaterialType.BM #building material
+#me_egad_data:sampleMaterialType.POL #polymer
+#me_egad_data:sampleMaterialType.SA #sawdust
+me_egad_data:DefEGADSolidMaterials owl:unionOf (
+  [rdf:type owl:Restriction;
+    owl:onProperty coso:sampleOfMaterialType;
+    owl:hasValue me_egad_data:sampleMaterialType.BC]
+      [rdf:type owl:Restriction;
+    owl:onProperty coso:sampleOfMaterialType;
+    owl:hasValue me_egad_data:sampleMaterialType.BM]
+      [rdf:type owl:Restriction;
+    owl:onProperty coso:sampleOfMaterialType;
+    owl:hasValue me_egad_data:sampleMaterialType.POL]
+      [rdf:type owl:Restriction;
+    owl:onProperty coso:sampleOfMaterialType;
+    owl:hasValue me_egad_data:sampleMaterialType.SA]
+); rdfs:subClassOf coso:SolidMaterialSample. 
 
+#########################################################################
 # sample material type to FOODON organism material and/or food product 
 
 me_egad_data:sampleMaterialType.BD rdf:type obo:FOODON_02010015. #animal blood
+	
+me_egad_data:sampleMaterialType.EG rdf:type obo:FOODON_03420194. #egg
 
 me_egad_data:sampleMaterialType.FE rdf:type obo:FOODON_00004172. #feed
 
 me_egad_data:sampleMaterialType.GR rdf:type obo:FOODON_00001093. #cereal grain
 
+me_egad_data:sampleMaterialType.HR rdf:type obo:FOODON_00003042 .#herb food product
+
 me_egad_data:sampleMaterialType.HT rdf:type obo:FOODON_02010042. #animal heart
+
+me_egad_data:sampleMaterialType.LG rdf:type obo:FOODON_03411566. #leafy greens / leafy vegetable plant
 
 me_egad_data:sampleMaterialType.LV rdf:type obo:FOODON_02010045. #animal liver
 
@@ -152,19 +207,32 @@ me_egad_data:sampleMaterialType.MTB rdf:type obo:FOODON_02010032.
 
 me_egad_data:sampleMaterialType.MU rdf:type obo:FOODON_02010032. 
 
+me_egad_data:sampleMaterialType.NRV rdf:type obo:FOODON_03411057. #non-root vegetable > vegetable-producing plant, above-ground parts & plant above surface
+
 me_egad_data:sampleMaterialType.O rdf:type obo:FOODON_00004436, #animal organ
                                             obo:FOODON_00002165. #organ meat food product
 
+me_egad_data:sampleMaterialType.RV rdf:type obo:FOODON_00003572. #root vegetable
+
 me_egad_data:sampleMaterialType.SF rdf:type obo:FOODON_02021803. #animal fillet skinless, raw
+
+me_egad_data:sampleMaterialType.SOF rdf:type obo:FOODON_02021805. #animel fillet (with skin)
 
 me_egad_data:sampleMaterialType.V rdf:type obo:FOODON_03420150, # plant whole or pieces
     obo:FOODON_03413358. #plant used as fodder (organism)
 
-me_egad_data:sampleMaterialType.WH rdf:type obo:FOODON_03420116. # whole > organism material
+me_egad_data:sampleMaterialType.WH rdf:type obo:FOODON_03420116. # whole > organism material #in egad this is used for whole seafood
+#me_egad_data:DefEGADWholeMarineAnimal owl:unionOf (me_egad_data:sampleMaterialType.WH 
+#[] )
+#        rdfs:subClassOf obo:FOODON_03411021 
 
+me_egad_data:sampleMaterialType.WS rdf:type obo:FOODON_03420147. #whole without skin > whole animal skinned. 
+#me_egad_data:DefEGADWholeMarineAnimalWithoutSkin
+
+############################################################################
 # Sample material type maps to FOODON organism and/or food material
 
-me_egad_data:sampleMaterialTypeQualifier.BA rdf:type obo:FOODON_03413378. #fodder/forage
+me_egad_data:sampleMaterialTypeQualifier.BA rdf:type obo:FOODON_03413378. # baleage >  forage
 
 me_egad_data:sampleMaterialTypeQualifier.BE rdf:type obo:FOODON_02020892.  #cow 
                                                     
@@ -193,6 +261,8 @@ me_egad_data:sampleMaterialTypeQualifier.GO rdf:type obo:FOODON_03411328. #goat
 
 me_egad_data:sampleMaterialTypeQualifier.GRF rdf:type obo:FOODON_03411324, #grain plant
                                                       obo:FOODON_03413378. # 'straw, fodder or forage of cereal grains and grasses'
+
+me_egad_data:sampleMaterialType.GRS rdf:type obo:FOODON_03301761. #grass animal feed
 
 me_egad_data:sampleMaterialTypeQualifier.LA rdf:type obo:FOODON_03411669. #lamb
 
@@ -226,4 +296,4 @@ me_egad_data:sampleMaterialTypeQualifier.WHP obo:RO_0002162 obo:NCBITaxon_46260.
 #me_egad_data:sampleMaterialTypeQualifier.RSD #research and development
 #me_egad_data:sampleMaterialTypeQualifier.S #split
 #me_egad_data:sampleMaterialTypeQualifier.FD #field duplicate
-#me_egad_data:sampleMaterialTypeQualifier.AR #WELL IS OVERFLOWING UNDER ARTESIAN CONDITIONS
+#me_egad_data:sampleMaterialType.PE #performance evaluation
