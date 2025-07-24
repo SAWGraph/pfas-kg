@@ -284,7 +284,6 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
         parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
                 
         ## specify type instance and it's data properties
-        
         kg.add( (parameter_iri, RDF.type, OWL.NamedIndividual) )
         kg.add( (parameter_iri, RDF.type, _PREFIX["me_egad"]["EGAD-PFAS-ParameterName"]) )
         kg.add( (parameter_iri, RDFS['label'], Literal(str(parameter_name))) )
@@ -302,19 +301,21 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
    
     return kg
 
-def triplify_param_mapping(df, _PREFIX, lookup:pd.DataFrame):
+def triplify_param_mapping(df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
     kg = Initial_KG(_PREFIX)
     
     lookup = lookup.set_index('Parameter')
-    combined = df.join(lookup, on='ï»¿INPUT')
+    combined = df.join(lookup, on='ï»¿INPUT', how='right')
+    print(combined.info())
     for idx, row in combined.iterrows():
         id = row['DTXSID']
         parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
-        dtxsid_iri = _PREFIX['comptox'][f"CompTox_DTXSID{id}"]
+        dtxsid_iri = _PREFIX['comptox'][f"CompTox_{id}"]
 
-        kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
-        kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['CompTox_ChemicalEntity']))
-        kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
+        if pd.notna(row['DTXSID']) and row['DTXSID'] != "-":
+            kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
+            kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['CompTox_ChemicalEntity']))
+            kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
 
     kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
     kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))

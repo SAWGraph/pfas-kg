@@ -29,7 +29,7 @@ _PREFIX = {
     "me_egad_data": Namespace(f"{NAME_SPACE}me-egad-data#"),
     "us_sdwis": Namespace(f"{NAME_SPACE}us-sdwis#"),
     "coso": Namespace(f"http://w3id.org/coso/v1/contaminoso#"),
-    "comptox": Namespace("http://w3id.org/comptox/"),
+    "comptox": Namespace("http://w3id.org/comptox/v1/"),
     "geo": Namespace("http://www.opengis.net/ont/geosparql#"),
     "sf": Namespace("http://www.opengis.net/ont/sf#"),
     "rdf": RDF,
