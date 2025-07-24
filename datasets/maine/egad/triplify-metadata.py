@@ -316,6 +316,8 @@ def triplify_param_mapping(df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
             kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
             kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['CompTox_ChemicalEntity']))
             kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
+        else:
+            print('skipping ', row['Abbreviation-aik-pfas-ont'])
 
     kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
     kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
