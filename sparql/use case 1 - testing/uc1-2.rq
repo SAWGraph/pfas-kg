@@ -3,12 +3,12 @@
 # What surface water bodies are near (same or neighboring S2 cell) landfills or DoD sites in Maine?
 # Run this from the FIO repository
 
-PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
+PREFIX fio: <http://w3id.org/fio/v1/fio#>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX hyf: <https://www.opengis.net/def/schema/hy_features/hyf/>
 PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
-PREFIX naics: <http://sawgraph.spatialai.org/v1/fio/naics#>
+PREFIX naics: <http://w3id.org/fio/v1/naics#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -22,7 +22,7 @@ SELECT * WHERE {
     ?fac_s2 rdf:type kwg-ont:S2Cell_Level13 .
     OPTIONAL { ?fac rdfs:label ?faclabel . }
     OPTIONAL { ?code rdfs:label ?ind . }
-    VALUES ?code { naics:NAICS-IndustryCode-562212 naics:NAICS-IndustryCode-92811 naics:NAICS-IndustryCode-928110 }
+    VALUES ?code { naics:NAICS-562212 naics:NAICS-92811 naics:NAICS-928110 }
 
     SERVICE <repository:Spatial> {
         SELECT * WHERE {
