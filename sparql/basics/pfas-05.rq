@@ -1,0 +1,30 @@
+# Get the number of results and all substances that have been detected at over 4.0 ng/L at samplepoints from a specific set of S2 cells (here cells with plastics manufacturers) 
+# This does not require access to the Spatial graph
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
+PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+
+SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (GROUP_CONCAT(DISTINCT ?substance; separator="; ") as ?substances)  ?sp ?spWKT  WHERE {
+      ?sp rdf:type coso:SamplePoint; 
+      spatial:connectedTo ?s2cell ;
+  	  geo:hasGeometry/geo:asWKT ?spWKT.
+     VALUES ?s2cell {kwgr:s2.level13.5526502181185781760 kwgr:s2.level13.5526654257387798528 kwgr:s2.level13.5525241453665583104 kwgr:s2.level13.5526677690729365504 kwgr:s2.level13.5526660682658873344 kwgr:s2.level13.5526659411348553728 kwgr:s2.level13.5526649137786781696 kwgr:s2.level13.5526701502028054528 kwgr:s2.level13.5526671128019337216 kwgr:s2.level13.5526601309030973440 kwgr:s2.level13.5526595845832572928 kwgr:s2.level13.5526646148489543680 kwgr:s2.level13.5529487561413623808 kwgr:s2.level13.5526597666898706432 kwgr:s2.level13.5526675388626894848 kwgr:s2.level13.5526481599702499328 kwgr:s2.level13.5526677862528057344 kwgr:s2.level13.5525434349236781056 kwgr:s2.level13.5526344435626934272 kwgr:s2.level13.5526661541652332544 kwgr:s2.level13.5526594677601468416 kwgr:s2.level13.5526598594611642368 kwgr:s2.level13.5526612338506989568 kwgr:s2.level13.5525732007650263040 kwgr:s2.level13.5526340896573882368 kwgr:s2.level13.5525476783513665536 kwgr:s2.level13.5526638658066579456 kwgr:s2.level13.5526649962420502528 kwgr:s2.level13.5526595192997543936 kwgr:s2.level13.5525232520133607424}
+  ?observation rdf:type coso:ContaminantObservation;
+    	coso:observedAtSamplePoint ?sp;
+    	coso:ofSubstance ?substance ;
+    	coso:hasResult ?result .
+   ?result coso:measurementValue ?result_value;
+   		coso:measurementUnit ?unit .
+  FILTER (?result_value > 4).
+  VALUES ?unit {<http://qudt.org/vocab/unit/NanoGM-PER-L>}.
+  ?unit qudt:symbol ?unit_sym.
+    BIND((CONCAT(str(?result_value) , " ", ?unit_sym)) as ?subVal)
+} GROUP BY ?sp ?spWKT
