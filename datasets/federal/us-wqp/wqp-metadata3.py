@@ -343,7 +343,7 @@ def triplify_quantitation_limit_type(df, _PREFIX):
         ql_description = row['Description']
 
         ql_iri = _PREFIX['us_wqp'][ql_shortname]
-        if ql_shortname in ['Sample-SpecificQuantitationLimit', 'InstrumentDetectionLevel']:
+        if ql_shortname in ['Sample-SpecificQuantitationLimit', 'InstrumentDetectionLevel', 'LaboratoryReportingLevel', 'CensoringLevel', 'MethodDetectionLevel', 'LowerQuantitationLimit']:
             kg.add((ql_iri, RDFS.subClassOf, _PREFIX['coso']['ResultQualifier'])) #also make instance of pfas classes based on values
             kg.add((ql_iri, RDFS.label, Literal(ql_name, datatype=XSD.string)))
             kg.add((ql_iri, RDFS.comment, Literal(ql_description, datatype=XSD.string)))

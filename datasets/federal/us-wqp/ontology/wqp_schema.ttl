@@ -94,13 +94,13 @@ us_wqp:Lab rdf:type owl:Class;
 us_wqp:hasProjectId rdf:type owl:ObjectProperty;
     rdfs:subPropertyOf coso:sampleAnnotation;
     rdfs:label "wqp - has project id";
-    rdfs:domain us_wqp:WQP-Activity;
+    rdfs:domain us_wqp:WQP-Sample;
     rdfs:range us_wqp:Project.
 
 us_wqp:sampleCollectionMethod rdf:type owl:ObjectProperty;
     rdfs:label "wqp - sample collection method"; 
     rdfs:subPropertyOf coso:sampleAnnotation;
-    rdfs:domain us_wqp:WQP-Activity;
+    rdfs:domain us_wqp:WQP-Sample;
     rdfs:range us_wqp:SampleCollectionMethod.  
 
 us_wqp:locationType rdf:type owl:ObjectProperty;

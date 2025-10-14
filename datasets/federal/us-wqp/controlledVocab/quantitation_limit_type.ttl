@@ -3,8 +3,24 @@
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+us_wqp:CensoringLevel rdfs:label "Censoring level"^^xsd:string ;
+    rdfs:comment "Lower or upper value at which the result is censored"^^xsd:string ;
+    rdfs:subClassOf coso:ResultQualifier .
+
 us_wqp:InstrumentDetectionLevel rdfs:label "Instrument Detection Level"^^xsd:string ;
     rdfs:comment "Instrument Detection Level(IDL)--Lowest concentration that can be detected by an instrument without correction for the effects of sample matrix or method-specific parameters such as sample preparation"^^xsd:string ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:LaboratoryReportingLevel rdfs:label "Laboratory Reporting Level"^^xsd:string ;
+    rdfs:comment "Laboratory Reporting Level - formerly referred to as Non-Detection Value"^^xsd:string ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:LowerQuantitationLimit rdfs:label "Lower Quantitation Limit"^^xsd:string ;
+    rdfs:comment "Lower Limit of Quantitation(LLQ) Generally the same as EQL. "^^xsd:string ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:MethodDetectionLevel rdfs:label "Method Detection Level"^^xsd:string ;
+    rdfs:comment "Synonymous with Method Detection Limit (MDL), is the minimum concentration of a substance that can be measured and reported with a 99% confidence that the analyte concentration is greater than zero."^^xsd:string ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:Sample-SpecificQuantitationLimit rdfs:label "Sample-Specific Quantitation Limit"^^xsd:string ;

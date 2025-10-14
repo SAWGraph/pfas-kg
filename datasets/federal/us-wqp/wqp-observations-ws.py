@@ -16,20 +16,30 @@ from pathlib import Path
 ## declare variables
 logname = "log"
 code_dir = Path(__file__).resolve().parent.parent
-state="KS"
-fips_lookup = {"ME":'23', "IL":'17', 'KS':'21'} #FIPS for each state can be used for web retrival
+state=input("state abbreviation?")
+fips_lookup = {'AL':'01','AK':'02','AZ':'04',
+'AR':'05','CA':'06','CO':'08','CT':'09','DE':'10','DC':'11',
+'FL':'12','GA':'13','HI':'15','ID':'16','IL':'17','IN':'18',
+'IA':'19','KS':'20','KY':'21','LA':'22','ME':'23','MD':'24',
+'MA':'25','MI':'26','MN':'27','MS':'28','MO':'29','MT':'30',
+'NE':'31','NV':'32','NH':'33','NJ':'34','NM':'35','NY':'36',
+'NC':'37','ND':'38','OH':'39','OK':'40','OR':'41','PA':'42',
+'PR':'72','RI':'44','SC':'45','SD':'46','TN':'47','TX':'48',
+'UT':'49','VT':'50','VA':'51','VI':'78','WA':'53','WV':'54',
+'WI':'55','WY':'56'} #FIPS for each state can be used for web retrival
 statecode = f"US%3A{fips_lookup[state]}"
 
 ##data path
 root_folder = Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/water-quality-data-portal/"
 metadata_dir = root_folder / "federal/us-wqp/metadata_3/"
-output_dir = root_folder / "federal/us-wqp/"
+output_dir = root_folder / "federal/us-wqp/triples/"
 
 ##namespaces
 prefixes = {}
 prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
 prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
+prefixes['geoconnex'] = Namespace(f'http://geoconnex.us/')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
