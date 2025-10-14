@@ -1,8 +1,14 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
-@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+us_wqp_data:d.wqp.organizaton.EPA_GLNPO a us_wqp:Federal_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "EPA Great Lakes National Program" ;
+    us_wqp:organizationDescription "Will be used to store the historical GLENDA data that will be added to the WQX in the future."^^xsd:anyURI ;
+    us_wqp:organizationId "EPA_GLNPO"^^xsd:string .
 
 us_wqp_data:d.wqp.organizaton.MEDEP_WQX a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
@@ -21,9 +27,9 @@ us_wqp_data:d.wqp.organizaton.USGS a us_wqp:State_USGovernment_Organization,
     us_wqp:organizationDescription "Missouri Department of Natural Resources"^^xsd:anyURI ;
     us_wqp:organizationId "USGS"^^xsd:string .
 
-us_wqp:Federal_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
-
 us_wqp:StateGovernmentUS_Organization rdfs:subClassOf us_wqp:Organization .
 
 us_wqp:State_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
+
+us_wqp:Federal_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
 

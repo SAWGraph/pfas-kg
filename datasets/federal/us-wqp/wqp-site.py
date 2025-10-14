@@ -17,8 +17,8 @@ from pathlib import Path
 ## declare variables
 logname = "log"
 code_dir = Path(__file__).resolve().parent.parent
-state="ME"
-fips_lookup = {"ME":'23'}
+state="IL"
+fips_lookup = {"ME":'23', 'IL':'17'}
 statecode = f"US%3A{fips_lookup[state]}"
 
 ##data path
@@ -29,11 +29,10 @@ output_dir = root_folder / "federal/us-wqp/"
 
 ##namespaces
 prefixes = {}
-prefixes['us_wqp'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-wqp#')
-prefixes['us_wqp_data'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-wqp-data#')
+prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
+prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
-prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
-prefixes['pfas'] = Namespace(f'http://sawgraph.spatialai.org/v1/pfas#')
+prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 prefixes["unit"] = Namespace("http://qudt.org/vocab/unit/")
@@ -91,6 +90,7 @@ def get_attributes(row):
   
     
     if pd.notnull(row['Location_Type']):
+        site['type_label'] = row['Location_Type']
         site['type'] = ''.join(e for e in str(row['Location_Type']) if e.isalnum()) 
     
     #additional location information varies by data provider. Sometimes contains a list or dictionary of attributes. 
@@ -145,12 +145,14 @@ def triplify(df: pd.DataFrame):
 
         #triplify sample point geometry
         kg.add((iris['wqp_site'], prefixes['geo']['hasGeometry'], iris['wqp_site_geom']))
+        kg.add((iris['wqp_site_geom'], RDF.type, prefixes['geo']['Geometry']))
         kg.add((iris['wqp_site_geom'], prefixes['geo']['asWKT'],  Literal(site['geom'],  datatype=prefixes["geo"]["wktLiteral"])))
 
        
 
         #triplify Feature
         kg.add((iris['feature'], RDF.type, prefixes['us_wqp']['WQP-SampledFeature']))
+        kg.add((iris['feature'], RDFS.label, Literal(site['type_label']+": "+ site['name'], datatype=XSD.string)))
         kg.add((iris['feature'], prefixes['us_wqp']['locationType'], iris['featureType']))
         #TODO add feature geometry
         if 'huc12' in iris.keys():

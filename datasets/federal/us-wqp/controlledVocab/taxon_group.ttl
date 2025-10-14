@@ -1,5 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 
 us_wqp:taxonGroup.AquaticVegetation rdfs:subClassOf us_wqp:Taxon .
 

@@ -16,8 +16,8 @@ from pathlib import Path
 ## declare variables
 logname = "log"
 code_dir = Path(__file__).resolve().parent.parent
-state="ME"
-fips_lookup = {"ME":'23'} #FIPS for each state can be used for web retrival
+state="KS"
+fips_lookup = {"ME":'23', "IL":'17', 'KS':'21'} #FIPS for each state can be used for web retrival
 statecode = f"US%3A{fips_lookup[state]}"
 
 ##data path
@@ -28,11 +28,10 @@ output_dir = root_folder / "federal/us-wqp/"
 
 ##namespaces
 prefixes = {}
-prefixes['us_wqp'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-wqp#')
-prefixes['us_wqp_data'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-wqp-data#')
+prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
+prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
-prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
-prefixes['pfas'] = Namespace(f'http://sawgraph.spatialai.org/v1/pfas#')
+prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 prefixes["unit"] = Namespace("http://qudt.org/vocab/unit/")
@@ -100,10 +99,11 @@ def get_attributes(row):
         'project_id': ''.join(e for e in str(row['Project_Identifier']) if e.isalnum()), # annotation for sampling project (could be sampling collection)
         'org_id': row['Org_Identifier'].replace(' ', ''), #organization that does sampling
         'org_name': row['Org_FormalName'], #organization name
-        'org_conducting': row['Activity_ConductingOrganization'], #team/ program conducting activity
         'provider':row['ProviderName'],
         
     }
+    if 'org_conducting' in row.keys() and pd.notnull(row['org_conduting']):
+        sample['org_conducting'] = row['Activity_ConductingOrganization'], #team/ program conducting activity
     
     sample['sample_date_formatted'] = sample['sample_date'].strftime("%Y%m%d") #integer only date
     #if pd.notnull(row['Activity_ActivityIdentifierUserSupplied']):
@@ -162,28 +162,31 @@ def get_attributes(row):
     #    result['substance_id'] = [v['id'] for k,v in cv['Characteristic'].items() if characteristic in k][0]
     if pd.notnull(row['Result_ResultDetectionCondition']) and row['Result_ResultDetectionCondition'] == 'Not Detected': #TODO there are additional values in CV that should be considered here
         result['non-detect'] = True
-    if pd.notnull(row['ResultAnalyticalMethod_Identifier']):
+    if 'ResultAnalyticalMethod_Identifier' in row.keys() and pd.notnull(row['ResultAnalyticalMethod_Identifier']):
         result['analytical_method'] = row['ResultAnalyticalMethod_Identifier']# cv['Analytical Method'][row['ResultAnalyticalMethod_Identifier']]['id'] #get id for analytical method
     if pd.notnull(row['LabInfo_Name']):
         result['lab'] = row['LabInfo_Name']
         result['lab_id'] = ''.join(e for e in str(row['LabInfo_Name']) if e.isalnum())
-    if pd.notnull(row['LabInfo_AnalysisStartDate']):
+    if 'LabInfo_AnalysisStartDate' in row.keys() and pd.notnull(row['LabInfo_AnalysisStartDate']):
         result['analysis_date'] = pd.to_datetime(row['LabInfo_AnalysisStartDate']).date()
     if pd.notnull(row['Result_Measure']):
         result['measure'] = row['Result_Measure']
     unit_lu = {
         'ng/g': 'NanoGM-PER-GM', #this equivalent to MicroGM-PER-KiloGM
         'ng/L': 'NanoGM-PER-L',
+        'ng/mL': 'NanoGM-PER-MilliL',
+        '%': 'PERCENT',
+        'pg/L': 'PicoGM-PER-L',
     }
     if pd.notnull(row['Result_MeasureUnit']):
         result['unit_label'] = row['Result_MeasureUnit']
         result['unit'] = unit_lu[row['Result_MeasureUnit']]     
 
-    if pd.notnull(row['DetectionLimit_TypeA']):
+    if pd.notnull(row['DetectionLimit_MeasureA']) and pd.notnull(row['DetectionLimit_MeasureUnitA']):
         result['dl_type_A'] = str(row['DetectionLimit_TypeA']).replace(" ", "")
         result['dl_measure_A'] = row['DetectionLimit_MeasureA']
         result['dl_unit_A'] = unit_lu[row['DetectionLimit_MeasureUnitA']]
-    if pd.notnull(row['DetectionLimit_TypeB']):
+    if 'DetectionLimit_TypeB' in row.keys() and pd.notnull(row['DetectionLimit_TypeB']):
         result['dl_type_B'] = str(row['DetectionLimit_TypeB']).title().replace(" ", "")
         result['dl_measure_B'] = row['DetectionLimit_MeasureB']
         result['dl_unit_B'] = unit_lu[row['DetectionLimit_MeasureUnitB']]
@@ -218,18 +221,18 @@ def get_iris(sample, samplepoint, result):
         iris['lab'] = prefixes['us_wqp_data'][f"d.wqp.lab.{result['lab_id']}"]
     if 'unit' in result.keys():
         if result['unit'] == 'NanoGM-PER-GM':
-            iris['unit'] = prefixes['pfas'][result['unit']]
+            iris['unit'] = prefixes['coso'][result['unit']]
         else:
             iris['unit'] = prefixes['unit'][result['unit']] 
     if 'dl_unit_A' in result.keys():
         if result['dl_unit_A'] == 'NanoGM-PER-GM':
-            iris['unit_A'] = prefixes['qudt'][result['dl_unit_A']]
+            iris['unit_A'] = prefixes['coso'][result['dl_unit_A']]
         else:
             iris['unit_A'] = prefixes['unit'][result['dl_unit_A']]
         iris['dl_A'] = prefixes['us_wqp_data'][f"d.wqp.{result['dl_type_A']}.{result['id']}"]
     if 'dl_unit_B' in result.keys():
         if result['dl_unit_B']  == 'NanoGM-PER-GM':
-            iris['unit_B'] = prefixes['pfas'][result['dl_unit_B']]
+            iris['unit_B'] = prefixes['coso'][result['dl_unit_B']]
         else:
             iris['unit_B'] = prefixes['unit'][result['dl_unit_B']]
         iris['dl_B'] = prefixes['us_wqp_data'][f"d.wqp.{result['dl_type_B']}.{result['id']}"]
@@ -300,7 +303,7 @@ def triplify(df):
             kg.add((iris['lab'], RDFS.label, Literal(result['lab'], datatype=XSD.string)))
 
         #triplify measurement
-        kg.add((iris['measurement'], RDF.type, prefixes['us_wqp']['WQP-Single-PFAS-Concentration']))
+        kg.add((iris['measurement'], RDF.type, prefixes['us_wqp']['WQP-Single-PFAS-Concentration'])) # TODO are they all single measurements?
         kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['quantityValue']))
         ## TODO do we need a quantity value specific to every observation if the values are the same?
         if 'measure' in result.keys():

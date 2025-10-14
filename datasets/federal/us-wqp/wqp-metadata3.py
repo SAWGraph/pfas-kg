@@ -26,11 +26,10 @@ output_dir = root_folder / "federal/us-wqp/controlledVocab"
 
 ##namespaces
 prefixes = {}
-prefixes['us_wqp'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-wqp#')
-prefixes['us_wqp_data'] = Namespace(f'http://sawgraph.spatialai.org/v1/us-wqp-data#')
+prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
+prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
-prefixes['coso'] = Namespace(f'http://sawgraph.spatialai.org/v1/contaminoso#')
-prefixes['pfas'] = Namespace(f'http://sawgraph.spatialai.org/v1/pfas#')
+prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['gcx']= Namespace(f'http://geoconnex.us/')
 prefixes["prov"] = Namespace("http://www.w3.org/ns/prov#")
@@ -174,7 +173,10 @@ def triplify_characteristic(df, _PREFIX):
     
     ## materialize each record
     for idx, row in df.iterrows():
-        if row['Unique Identifier'] in [20865, 18826, 19467, 20877, 18574, 18191, 62354, 22803, 9364, 8083, 9235, 18456, 6681, 9368, 8091, 6680, 19739, 18078, 19482, 8096, 8097, 8095, 3112, 3113, 64556, 3117, 16303, 19762, 19383, 20794, 18755, 8004, 20426, 3281, 3282, 18897, 18521, 3291, 3292, 19292, 64478, 16351, 18908, 64483, 19684, 19043, 18024, 19176, 9450, 62959, 19823, 19698, 9458, 18813]:
+        #only characteristics used in ME, IL pfas data
+        if row['Unique Identifier'] in [20865, 18826, 19467, 20877, 18574, 18191, 62354, 22803, 9364, 8083, 9235, 18456, 6681, 9368, 8091, 6680, 19739, 18078, 19482, 8096, 8097, 8095, 3112, 3113, 64556, 3117, 16303, 19762, 19383, 20794, 18755, 8004, 20426, 3281, 3282, 18897, 18521, 3291, 3292, 19292, 64478, 16351, 18908, 64483, 19684, 19043, 18024, 19176, 9450, 62959, 19823, 19698, 9458, 18813,
+                                        20865, 19594, 19467, 18191, 8083, 9364, 22803, 17683, 18456, 6680, 19482, 8091, 19739, 6681, 18078, 9368, 8097, 3112, 3113, 3114, 64556, 3117, 19505, 19762, 19383, 20794, 20426, 16586, 17614, 18897, 18521, 19292, 64478, 16351, 18785, 64483, 19684, 8168, 8169, 8170, 8173, 62959, 19823, 9458, 19698, 20082, 21754,
+                                        20865, 19467, 18191, 22803, 9364, 8083, 9368, 6681, 18456, 19739, 8091, 6680, 18078, 19482, 3112, 3113, 3114, 64556, 3117, 19762, 19383, 20794, 20426, 18897, 18521, 19292, 64478, 16351, 18785, 64483, 19684, 62959, 19823, 19698, 9458]:
             if '***retired***' in row['Name']:
                 #don't triplify retired substances
                 pass
@@ -214,7 +216,7 @@ def triplify_sample_collection_method(df, _PREFIX):
     
     ## materialize each record
     for idx, row in df.iterrows():
-        if row['ID'] in ['NRSA_Seine_Dipnet', 'CS', '4040', 'Seine_Dipnet']:
+        if row['ID'] in ['NRSA_Seine_Dipnet', 'CS', '4040', 'Seine_Dipnet','XAD-2', 'Ponar-grab', 'NRSA_Seine_Dipnet', 'Seine_Dipnet']:
             ## sample collection method record details
             method_unique_id = row['Unique Identifier'] # unique ID
             #if not method_unique_id:
@@ -247,7 +249,7 @@ def triplify_organization(df, _PREFIX):
     
     ## materialize each record
     for idx, row in df.iterrows():
-        if row['ID'] in ['USGS', 'MEDEP_WQX', 'OST_SHPD']:
+        if row['ID'] in ['USGS', 'MEDEP_WQX', 'OST_SHPD','OST_SHPD', 'EPA_GLNPO']:
             ## organization details
             organization_unique_id = row['Unique Identifier'] # unique ID
             organization_ID = row['ID'] # ID
@@ -301,7 +303,8 @@ def triplify_taxon(df, _PREFIX):
     kg = Initial_KG(_PREFIX)
 
     for idx, row in df.iterrows():
-        if row['Unique Identifier'] in [13166, 13170, 15717, 18441, 23065, 25364, 3757, 7587, 7588, 818]: # filter to only used taxon (ME)
+        if row['Unique Identifier'] in [13166, 13170, 15717, 18441, 23065, 25364, 3757, 7587, 7588, 818, 14727, 17772, 3725, 13166, 18416, 13170, 10582, 13370, 13374,
+                                        1447, 17772, 10575, 13169, 10582, 13370, 40317]: # filter to only used taxon (ME, IL, KS)
         #if row['Domain Value Status'] == 'Accepted': #ignore deprecated taxon
             taxon_id = row['Unique Identifier']
             taxon_name = row['Name']
@@ -340,10 +343,12 @@ def triplify_quantitation_limit_type(df, _PREFIX):
         ql_description = row['Description']
 
         ql_iri = _PREFIX['us_wqp'][ql_shortname]
-
-        kg.add((ql_iri, RDFS.subClassOf, _PREFIX['coso']['ResultQualifier'])) #also make instance of pfas classes based on values
-        kg.add((ql_iri, RDFS.label, Literal(ql_name, datatype=XSD.string)))
-        kg.add((ql_iri, RDFS.comment, Literal(ql_description, datatype=XSD.string)))
+        if ql_shortname in ['Sample-SpecificQuantitationLimit', 'InstrumentDetectionLevel']:
+            kg.add((ql_iri, RDFS.subClassOf, _PREFIX['coso']['ResultQualifier'])) #also make instance of pfas classes based on values
+            kg.add((ql_iri, RDFS.label, Literal(ql_name, datatype=XSD.string)))
+            kg.add((ql_iri, RDFS.comment, Literal(ql_description, datatype=XSD.string)))
+        else:
+            print('unused quantitation:', ql_shortname)
 
     return kg
 

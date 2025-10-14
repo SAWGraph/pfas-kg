@@ -262,3 +262,9 @@ datasets/maine/egad/controlledVocab/site_type.ttl
 datasets/maine/egad/controlledVocab/test_method.ttl
 datasets/maine/egad/controlledVocab/validation_level.ttl
 datasets/maine/egad/log
+datasets/federal/us-wqp/IL_wqp_observations.ttl
+datasets/federal/us-wqp/IL_wqp_sites.ttl
+datasets/federal/us-wqp/KS_wqp_observations.ttl
+datasets/federal/us-wqp/ME_wqp_observations.ttl
+datasets/federal/us-wqp/ME_wqp_sites.ttl
+datasets/federal/us-wqp/ME_wqp_observations.ttl

@@ -1,0 +1,79 @@
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
+@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+us_wqp_data:d.wqp.observation.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:WQP-PFAS-Observation ;
+    coso:analyzedSample us_wqp_data:d.wqp.sample.8cf56be2-9074-4e3a-a97f-1c7ec5f27daa ;
+    coso:hasResult us_wqp_data:d.wqp.measurement.0899d975-3648-4be3-a1c6-db36b1595abd ;
+    coso:observedProperty coso:SingleContaminantConcentrationQuantity ;
+    coso:ofSubstance us_wqp_data:d.wqp.substance.8004 ;
+    coso:usedAnalysisMethod us_wqp_data:d.wqp.analyticalMethod.LM102 ;
+    prov:wasAttributedTo us_wqp_data:d.wqp.lab.SGSEnvHealthSafetyAccutestLaboratoryOrlandoFL ;
+    sosa:resultTime "2019-09-21"^^xsd:date .
+
+us_wqp_data:d.wqp.sample.8cf56be2-9074-4e3a-a97f-1c7ec5f27daa a us_wqp:WQP-Sample ;
+    rdfs:label "WQP PFAS Sample 8cf56be2-9074-4e3a-a97f-1c7ec5f27daa collected at site USGS-435010070142701 on 2019-09-10" ;
+    us_wqp:hasProjectId us_wqp_data:d.wqp.project.NAWQANationalWaterQualityAssessment32GUMGW00 ;
+    us_wqp:sampleCollectionMethod us_wqp_data:d.wqp.sampleCollectionMethod.4040 ;
+    us_wqp:sampleID "8cf56be2-9074-4e3a-a97f-1c7ec5f27daa"^^xsd:string ;
+    coso:fromSamplePoint <http://geoconnex.us/wqp/USGS/USGS/USGS-435010070142701> ;
+    coso:sampleOfMaterialType us_wqp_data:d.wqp.sampleMedia.water .
+
+<http://geoconnex.us/wqp/USGS/USGS/USGS-435010070142701> a us_wqp:Site ;
+    rdfs:label "ME-CW  2025(USGS-435010070142701) site data in the Water Quality Portal"^^xsd:string ;
+    us_wqp:siteId "USGS-435010070142701"^^xsd:string ;
+    us_wqp:siteName "ME-CW  2025"^^xsd:string ;
+    coso:pointFromFeature us_wqp_data:d.wqp.SampledFeature.USGS.USGS.USGS-435010070142701 ;
+    geo:hasGeometry <http://sawgraph.spatialai.org/v1/us-wqp-data#d.wqp.SiteGeometry.USGS/USGS/USGS-435010070142701> ;
+    prov:wasAttributedTo us_wqp_data:d.wqp.Organization.USGS .
+
+us_wqp_data:d.wqp.SampledFeature.USGS.USGS.USGS-435010070142701 a us_wqp:WQP-SampledFeature ;
+    us_wqp:locationType us_wqp_data:feature.Well ;
+    kwg-ont:sfWithin <http://geoconnex.us/hu12/010600010206> .
+
+us_wqp_data:d.wqp.measurement.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:WQP-Single-PFAS-Concentration ;
+    qudt:quantityValue us_wqp_data:d.wqp.quantityValue.0899d975-3648-4be3-a1c6-db36b1595abd ;
+    coso:hasResultQualifier us_wqp_data:d.wqp.CensoringLevel.0899d975-3648-4be3-a1c6-db36b1595abd,
+        us_wqp_data:d.wqp.LaboratoryReportingLevel.0899d975-3648-4be3-a1c6-db36b1595abd .
+
+us_wqp_data:d.wqp.quantityValue.0899d975-3648-4be3-a1c6-db36b1595abd a coso:NonDetectQuantityValue ;
+    qudt:enumeratedValue "non-detect"^^xsd:string .
+
+us_wqp_data:d.wqp.CensoringLevel.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:CensoringLevel ;
+    qudt:quantityValue "7.4"^^xsd:float ;
+    qudt:unit unit:NanoGM-PER-L .
+
+us_wqp_data:d.wqp.LaboratoryReportingLevel.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:LaboratoryReportingLevel ;
+    qudt:quantityValue "7.4"^^xsd:float ;
+    qudt:unit unit:NanoGM-PER-L .
+
+us_wqp_data:d.wqp.analyticalMethod.LM102 a us_wqp:AnalyticalMethod ;
+    rdfs:label "PFAS SPE/LC/MS/MS SGS FL EPA537M" ;
+    rdfs:comment "DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537" .
+
+us_wqp_data:wqp.substance.8004 a us_wqp:Characteristic ;
+    rdfs:label "Fluorotelomer sulfonate 4:2" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1826301"^^xsd:int ;
+    coso:casNumber "757124-72-4"^^xsd:string .
+
+us_wqp_data:d.wqp.sampleCollectionMethod.4040
+
+us_wqp_data:d.wqp.lab.SGSEnvHealthSafetyAccutestLaboratoryOrlandoFL rdfs:label "SGS Env Health & Safety, Accutest Laboratory, Orlando, FL"^^xsd:string .
+
+us_wqp_data:d.wqp.organizaton.USGS a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "US Geological Survey-WRD, Mo." ;
+    us_wqp:organizationDescription "Missouri Department of Natural Resources"^^xsd:anyURI ;
+    us_wqp:organizationId "USGS"^^xsd:string .
+
+us_wqp_data:d.wqp.sampleMedia.water a us_wqp:SampleMedia ;
+    rdfs:label "Water" ;
+    rdfs:comment "a colorless, transparent, odorless, tasteless liquid that forms the seas, lakes, rivers, and rain and is the basis of the fluids of living organisms."^^xsd:string .
+

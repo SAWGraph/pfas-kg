@@ -1,6 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
-@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 us_wqp_data:feature.Atmosphere a us_wqp:WQP-Location_Type ;

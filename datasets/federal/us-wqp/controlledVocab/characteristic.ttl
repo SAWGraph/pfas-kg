@@ -1,7 +1,7 @@
-@prefix coso: <http://sawgraph.spatialai.org/v1/contaminoso#> .
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
-@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 us_wqp_data:wqp.substance.16303 a us_wqp:Characteristic ;
@@ -15,6 +15,24 @@ us_wqp_data:wqp.substance.16351 a us_wqp:Characteristic ;
     coso:casNumber "79780-39-5"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
     us_wqp:srsID "1845687"^^xsd:int .
+
+us_wqp_data:wqp.substance.16586 a us_wqp:Characteristic ;
+    rdfs:label "Perfluorobutylsulfonamide" ;
+    coso:casNumber "30334-69-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845666"^^xsd:int .
+
+us_wqp_data:wqp.substance.17614 a us_wqp:Characteristic ;
+    rdfs:label "10:2 Fluorotelomer sulfonic acid" ;
+    coso:casNumber "120226-60-0"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1843198"^^xsd:int .
+
+us_wqp_data:wqp.substance.17683 a us_wqp:Characteristic ;
+    rdfs:label "Potassium 11-chloroeicosafluoro-3-oxaundecane-1-sulfonate" ;
+    coso:casNumber "83329-89-9"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845866"^^xsd:int .
 
 us_wqp_data:wqp.substance.18191 a us_wqp:Characteristic ;
     rdfs:label "Potassium 9-chlorohexadecafluoro-3-oxanonane-1-sulfonate" ;
@@ -63,6 +81,12 @@ us_wqp_data:wqp.substance.19176 a us_wqp:Characteristic ;
     coso:casNumber "51502-45-5"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
     us_wqp:srsID "1845303"^^xsd:int .
+
+us_wqp_data:wqp.substance.19594 a us_wqp:Characteristic ;
+    rdfs:label "1-Propanesulfonic acid, 1,1,2,2,3,3,3-heptafluoro-" ;
+    coso:casNumber "423-41-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1833942"^^xsd:int .
 
 us_wqp_data:wqp.substance.19684 a us_wqp:Characteristic ;
     rdfs:label "11-Chloro-Perfluoroundecanoic acid" ;
@@ -204,9 +228,28 @@ us_wqp_data:wqp.substance.8097 a us_wqp:Characteristic ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
     us_wqp:srsID "1845749"^^xsd:int .
 
+us_wqp_data:wqp.substance.8168 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2-13C2]hexanoic acid" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992686"^^xsd:int .
+
+us_wqp_data:wqp.substance.8169 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2-13C2]tetradecanoic acid" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992687"^^xsd:int .
+
+us_wqp_data:wqp.substance.8170 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2-13C2]undecanoic acid" ;
+    coso:casNumber "960315-51-9"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string .
+
+us_wqp_data:wqp.substance.8173 a us_wqp:Characteristic ;
+    rdfs:label "Sodium perfluoro-1-hexane[18O2]sulfonate" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992777"^^xsd:int .
+
 us_wqp_data:wqp.substance.9235 a us_wqp:Characteristic ;
     rdfs:label "N-Methylperfluorooctanesulfonamidoacetate" ;
-    coso:casNumber "2355-31-9"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string .
 
 us_wqp_data:wqp.substance.9364 a us_wqp:Characteristic ;
@@ -217,6 +260,5 @@ us_wqp_data:wqp.substance.9364 a us_wqp:Characteristic ;
 
 us_wqp_data:wqp.substance.9450 a us_wqp:Characteristic ;
     rdfs:label "N-Ethylperfluorooctanesulfonamidoacetate" ;
-    coso:casNumber "2991-50-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string .
 
