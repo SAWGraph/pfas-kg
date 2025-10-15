@@ -2,6 +2,7 @@
 # What wells are near (in same or a neighboring level 13 s2 cell as) a particular facility?
 # this query is currently working only for Maine because it uses the me_mgs namespace
 
+### GraphDB Version ###
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
 PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
@@ -10,17 +11,16 @@ PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
 PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#> 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
-PREFIX us_frs_data: <http://sawgraph.spatialai.org/v1/us-frs-data#>
+PREFIX epa_frs: <http://w3id.org/fio/v1/epa-frs#>
+PREFIX epa_frs_data: <http://w3id.org/fio/v1/epa-frs-data#>
 
-select ?s2neighbor ?s ?use ?wellType where {
-
+SELECT ?s2neighbor ?s ?use ?wellType WHERE {
     SERVICE <repository:FIO> 
     {
-		#us_frs_data:d.FRS-Facility.110013917280 rdfs:label ?facilityName .
+		#epa_frs_data:d.FRS-Facility.110013917280 rdfs:label ?facilityName .
         #fio:ofIndustry ?facilityIndustry;
-        #?s2 spatial:connectedTo us_frs_data:d.FRS-Facility.1100139172802.
-        ?s2 kwg-ont:sfContains us_frs_data:d.FRS-Facility.110013917280.
+        #?s2 spatial:connectedTo epa_frs_data:d.FRS-Facility.1100139172802.
+        ?s2 kwg-ont:sfContains epa_frs_data:d.FRS-Facility.110013917280.
 		?s2 rdf:type kwg-ont:S2Cell_Level13.
     }
     SERVICE <repository:Spatial>
@@ -43,6 +43,39 @@ select ?s2neighbor ?s ?use ?wellType where {
         #?s me_egad:samplePointType ?type. 
         #?type rdfs:label ?typelabel.
     }
-    
-} 
-limit 100
+} LIMIT 100
+
+
+### FRINK Version ###
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
+PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX coso: <http://sawgraph.spatialai.org/v1/contaminoso#>
+PREFIX fio: <http://sawgraph.spatialai.org/v1/fio#>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX epa_frs: <http://w3id.org/fio/v1/epa-frs#>
+PREFIX epa_frs_data: <http://w3id.org/fio/v1/epa-frs-data#>
+
+select ?s2neighbor ?s ?use ?wellType where {
+  #us_frs_data:d.FRS-Facility.110013917280 rdfs:label ?facilityName .
+  #fio:ofIndustry ?facilityIndustry;
+  #?s2 spatial:connectedTo us_frs_data:d.FRS-Facility.1100139172802.
+  ?s2 kwg-ont:sfContains epa_frs_data:d.FRS-Facility.110013917280.
+  ?s2 rdf:type kwg-ont:S2Cell_Level13.
+#  ?s2 kwg-ont:cellID ?s2ID.   # kwg-ont:cellID property not present in FRINK as of 10/15/25, not sure why
+  ?s2 spatial:connectedTo ?s2neighbor.
+  ?s2neighbor rdf:type kwg-ont:S2Cell_Level13.
+  #?s2neighbor kwg-ont:sfTouches ?s2NN.
+  #?s2NN kwg-ont:sfTouches ?s2NNN.
+  #?s2NNN kwg-ont:sfTouches ?s2NNNN.
+  ?s spatial:connectedTo ?s2neighbor.
+  ?s a me_mgs:MGS-Well .
+  ?s me_mgs:hasUse ?use.
+  ?s me_mgs:ofWellType ?wellType.
+  #?s a coso:SamplePoint.
+  #?s a me_egad:EGAD-SamplePoint.
+  #?s me_egad:samplePointType ?type. 
+  #?type rdfs:label ?typelabel.
+} LIMIT 100
