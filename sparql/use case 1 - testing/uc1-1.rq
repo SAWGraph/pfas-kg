@@ -3,6 +3,7 @@
 # What wells are near (in same s2 cell as) sources (facilities of concern)?
 # This query is currently limited to Maine because it uses the me_mgs namespace
 
+### GraphDB Version ###
 PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -10,24 +11,37 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
 
 SELECT ?well ?wellUse ?wellType ?facilityName ?facility WHERE {
-    SERVICE <repository:FIO> 
-    {
+    SERVICE <repository:FIO> {
         ?facility rdf:type us_frs:EPA-PFAS-Facility ;
         		  rdfs:label ?facilityName .
         ?s2 kwg-ont:sfContains ?facility .
-    }   
-
-    SERVICE <repository:Spatial>
-    {
-        ?s2 kwg-ont:cellID ?s2ID .
     }
-    
-    SERVICE <repository:Hydrology>
-    {
+    SERVICE <repository:Spatial> {
+        ?s2 rdf:type kwg-ont:S2Cell_Level13 .
+    }
+    SERVICE <repository:Hydrology> {
         ?well a me_mgs:MGS-Well ;
               me_mgs:hasUse ?wellUse ;
               me_mgs:ofWellType ?wellType ;
               kwg-ont:sfWithin ?s2 .
     }
-    
+} ORDER BY ?facilityName ?wellUse
+
+
+### FRINK Version ###
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX epa_frs: <http://w3id.org/fio/v1/epa-frs#>
+
+SELECT ?well ?wellUse ?wellType ?facilityName ?facility WHERE {
+  ?facility rdf:type epa_frs:EPA-PFAS-Facility ;
+            rdfs:label ?facilityName .
+  ?s2 kwg-ont:sfContains ?facility .
+  ?s2 a kwg-ont:S2Cell_Level13 .
+  ?well a me_mgs:MGS-Well ;
+      me_mgs:hasUse ?wellUse ;
+      me_mgs:ofWellType ?wellType ;
+      kwg-ont:sfWithin ?s2 .
 } ORDER BY ?facilityName ?wellUse
