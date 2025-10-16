@@ -3,6 +3,7 @@
 # What wells are hydrologically connected to PFOA contaminated private water supply wells where results have been above 200 ng/L?
 # Run this from the PFAS repository
 
+### GraphDB Version ###
 PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
 PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
 PREFIX gwml: <http://www.opengis.net/gwml-main/2.2/>
@@ -58,4 +59,50 @@ SELECT DISTINCT ?well (MAX (?num_val) AS ?max_value) WHERE {
     }
     
     # Find all wells that access the aquifers
+} GROUP BY ?well ORDER BY DESC(?max_value)
+
+
+### FRINK Version ###
+PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
+PREFIX gwml: <http://www.opengis.net/gwml-main/2.2/>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX me_egad: <http://sawgraph.spatialai.org/v1/me-egad#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX unit: <http://qudt.org/vocab/unit/>
+PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#>
+PREFIX gwml2: <http://gwml2.org/def/gwml2#>
+PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
+
+SELECT DISTINCT ?well (MAX (?num_val) AS ?max_value) WHERE { 
+  # Find EGAD sample points and restrict them to private water supply wells
+  ?samp_pt rdf:type me_egad:EGAD-SamplePoint ;
+           me_egad:samplePointType me_egad:featureType.PWSW .
+  #?sp_type rdfs:label 'PRIVATE WATER SUPPLY WELL' .
+  # Find PFOA observations and results for each EGAD sample point
+  ?obs coso:observedAtSamplePoint ?samp_pt ;
+       coso:ofSubstance me_egad:parameter.PFOA_A ;
+       sosa:hasResult ?result .
+  # Find PFOA levels for each result, limiting them to units of ng/L.
+  ?result qudt:quantityValue ?quant_val .
+  ?quant_val qudt:numericValue ?num_val ;
+             qudt:hasUnit unit:NanoGM-PER-L .
+  # Keep only results over 200 ng/L PFOA
+  FILTER(?num_val > 200)
+  # Find the S2 cell each private water supply well is within
+  ?samp_pt kwg-ont:sfWithin ?sp_s2 .
+  ?sp_s2 rdf:type kwg-ont:S2Cell_Level13 .
+  # Restrict them to Penobscot County, Maine
+  ?sp_s2 spatial:connectedTo kwgr:administrativeRegion.USA.23025.
+  # Find all wells that access the aquifers
+  ?sp_s2 spatial:connectedTo ?aq .
+  ?aq rdf:type gwml2:GW_Aquifer .
+  ?aq_s2 spatial:connectedTo ?aq .
+  ?aq_s2 rdf:type kwg-ont:S2Cell_Level13 .
+  ?well rdf:type me_mgs:MGS-Well .
+  ?well kwg-ont:sfWithin ?aq_s2 .
+  # Find all wells that access the aquifers
 } GROUP BY ?well ORDER BY DESC(?max_value)
