@@ -3,6 +3,7 @@
 # What surface water bodies are near (same or neighboring S2 cell) landfills or DoD sites in Maine?
 # Run this from the FIO repository
 
+### GraphDB Version ###
 PREFIX fio: <http://w3id.org/fio/v1/fio#>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX hyf: <https://www.opengis.net/def/schema/hy_features/hyf/>
@@ -39,4 +40,34 @@ SELECT * WHERE {
             OPTIONAL { ?wb schema:name ?wblabel . }
         }
     }
+}
+
+
+### FRINK Version ###
+PREFIX fio: <http://w3id.org/fio/v1/fio#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX hyf: <https://www.opengis.net/def/schema/hy_features/hyf/>
+PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
+PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
+PREFIX naics: <http://w3id.org/fio/v1/naics#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#>
+
+SELECT * WHERE {
+  ?fac rdf:type fio:Facility ;
+       fio:ofIndustry ?code ;
+       kwg-ont:sfWithin ?fac_s2 .
+  ?fac_s2 rdf:type kwg-ont:S2Cell_Level13 .
+  OPTIONAL { ?fac rdfs:label ?faclabel . }
+  OPTIONAL { ?code rdfs:label ?ind . }
+  VALUES ?code { naics:NAICS-562212 naics:NAICS-92811 naics:NAICS-928110 }
+  ?nbr_s2 kwg-ont:sfTouches | owl:sameAs ?fac_s2 ;
+          rdf:type kwg-ont:S2Cell_Level13 ;
+          spatial:connectedTo kwgr:administrativeRegion.USA.23 .
+  ?wb rdf:type hyf:HY_WaterBody ;
+      spatial:connectedTo ?nbr_s2 .
+  OPTIONAL { ?wb schema:name ?wblabel . }
 }
