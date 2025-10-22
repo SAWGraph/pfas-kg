@@ -8,72 +8,108 @@
 @prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:d.wqp.observation.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:WQP-PFAS-Observation ;
-    coso:analyzedSample us_wqp_data:d.wqp.sample.8cf56be2-9074-4e3a-a97f-1c7ec5f27daa ;
-    coso:hasResult us_wqp_data:d.wqp.measurement.0899d975-3648-4be3-a1c6-db36b1595abd ;
-    coso:observedProperty coso:SingleContaminantConcentrationQuantity ;
-    coso:ofSubstance us_wqp_data:d.wqp.substance.8004 ;
-    coso:usedAnalysisMethod us_wqp_data:d.wqp.analyticalMethod.LM102 ;
-    prov:wasAttributedTo us_wqp_data:d.wqp.lab.SGSEnvHealthSafetyAccutestLaboratoryOrlandoFL ;
-    sosa:resultTime "2019-09-21"^^xsd:date .
+us_wqp_data:d.wqp.observation.STORET-301344919 a us_wqp:WQP-PFAS-Observation ;
+    rdfs:label "WQP PFAS Perfluorobutanoate Observation STORET-301344919 for sample MEDEP_WQX-CBEEEEREP1N31-10-07WH"^^xsd:string ;
+    coso:analyzedSample us_wqp_data:d.wqp.sample.MEDEP_WQX-CBEEEEREP1N31-10-07WH ;
+    coso:hasFeatureOfInterest us_wqp_data:d.wqp.sampledFeature.MEDEP_WQX-76140 ;
+    coso:hasResult us_wqp_data:d.wqp.measurement.STORET-301344919 ;
+    coso:observedAtSamplePoint <https://geoconnex.us/iow/wqp/MEDEP_WQX-76140> ;
+    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
+    coso:observedTime "2007-10-31T00:00:00"^^xsd:dateTime ;
+    coso:ofDatasetSubstance us_wqp_data:wqp.substance.3292 ;
+    prov:wasAttributedTo us_wqp_data:d.wqp.lab.AXYSANALYTICALSERVICES ;
+    sosa:resultTime "2008-02-03"^^xsd:date .
 
-us_wqp_data:d.wqp.sample.8cf56be2-9074-4e3a-a97f-1c7ec5f27daa a us_wqp:WQP-Sample ;
-    rdfs:label "WQP PFAS Sample 8cf56be2-9074-4e3a-a97f-1c7ec5f27daa collected at site USGS-435010070142701 on 2019-09-10" ;
-    us_wqp:hasProjectId us_wqp_data:d.wqp.project.NAWQANationalWaterQualityAssessment32GUMGW00 ;
-    us_wqp:sampleCollectionMethod us_wqp_data:d.wqp.sampleCollectionMethod.4040 ;
-    us_wqp:sampleID "8cf56be2-9074-4e3a-a97f-1c7ec5f27daa"^^xsd:string ;
-    coso:fromSamplePoint <http://geoconnex.us/wqp/USGS/USGS/USGS-435010070142701> ;
-    coso:sampleOfMaterialType us_wqp_data:d.wqp.sampleMedia.water .
+us_wqp_data:d.wqp.observation.STORET-866773925 a us_wqp:WQP-PFAS-Observation ;
+    rdfs:label "WQP PFAS Perfluorononanoic acid Observation STORET-866773925 for sample 11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR"^^xsd:string ;
+    coso:analyzedSample us_wqp_data:d.wqp.sample.11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR ;
+    coso:hasFeatureOfInterest us_wqp_data:d.wqp.sampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 ;
+    coso:hasResult us_wqp_data:d.wqp.measurement.STORET-866773925 ;
+    coso:observedAtSamplePoint <https://geoconnex.us/iow/wqp/11NPSWRD_WQX-BUFF_3P_BUFT05> ;
+    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
+    coso:observedTime "2017-09-18T00:00:00"^^xsd:dateTime ;
+    coso:ofDatasetSubstance us_wqp_data:wqp.substance.64478 ;
+    prov:wasAttributedTo us_wqp_data:d.wqp.lab.USEnvironmentalProtectionAgencyRegion8LaboratoryCO ;
+    sosa:resultTime "2017-09-22"^^xsd:date .
 
-<http://geoconnex.us/wqp/USGS/USGS/USGS-435010070142701> a us_wqp:Site ;
-    rdfs:label "ME-CW  2025(USGS-435010070142701) site data in the Water Quality Portal"^^xsd:string ;
-    us_wqp:siteId "USGS-435010070142701"^^xsd:string ;
-    us_wqp:siteName "ME-CW  2025"^^xsd:string ;
-    coso:pointFromFeature us_wqp_data:d.wqp.SampledFeature.USGS.USGS.USGS-435010070142701 ;
-    geo:hasGeometry <http://sawgraph.spatialai.org/v1/us-wqp-data#d.wqp.SiteGeometry.USGS/USGS/USGS-435010070142701> ;
-    prov:wasAttributedTo us_wqp_data:d.wqp.Organization.USGS .
+us_wqp_data:d.wqp.sample.MEDEP_WQX-CBEEEEREP1N31-10-07WH a us_wqp:WQP-Sample ;
+    rdfs:label "WQP PFAS Sample MEDEP_WQX-CBEEEEREP1N31-10-07WH collected at site MEDEP_WQX-76140 on 2007-10-31" ;
+    coso:fromSamplePoint <https://geoconnex.us/iow/wqp/MEDEP_WQX-76140> ;
+    coso:sampleOfMaterialType us_wqp_data:d.wqp.biologicalTaxon.23065,
+        us_wqp_data:d.wqp.sampleMedia.tissue ;
+    us_wqp:hasProjectId us_wqp_data:d.wqp.project.76080 ;
+    us_wqp:sampleCollectionMethod us_wqp_data:d.wqp.sampleCollectionMethod.CS ;
+    us_wqp:sampleID "MEDEP_WQX-CBEEEEREP1N31-10-07WH"^^xsd:string .
 
-us_wqp_data:d.wqp.SampledFeature.USGS.USGS.USGS-435010070142701 a us_wqp:WQP-SampledFeature ;
-    us_wqp:locationType us_wqp_data:feature.Well ;
-    kwg-ont:sfWithin <http://geoconnex.us/hu12/010600010206> .
+us_wqp_data:d.wqp.sample.11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR a us_wqp:WQP-Sample ;
+    rdfs:label "WQP PFAS Sample 11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR collected at site 11NPSWRD_WQX-BUFF_3P_BUFT05 on 2017-09-18" ;
+    coso:fromSamplePoint <https://geoconnex.us/iow/wqp/11NPSWRD_WQX-BUFF_3P_BUFT05> ;
+    coso:sampleOfMaterialType us_wqp_data:d.wqp.sampleMedia.water ;
+    us_wqp:hasProjectId us_wqp_data:d.wqp.project.NPS3P ;
+    us_wqp:sampleCollectionMethod us_wqp_data:d.wqp.sampleCollectionMethod.NPS_3P_WSAMPLE ;
+    us_wqp:sampleID "11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR"^^xsd:string .
 
-us_wqp_data:d.wqp.measurement.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:WQP-Single-PFAS-Concentration ;
-    qudt:quantityValue us_wqp_data:d.wqp.quantityValue.0899d975-3648-4be3-a1c6-db36b1595abd ;
-    coso:hasResultQualifier us_wqp_data:d.wqp.CensoringLevel.0899d975-3648-4be3-a1c6-db36b1595abd,
-        us_wqp_data:d.wqp.LaboratoryReportingLevel.0899d975-3648-4be3-a1c6-db36b1595abd .
+<https://geoconnex.us/iow/wqp/MEDEP_WQX-76140> a us_wqp:Site ;
+    rdfs:label "REP 1(MEDEP_WQX-76140) site data in the Water Quality Portal"^^xsd:string ;
+    coso:pointFromFeature us_wqp_data:d.wqp.SampledFeature.MEDEP_WQX-76140 ;
+    us_wqp:siteId "MEDEP_WQX-76140"^^xsd:string ;
+    us_wqp:siteName "REP 1"^^xsd:string ;
+    geo:hasGeometry us_wqp_data:d.wqp.SiteGeometry.iow.wqp.MEDEP_WQX-76140 ;
+    prov:wasAttributedTo us_wqp_data:d.wqp.Organization.MEDEP_WQX 
 
-us_wqp_data:d.wqp.quantityValue.0899d975-3648-4be3-a1c6-db36b1595abd a coso:NonDetectQuantityValue ;
-    qudt:enumeratedValue "non-detect"^^xsd:string .
+<https://geoconnex.us/iow/wqp/11NPSWRD_WQX-BUFF_3P_BUFT05> a us_wqp:Site ;
+    rdfs:label "Little Buffalo River Above Confluence with Buffalo River(11NPSWRD_WQX-BUFF_3P_BUFT05) site data in the Water Quality Portal"^^xsd:string ;
+    coso:pointFromFeature us_wqp_data:d.wqp.SampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 ;
+    us_wqp:siteId "11NPSWRD_WQX-BUFF_3P_BUFT05"^^xsd:string ;
+    us_wqp:siteName "Little Buffalo River Above Confluence with Buffalo River"^^xsd:string ;
+    geo:hasGeometry us_wqp_data:d.wqp.SiteGeometry.iow.wqp.11NPSWRD_WQX-BUFF_3P_BUFT05 ;
+    prov:wasAttributedTo us_wqp_data:d.wqp.Organization.11NPSWRD_WQX .
 
-us_wqp_data:d.wqp.CensoringLevel.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:CensoringLevel ;
-    qudt:quantityValue "7.4"^^xsd:float ;
-    qudt:unit unit:NanoGM-PER-L .
+us_wqp_data:d.wqp.SampledFeature.MEDEP_WQX-76140 a us_wqp:WQP-SampledFeature ;
+    rdfs:label "Ocean: from STORET MEDEP_WQX REP 1"^^xsd:string ;
+    us_wqp:locationType us_wqp_data:featureType.Ocean .
 
-us_wqp_data:d.wqp.LaboratoryReportingLevel.0899d975-3648-4be3-a1c6-db36b1595abd a us_wqp:LaboratoryReportingLevel ;
-    qudt:quantityValue "7.4"^^xsd:float ;
-    qudt:unit unit:NanoGM-PER-L .
+us_wqp_data:d.wqp.SampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 a us_wqp:WQP-SampledFeature ;
+    rdfs:label "River/Stream: from STORET 11NPSWRD_WQX Little Buffalo River Above Confluence with Buffalo River"^^xsd:string ;
+    us_wqp:locationType us_wqp_data:featureType.RiverStream .
 
-us_wqp_data:d.wqp.analyticalMethod.LM102 a us_wqp:AnalyticalMethod ;
-    rdfs:label "PFAS SPE/LC/MS/MS SGS FL EPA537M" ;
-    rdfs:comment "DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537" .
+us_wqp_data:d.wqp.measurement.STORET-301344919 a us_wqp:WQP-Single-PFAS-Concentration ;
+    qudt:quantityValue us_wqp_data:d.wqp.quantityValue.STORET-301344919 ;
+    coso:hasResultQualifier us_wqp_data:d.wqp.LowerQuantitationLimit.STORET-301344919 .
 
-us_wqp_data:wqp.substance.8004 a us_wqp:Characteristic ;
-    rdfs:label "Fluorotelomer sulfonate 4:2" ;
+us_wqp_data:d.wqp.measurement.STORET-866773925 a us_wqp:WQP-Single-PFAS-Concentration ;
+    qudt:quantityValue us_wqp_data:d.wqp.quantityValue.STORET-866773925 ;
+    coso:hasResultQualifier us_wqp_data:d.wqp.MethodDetectionLevel.STORET-866773925 .
+
+us_wqp_data:d.wqp.quantityValue.STORET-301344919 a coso:NonDetectQuantityValue ;
+    qudt:enumeratedValue "non-detect"^^xsd:string ;
+    qudt:hasUnit coso:NanoGM-PER-GM .
+
+us_wqp_data:d.wqp.quantityValue.STORET-866773925 a coso:NonDetectQuantityValue ;
+    qudt:enumeratedValue "non-detect"^^xsd:string ;
+    qudt:hasUnit unit:NanoGM-PER-L .
+
+us_wqp_data:d.wqp.LowerQuantitationLimit.STORET-301344919 a us_wqp:LowerQuantitationLimit ;
+    qudt:hasUnit coso:NanoGM-PER-GM ;
+    qudt:numericValue "17.7"^^xsd:float .
+
+us_wqp_data:d.wqp.MethodDetectionLevel.STORET-866773925 a us_wqp:MethodDetectionLevel ;
+    qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue "10.0"^^xsd:float .
+
+us_wqp_data:wqp.substance.3292 a us_wqp:Characteristic ;
+    rdfs:label "Perfluorobutanoate" ;
+    comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID80892480 ;
+    coso:casNumber "45048-62-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1826301"^^xsd:int ;
-    coso:casNumber "757124-72-4"^^xsd:string .
+    us_wqp:srsID "1845663"^^xsd:int .
 
-us_wqp_data:d.wqp.sampleCollectionMethod.4040
+us_wqp_data:wqp.substance.64478 a us_wqp:Characteristic ;
+    rdfs:label "2H-Perfluorononanoic acid" ;
+    comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID001035129 ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992041"^^xsd:int .
 
-us_wqp_data:d.wqp.lab.SGSEnvHealthSafetyAccutestLaboratoryOrlandoFL rdfs:label "SGS Env Health & Safety, Accutest Laboratory, Orlando, FL"^^xsd:string .
+us_wqp_data:d.wqp.lab.AXYSANALYTICALSERVICES rdfs:label "AXYS ANALYTICAL SERVICES"^^xsd:string .
 
-us_wqp_data:d.wqp.organizaton.USGS a us_wqp:State_USGovernment_Organization,
-        prov:Organization ;
-    rdfs:label "US Geological Survey-WRD, Mo." ;
-    us_wqp:organizationDescription "Missouri Department of Natural Resources"^^xsd:anyURI ;
-    us_wqp:organizationId "USGS"^^xsd:string .
-
-us_wqp_data:d.wqp.sampleMedia.water a us_wqp:SampleMedia ;
-    rdfs:label "Water" ;
-    rdfs:comment "a colorless, transparent, odorless, tasteless liquid that forms the seas, lakes, rivers, and rain and is the basis of the fluids of living organisms."^^xsd:string .
-
+us_wqp_data:d.wqp.lab.USEnvironmentalProtectionAgencyRegion8LaboratoryCO rdfs:label "U.S. Environmental Protection Agency Region 8 Laboratory, CO"^^xsd:string .

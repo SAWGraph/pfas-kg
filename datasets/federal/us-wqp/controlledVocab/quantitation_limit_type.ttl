@@ -19,6 +19,10 @@ us_wqp:LowerQuantitationLimit rdfs:label "Lower Quantitation Limit"^^xsd:string 
     rdfs:comment "Lower Limit of Quantitation(LLQ) Generally the same as EQL. "^^xsd:string ;
     rdfs:subClassOf coso:ResultQualifier .
 
+us_wqp:LowerReportingLimit rdfs:label "Lower Reporting Limit"^^xsd:string ;
+    rdfs:comment "Lower Reporting Limit"^^xsd:string ;
+    rdfs:subClassOf coso:ResultQualifier .
+
 us_wqp:MethodDetectionLevel rdfs:label "Method Detection Level"^^xsd:string ;
     rdfs:comment "Synonymous with Method Detection Limit (MDL), is the minimum concentration of a substance that can be measured and reported with a 99% confidence that the analyte concentration is greater than zero."^^xsd:string ;
     rdfs:subClassOf coso:ResultQualifier .

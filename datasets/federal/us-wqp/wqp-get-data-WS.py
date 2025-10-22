@@ -19,6 +19,7 @@ def write_json(filename, data):
 def write_csv(filename, csv):
     root_dir = Path(__file__).resolve().parent.parent.parent
     output = root_dir / "data" / "water-quality-data-portal" / filename
+    print(len(csv.decode()))
     with open(output, 'w') as outfile:
         outfile.write(csv.decode())
 
@@ -33,29 +34,31 @@ def get_pfas_station(statecode):
     types = ["Organics, PFAS","PFAS,Perfluorinated Alkyl Substance","PFOA, Perfluorooctanoic Acid","PFOS, Perfluorooctane Sulfonate"]
     type = ""
     for characteristicType in types:
-        type+=parse.quote_plus(characteristicType)
-        type+=";"
+        type+=f"&characteristicType={parse.quote_plus(characteristicType)}"
+        #type+=";"
     print(type)
     old_url =f'https://www.waterqualitydata.us/beta/data/Station/search?countrycode=US&statecode=US%3A{statecode}&characteristicType={type}&mimeType=geojson' 
-    url=f'https://www.waterqualitydata.us/wqx3/Station/search?countrycode=US&statecode=US%3A{statecode}&&characteristicType={type}&mimeType=csv'
+    url=f'https://www.waterqualitydata.us/wqx3/Station/search?countrycode=US&statecode=US%3A{statecode}{type}&mimeType=csv'
+    #https://www.waterqualitydata.us/wqx3/Station/search?countrycode=US&statecode=US%3A33&within=&lat=&long=&providers=NWIS&providers=STORET&startDateLo=&startDateHi=&characteristicType=Organics%2C+PFAS&characteristicType=PFAS%2CPerfluorinated+Alkyl+Substance&characteristicType=PFOA%2C+Perfluorooctanoic+Acid&characteristicType=PFOS%2C+Perfluorooctane+Sulfonate&dataProfileRadioButton=Station&mimeType=csv&sorted=no
+    #https://www.waterqualitydata.us/wqx3/Activity/search?countrycode=US&statecode=US%3A33&within=&lat=&long=&providers=NWIS&providers=STORET&startDateLo=&startDateHi=&characteristicType=Organics%2C+PFAS&characteristicType=PFAS%2CPerfluorinated+Alkyl+Substance&characteristicType=PFOA%2C+Perfluorooctanoic+Acid&characteristicType=PFOS%2C+Perfluorooctane+Sulfonate&dataProfileRadioButton=Activity&mimeType=csv&sorted=no
     print(url)
-    resp = urllib3.request("GET", url, timeout=60.0)
+    resp = urllib3.request("GET", url, timeout=300.0)
     stations = resp.data
     return stations
 
 def get_result(statecode):
     """"""
-    types = ["PFAS,Perfluorinated Alkyl Substance","PFOA, Perfluorooctanoic Acid","PFOS, Perfluorooctane Sulfonate", "Stable Isotopes"] #,"PFOA, Perfluorooctanoic Acid","PFOS, Perfluorooctane Sulfonate", Stable Isotopes,
+    types = ["PFAS,Perfluorinated Alkyl Substance","PFOA, Perfluorooctanoic Acid","PFOS, Perfluorooctane Sulfonate", "Stable Isotopes"] #Stable Isotopes,
     type = ""
     for characteristic in types:
-        type+=parse.quote_plus(characteristic)
-        type+=";"
+        type+=f"&characteristicType={parse.quote_plus(characteristic)}"
+        #type+=";"
     #old_url = f'https://www.waterqualitydata.us/data/Result/search?countrycode=US&statecode=US%3A{statecode}&characteristicType={type}'
-    url = f'https://www.waterqualitydata.us/wqx3/Result/search?statecode=US%3A{statecode}&characteristicType={type}&dataProfile=fullPhysChem&mimeType=csv'
+    url = f'https://www.waterqualitydata.us/wqx3/Result/search?statecode=US%3A{statecode}{type}&dataProfile=fullPhysChem&mimeType=csv'
     print(url, len(url))
     if len(url) > 2048:
         raise Warning('The request may be too long to process')
-    resp = urllib3.request("GET", url, timeout=60)
+    resp = urllib3.request("GET", url, timeout=300.0)
     results = resp.data #this returns a csv
     
     return results

@@ -39,11 +39,10 @@ output_dir = root_folder / "federal/us-wqp/triples/"
 prefixes = {}
 prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
 prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
-prefixes['geoconnex'] = Namespace(f'http://geoconnex.us/')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
-prefixes['gcx']= Namespace(f'http://geoconnex.us/')
+prefixes['gcx']= Namespace(f'https://geoconnex.us/')
 prefixes["unit"] = Namespace("http://qudt.org/vocab/unit/")
 prefixes['prov'] =  Namespace("http://www.w3.org/ns/prov#")
 prefixes['sosa'] = Namespace("http://www.w3.org/ns/sosa/")
@@ -55,11 +54,13 @@ logging.basicConfig(filename=logname,
                     datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
-logging.info(f"Running triplification for WQP stations {state}")
+logging.info(f"Running triplification for WQP observations {state}")
 
 def main():
     df = load_data()
     print(df.info(show_counts=True))
+    #print('Characteristics:', df['Result_Characteristic'].unique())
+    print('Media:', df.Activity_Media.unique())
     global cv
     cv = get_controlledvocabs()
     kg = triplify(df)
@@ -68,6 +69,8 @@ def main():
 def load_data():
     df = pd.read_csv(data_dir / f'{state}-pfas-results.csv')
     df = df.dropna(axis='columns', how='all') #drop columns that are all NA
+    #drop rows that are stable isotope measurements that are not PFAS related
+    df= df[df['Result_CharacteristicGroup'].isin(['PFAS,Perfluorinated Alkyl Substance', 'PFOA, Perfluorooctanoic Acid','PFOS, Perfluorooctane Sulfonate', "Organics, PFAS"]) | df['Result_Characteristic'].isin([ ['13C3-PFBS', '13C2-4:2 FTS', '13C3-PFPeA', '13C3-PFBA', '13C3-HFPO-DA', '13C4-PFBA', '13C5-PFHxA', '13C5-PFPeA', '13C6-PFDA', '13C7-PFUnA', '13C8-PFOA', '13C9-PFNA', 'D3-N-MeFOSA', 'D5-N-EtFOSA', 'd7-NMe-FOSE', 'd9-NEt-FOSE', '13C2-PFTeDA', '13C2-PFDoA', '13C2-PFUnA', 'd5-EtFOSAA', 'd3-MeFOSAA',  '13C2-8:2 FTS', '13C2-PFDA', '13C8-PFOS', '13C8-PFOSA', '13C5-PFNA', '13C2-PFOA', '13C2-6:2 FTS', '13C3-PFHxS', '13C4-PFHpA', '13C2-PFHxA', 'CFC-12']])]
     return df
 
 def Initial_KG():
@@ -75,6 +78,9 @@ def Initial_KG():
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
+        
+    #for ns in kg.namespaces():
+    #    print(ns)    
     return kg
 
 def camel_case(s):
@@ -89,7 +95,7 @@ def get_controlledvocabs():
 
     for filename in metadata_files:
         #print(filename)
-        data_df = pd.read_csv(metadata_dir / f"{filename}.csv", header=0, encoding='ISO-8859-1', index_col='Name') #index by the name
+        data_df = pd.read_csv(metadata_dir / f"{filename}.csv", header=0, encoding='ISO-8859-1', index_col='Name', low_memory=False) #index by the name
         data_df = data_df.rename(columns={'Unique Identifier':'id'})
         data_df = data_df[~data_df.index.duplicated(keep='first')] # Keep first occurrence of name if they are not unique 
         metadata_dict = data_df.to_dict(orient='index')
@@ -102,24 +108,25 @@ def get_attributes(row):
     #row.dropna()
     #sample -  mostly info from WQX Activity
     sample = {
-        'id':re.sub('[^A-Za-z0-9_\-]+', '', row['Activity_ActivityIdentifier'].replace(":", "-")), # sample ID (stripped to only numbers, letters dashes and underscores)
+        'id':re.sub('[^A-Za-z0-9_\-]+', '', str(row['Activity_ActivityIdentifier']).replace(":", "-")), # sample ID (stripped to only numbers, letters dashes and underscores)
         'activity_id': row['Activity_ActivityIdentifier'], 
-        'sample_date': datetime.strptime(row['Activity_StartDate'], '%Y-%m-%d'), #date
         'media': (''.join(e for e in str(row['Activity_Media']) if e.isalnum())).lower() , # sample media id (concatenated name)
         'project_id': ''.join(e for e in str(row['Project_Identifier']) if e.isalnum()), # annotation for sampling project (could be sampling collection)
-        'org_id': row['Org_Identifier'].replace(' ', ''), #organization that does sampling
+        'org_id': f"{row['Org_Identifier']}-{row['Location_StatePostalCode']}" if row['Org_Identifier'] =='USGS' else row['Org_Identifier'].replace(' ', ''), #organization that does sampling
         'org_name': row['Org_FormalName'], #organization name
-        'provider':row['ProviderName'],
+        'provider': 'NWIS' if row['ProviderName']=='USGS' else row['ProviderName'], #data provider
         
     }
     if 'org_conducting' in row.keys() and pd.notnull(row['org_conduting']):
         sample['org_conducting'] = row['Activity_ConductingOrganization'], #team/ program conducting activity
     
-    sample['sample_date_formatted'] = sample['sample_date'].strftime("%Y%m%d") #integer only date
+    if pd.notnull(row['Activity_StartDate']) and row['Activity_StartDate'] != 'nan':
+        sample['sample_date']= datetime.strptime(str(row['Activity_StartDate']), '%Y-%m-%d') #date
+        sample['sample_date_formatted'] = sample['sample_date'].strftime("%Y%m%d") #integer only date
     #if pd.notnull(row['Activity_ActivityIdentifierUserSupplied']):
     #    sample['sample_id_user'] = row['Activity_ActivityIdentifierUserSupplied'] #these are not currently helping alignment with state data, just another id for some federal data
     if pd.notnull(row['SampleCollectionMethod_Identifier']): 
-        sample['sample_method'] = row['SampleCollectionMethod_Identifier'] # sampling method
+        sample['sample_method'] = ''.join(str(row['SampleCollectionMethod_Identifier']).split()) # sampling method
     if pd.notnull(row['Project_Name']):
         sample['project_name'] = row['Project_Name'].replace('["',"").replace('"]', "")
     if pd.notnull(row['ResultBiological_Taxon']):
@@ -162,14 +169,14 @@ def get_attributes(row):
     result = {
         'id':row['Result_MeasureIdentifier'], #unique result id
         'type_annotation': row['Activity_TypeCode'], #Routine or QC sample 
-        'substance_id': [v['id'] for k,v in cv['Characteristic'].items() if row['Result_Characteristic'] in k][0], #chemical identifier from CV (based on start of name because of deprecated names)
-        
+        'substance_id': [v['id'] for k,v in cv['Characteristic'].items() if str(row['Result_Characteristic']) in k][0]  #chemical identifier from CV (based on start of name because of deprecated names)
+                
     }
     #replace retired characteristics with updated code
-    #if  '***retired***' in row['Result_Characteristic']:
-    #    characteristic = row['Result_Characteristic'].split("***retired***use ")[1] #take only the updated name
-    #    print(characteristic)
-    #    result['substance_id'] = [v['id'] for k,v in cv['Characteristic'].items() if characteristic in k][0]
+    if  '***retired***' in row['Result_Characteristic']:
+        result['characteristic'] = row['Result_Characteristic'].split("***retired***use ")[1] #take only the updated name
+    else:
+        result['characteristic']= row['Result_Characteristic']    
     if pd.notnull(row['Result_ResultDetectionCondition']) and row['Result_ResultDetectionCondition'] == 'Not Detected': #TODO there are additional values in CV that should be considered here
         result['non-detect'] = True
     if 'ResultAnalyticalMethod_Identifier' in row.keys() and pd.notnull(row['ResultAnalyticalMethod_Identifier']):
@@ -179,15 +186,20 @@ def get_attributes(row):
         result['lab_id'] = ''.join(e for e in str(row['LabInfo_Name']) if e.isalnum())
     if 'LabInfo_AnalysisStartDate' in row.keys() and pd.notnull(row['LabInfo_AnalysisStartDate']):
         result['analysis_date'] = pd.to_datetime(row['LabInfo_AnalysisStartDate']).date()
-    if pd.notnull(row['Result_Measure']):
-        result['measure'] = row['Result_Measure']
+    if pd.notnull(row['Result_Measure']) and row['Result_Measure'] != 'ND':
+        result['measure'] = row['Result_Measure'] 
     unit_lu = {
         'ng/g': 'NanoGM-PER-GM', #this equivalent to MicroGM-PER-KiloGM
         'ng/L': 'NanoGM-PER-L',
         'ng/mL': 'NanoGM-PER-MilliL',
         '%': 'PERCENT',
         'pg/L': 'PicoGM-PER-L',
-    }
+        'ug/L': 'MicroGM-PER-L',
+        '% recovery': 'PERCENT',
+        'mg/m3': 'MilliGM-PER-M3',
+        'ug/kg': 'MicroGM-PER-KiloGM',
+        '% by wt': 'PERCENT' 
+              }
     if pd.notnull(row['Result_MeasureUnit']):
         result['unit_label'] = row['Result_MeasureUnit']
         result['unit'] = unit_lu[row['Result_MeasureUnit']]     
@@ -210,7 +222,9 @@ def get_iris(sample, samplepoint, result):
     iris = {}
     #samples and features
     iris['sample'] = prefixes["us_wqp_data"][f"d.wqp.sample.{sample['id']}"]
-    iris['wqp_site'] = prefixes['gcx'][f"wqp/{sample['provider']}/{sample['org_id']}/{samplepoint['id']}"]
+    #iris['wqp_site'] = prefixes['gcx'][f"wqp/{sample['provider']}/{sample['org_id']}/{samplepoint['id']}"]
+    iris['wqp_site'] = prefixes['gcx'][f"iow/wqp/{samplepoint['id']}"]
+    iris['feature'] = prefixes['us_wqp_data'][f"d.wqp.sampledFeature.{samplepoint['id']}"]
     iris['SampleCollectionMethod'] = prefixes["us_wqp_data"][f"d.wqp.sampleCollectionMethod.{sample['sample_method']}"] if 'sample_method' in sample.keys() else ''
     iris['media'] = prefixes['us_wqp_data'][f"d.wqp.sampleMedia.{camel_case(sample['media'])}"] #could turn this into a subclass designation for tissue and water
     iris['organization'] = prefixes["us_wqp_data"][f"{'d.wqp.organizaton'}.{sample['org_id']}"]
@@ -222,11 +236,11 @@ def get_iris(sample, samplepoint, result):
 
     #observations and measurements
     iris['observation'] = prefixes['us_wqp_data'][f"d.wqp.observation.{result['id']}"]
-    iris['substance'] = prefixes['us_wqp_data'][f"d.wqp.substance.{result['substance_id']}"]
+    iris['substance'] = prefixes['us_wqp_data'][f"wqp.substance.{result['substance_id']}"]
     iris['analytical_method'] = prefixes['us_wqp_data'][f"d.wqp.analyticalMethod.{result['analytical_method']}"] if 'analytical_method' in result.keys() else ''
     iris['measurement'] = prefixes['us_wqp_data'][f"d.wqp.measurement.{result['id']}"]
     iris['quantityValue'] = prefixes['us_wqp_data'][f"d.wqp.quantityValue.{result['id']}"] #TODO is this necessary to tie with observation id? Especially for non-detects
-    iris['property'] = prefixes['coso']['SingleContaminantConcentrationQuantity']
+    iris['property'] = prefixes['coso']['SingleContaminantConcentrationQuantityKind']
     if 'lab_id' in result.keys():
         iris['lab'] = prefixes['us_wqp_data'][f"d.wqp.lab.{result['lab_id']}"]
     if 'unit' in result.keys():
@@ -266,8 +280,12 @@ def triplify(df):
 
         #triplify sample
         kg.add((iris['sample'], RDF.type, prefixes["us_wqp"]["WQP-Sample"]) )
-        kg.add(( iris['sample'], RDFS['label'], Literal('WQP PFAS Sample '+ str(sample['activity_id']) +' collected at site '+ str(samplepoint['id']) + ' on ' + sample['sample_date'].strftime("%Y-%m-%d"))) )
+        if 'sample_date' in sample.keys():
+            kg.add(( iris['sample'], RDFS['label'], Literal('WQP PFAS Sample '+ str(sample['activity_id']) +' collected at site '+ str(samplepoint['id']) + ' on ' + sample['sample_date'].strftime("%Y-%m-%d"))) )
+            
+            #TODO add sample date
         kg.add(( iris['sample'], prefixes['coso']['fromSamplePoint'], iris['wqp_site']))
+       
         sample_po = { #list predicates and objects for each attribute
             'id': (prefixes['us_wqp']['sampleID'], Literal(sample['activity_id'], datatype=XSD.string)),
             'sample_method': (prefixes['us_wqp']['sampleCollectionMethod'], iris['SampleCollectionMethod']),
@@ -292,18 +310,22 @@ def triplify(df):
             smethod_set.add(sample['sample_method'])
         organization_set.add(sample['org_id'])
             
-
         #triplify observation
         kg.add((iris['observation'], RDF.type, prefixes['us_wqp']['WQP-PFAS-Observation']))
+        kg.add((iris['observation'], RDFS.label, Literal(f"WQP PFAS {result['characteristic']} Observation {str(result['id'])} for sample {str(sample['id'])}", datatype=XSD.string)))
         kg.add((iris['observation'], prefixes['coso']['analyzedSample'], iris['sample']))
-        kg.add((iris['observation'], prefixes['coso']['ofSubstance'], iris['substance']))
+        kg.add((iris['observation'], prefixes['coso']['observedTime'], Literal(sample['sample_date_formatted'], datatype=XSD.dateTime)))
+        kg.add(( iris['observation'], prefixes['coso']['hasFeatureOfInterest'], iris['feature']))
+        kg.add((iris['observation'], prefixes['coso']['ofDatasetSubstance'], iris['substance']))
         characteristic_set.add(result['substance_id'])
         kg.add((iris['observation'], prefixes['coso']['hasResult'], iris['measurement']))
+        kg.add((iris['observation'], prefixes['coso']['observedAtSamplePoint'], iris['wqp_site']))
         kg.add((iris['observation'], prefixes['coso']['observedProperty'], iris['property']))
         observation_po = { #list of optional triples for each observation (based on data)
-            'analytical_method': (prefixes['coso']['usedAnalysisMethod'], iris['analytical_method']),
+            'analytical_method': (prefixes['coso']['analysisMethod'], iris['analytical_method']),
             'analysis_date': (prefixes['sosa']['resultTime'], Literal(str(result['analysis_date']), datatype=XSD.date)) if 'analysis_date' in result.keys() else '',
             'lab_id':(prefixes['prov']['wasAttributedTo'], iris['lab']) if 'lab' in iris.keys() else '',
+
         }
 
         for key in result.keys():
@@ -320,26 +342,55 @@ def triplify(df):
             kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['DetectQuantityValue']))
             kg.add((iris['quantityValue'], prefixes['qudt']['numericValue'], Literal(result['measure'], datatype=XSD.float)))
         if 'unit' in result.keys():
-            kg.add((iris['quantityValue'], prefixes['qudt']['unit'], iris['unit']))
+            kg.add((iris['quantityValue'], prefixes['qudt']['hasUnit'], iris['unit']))
         if 'non-detect' in result.keys():
             kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonDetectQuantityValue']))
             kg.add((iris['quantityValue'], prefixes['qudt']['enumeratedValue'], Literal('non-detect', datatype=XSD.string)))
         if 'dl_type_A' in result.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], iris['dl_A']))
             kg.add((iris['dl_A'], RDF.type, prefixes['us_wqp'][result['dl_type_A']]))
-            kg.add((iris['dl_A'], prefixes['qudt']['quantityValue'], Literal(result['dl_measure_A'], datatype=XSD.float)))
-            kg.add((iris['dl_A'], prefixes['qudt']['unit'], iris['unit_A']))
+            kg.add((iris['dl_A'], prefixes['qudt']['numericValue'], Literal(result['dl_measure_A'], datatype=XSD.float)))
+            kg.add((iris['dl_A'], prefixes['qudt']['hasUnit'], iris['unit_A']))
         if 'dl_type_B' in result.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], iris['dl_B']))
             kg.add((iris['dl_B'], RDF.type, prefixes['us_wqp'][result['dl_type_B']]))
-            kg.add((iris['dl_B'], prefixes['qudt']['quantityValue'], Literal(result['dl_measure_B'], datatype=XSD.float)))
-            kg.add((iris['dl_B'], prefixes['qudt']['unit'], iris['unit_B']))
+            kg.add((iris['dl_B'], prefixes['qudt']['numericValue'], Literal(result['dl_measure_B'], datatype=XSD.float)))
+            kg.add((iris['dl_B'], prefixes['qudt']['hasUnit'], iris['unit_B']))
     
     #report which CV metadata values are used. 
     print('Taxon:', taxon_set)
+    with open(output_dir / f'wqp_used_taxa.txt', 'r') as f:
+        l = eval(f.read())
+        for t in l:
+            taxon_set.add(t) 
+        print('full taxon:', taxon_set)
+    with open(output_dir / f'wqp_used_taxa.txt', 'w+') as f:
+        f.writelines(str(list(taxon_set)))
+    
     print('Characteristic', characteristic_set)
+    with open(output_dir / f'wqp_used_characteristics.txt', 'r') as f:
+        l = eval(f.read())
+        for t in l:
+            characteristic_set.add(t)
+    with open(output_dir / f'wqp_used_characteristics.txt', 'w+') as f:
+        f.writelines(str(list(characteristic_set)))
+
     print('Sample Method:', smethod_set)
+    with open(output_dir / f'wqp_used_samplemethods.txt', 'r') as f:
+        l = eval(f.read())
+        for t in l:
+            smethod_set.add(t)
+    with open(output_dir / f'wqp_used_samplemethods.txt', 'w+') as f:
+        f.writelines(str(list(smethod_set)))
+
     print('Organization', organization_set)
+    with open(output_dir / f'wqp_used_organizations.txt', 'r') as f:
+        l = eval(f.read())
+        for t in l:
+            organization_set.add(t)
+    with open(output_dir / f'wqp_used_organizations.txt', 'w+') as f:
+        f.writelines(str(list(organization_set)))
+    
     return kg
 
 #utility functions

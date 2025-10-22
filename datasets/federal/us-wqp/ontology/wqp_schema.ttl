@@ -66,7 +66,7 @@ us_wqp:WQP-SampledFeature rdf:type owl:Class;
     rdfs:label "WQP - Sampled Feature"; 
     rdfs:subClassOf coso:SampledFeature. 
 
-us_wqp:WQP-Location_Type rdf:type owl:Class;
+us_wqp:WQP-LocationType rdf:type owl:Class;
     rdfs:label "WQP - Location Type"; 
     rdfs:subClassOf qudt:Enumeration, coso:FeatureType. 
 
@@ -88,6 +88,22 @@ us_wqp:Lab rdf:type owl:Class;
     rdfs:subClassOf us_wqp:Organization.
     #additional organization classes defined in controlled vocab
 
+# Align detection limits to coso classes 
+
+us_wqp:CensoringLevel rdfs:subClassOf coso:DetectionLimit. 
+
+us_wqp:MethodDetectionLevel rdfs:subClassOf coso:DetectionLimit. 
+
+us_wqp:InstrumentDetectionLevel rdfs:subClassOf coso:DetectionLimit. 
+
+us_wqp:LaboratoryReportingLevel rdfs:subClassOf coso:QuantitationLimit. 
+
+us_wqp:LowerQuantitationLimit rdfs:subClassOf coso:QuantitationLimit. 
+
+us_wqp:Sample-SpecificQuantitationLimit rdfs:subClassOf coso:QuantitationLimit. 
+
+us_wqp:LowerReportingLimit rdfs:subClassOf coso:QuantitationLimit.
+
 ## properties
 
 ### object properties
@@ -106,7 +122,7 @@ us_wqp:sampleCollectionMethod rdf:type owl:ObjectProperty;
 us_wqp:locationType rdf:type owl:ObjectProperty;
     rdfs:label "wqp - location type";
     rdfs:domain us_wqp:WQP-SampledFeature;
-    rdfs:range us_wqp:WQP-Location_Type;
+    rdfs:range us_wqp:WQP-LocationType;
     rdfs:subPropertyOf coso:ofFeatureType.  
 
 ### datatype properties
@@ -132,14 +148,6 @@ us_wqp:srsID rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - characteristic substance registry service ID"; 
     rdfs:domain us_wqp:Characteristic;
     rdfs:subPropertyOf coso:substanceID, dcterms:identifier. 
-
-#us_wqp:organizationId rdf:type owl:DatatypeProperty;
-#    rdfs:label "wqp - organization id".
-
-#us_wqp:organizationDescription rdf:type owl:DatatypeProperty;
-#    rdfs:label "wqp - organization description". 
-
-#us_wqp:featureDescription rdf:type owl:DatatypeProperty. 
 
 us_wqp:rank rdf:type owl:DatatypeProperty; 
     rdfs:label "wqp - taxon rank". 

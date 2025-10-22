@@ -44,7 +44,7 @@ prefixes['geoconnex'] = Namespace(f'http://geoconnex.us/')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
-prefixes['gcx']= Namespace(f'http://geoconnex.us/')
+prefixes['gcx']= Namespace(f'https://geoconnex.us/')
 prefixes["unit"] = Namespace("http://qudt.org/vocab/unit/")
 prefixes['kwg-ont'] = Namespace("http://stko-kwg.geog.ucsb.edu/lod/ontology/")
 prefixes['prov'] =  Namespace("http://www.w3.org/ns/prov#")
@@ -70,8 +70,9 @@ def load_data():
     df = pd.read_csv(data_dir / f'{state}-pfas-stations.csv', dtype={'Location_CountyCode': str, 'Location_HUCEightDigitCode': str, 'Location_HUCTwelveDigitCode': str})
     #df = df.dropna(axis='columns', how='all') #drop columns that are all NA
     ## TODO This is a temporary filter to reduce to only likely pfas sites in Maine based on organization (PFAS data only had 3)
-    if state == 'ME':
-        df = df[df['Org_Identifier'].isin(['MEDEP_WQX', 'OST_SHPD', 'USGS'])]
+    #if state == 'ME':
+    #    df = df[df['Org_Identifier'].isin(['MEDEP_WQX', 'OST_SHPD', 'USGS'])]
+    print('types', df['Location_Type'].unique())
     return df
 
 def Initial_KG():
@@ -88,8 +89,8 @@ def get_controlledvocabs():
 
 def get_attributes(row):
     site = {'id': row['Location_Identifier'].replace(" ", ""),
-            'provider': row['ProviderName'],
-            'org_id': row['Org_Identifier'],
+            'provider':'NWIS' if row['ProviderName']=='USGS' else row['ProviderName'],
+            'org_id': f"{row['Org_Identifier']}-{row['Location_StatePostalCode']}" if row['Org_Identifier'] == 'USGS' else row['Org_Identifier'], #add state to org id to make unique except for USGS
             'name': row['Location_Name'],
             'geom': Point(row['Location_Longitude'], row['Location_Latitude']),
             'lat':row['Location_Latitude'],
@@ -127,11 +128,12 @@ def get_attributes(row):
 def get_iris(site: dict)-> dict:
     #print(site)
     iris = {
-        'wqp_site': prefixes['gcx'][f"wqp/{site['provider']}/{site['org_id']}/{site['id']}"],
-        'wqp_site_geom':prefixes['us_wqp_data'][f"d.wqp.SiteGeometry.{site['provider']}/{site['org_id']}/{site['id']}"],  #TODO how to create geometry for gcx features?
+        #'wqp_site': prefixes['gcx'][f"wqp/{site['provider']}/{site['org_id']}/{site['id']}"],
+        'wqp_site': prefixes['gcx'][f"iow/wqp/{site['id']}"],
+        'wqp_site_geom':prefixes['us_wqp_data'][f"d.wqp.SiteGeometry.iow.wqp.{site['id']}"],  #TODO how to create geometry for gcx features?
         'organization': prefixes['us_wqp_data'][f"d.wqp.Organization.{site['org_id']}"],
-        'feature': prefixes['us_wqp_data'][f"d.wqp.SampledFeature.{site['provider']}.{site['org_id']}.{site['id']}"],
-        'featureType': prefixes['us_wqp_data'][f"{'feature'}.{site['type']}"]
+        'feature': prefixes['us_wqp_data'][f"d.wqp.SampledFeature.{site['id']}"],
+        'featureType': prefixes['us_wqp_data'][f"{'featureType'}.{site['type']}"]
         
     }
     if 'huc12' in site.keys():
@@ -162,12 +164,12 @@ def triplify(df: pd.DataFrame):
 
         #triplify Feature
         kg.add((iris['feature'], RDF.type, prefixes['us_wqp']['WQP-SampledFeature']))
-        kg.add((iris['feature'], RDFS.label, Literal(site['type_label']+": "+ site['name'], datatype=XSD.string)))
+        kg.add((iris['feature'], RDFS.label, Literal(f"{site['type_label']}: from {site['provider']} {site['org_id']} {site['name']}", datatype=XSD.string)))
         kg.add((iris['feature'], prefixes['us_wqp']['locationType'], iris['featureType']))
         #TODO add feature geometry
-        if 'huc12' in iris.keys():
-            kg.add((iris['feature'], prefixes['kwg-ont']['sfWithin'], iris['huc12']))
-            kg.add((iris['huc12'], RDF.type, prefixes['us_wqp']['WQP-SampledFeature']))
+        #if 'huc12' in iris.keys():
+        #    kg.add((iris['feature'], prefixes['kwg-ont']['sfWithin'], iris['huc12']))
+        #    kg.add((iris['huc12'], RDF.type, prefixes['us_wqp']['WQP-SampledFeature']))
             #TODO huc12 as sampled feature instead of using spatial relation (link back to sample)
 
     return kg

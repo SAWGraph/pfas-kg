@@ -1,0 +1,140 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+
+<http://w3id.org/sawgraph/v1/us-wqp#controlledVocab> rdf:type owl:Ontology ;
+                                        dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
+                                                            <http://orcid.org/0000-0003-3547-8058> ,
+                                                            <https://orcid.org/0000-0003-3271-6700> ;
+                                        dcterms:created "2025-08-07" ;
+                                        dcterms:creator <http://orcid.org/0000-0002-5331-5052> ,
+                                                        <http://orcid.org/0000-0003-3547-8058> ,
+                                                        <https://orcid.org/0000-0003-3271-6700> ;
+                                        dcterms:description "This ontology supports SAWGraph"@en ;
+                                        dcterms:title "Ontology for US Water Quality Portal data - alignment controlled vocabulary to reference ontologies"@en ;
+                                        owl:versionInfo "1.0"@en .
+
+# species mapping to NCBI (& FOODON)
+
+us_wqp_data:d.wqp.biologicalTaxon.10575 rdf:type obo:NCBITaxon_66913. 
+
+us_wqp_data:d.wqp.biologicalTaxon.10582 rdf:type obo:NCBITaxon_7998. 
+
+us_wqp_data:d.wqp.biologicalTaxon.13166 rdf:type obo:NCBITaxon_147949. 
+
+us_wqp_data:d.wqp.biologicalTaxon.13169 rdf:type obo:NCBITaxon_225060. 
+
+us_wqp_data:d.wqp.biologicalTaxon.13170 rdf:type obo:NCBITaxon_27706. 
+
+us_wqp_data:d.wqp.biologicalTaxon.13370 rdf:type obo:NCBITaxon_46259. 
+
+us_wqp_data:d.wqp.biologicalTaxon.13374 rdf:type obo:NCBITaxon_34816. 
+
+us_wqp_data:d.wqp.biologicalTaxon.1447 rdf:type obo:NCBITaxon_225389. 
+
+us_wqp_data:d.wqp.biologicalTaxon.14727 rdf:type obo:NCBITaxon_8022. 
+
+us_wqp_data:d.wqp.biologicalTaxon.15717 rdf:type obo:NCBITaxon_8167. 
+
+us_wqp_data:d.wqp.biologicalTaxon.17772 rdf:type obo:NCBITaxon_75288. 
+
+us_wqp_data:d.wqp.biologicalTaxon.18416 rdf:type obo:NCBITaxon_8032. 
+
+us_wqp_data:d.wqp.biologicalTaxon.18441 rdf:type obo:NCBITaxon_8038. 
+
+us_wqp_data:d.wqp.biologicalTaxon.23065 rdf:type obo:NCBITaxon_6550.
+
+us_wqp_data:d.wqp.biologicalTaxon.25364 rdf:type obo:NCBITaxon_6604. 
+
+us_wqp_data:d.wqp.biologicalTaxon.3725 rdf:type obo:NCBITaxon_154811.
+
+us_wqp_data:d.wqp.biologicalTaxon.3757 rdf:type obo:NCBITaxon_7971.
+
+us_wqp_data:d.wqp.biologicalTaxon.40317 rdf:type obo:NCBITaxon_283036.
+
+us_wqp_data:d.wqp.biologicalTaxon.7587 rdf:type obo:NCBITaxon_126735. 
+
+us_wqp_data:d.wqp.biologicalTaxon.7588 rdf:type obo:NCBITaxon_184451. 
+
+us_wqp_data:d.wqp.biologicalTaxon.818 rdf:type obo:NCBITaxon_27778. 
+
+us_wqp_data:d.wqp.biologicalTaxon.11868 rdf:type obo:NCBITaxon_13106.
+
+us_wqp_data:d.wqp.biologicalTaxon.817 rdf:type obo:NCBITaxon_66912.
+
+us_wqp_data:d.wqp.sampleMedia.tissue rdf:type obo:FOODON_02010032. #all tissue samples some animal muscle tissue. 
+
+# sample type by media 
+us_wqp:DefWQPWaterSample rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue us_wqp_data:d.wqp.sampleMedia.water; 
+        rdfs:subClassOf coso:WaterSample.
+    
+us_wqp:DefWQPSoilSample rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue us_wqp_data:d.wqp.sampleMedia.soil; 
+    rdfs:subClassOf coso:SoilSample.
+
+us_wqp:DefWQPSedimentSample rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue us_wqp_data:d.wqp.sampleMedia.sediment; 
+    rdfs:subClassOf coso:SedimentSample.
+
+us_wqp:DefWQPBiologicalSample rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue us_wqp_data:d.wqp.sampleMedia.biological; 
+    rdfs:subClassOf coso:BiotaSample.
+
+us_wqp:DefWQPTissueSample rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue us_wqp_data:d.wqp.sampleMedia.tissue; 
+    rdfs:subClassOf coso:AnimalTissueSample.
+
+us_wqp:DefWQPAirSample rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue us_wqp_data:d.wqp.sampleMedia.air; 
+    rdfs:subClassOf coso:AirSample.
+
+# monitoring location feature type mapping 
+
+us_wqp:DefWQPSurfaceWaterFeatureType rdf:type owl:Class;
+    rdfs:subClassOf us_wqp:WQP-LocationType.
+
+us_wqp:DefWQPGroundWaterFeatureType rdf:type owl:Class;
+    rdfs:subClassOf us_wqp:WQP-LocationType.
+
+us_wqp:DefWQPWasteWaterFeatureType rdf:type owl:Class;
+      rdfs:subClassOf us_wqp:WQP-LocationType.
+
+#Water material samples by source mapping using activity media and monitoring location
+  
+us_wqp:DefWQPSampleFromSurfaceWaterFeature rdf:type owl:Restriction;
+        owl:onProperty coso:sampleFeatureType;
+        owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType.
+        rdfs:subClassOf us_wqp:WQP-Sample.
+
+us_wqp:DefWQPSampleFromGroundWaterFeature rdf:type owl:Restriction;
+        owl:onProperty coso:sampleFeatureType;
+        owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType.
+        rdfs:subClassOf us_wqp:WQP-Sample.
+
+us_wqp:DefWQPSurfaceWaterSample rdf:type owl:Class;
+    owl:intersectionOf (us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromSurfaceWaterFeature); 
+    rdfs:subClassOf coso:SurfaceWaterSample. 
+
+us_wqp:DefWQPGroundWaterSample rdf:type owl:Class;
+    owl:intersectionOf(us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromGroundWaterFeature);
+    rdfs:subClassOf coso:GroundWaterSample. 
+
+us_wqp:DefWQPWasteWaterSample rdf:type owl:Class;
+    owl:intersectionOf (us_wqp:DefWQPWaterSample [rdf:type owl:Restriction;
+    owl:onProperty coso:sampleFeatureType;
+    owl:someValuesFrom us_wqp:DefWQPWasteWaterFeatureType]);
+    rdfs:subClassOf coso:WasteWaterSample.
+ 
+#TODO property chain to infer huc12 as sampled feature when point/feature it within the huc12
+
+# Chemical mapping - coming from substance registry api? 
