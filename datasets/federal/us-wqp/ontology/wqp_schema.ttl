@@ -110,19 +110,19 @@ us_wqp:LowerReportingLimit rdfs:subClassOf coso:QuantitationLimit.
 us_wqp:hasProjectId rdf:type owl:ObjectProperty;
     rdfs:subPropertyOf coso:sampleAnnotation;
     rdfs:label "wqp - has project id";
-    rdfs:domain us_wqp:WQP-Sample;
+    rdfs:domain us_wqp:Sample;
     rdfs:range us_wqp:Project.
 
 us_wqp:sampleCollectionMethod rdf:type owl:ObjectProperty;
     rdfs:label "wqp - sample collection method"; 
     rdfs:subPropertyOf coso:sampleAnnotation;
-    rdfs:domain us_wqp:WQP-Sample;
+    rdfs:domain us_wqp:Sample;
     rdfs:range us_wqp:SampleCollectionMethod.  
 
 us_wqp:locationType rdf:type owl:ObjectProperty;
     rdfs:label "wqp - location type";
-    rdfs:domain us_wqp:WQP-SampledFeature;
-    rdfs:range us_wqp:WQP-LocationType;
+    rdfs:domain us_wqp:SampledFeature;
+    rdfs:range us_wqp:LocationType;
     rdfs:subPropertyOf coso:ofFeatureType.  
 
 ### datatype properties
