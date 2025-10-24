@@ -42,7 +42,7 @@ prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
-prefixes['gcx']= Namespace(f'https://geoconnex.us/')
+prefixes['gcx_wqp']= Namespace(f'https://geoconnex.us/iow/wqp/')
 prefixes["unit"] = Namespace("http://qudt.org/vocab/unit/")
 prefixes['prov'] =  Namespace("http://www.w3.org/ns/prov#")
 prefixes['sosa'] = Namespace("http://www.w3.org/ns/sosa/")
@@ -223,7 +223,7 @@ def get_iris(sample, samplepoint, result):
     #samples and features
     iris['sample'] = prefixes["us_wqp_data"][f"d.wqp.sample.{sample['id']}"]
     #iris['wqp_site'] = prefixes['gcx'][f"wqp/{sample['provider']}/{sample['org_id']}/{samplepoint['id']}"]
-    iris['wqp_site'] = prefixes['gcx'][f"iow/wqp/{samplepoint['id']}"]
+    iris['wqp_site'] = prefixes['gcx_wqp'][f"{samplepoint['id']}"]
     iris['feature'] = prefixes['us_wqp_data'][f"d.wqp.sampledFeature.{samplepoint['id']}"]
     iris['SampleCollectionMethod'] = prefixes["us_wqp_data"][f"d.wqp.sampleCollectionMethod.{sample['sample_method']}"] if 'sample_method' in sample.keys() else ''
     iris['media'] = prefixes['us_wqp_data'][f"d.wqp.sampleMedia.{camel_case(sample['media'])}"] #could turn this into a subclass designation for tissue and water
@@ -279,9 +279,9 @@ def triplify(df):
         iris = get_iris(sample, samplepoint, result)
 
         #triplify sample
-        kg.add((iris['sample'], RDF.type, prefixes["us_wqp"]["WQP-Sample"]) )
+        kg.add((iris['sample'], RDF.type, prefixes["us_wqp"]["Sample"]) )
         if 'sample_date' in sample.keys():
-            kg.add(( iris['sample'], RDFS['label'], Literal('WQP PFAS Sample '+ str(sample['activity_id']) +' collected at site '+ str(samplepoint['id']) + ' on ' + sample['sample_date'].strftime("%Y-%m-%d"))) )
+            kg.add(( iris['sample'], RDFS['label'], Literal('WQP PFAS Sample '+ str(sample['activity_id']) ))) #+' collected at site '+ str(samplepoint['id']) + ' on ' + sample['sample_date'].strftime("%Y-%m-%d") 
             
             #TODO add sample date
         kg.add(( iris['sample'], prefixes['coso']['fromSamplePoint'], iris['wqp_site']))
@@ -311,7 +311,7 @@ def triplify(df):
         organization_set.add(sample['org_id'])
             
         #triplify observation
-        kg.add((iris['observation'], RDF.type, prefixes['us_wqp']['WQP-PFAS-Observation']))
+        kg.add((iris['observation'], RDF.type, prefixes['us_wqp']['Observation']))
         kg.add((iris['observation'], RDFS.label, Literal(f"WQP PFAS {result['characteristic']} Observation {str(result['id'])} for sample {str(sample['id'])}", datatype=XSD.string)))
         kg.add((iris['observation'], prefixes['coso']['analyzedSample'], iris['sample']))
         kg.add((iris['observation'], prefixes['coso']['observedTime'], Literal(sample['sample_date_formatted'], datatype=XSD.dateTime)))
@@ -335,7 +335,7 @@ def triplify(df):
             kg.add((iris['lab'], RDFS.label, Literal(result['lab'], datatype=XSD.string)))
 
         #triplify measurement
-        kg.add((iris['measurement'], RDF.type, prefixes['us_wqp']['WQP-Single-PFAS-Concentration'])) # TODO are they all single measurements?
+        kg.add((iris['measurement'], RDF.type, prefixes['us_wqp']['Single-PFAS-Concentration'])) # TODO are they all single measurements?
         kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['quantityValue']))
         ## TODO do we need a quantity value specific to every observation if the values are the same?
         if 'measure' in result.keys():

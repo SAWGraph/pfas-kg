@@ -101,25 +101,25 @@ us_wqp:DefWQPAirSample rdf:type owl:Restriction;
 # monitoring location feature type mapping 
 
 us_wqp:DefWQPSurfaceWaterFeatureType rdf:type owl:Class;
-    rdfs:subClassOf us_wqp:WQP-LocationType.
+    rdfs:subClassOf us_wqp:LocationType.
 
 us_wqp:DefWQPGroundWaterFeatureType rdf:type owl:Class;
-    rdfs:subClassOf us_wqp:WQP-LocationType.
+    rdfs:subClassOf us_wqp:LocationType.
 
 us_wqp:DefWQPWasteWaterFeatureType rdf:type owl:Class;
-      rdfs:subClassOf us_wqp:WQP-LocationType.
+      rdfs:subClassOf us_wqp:LocationType.
 
 #Water material samples by source mapping using activity media and monitoring location
   
 us_wqp:DefWQPSampleFromSurfaceWaterFeature rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
         owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType.
-        rdfs:subClassOf us_wqp:WQP-Sample.
+        rdfs:subClassOf us_wqp:Sample.
 
 us_wqp:DefWQPSampleFromGroundWaterFeature rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
         owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType.
-        rdfs:subClassOf us_wqp:WQP-Sample.
+        rdfs:subClassOf us_wqp:Sample.
 
 us_wqp:DefWQPSurfaceWaterSample rdf:type owl:Class;
     owl:intersectionOf (us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromSurfaceWaterFeature); 

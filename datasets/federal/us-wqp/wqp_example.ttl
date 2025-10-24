@@ -4,80 +4,82 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
-@prefix us_wqp: <http://sawgraph.spatialai.org/v1/us-wqp#> .
-@prefix us_wqp_data: <http://sawgraph.spatialai.org/v1/us-wqp-data#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix gcx_wqp: <https://geoconnex.us/iow/wqp/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:d.wqp.observation.STORET-301344919 a us_wqp:WQP-PFAS-Observation ;
+us_wqp_data:d.wqp.observation.STORET-301344919 a us_wqp:Observation ;
     rdfs:label "WQP PFAS Perfluorobutanoate Observation STORET-301344919 for sample MEDEP_WQX-CBEEEEREP1N31-10-07WH"^^xsd:string ;
     coso:analyzedSample us_wqp_data:d.wqp.sample.MEDEP_WQX-CBEEEEREP1N31-10-07WH ;
     coso:hasFeatureOfInterest us_wqp_data:d.wqp.sampledFeature.MEDEP_WQX-76140 ;
     coso:hasResult us_wqp_data:d.wqp.measurement.STORET-301344919 ;
-    coso:observedAtSamplePoint <https://geoconnex.us/iow/wqp/MEDEP_WQX-76140> ;
+    coso:observedAtSamplePoint gcx_wqp:MEDEP_WQX-76140 ;
     coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
     coso:observedTime "2007-10-31T00:00:00"^^xsd:dateTime ;
     coso:ofDatasetSubstance us_wqp_data:wqp.substance.3292 ;
     prov:wasAttributedTo us_wqp_data:d.wqp.lab.AXYSANALYTICALSERVICES ;
     sosa:resultTime "2008-02-03"^^xsd:date .
 
-us_wqp_data:d.wqp.observation.STORET-866773925 a us_wqp:WQP-PFAS-Observation ;
+us_wqp_data:d.wqp.observation.STORET-866773925 a us_wqp:Observation ;
     rdfs:label "WQP PFAS Perfluorononanoic acid Observation STORET-866773925 for sample 11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR"^^xsd:string ;
     coso:analyzedSample us_wqp_data:d.wqp.sample.11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR ;
     coso:hasFeatureOfInterest us_wqp_data:d.wqp.sampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 ;
     coso:hasResult us_wqp_data:d.wqp.measurement.STORET-866773925 ;
-    coso:observedAtSamplePoint <https://geoconnex.us/iow/wqp/11NPSWRD_WQX-BUFF_3P_BUFT05> ;
+    coso:observedAtSamplePoint gcx_wqp:11NPSWRD_WQX-BUFF_3P_BUFT05 ;
     coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
     coso:observedTime "2017-09-18T00:00:00"^^xsd:dateTime ;
     coso:ofDatasetSubstance us_wqp_data:wqp.substance.64478 ;
     prov:wasAttributedTo us_wqp_data:d.wqp.lab.USEnvironmentalProtectionAgencyRegion8LaboratoryCO ;
     sosa:resultTime "2017-09-22"^^xsd:date .
 
-us_wqp_data:d.wqp.sample.MEDEP_WQX-CBEEEEREP1N31-10-07WH a us_wqp:WQP-Sample ;
-    rdfs:label "WQP PFAS Sample MEDEP_WQX-CBEEEEREP1N31-10-07WH collected at site MEDEP_WQX-76140 on 2007-10-31" ;
-    coso:fromSamplePoint <https://geoconnex.us/iow/wqp/MEDEP_WQX-76140> ;
+us_wqp_data:d.wqp.sample.MEDEP_WQX-CBEEEEREP1N31-10-07WH a us_wqp:Sample ;
+    rdfs:label "WQP PFAS Sample MEDEP_WQX-CBEEEEREP1N31-10-07WH" ;
+    coso:fromSamplePoint gcx_wqp:MEDEP_WQX-76140 ;
     coso:sampleOfMaterialType us_wqp_data:d.wqp.biologicalTaxon.23065,
         us_wqp_data:d.wqp.sampleMedia.tissue ;
     us_wqp:hasProjectId us_wqp_data:d.wqp.project.76080 ;
     us_wqp:sampleCollectionMethod us_wqp_data:d.wqp.sampleCollectionMethod.CS ;
     us_wqp:sampleID "MEDEP_WQX-CBEEEEREP1N31-10-07WH"^^xsd:string .
 
-us_wqp_data:d.wqp.sample.11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR a us_wqp:WQP-Sample ;
-    rdfs:label "WQP PFAS Sample 11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR collected at site 11NPSWRD_WQX-BUFF_3P_BUFT05 on 2017-09-18" ;
-    coso:fromSamplePoint <https://geoconnex.us/iow/wqp/11NPSWRD_WQX-BUFF_3P_BUFT05> ;
+us_wqp_data:d.wqp.sample.11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR a us_wqp:Sample ;
+    rdfs:label "WQP PFAS Sample 11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR" ;
+    coso:fromSamplePoint gcx_wqp:11NPSWRD_WQX-BUFF_3P_BUFT05 ;
     coso:sampleOfMaterialType us_wqp_data:d.wqp.sampleMedia.water ;
     us_wqp:hasProjectId us_wqp_data:d.wqp.project.NPS3P ;
     us_wqp:sampleCollectionMethod us_wqp_data:d.wqp.sampleCollectionMethod.NPS_3P_WSAMPLE ;
     us_wqp:sampleID "11NPSWRD_WQX-BUFF_3P_BUFT05-201709181150SR"^^xsd:string .
 
-<https://geoconnex.us/iow/wqp/MEDEP_WQX-76140> a us_wqp:Site ;
-    rdfs:label "REP 1(MEDEP_WQX-76140) site data in the Water Quality Portal"^^xsd:string ;
+gcx_wqp:MEDEP_WQX-76140 a us_wqp:Site ;
+    rdfs:label "REP 1 (MEDEP_WQX-76140) site data in the Water Quality Portal"^^xsd:string ;
+    kwg-ont:sfWithin wbd_data:d.HUC12.010600010607 ;
     coso:pointFromFeature us_wqp_data:d.wqp.SampledFeature.MEDEP_WQX-76140 ;
     us_wqp:siteId "MEDEP_WQX-76140"^^xsd:string ;
     us_wqp:siteName "REP 1"^^xsd:string ;
     geo:hasGeometry us_wqp_data:d.wqp.SiteGeometry.iow.wqp.MEDEP_WQX-76140 ;
-    prov:wasAttributedTo us_wqp_data:d.wqp.Organization.MEDEP_WQX 
+    prov:wasAttributedTo us_wqp_data:d.wqp.Organization.MEDEP_WQX .
 
-<https://geoconnex.us/iow/wqp/11NPSWRD_WQX-BUFF_3P_BUFT05> a us_wqp:Site ;
-    rdfs:label "Little Buffalo River Above Confluence with Buffalo River(11NPSWRD_WQX-BUFF_3P_BUFT05) site data in the Water Quality Portal"^^xsd:string ;
+gcx_wqp:11NPSWRD_WQX-BUFF_3P_BUFT05 a us_wqp:Site ;
+    rdfs:label "Little Buffalo River Above Confluence with Buffalo River (11NPSWRD_WQX-BUFF_3P_BUFT05) site data in the Water Quality Portal"^^xsd:string ;
     coso:pointFromFeature us_wqp_data:d.wqp.SampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 ;
     us_wqp:siteId "11NPSWRD_WQX-BUFF_3P_BUFT05"^^xsd:string ;
     us_wqp:siteName "Little Buffalo River Above Confluence with Buffalo River"^^xsd:string ;
     geo:hasGeometry us_wqp_data:d.wqp.SiteGeometry.iow.wqp.11NPSWRD_WQX-BUFF_3P_BUFT05 ;
     prov:wasAttributedTo us_wqp_data:d.wqp.Organization.11NPSWRD_WQX .
 
-us_wqp_data:d.wqp.SampledFeature.MEDEP_WQX-76140 a us_wqp:WQP-SampledFeature ;
+us_wqp_data:d.wqp.SampledFeature.MEDEP_WQX-76140 a us_wqp:SampledFeature ;
     rdfs:label "Ocean: from STORET MEDEP_WQX REP 1"^^xsd:string ;
     us_wqp:locationType us_wqp_data:featureType.Ocean .
 
-us_wqp_data:d.wqp.SampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 a us_wqp:WQP-SampledFeature ;
+us_wqp_data:d.wqp.SampledFeature.11NPSWRD_WQX-BUFF_3P_BUFT05 a us_wqp:SampledFeature ;
     rdfs:label "River/Stream: from STORET 11NPSWRD_WQX Little Buffalo River Above Confluence with Buffalo River"^^xsd:string ;
     us_wqp:locationType us_wqp_data:featureType.RiverStream .
 
-us_wqp_data:d.wqp.measurement.STORET-301344919 a us_wqp:WQP-Single-PFAS-Concentration ;
+us_wqp_data:d.wqp.measurement.STORET-301344919 a us_wqp:Single-PFAS-Concentration ;
     qudt:quantityValue us_wqp_data:d.wqp.quantityValue.STORET-301344919 ;
     coso:hasResultQualifier us_wqp_data:d.wqp.LowerQuantitationLimit.STORET-301344919 .
 
-us_wqp_data:d.wqp.measurement.STORET-866773925 a us_wqp:WQP-Single-PFAS-Concentration ;
+us_wqp_data:d.wqp.measurement.STORET-866773925 a us_wqp:Single-PFAS-Concentration ;
     qudt:quantityValue us_wqp_data:d.wqp.quantityValue.STORET-866773925 ;
     coso:hasResultQualifier us_wqp_data:d.wqp.MethodDetectionLevel.STORET-866773925 .
 
@@ -102,14 +104,34 @@ us_wqp_data:wqp.substance.3292 a us_wqp:Characteristic ;
     comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID80892480 ;
     coso:casNumber "45048-62-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845663"^^xsd:int .
+    us_wqp:srsID "1845663"^^xsd:string .
 
 us_wqp_data:wqp.substance.64478 a us_wqp:Characteristic ;
     rdfs:label "2H-Perfluorononanoic acid" ;
     comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID001035129 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992041"^^xsd:int .
+    us_wqp:srsID "1992041"^^xsd:string .
 
 us_wqp_data:d.wqp.lab.AXYSANALYTICALSERVICES rdfs:label "AXYS ANALYTICAL SERVICES"^^xsd:string .
 
 us_wqp_data:d.wqp.lab.USEnvironmentalProtectionAgencyRegion8LaboratoryCO rdfs:label "U.S. Environmental Protection Agency Region 8 Laboratory, CO"^^xsd:string .
+
+us_wqp_data:d.wqp.project.NPS3P rdfs:label "EPA/NPS Emerging Contaminants Program (3P)"^^xsd:string .
+
+us_wqp_data:d.wqp.sampleMedia.water a us_wqp:SampleMedia ;
+    rdfs:label "Water" ;
+    rdfs:comment "a colorless, transparent, odorless, tasteless liquid that forms the seas, lakes, rivers, and rain and is the basis of the fluids of living organisms."^^xsd:string .
+
+us_wqp_data:d.wqp.sampleMedia.tissue a us_wqp:SampleMedia ;
+    rdfs:label "Tissue" ;
+    rdfs:comment "an aggregate of cells usually of a particular kind together with their intercellular substance that form one of the structural materials of a plant or an animal"^^xsd:string .
+
+us_wqp_data:featureType.Ocean a us_wqp:DefWQPSurfaceWaterFeatureType,
+        us_wqp:LocationType ;
+    rdfs:label "Ocean" ;
+    us_wqp:featureDescription "An ocean is a body of water that composes much of a planet's hydrosphere."^^xsd:string .
+
+us_wqp_data:featureType.RiverStream a us_wqp:DefWQPSurfaceWaterFeatureType,
+        us_wqp:LocationType ;
+    rdfs:label "River/Stream" ;
+    us_wqp:featureDescription "A body of water with surface water flowing within the bed and banks of a channel."^^xsd:string .

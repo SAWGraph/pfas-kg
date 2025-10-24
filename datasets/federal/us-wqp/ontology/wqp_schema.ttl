@@ -22,11 +22,11 @@
                                         owl:versionInfo "1.0"@en .
 
 ## Classes
-us_wqp:WQP-Sample rdf:type owl:Class;
+us_wqp:Sample rdf:type owl:Class;
     rdfs:subClassOf coso:MaterialSample;
     rdfs:label "WQP - Sample".
 
-us_wqp:WQP-PFAS-Observation rdf:type owl:Class;
+us_wqp:Observation rdf:type owl:Class;
     rdfs:subClassOf coso:ContaminantSampleObservation,
         [rdf:type owl:Restriction ;
         owl:allValuesFrom us_wqp:Lab ;
@@ -62,11 +62,11 @@ us_wqp:Site rdf:type owl:Class;
     rdfs:label "WQP - Site / Station";
     rdfs:subClassOf coso:SamplePoint. 
 
-us_wqp:WQP-SampledFeature rdf:type owl:Class;
+us_wqp:SampledFeature rdf:type owl:Class;
     rdfs:label "WQP - Sampled Feature"; 
     rdfs:subClassOf coso:SampledFeature. 
 
-us_wqp:WQP-LocationType rdf:type owl:Class;
+us_wqp:LocationType rdf:type owl:Class;
     rdfs:label "WQP - Location Type"; 
     rdfs:subClassOf qudt:Enumeration, coso:FeatureType. 
 
@@ -74,7 +74,7 @@ us_wqp:Project rdf:type owl:Class;
     rdfs:label "WQP - Project";
     rdfs:subClassOf coso:SampleAnnotation. 
 
-us_wqp:WQP-Single-PFAS-Concentration rdf:type owl:Class;
+us_wqp:Single-PFAS-Concentration rdf:type owl:Class;
     rdfs:label "WQP - Single PFAS Concentration";
     rdfs:subClassOf coso:SingleContaminantMeasurement, 
         coso:ContaminantRelativeMeasurement. 

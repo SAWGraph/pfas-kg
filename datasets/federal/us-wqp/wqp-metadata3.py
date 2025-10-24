@@ -239,7 +239,7 @@ def triplify_characteristic(df, _PREFIX):
                 if parameter_cas_no:
                     kg.add( (parameter_iri, _PREFIX["coso"]['casNumber'], Literal(parameter_cas_no, datatype = XSD.string)) )
                 if parameter_srd_id:
-                    kg.add( (parameter_iri, _PREFIX["us_wqp"]['srsID'], Literal(parameter_srd_id, datatype = XSD.int)) )
+                    kg.add( (parameter_iri, _PREFIX["us_wqp"]['srsID'], Literal(str(parameter_srd_id), datatype = XSD.string)) )
                     if len(substance)> 0 and substance[0]['dtxsid'] != None:
                         kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], _PREFIX['comptox'][f"CompTox_{substance[0]['dtxsid']}"]))
                         kg.add((_PREFIX['comptox'][f"CompTox_{substance[0]['dtxsid']}"], RDF.type , _PREFIX['comptox']['ChemicalEntity']))
@@ -339,7 +339,7 @@ def triplify_monitoring_location_type(df, _PREFIX):
         location_iri = _PREFIX["us_wqp_data"][f"{'featureType'}.{location_name_formatted}"]
                     
         ## specify location type instance and it's data properties   
-        kg.add( (location_iri, RDF.type, _PREFIX["us_wqp"]["WQP-LocationType"]) )
+        kg.add( (location_iri, RDF.type, _PREFIX["us_wqp"]["LocationType"]) )
         if location_name_formatted in ['Ocean', 'OtherSurfaceWater', 'Lake','WetlandUndifferentiated', 'RiverStream', 'LakeReservoirImpoundment', 'BEACHProgramSiteOcean', 'Stream',
                             'Reservoir', 'Tidalstream', 'Estuary', 'Coastal', 'Pavement', 'Hyporheiczonewell', 'CollectororRanneytypewell', 'BEACHProgramSiteChannelizedstream', 'BEACHProgramSiteEstuary',
                             'BEACHProgramSiteGreatLake', 'BEACHProgramSiteLake', 'BEACHProgramSiteLandrunoff', 'BEACHProgramSiteOcean', 'BEACHProgramSiteRiverStream', 'Estuary-Freshwater']:

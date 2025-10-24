@@ -44,7 +44,8 @@ prefixes['geoconnex'] = Namespace(f'http://geoconnex.us/')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
-prefixes['gcx']= Namespace(f'https://geoconnex.us/')
+prefixes['gcx_wqp']= Namespace(f'https://geoconnex.us/iow/wqp/')
+prefixes['wbd_data']= Namespace(f'http://w3id.org/hyfo/wbd/v1/wbd-data#')
 prefixes["unit"] = Namespace("http://qudt.org/vocab/unit/")
 prefixes['kwg-ont'] = Namespace("http://stko-kwg.geog.ucsb.edu/lod/ontology/")
 prefixes['prov'] =  Namespace("http://www.w3.org/ns/prov#")
@@ -129,7 +130,7 @@ def get_iris(site: dict)-> dict:
     #print(site)
     iris = {
         #'wqp_site': prefixes['gcx'][f"wqp/{site['provider']}/{site['org_id']}/{site['id']}"],
-        'wqp_site': prefixes['gcx'][f"iow/wqp/{site['id']}"],
+        'wqp_site': prefixes['gcx_wqp'][f"{site['id']}"],
         'wqp_site_geom':prefixes['us_wqp_data'][f"d.wqp.SiteGeometry.iow.wqp.{site['id']}"],  #TODO how to create geometry for gcx features?
         'organization': prefixes['us_wqp_data'][f"d.wqp.Organization.{site['org_id']}"],
         'feature': prefixes['us_wqp_data'][f"d.wqp.SampledFeature.{site['id']}"],
@@ -137,7 +138,8 @@ def get_iris(site: dict)-> dict:
         
     }
     if 'huc12' in site.keys():
-        iris['huc12'] = prefixes['gcx'][f"hu12/{site['huc12']}"]
+        iris['huc12'] = prefixes['wbd_data'][f"d.HUC12.{site['huc12']}"]
+        
     return iris
 
 def triplify(df: pd.DataFrame):
@@ -149,7 +151,7 @@ def triplify(df: pd.DataFrame):
 
         #triplify Sample Point
         kg.add((iris['wqp_site'], RDF.type, prefixes['us_wqp']['Site']))
-        kg.add((iris['wqp_site'], RDFS.label, Literal(f"{site['name']}({site['id']}) site data in the Water Quality Portal", datatype=XSD.string)))
+        kg.add((iris['wqp_site'], RDFS.label, Literal(f"{site['name']} ({site['id']}) site data in the Water Quality Portal", datatype=XSD.string)))
         kg.add((iris['wqp_site'], prefixes['us_wqp']['siteId'], Literal(site['id'], datatype=XSD.string)))
         kg.add((iris['wqp_site'], prefixes['us_wqp']['siteName'], Literal(site['name'], datatype=XSD.string)))
         kg.add((iris['wqp_site'], prefixes['prov']['wasAttributedTo'], iris['organization']))
@@ -163,13 +165,14 @@ def triplify(df: pd.DataFrame):
        
 
         #triplify Feature
-        kg.add((iris['feature'], RDF.type, prefixes['us_wqp']['WQP-SampledFeature']))
+        kg.add((iris['feature'], RDF.type, prefixes['us_wqp']['SampledFeature']))
         kg.add((iris['feature'], RDFS.label, Literal(f"{site['type_label']}: from {site['provider']} {site['org_id']} {site['name']}", datatype=XSD.string)))
         kg.add((iris['feature'], prefixes['us_wqp']['locationType'], iris['featureType']))
         #TODO add feature geometry
-        #if 'huc12' in iris.keys():
-        #    kg.add((iris['feature'], prefixes['kwg-ont']['sfWithin'], iris['huc12']))
-        #    kg.add((iris['huc12'], RDF.type, prefixes['us_wqp']['WQP-SampledFeature']))
+
+        if 'huc12' in iris.keys():
+            kg.add((iris['wqp_site'], prefixes['kwg-ont']['sfWithin'], iris['huc12']))
+            kg.add((iris['huc12'], RDF.type, prefixes['us_wqp']['SampledFeature']))
             #TODO huc12 as sampled feature instead of using spatial relation (link back to sample)
 
     return kg
