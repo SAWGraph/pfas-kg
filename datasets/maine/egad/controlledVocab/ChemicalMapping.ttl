@@ -167,204 +167,204 @@ me_egad_data:parameter.SUM_OF_6_PFAS coso:hasMember me_egad_data:parameter.PFDA,
 me_egad_data:parameter.SUM_PFOA_PFOS coso:hasMember me_egad_data:parameter.PFOA,
         me_egad_data:parameter.PFOS .
 
-comptox:CompTox_DTXSID00379268 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID00379268 a comptox:ChemicalEntity ;
     rdfs:label "3:3 Fluorotelomer carboxylic acid" .
 
-comptox:CompTox_DTXSID00892482 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID00892482 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorododecanoate" .
 
-comptox:CompTox_DTXSID00892487 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID00892487 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoropentanoate" .
 
-comptox:CompTox_DTXSID00904574 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID00904574 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorododecanesulfonate" .
 
-comptox:CompTox_DTXSID101348698 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID101348698 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonate)" .
 
-comptox:CompTox_DTXSID1032646 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID1032646 a comptox:ChemicalEntity ;
     rdfs:label "N-Ethylperfluorooctane sulfonamide" .
 
-comptox:CompTox_DTXSID1037303 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID1037303 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoroheptanoic acid" .
 
-comptox:CompTox_DTXSID1066071 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID1066071 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorooctadecanoic acid" .
 
-comptox:CompTox_DTXSID1067629 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID1067629 a comptox:ChemicalEntity ;
     rdfs:label "N-Methylperfluorooctanesulfonamide" .
 
-comptox:CompTox_DTXSID1070800 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID1070800 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorohexadecanoic acid" .
 
-comptox:CompTox_DTXSID20873011 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID20873011 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorododecanesulfonic acid" .
 
-comptox:CompTox_DTXSID20874028 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID20874028 a comptox:ChemicalEntity ;
     rdfs:label "2H,2H,3H,3H-Perfluorooctanoic acid" .
 
-comptox:CompTox_DTXSID20892484 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID20892484 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorohexanoate" .
 
-comptox:CompTox_DTXSID20892489 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID20892489 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorotridecanoate" .
 
-comptox:CompTox_DTXSID20892505 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID20892505 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoroheptanesulfonate" .
 
-comptox:CompTox_DTXSID3031860 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID3031860 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorodecanoic acid" .
 
-comptox:CompTox_DTXSID3031862 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID3031862 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorohexanoic acid" .
 
-comptox:CompTox_DTXSID30382063 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID30382063 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro-3,6-dioxaheptanoic acid" .
 
-comptox:CompTox_DTXSID3038939 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID3038939 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorooctanesulfonamide" .
 
-comptox:CompTox_DTXSID3040148 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID3040148 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorodecanesulfonic acid" .
 
-comptox:CompTox_DTXSID3059921 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID3059921 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorotetradecanoic acid" .
 
-comptox:CompTox_DTXSID30870531 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID30870531 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoropropanesulfonic acid" .
 
-comptox:CompTox_DTXSID30880251 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID30880251 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorobutanesulfonamide" .
 
-comptox:CompTox_DTXSID30891564 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID30891564 a comptox:ChemicalEntity ;
     rdfs:label "4:2 Fluorotelomer sulfonic acid" .
 
-comptox:CompTox_DTXSID30892475 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID30892475 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoroundecanoate" .
 
-comptox:CompTox_DTXSID401348697 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID401348697 a comptox:ChemicalEntity ;
     rdfs:label "2-[(8-Chloro-1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8-hexadecafluorooctyl)oxy]-1,1,2,2-tetrafluoroethanesulfonate" .
 
-comptox:CompTox_DTXSID4059916 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID4059916 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorobutanoic acid" .
 
-comptox:CompTox_DTXSID40881350 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID40881350 a comptox:ChemicalEntity ;
     rdfs:label "4,8-Dioxa-3H-perfluorononanoic acid" .
 
-comptox:CompTox_DTXSID40892481 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID40892481 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorodecanoate" .
 
-comptox:CompTox_DTXSID40892486 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID40892486 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorooctanoate" .
 
-comptox:CompTox_DTXSID40892507 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID40892507 a comptox:ChemicalEntity ;
     rdfs:label "11-Chloroperfluoro-3-oxaundecanesulfonic acid" .
 
-comptox:CompTox_DTXSID5030030 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID5030030 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorobutanesulfonic acid" .
 
-comptox:CompTox_DTXSID50379814 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID50379814 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro-2-ethoxyethanesulfonic acid" .
 
-comptox:CompTox_DTXSID50469320 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID50469320 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorohexanesulfonamide" .
 
-comptox:CompTox_DTXSID50892578 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID50892578 a comptox:ChemicalEntity ;
     rdfs:label "10:2 Fluorotelomer sulfonic acid" .
 
-comptox:CompTox_DTXSID6027426 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID6027426 a comptox:ChemicalEntity ;
     rdfs:label "N-Ethyl-N-(2-hydroxyethyl)perfluorooctane sulfonamide" .
 
-comptox:CompTox_DTXSID60500450 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID60500450 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro(4-methoxybutanoic acid)" .
 
-comptox:CompTox_DTXSID6062599 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID6062599 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoropentanoic acid" .
 
-comptox:CompTox_DTXSID60873015 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID60873015 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorobutanesulfonate" .
 
-comptox:CompTox_DTXSID60892483 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID60892483 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoroheptanoate" .
 
-comptox:CompTox_DTXSID60892488 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID60892488 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorotetradecanoate" .
 
-comptox:CompTox_DTXSID70191136 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID70191136 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro-3-methoxypropanoic acid" .
 
-comptox:CompTox_DTXSID7022546 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID7022546 a comptox:ChemicalEntity ;
     rdfs:label "Acetohydroxamic acid" .
 
-comptox:CompTox_DTXSID7027831 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID7027831 a comptox:ChemicalEntity ;
     rdfs:label "N-Methyl-N-(2-hydroxyethyl)perfluorooctanesulfonamide" .
 
-comptox:CompTox_DTXSID70880215 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID70880215 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro-2-methyl-3-oxahexanoic acid" .
 
-comptox:CompTox_DTXSID70892479 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID70892479 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoropentanesulfonate" .
 
-comptox:CompTox_DTXSID80108992 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID80108992 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorooctanesulfonate" .
 
-comptox:CompTox_DTXSID8031861 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID8031861 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorododecanoic acid" .
 
-comptox:CompTox_DTXSID8031863 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID8031863 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorononanoic acid" .
 
-comptox:CompTox_DTXSID8047553 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID8047553 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoroundecanoic acid" .
 
-comptox:CompTox_DTXSID8059920 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID8059920 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoroheptanesulfonic acid" .
 
-comptox:CompTox_DTXSID8062600 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID8062600 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoropentanesulfonic acid" .
 
-comptox:CompTox_DTXSID80873012 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID80873012 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorohexanesulfonate" .
 
-comptox:CompTox_DTXSID80892480 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID80892480 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorobutanoate" .
 
-comptox:CompTox_DTXSID80892485 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID80892485 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorononanoate" .
 
-comptox:CompTox_DTXSID80892506 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID80892506 a comptox:ChemicalEntity ;
     rdfs:label "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonic acid)" .
 
-comptox:CompTox_DTXSID80893154 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID80893154 a comptox:ChemicalEntity ;
     rdfs:label "2,2,3-Trifluoro-3-[1,1,2,2,3,3-hexafluoro-3-(trifluoromethoxy)propoxy]propanoate" .
 
-comptox:CompTox_DTXSID90382620 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID90382620 a comptox:ChemicalEntity ;
     rdfs:label "3-(Perfluoroheptyl)propanoic acid" .
 
-comptox:CompTox_DTXSID90868151 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID90868151 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorotridecanoic acid" .
 
-comptox:CompTox_DTXSID90891565 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID90891565 a comptox:ChemicalEntity ;
     rdfs:label "4:2 Fluorotelomer sulfonate" .
 
 me_egad_data:parameter.PFDA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID40892481 .
 
-comptox:CompTox_DTXSID00192353 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID00192353 a comptox:ChemicalEntity ;
     rdfs:label "8:2 Fluorotelomer sulfonic acid" .
 
-comptox:CompTox_DTXSID3031864 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID3031864 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorooctanesulfonic acid" .
 
-comptox:CompTox_DTXSID6067331 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID6067331 a comptox:ChemicalEntity ;
     rdfs:label "6:2 Fluorotelomer sulfonic acid" .
 
-comptox:CompTox_DTXSID60873010 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID60873010 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorononanesulfonate" .
 
-comptox:CompTox_DTXSID7040150 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID7040150 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorohexanesulfonic acid" .
 
-comptox:CompTox_DTXSID8031865 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID8031865 a comptox:ChemicalEntity ;
     rdfs:label "Perfluorooctanoic acid" .
 
 me_egad_data:parameter.PFHPA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID60892483 .
@@ -377,9 +377,9 @@ me_egad_data:parameter.PFOA comptox:sameAsComptoxSubstance comptox:CompTox_DTXSI
 
 me_egad_data:parameter.PFOS comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID80108992 .
 
-comptox:CompTox_DTXSID10624392 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID10624392 a comptox:ChemicalEntity ;
     rdfs:label "2-(N-Methylperfluorooctanesulfonamido)acetic acid" .
 
-comptox:CompTox_DTXSID5062760 a comptox:CompTox_ChemicalEntity ;
+comptox:CompTox_DTXSID5062760 a comptox:ChemicalEntity ;
     rdfs:label "2-(N-Ethylperfluorooctanesulfonamido)acetic acid" .
 

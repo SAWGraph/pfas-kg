@@ -69,7 +69,7 @@ me_egad_data:DefEGADDrinkingWaterSample owl:unionOf ([rdf:type owl:Restriction;
 me_egad_data:sampleMaterialType.PW rdf:type coso:WaterSample. 
 
 me_egad_data:DefEGADFilteredWaterSample owl:unionOf (
-    [rdf:type owl:Restriction;
+    [rdf:type owl:Restriction; 
     owl:onProperty me_egad:sampleCollectionLocation;
     owl:hasValue me_egad_data:sampleLocation.AF]  #after filter
     

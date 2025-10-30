@@ -314,7 +314,7 @@ def triplify_param_mapping(df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
 
         if pd.notna(row['DTXSID']) and row['DTXSID'] != "-":
             kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
-            kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['CompTox_ChemicalEntity']))
+            kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['ChemicalEntity']))
             kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
         else:
             print('skipping ', row['Abbreviation-aik-pfas-ont'])
