@@ -132,7 +132,7 @@ def get_iris(site: dict)-> dict:
         #'wqp_site': prefixes['gcx'][f"wqp/{site['provider']}/{site['org_id']}/{site['id']}"],
         'wqp_site': prefixes['gcx_wqp'][f"{site['id']}"],
         'wqp_site_geom':prefixes['us_wqp_data'][f"d.wqp.SiteGeometry.iow.wqp.{site['id']}"],  #TODO how to create geometry for gcx features?
-        'organization': prefixes['us_wqp_data'][f"d.wqp.Organization.{site['org_id']}"],
+        'organization': prefixes['us_wqp_data'][f"organization.{site['org_id']}"],
         'feature': prefixes['us_wqp_data'][f"d.wqp.SampledFeature.{site['id']}"],
         'featureType': prefixes['us_wqp_data'][f"{'featureType'}.{site['type']}"]
         

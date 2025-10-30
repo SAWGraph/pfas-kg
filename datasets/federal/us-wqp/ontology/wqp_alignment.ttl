@@ -19,83 +19,83 @@
 
 # species mapping to NCBI (& FOODON)
 
-us_wqp_data:d.wqp.biologicalTaxon.10575 rdf:type obo:NCBITaxon_66913. 
+us_wqp_data:biologicalTaxon.10575 rdf:type obo:NCBITaxon_66913. 
 
-us_wqp_data:d.wqp.biologicalTaxon.10582 rdf:type obo:NCBITaxon_7998. 
+us_wqp_data:biologicalTaxon.10582 rdf:type obo:NCBITaxon_7998. 
 
-us_wqp_data:d.wqp.biologicalTaxon.13166 rdf:type obo:NCBITaxon_147949. 
+us_wqp_data:biologicalTaxon.13166 rdf:type obo:NCBITaxon_147949. 
 
-us_wqp_data:d.wqp.biologicalTaxon.13169 rdf:type obo:NCBITaxon_225060. 
+us_wqp_data:biologicalTaxon.13169 rdf:type obo:NCBITaxon_225060. 
 
-us_wqp_data:d.wqp.biologicalTaxon.13170 rdf:type obo:NCBITaxon_27706. 
+us_wqp_data:biologicalTaxon.13170 rdf:type obo:NCBITaxon_27706. 
 
-us_wqp_data:d.wqp.biologicalTaxon.13370 rdf:type obo:NCBITaxon_46259. 
+us_wqp_data:biologicalTaxon.13370 rdf:type obo:NCBITaxon_46259. 
 
-us_wqp_data:d.wqp.biologicalTaxon.13374 rdf:type obo:NCBITaxon_34816. 
+us_wqp_data:biologicalTaxon.13374 rdf:type obo:NCBITaxon_34816. 
 
-us_wqp_data:d.wqp.biologicalTaxon.1447 rdf:type obo:NCBITaxon_225389. 
+us_wqp_data:biologicalTaxon.1447 rdf:type obo:NCBITaxon_225389. 
 
-us_wqp_data:d.wqp.biologicalTaxon.14727 rdf:type obo:NCBITaxon_8022. 
+us_wqp_data:biologicalTaxon.14727 rdf:type obo:NCBITaxon_8022. 
 
-us_wqp_data:d.wqp.biologicalTaxon.15717 rdf:type obo:NCBITaxon_8167. 
+us_wqp_data:biologicalTaxon.15717 rdf:type obo:NCBITaxon_8167. 
 
-us_wqp_data:d.wqp.biologicalTaxon.17772 rdf:type obo:NCBITaxon_75288. 
+us_wqp_data:biologicalTaxon.17772 rdf:type obo:NCBITaxon_75288. 
 
-us_wqp_data:d.wqp.biologicalTaxon.18416 rdf:type obo:NCBITaxon_8032. 
+us_wqp_data:biologicalTaxon.18416 rdf:type obo:NCBITaxon_8032. 
 
-us_wqp_data:d.wqp.biologicalTaxon.18441 rdf:type obo:NCBITaxon_8038. 
+us_wqp_data:biologicalTaxon.18441 rdf:type obo:NCBITaxon_8038. 
 
-us_wqp_data:d.wqp.biologicalTaxon.23065 rdf:type obo:NCBITaxon_6550.
+us_wqp_data:biologicalTaxon.23065 rdf:type obo:NCBITaxon_6550.
 
-us_wqp_data:d.wqp.biologicalTaxon.25364 rdf:type obo:NCBITaxon_6604. 
+us_wqp_data:biologicalTaxon.25364 rdf:type obo:NCBITaxon_6604. 
 
-us_wqp_data:d.wqp.biologicalTaxon.3725 rdf:type obo:NCBITaxon_154811.
+us_wqp_data:biologicalTaxon.3725 rdf:type obo:NCBITaxon_154811.
 
-us_wqp_data:d.wqp.biologicalTaxon.3757 rdf:type obo:NCBITaxon_7971.
+us_wqp_data:biologicalTaxon.3757 rdf:type obo:NCBITaxon_7971.
 
-us_wqp_data:d.wqp.biologicalTaxon.40317 rdf:type obo:NCBITaxon_283036.
+us_wqp_data:biologicalTaxon.40317 rdf:type obo:NCBITaxon_283036.
 
-us_wqp_data:d.wqp.biologicalTaxon.7587 rdf:type obo:NCBITaxon_126735. 
+us_wqp_data:biologicalTaxon.7587 rdf:type obo:NCBITaxon_126735. 
 
-us_wqp_data:d.wqp.biologicalTaxon.7588 rdf:type obo:NCBITaxon_184451. 
+us_wqp_data:biologicalTaxon.7588 rdf:type obo:NCBITaxon_184451. 
 
-us_wqp_data:d.wqp.biologicalTaxon.818 rdf:type obo:NCBITaxon_27778. 
+us_wqp_data:biologicalTaxon.818 rdf:type obo:NCBITaxon_27778. 
 
-us_wqp_data:d.wqp.biologicalTaxon.11868 rdf:type obo:NCBITaxon_13106.
+us_wqp_data:biologicalTaxon.11868 rdf:type obo:NCBITaxon_13106.
 
-us_wqp_data:d.wqp.biologicalTaxon.817 rdf:type obo:NCBITaxon_66912.
+us_wqp_data:biologicalTaxon.817 rdf:type obo:NCBITaxon_66912.
 
-us_wqp_data:d.wqp.sampleMedia.tissue rdf:type obo:FOODON_02010032. #all tissue samples some animal muscle tissue. 
+us_wqp_data:sampleMedia.tissue rdf:type obo:FOODON_02010032. #all tissue samples some animal muscle tissue. 
 
 # sample type by media 
 us_wqp:DefWQPWaterSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:d.wqp.sampleMedia.water; 
+        owl:hasValue us_wqp_data:sampleMedia.water; 
         rdfs:subClassOf coso:WaterSample.
     
 us_wqp:DefWQPSoilSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:d.wqp.sampleMedia.soil; 
+        owl:hasValue us_wqp_data:sampleMedia.soil; 
     rdfs:subClassOf coso:SoilSample.
 
 us_wqp:DefWQPSedimentSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:d.wqp.sampleMedia.sediment; 
+        owl:hasValue us_wqp_data:sampleMedia.sediment; 
     rdfs:subClassOf coso:SedimentSample.
 
 us_wqp:DefWQPBiologicalSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:d.wqp.sampleMedia.biological; 
+        owl:hasValue us_wqp_data:sampleMedia.biological; 
     rdfs:subClassOf coso:BiotaSample.
 
 us_wqp:DefWQPTissueSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:d.wqp.sampleMedia.tissue; 
+        owl:hasValue us_wqp_data:sampleMedia.tissue; 
     rdfs:subClassOf coso:AnimalTissueSample.
 
 us_wqp:DefWQPAirSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:d.wqp.sampleMedia.air; 
+        owl:hasValue us_wqp_data:sampleMedia.air; 
     rdfs:subClassOf coso:AirSample.
 
 # monitoring location feature type mapping 

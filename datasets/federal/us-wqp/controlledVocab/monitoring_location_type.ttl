@@ -5,17 +5,17 @@
 
 us_wqp_data:featureType.Atmosphere a us_wqp:LocationType ;
     rdfs:label "Atmosphere" ;
-    us_wqp:featureDescription "Atmosphere monitoring stations provide weather data about conditions"^^xsd:string .
+    rdfs:comment "Atmosphere monitoring stations provide weather data about conditions"^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteChannelizedstream a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Channelized stream" ;
-    us_wqp:featureDescription "The process of straightening or redirecting natural streams in an artificially modified or constructed stream bed. Channelization has been carried out for numerous reasons, most often to drain wetlands , direct water flow for agricultural use, and control flooding . While this process makes a stream more useful for human activities, it tends to interfere with natural river habitats and to destabilize stream banks by destroying riparian vegetation."^^xsd:string .
+    rdfs:comment "The process of straightening or redirecting natural streams in an artificially modified or constructed stream bed. Channelization has been carried out for numerous reasons, most often to drain wetlands , direct water flow for agricultural use, and control flooding . While this process makes a stream more useful for human activities, it tends to interfere with natural river habitats and to destabilize stream banks by destroying riparian vegetation."^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteEstuary a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Estuary" ;
-    us_wqp:featureDescription """a partially enclosed coastal body of brackish water with one or more rivers or streams flowing into it, and with a free connection to the open sea
+    rdfs:comment """a partially enclosed coastal body of brackish water with one or more rivers or streams flowing into it, and with a free connection to the open sea
 Estuaries form a transition zone between river environments and maritime environments. 
 The sea water entering the estuary is diluted by the fresh water flowing from rivers and streams.
 """^^xsd:string .
@@ -23,459 +23,459 @@ The sea water entering the estuary is diluted by the fresh water flowing from ri
 us_wqp_data:featureType.BEACHProgramSiteGreatLake a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Great Lake" ;
-    us_wqp:featureDescription "The Great Lakes, also called the Laurentian Great Lakes and the Great Lakes of North America, are a series of interconnected freshwater lakes primarily in the upper mid-east region of North America, on the CanadaâUnited States border, which connect to the Atlantic Ocean through the Saint Lawrence River."^^xsd:string .
+    rdfs:comment "The Great Lakes, also called the Laurentian Great Lakes and the Great Lakes of North America, are a series of interconnected freshwater lakes primarily in the upper mid-east region of North America, on the CanadaâUnited States border, which connect to the Atlantic Ocean through the Saint Lawrence River."^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteLake a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Lake" ;
-    us_wqp:featureDescription "A lake is an area filled with water, localized in a basin, that is surrounded by land, apart from any river or other outlet that serves to feed or drain the lake"^^xsd:string .
+    rdfs:comment "A lake is an area filled with water, localized in a basin, that is surrounded by land, apart from any river or other outlet that serves to feed or drain the lake"^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteLand a us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Land" ;
-    us_wqp:featureDescription "Land, sometimes referred to as dry land, is the solid surface of Earth that is not permanently covered by water."^^xsd:string .
+    rdfs:comment "Land, sometimes referred to as dry land, is the solid surface of Earth that is not permanently covered by water."^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteLandrunoff a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Land runoff" ;
-    us_wqp:featureDescription "Also known as overland flow is the flow of water that occurs when excess stormwater, meltwater, or other sources flows over the Earth's surface."^^xsd:string .
+    rdfs:comment "Also known as overland flow is the flow of water that occurs when excess stormwater, meltwater, or other sources flows over the Earth's surface."^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteOcean a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Ocean" ;
-    us_wqp:featureDescription "An ocean is a body of water that composes much of a planet's hydrosphere."^^xsd:string .
+    rdfs:comment "An ocean is a body of water that composes much of a planet's hydrosphere."^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteRiverStream a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-River/Stream" ;
-    us_wqp:featureDescription "A river is a natural flowing watercourse, usually freshwater, flowing towards an ocean, sea, lake or another river. In some cases a river flows into the ground and becomes dry at the end of its course without reaching another body of water. "^^xsd:string .
+    rdfs:comment "A river is a natural flowing watercourse, usually freshwater, flowing towards an ocean, sea, lake or another river. In some cases a river flows into the ground and becomes dry at the end of its course without reaching another body of water. "^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteStormsewer a us_wqp:DefWQPWasteWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Storm sewer" ;
-    us_wqp:featureDescription "The storm sewer is a system designed to carry rainfall runoff and other drainage."^^xsd:string .
+    rdfs:comment "The storm sewer is a system designed to carry rainfall runoff and other drainage."^^xsd:string .
 
 us_wqp_data:featureType.BEACHProgramSiteWastesewer a us_wqp:DefWQPWasteWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "BEACH Program Site-Waste sewer" ;
-    us_wqp:featureDescription "The wastewater from residences and institutions, carrying bodily wastes (primarily feces and urine), washing water, food preparation wastes, laundry wastes, and other waste products of normal living, are classed as domestic or sanitary sewage."^^xsd:string .
+    rdfs:comment "The wastewater from residences and institutions, carrying bodily wastes (primarily feces and urine), washing water, food preparation wastes, laundry wastes, and other waste products of normal living, are classed as domestic or sanitary sewage."^^xsd:string .
 
 us_wqp_data:featureType.Borehole a us_wqp:DefWQPGroundWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Borehole" ;
-    us_wqp:featureDescription "A borehole is a narrow shaft bored in the ground, either vertically or horizontally. A borehole may be constructed for many different purposes, including the extraction of water, other liquids (such as petroleum) or gases (such as natural gas), as part of a geotechnical investigation, environmental site assessment,"^^xsd:string .
+    rdfs:comment "A borehole is a narrow shaft bored in the ground, either vertically or horizontally. A borehole may be constructed for many different purposes, including the extraction of water, other liquids (such as petroleum) or gases (such as natural gas), as part of a geotechnical investigation, environmental site assessment,"^^xsd:string .
 
 us_wqp_data:featureType.CERCLASuperfundSite a us_wqp:LocationType ;
     rdfs:label "CERCLA Superfund Site" ;
-    us_wqp:featureDescription "The Superfund site assessment process evaluates potential or confirmed releases of hazardous substances that may pose a threat to human health or the environment using the Hazard Ranking System (HRS) criteria guide"^^xsd:string .
+    rdfs:comment "The Superfund site assessment process evaluates potential or confirmed releases of hazardous substances that may pose a threat to human health or the environment using the Hazard Ranking System (HRS) criteria guide"^^xsd:string .
 
 us_wqp_data:featureType.CanalDrainage a us_wqp:LocationType ;
     rdfs:label "Canal Drainage" ;
-    us_wqp:featureDescription "As a channel drainage system it is designed to eliminate the need for further pipework systems to be installed in parallel to the drainage, reducing the environmental impact of production as well as improving water collection."^^xsd:string .
+    rdfs:comment "As a channel drainage system it is designed to eliminate the need for further pipework systems to be installed in parallel to the drainage, reducing the environmental impact of production as well as improving water collection."^^xsd:string .
 
 us_wqp_data:featureType.CanalIrrigation a us_wqp:LocationType ;
     rdfs:label "Canal Irrigation" ;
-    us_wqp:featureDescription "Irrigation canals are the main waterways that bring irrigation water from a water source to the areas to be irrigated. They can be lined with concrete, brick, stone, or a flexible membrane to prevent seepage and erosion."^^xsd:string .
+    rdfs:comment "Irrigation canals are the main waterways that bring irrigation water from a water source to the areas to be irrigated. They can be lined with concrete, brick, stone, or a flexible membrane to prevent seepage and erosion."^^xsd:string .
 
 us_wqp_data:featureType.CanalTransport a us_wqp:LocationType ;
     rdfs:label "Canal Transport" ;
-    us_wqp:featureDescription "Canals are human-made channels for water conveyance, or to service water transport vehicles. In most cases, the engineered works will have a series of dams and locks that create areas of low speed current flow. These areas are referred to as slack water levels, often just called levels."^^xsd:string .
+    rdfs:comment "Canals are human-made channels for water conveyance, or to service water transport vehicles. In most cases, the engineered works will have a series of dams and locks that create areas of low speed current flow. These areas are referred to as slack water levels, often just called levels."^^xsd:string .
 
 us_wqp_data:featureType.Cave a us_wqp:LocationType ;
     rdfs:label "Cave" ;
-    us_wqp:featureDescription "A cave is a hollow place in the ground, specifically a natural underground space large enough for a human to enter. Caves form naturally by the weathering of rock and often extend deep underground. "^^xsd:string .
+    rdfs:comment "A cave is a hollow place in the ground, specifically a natural underground space large enough for a human to enter. Caves form naturally by the weathering of rock and often extend deep underground. "^^xsd:string .
 
 us_wqp_data:featureType.ChannelizedStream a us_wqp:LocationType ;
     rdfs:label "Channelized Stream" ;
-    us_wqp:featureDescription "The process of straightening or redirecting natural streams in an artificially modified or constructed stream bed. Channelization has been carried out for numerous reasons, most often to drain wetlands , direct water flow for agricultural use, and control flooding . While this process makes a stream more useful for human activities, it tends to interfere with natural river habitats and to destabilize stream banks by destroying riparian vegetation."^^xsd:string .
+    rdfs:comment "The process of straightening or redirecting natural streams in an artificially modified or constructed stream bed. Channelization has been carried out for numerous reasons, most often to drain wetlands , direct water flow for agricultural use, and control flooding . While this process makes a stream more useful for human activities, it tends to interfere with natural river habitats and to destabilize stream banks by destroying riparian vegetation."^^xsd:string .
 
 us_wqp_data:featureType.CombinedSewer a us_wqp:LocationType ;
     rdfs:label "Combined Sewer" ;
-    us_wqp:featureDescription "A combined sewer system (CSS) collects rainwater runoff, domestic sewage, and industrial wastewater into one pipe. Under normal conditions, it transports all of the wastewater it collects to a sewage treatment plant for treatment, then discharges to a water body. Combined sewer overflows (CSOs) contain untreated or partially treated human and industrial waste, toxic materials, and debris as well as stormwater."^^xsd:string .
+    rdfs:comment "A combined sewer system (CSS) collects rainwater runoff, domestic sewage, and industrial wastewater into one pipe. Under normal conditions, it transports all of the wastewater it collects to a sewage treatment plant for treatment, then discharges to a water body. Combined sewer overflows (CSOs) contain untreated or partially treated human and industrial waste, toxic materials, and debris as well as stormwater."^^xsd:string .
 
 us_wqp_data:featureType.ConstructedDiversionDam a us_wqp:LocationType ;
     rdfs:label "Constructed Diversion Dam" ;
-    us_wqp:featureDescription "A diversion dam is a dam that diverts all or a portion of the flow of a river from its natural course. Diversion dams do not generally impound water in a reservoir. Instead, the water is diverted into an artificial water course or canal, which may be used for irrigation or return to the river after passing through hydroelectric generators, flow into a different river or be itself dammed forming a reservoir."^^xsd:string .
+    rdfs:comment "A diversion dam is a dam that diverts all or a portion of the flow of a river from its natural course. Diversion dams do not generally impound water in a reservoir. Instead, the water is diverted into an artificial water course or canal, which may be used for irrigation or return to the river after passing through hydroelectric generators, flow into a different river or be itself dammed forming a reservoir."^^xsd:string .
 
 us_wqp_data:featureType.ConstructedTunnel a us_wqp:LocationType ;
     rdfs:label "Constructed Tunnel" ;
-    us_wqp:featureDescription "an artificial underground passage, especially one built through a hill or under a building, road, or river."^^xsd:string .
+    rdfs:comment "an artificial underground passage, especially one built through a hill or under a building, road, or river."^^xsd:string .
 
 us_wqp_data:featureType.ConstructedWaterTransportStructure a us_wqp:LocationType ;
     rdfs:label "Constructed Water Transport Structure" ;
-    us_wqp:featureDescription "a system of structures and measures that support the  intentional movement of water over large distances. simple aqueducts to transport water above ground level. short pipelines to transport water above or under another structure such as a water canal or an access road"^^xsd:string .
+    rdfs:comment "a system of structures and measures that support the  intentional movement of water over large distances. simple aqueducts to transport water above ground level. short pipelines to transport water above or under another structure such as a water canal or an access road"^^xsd:string .
 
 us_wqp_data:featureType.ConstructedWetland a us_wqp:LocationType ;
     rdfs:label "Constructed Wetland" ;
-    us_wqp:featureDescription "A constructed wetland (CW) is an artificial wetland to treat municipal or industrial wastewater, greywater or stormwater runoff. It may also be designed for land reclamation after mining, or as a mitigation step for natural areas lost to land development.Constructed wetlands are engineered systems that use natural functions vegetation, soil, and organisms to treat wastewater"^^xsd:string .
+    rdfs:comment "A constructed wetland (CW) is an artificial wetland to treat municipal or industrial wastewater, greywater or stormwater runoff. It may also be designed for land reclamation after mining, or as a mitigation step for natural areas lost to land development.Constructed wetlands are engineered systems that use natural functions vegetation, soil, and organisms to treat wastewater"^^xsd:string .
 
 us_wqp_data:featureType.Estuary a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Estuary" ;
-    us_wqp:featureDescription """a partially enclosed coastal body of brackish water with one or more rivers or streams flowing into it, and with a free connection to the open sea\r
+    rdfs:comment """a partially enclosed coastal body of brackish water with one or more rivers or streams flowing into it, and with a free connection to the open sea\r
 Estuaries form a transition zone between river environments and maritime environments. \r
 The sea water entering the estuary is diluted by the fresh water flowing from rivers and streams.\r
 """^^xsd:string .
 
 us_wqp_data:featureType.EstuaryFreshwater a us_wqp:LocationType ;
     rdfs:label "Estuary-Freshwater" ;
-    us_wqp:featureDescription "Freshwater estuaries are semi-enclosed areas of the Great Lakes in which lake and river water mix, forming a transition zone between river and lake environments that are chemically distinct"^^xsd:string .
+    rdfs:comment "Freshwater estuaries are semi-enclosed areas of the Great Lakes in which lake and river water mix, forming a transition zone between river and lake environments that are chemically distinct"^^xsd:string .
 
 us_wqp_data:featureType.FacilityIndustrial a us_wqp:LocationType ;
     rdfs:label "Facility Industrial" ;
-    us_wqp:featureDescription "a facility composed of one or more pieces of equipment connected to or part of a structure and designed to provide a service such as heat or electricity or water or sewage disposal. \"the price of the house included all utilities"^^xsd:string .
+    rdfs:comment "a facility composed of one or more pieces of equipment connected to or part of a structure and designed to provide a service such as heat or electricity or water or sewage disposal. \"the price of the house included all utilities"^^xsd:string .
 
 us_wqp_data:featureType.FacilityMunicipalSewagePOTW a us_wqp:DefWQPWasteWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Facility Municipal Sewage (POTW)" ;
-    us_wqp:featureDescription "Treatment works treating domestic sewage means a POTW or any other sewage sludge or waste water treatment devices or systems, regardless of ownership (including federal facilities), used in the storage, treatment, recycling, and reclamation of municipal or domestic sewage, including land dedicated for the disposal of sewage sludge. This definition does not include septic tanks or similar devices."^^xsd:string .
+    rdfs:comment "Treatment works treating domestic sewage means a POTW or any other sewage sludge or waste water treatment devices or systems, regardless of ownership (including federal facilities), used in the storage, treatment, recycling, and reclamation of municipal or domestic sewage, including land dedicated for the disposal of sewage sludge. This definition does not include septic tanks or similar devices."^^xsd:string .
 
 us_wqp_data:featureType.FacilityOther a us_wqp:LocationType ;
     rdfs:label "Facility Other" ;
-    us_wqp:featureDescription "a facility composed of one or more pieces of equipment connected to or part of a structure and designed to provide a service such as Reclaimed water can supply needed water for some purposes Reclaimed wastewater frees up fresh water that can be used somewhere else, such as for drinking water"^^xsd:string .
+    rdfs:comment "a facility composed of one or more pieces of equipment connected to or part of a structure and designed to provide a service such as Reclaimed water can supply needed water for some purposes Reclaimed wastewater frees up fresh water that can be used somewhere else, such as for drinking water"^^xsd:string .
 
 us_wqp_data:featureType.FacilityPrivatelyOwnedNonindustrial a us_wqp:LocationType ;
     rdfs:label "Facility Privately Owned Non-industrial" ;
-    us_wqp:featureDescription "Privately owned treatment works means any device or system which is (a) used to treat wastes from any facility whose operator is not the operator of the treatment works"^^xsd:string .
+    rdfs:comment "Privately owned treatment works means any device or system which is (a) used to treat wastes from any facility whose operator is not the operator of the treatment works"^^xsd:string .
 
 us_wqp_data:featureType.FacilityPublicWaterSupplyPWS a us_wqp:LocationType ;
     rdfs:label "Facility Public Water Supply (PWS)" ;
-    us_wqp:featureDescription """A Public Water System is a public water supply for the provision to the public of piped water for human consumption, A Public Water System includes any collection, treatment, storage,
+    rdfs:comment """A Public Water System is a public water supply for the provision to the public of piped water for human consumption, A Public Water System includes any collection, treatment, storage,
 and distribution facilities under control of such system, including the operator or administrator of such system, and is used primarily in
 connection with such system and any collection or pretreatment storage facilities not under such control which are used primarily in
 connection with such system.â"""^^xsd:string .
 
 us_wqp_data:featureType.FloodwaterUrban a us_wqp:LocationType ;
     rdfs:label "Floodwater Urban" ;
-    us_wqp:featureDescription "A flood is an overflow of water that submerges land that is usually dry  In the sense of \"urban runoff water\". it may occur due to an accumulation of rainwater on saturated ground in an areal flood."^^xsd:string .
+    rdfs:comment "A flood is an overflow of water that submerges land that is usually dry  In the sense of \"urban runoff water\". it may occur due to an accumulation of rainwater on saturated ground in an areal flood."^^xsd:string .
 
 us_wqp_data:featureType.FloodwaternonUrban a us_wqp:LocationType ;
     rdfs:label "Floodwater non-Urban" ;
-    us_wqp:featureDescription "A flood is an overflow of water that submerges land that is usually dry  Flooding may occur as an overflow of water from water bodies, such as a river, lake, or ocean, in which the water overtops or breaks levees, resulting in some of that water escaping its usual boundaries"^^xsd:string .
+    rdfs:comment "A flood is an overflow of water that submerges land that is usually dry  Flooding may occur as an overflow of water from water bodies, such as a river, lake, or ocean, in which the water overtops or breaks levees, resulting in some of that water escaping its usual boundaries"^^xsd:string .
 
 us_wqp_data:featureType.Gallery a us_wqp:LocationType ;
     rdfs:label "Gallery" ;
-    us_wqp:featureDescription "An infiltration gallery is a structure including perforated conduits in gravel to expedite transfer of water to or from a soil."^^xsd:string .
+    rdfs:comment "An infiltration gallery is a structure including perforated conduits in gravel to expedite transfer of water to or from a soil."^^xsd:string .
 
 us_wqp_data:featureType.GasCondensate a us_wqp:LocationType ;
     rdfs:label "Gas-Condensate" ;
-    us_wqp:featureDescription "Natural-gas condensate, also called natural gas liquids, is a low-density mixture of hydrocarbon liquids that are present as gaseous components in the raw natural gas produced from many natural gas fields. "^^xsd:string .
+    rdfs:comment "Natural-gas condensate, also called natural gas liquids, is a low-density mixture of hydrocarbon liquids that are present as gaseous components in the raw natural gas produced from many natural gas fields. "^^xsd:string .
 
 us_wqp_data:featureType.GasEngine a us_wqp:LocationType ;
     rdfs:label "Gas-Engine" ;
-    us_wqp:featureDescription "A gas engine is an internal combustion engine that runs on a gaseous fuel, such as coal gas, producer gas, biogas, landfill gas or natural gas."^^xsd:string .
+    rdfs:comment "A gas engine is an internal combustion engine that runs on a gaseous fuel, such as coal gas, producer gas, biogas, landfill gas or natural gas."^^xsd:string .
 
 us_wqp_data:featureType.GasExtraction a us_wqp:LocationType ;
     rdfs:label "Gas-Extraction" ;
-    us_wqp:featureDescription "Oil and Gas Extraction is the exploration and production of petroleum and natural gas from wells. The industry generates wastewater from the water extracted from the geological formations and from chemicals used during exploration, well drilling and production of oil and gas."^^xsd:string .
+    rdfs:comment "Oil and Gas Extraction is the exploration and production of petroleum and natural gas from wells. The industry generates wastewater from the water extracted from the geological formations and from chemicals used during exploration, well drilling and production of oil and gas."^^xsd:string .
 
 us_wqp_data:featureType.GasFlare a us_wqp:LocationType ;
     rdfs:label "Gas-Flare" ;
-    us_wqp:featureDescription "A gas flare, alternatively known as a flare stack, is a gas combustion device used in industrial plants such as petroleum refineries, chemical plants, natural gas processing plants as well as at oil or gas production sites having oil wells, gas wells, offshore oil and gas rigs and landfills."^^xsd:string .
+    rdfs:comment "A gas flare, alternatively known as a flare stack, is a gas combustion device used in industrial plants such as petroleum refineries, chemical plants, natural gas processing plants as well as at oil or gas production sites having oil wells, gas wells, offshore oil and gas rigs and landfills."^^xsd:string .
 
 us_wqp_data:featureType.GasMonitoringProbe a us_wqp:LocationType ;
     rdfs:label "Gas-Monitoring Probe" ;
-    us_wqp:featureDescription """Gas monitoring probes are used to enhance environmental protection at landfills. Gas
+    rdfs:comment """Gas monitoring probes are used to enhance environmental protection at landfills. Gas
 concentrations are measured at permit or regulatory specified time intervals. This process
 allows potential environmental concerns to be identified early, evaluated and corrected
 (when necessary) in accordance with regulations and sound scientific approaches."""^^xsd:string .
 
 us_wqp_data:featureType.GasPassiveVent a us_wqp:LocationType ;
     rdfs:label "Gas-Passive Vent" ;
-    us_wqp:featureDescription "Dispersion of gas safely from soil."^^xsd:string .
+    rdfs:comment "Dispersion of gas safely from soil."^^xsd:string .
 
 us_wqp_data:featureType.GasSubslab a us_wqp:LocationType ;
     rdfs:label "Gas-Subslab" ;
-    us_wqp:featureDescription "Sub-slab Soil Gas: Sub-slab samples are collected to characterize the nature and extent of vapor contamination in the soil immediately beneath a building with a slab or beneath the basement floor."^^xsd:string .
+    rdfs:comment "Sub-slab Soil Gas: Sub-slab samples are collected to characterize the nature and extent of vapor contamination in the soil immediately beneath a building with a slab or beneath the basement floor."^^xsd:string .
 
 us_wqp_data:featureType.GasTemporary a us_wqp:LocationType ;
     rdfs:label "Gas-Temporary" ;
-    us_wqp:featureDescription "a gas capable of liquefaction"^^xsd:string .
+    rdfs:comment "a gas capable of liquefaction"^^xsd:string .
 
 us_wqp_data:featureType.GreatLake a us_wqp:LocationType ;
     rdfs:label "Great Lake" ;
-    us_wqp:featureDescription "The Great Lakes, also called the Laurentian Great Lakes and the Great Lakes of North America, are a series of interconnected freshwater lakes primarily in the upper mid-east region of North America, on the CanadaâUnited States border, which connect to the Atlantic Ocean through the Saint Lawrence River."^^xsd:string .
+    rdfs:comment "The Great Lakes, also called the Laurentian Great Lakes and the Great Lakes of North America, are a series of interconnected freshwater lakes primarily in the upper mid-east region of North America, on the CanadaâUnited States border, which connect to the Atlantic Ocean through the Saint Lawrence River."^^xsd:string .
 
 us_wqp_data:featureType.Intertidal a us_wqp:LocationType ;
     rdfs:label "Intertidal" ;
-    us_wqp:featureDescription "denoting the area of a seashore which is covered at high tide and uncovered at low tide"^^xsd:string .
+    rdfs:comment "denoting the area of a seashore which is covered at high tide and uncovered at low tide"^^xsd:string .
 
 us_wqp_data:featureType.Lake a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Lake" ;
-    us_wqp:featureDescription "A lake is an area filled with water, localized in a basin, that is surrounded by land, apart from any river or other outlet that serves to feed or drain the lake"^^xsd:string .
+    rdfs:comment "A lake is an area filled with water, localized in a basin, that is surrounded by land, apart from any river or other outlet that serves to feed or drain the lake"^^xsd:string .
 
 us_wqp_data:featureType.Land a us_wqp:LocationType ;
     rdfs:label "Land" ;
-    us_wqp:featureDescription "Land, sometimes referred to as dry land, is the solid surface of Earth that is not permanently covered by water."^^xsd:string .
+    rdfs:comment "Land, sometimes referred to as dry land, is the solid surface of Earth that is not permanently covered by water."^^xsd:string .
 
 us_wqp_data:featureType.LandFloodPlain a us_wqp:LocationType ;
     rdfs:label "Land Flood Plain" ;
-    us_wqp:featureDescription "An area of land adjacent to a stream or river which stretches from the banks of its channel to the base of the enclosing valley walls, and which experiences flooding during periods of high discharge."^^xsd:string .
+    rdfs:comment "An area of land adjacent to a stream or river which stretches from the banks of its channel to the base of the enclosing valley walls, and which experiences flooding during periods of high discharge."^^xsd:string .
 
 us_wqp_data:featureType.LandRunoff a us_wqp:LocationType ;
     rdfs:label "Land Runoff" ;
-    us_wqp:featureDescription "Also known as overland flow is the flow of water that occurs when excess stormwater, meltwater, or other sources flows over the Earth's surface."^^xsd:string .
+    rdfs:comment "Also known as overland flow is the flow of water that occurs when excess stormwater, meltwater, or other sources flows over the Earth's surface."^^xsd:string .
 
 us_wqp_data:featureType.Landfill a us_wqp:LocationType ;
     rdfs:label "Landfill" ;
-    us_wqp:featureDescription "A site for the disposal of waste materials by burial."^^xsd:string .
+    rdfs:comment "A site for the disposal of waste materials by burial."^^xsd:string .
 
 us_wqp_data:featureType.LeachateExtraction a us_wqp:LocationType ;
     rdfs:label "Leachate-Extraction" ;
-    us_wqp:featureDescription "The pump systems which extract the leachate from the wastes"^^xsd:string .
+    rdfs:comment "The pump systems which extract the leachate from the wastes"^^xsd:string .
 
 us_wqp_data:featureType.LeachateHeadWell a us_wqp:LocationType ;
     rdfs:label "Leachate-Head Well" ;
-    us_wqp:featureDescription "The wells and boreholes within the landfill into which the leachate collection system conveys the leachate. The well head where samples of water are taken determining water quality in source Leachate"^^xsd:string .
+    rdfs:comment "The wells and boreholes within the landfill into which the leachate collection system conveys the leachate. The well head where samples of water are taken determining water quality in source Leachate"^^xsd:string .
 
 us_wqp_data:featureType.LeachateLysimeter a us_wqp:LocationType ;
     rdfs:label "Leachate-Lysimeter" ;
-    us_wqp:featureDescription "Is a measuring device which can be used to measure the amount of actual evapotranspiration which is released by plants (usually crops or trees)"^^xsd:string .
+    rdfs:comment "Is a measuring device which can be used to measure the amount of actual evapotranspiration which is released by plants (usually crops or trees)"^^xsd:string .
 
 us_wqp_data:featureType.LeachateSamplePoint a us_wqp:LocationType ;
     rdfs:label "Leachate-SamplePoint" ;
-    us_wqp:featureDescription "The point where samples of water are taken determining water quality in source the pipes/pipelines which convey the leachate to the collection tank, or treatment plant location. Leachate is the liquid that drains or 'leaches' from a landfill. It varies widely in composition regarding the age of the landfill and the type of waste that it contains. It usually contains both dissolved and suspended material."^^xsd:string .
+    rdfs:comment "The point where samples of water are taken determining water quality in source the pipes/pipelines which convey the leachate to the collection tank, or treatment plant location. Leachate is the liquid that drains or 'leaches' from a landfill. It varies widely in composition regarding the age of the landfill and the type of waste that it contains. It usually contains both dissolved and suspended material."^^xsd:string .
 
 us_wqp_data:featureType.LocalAirMonitoringStation a us_wqp:LocationType ;
     rdfs:label "Local Air Monitoring Station" ;
-    us_wqp:featureDescription "Ambient air monitoring is the systematic, long-term assessment of pollutant levels by measuring the quantity and types of certain pollutants in the surrounding, outdoor air."^^xsd:string .
+    rdfs:comment "Ambient air monitoring is the systematic, long-term assessment of pollutant levels by measuring the quantity and types of certain pollutants in the surrounding, outdoor air."^^xsd:string .
 
 us_wqp_data:featureType.MineMineDischarge a us_wqp:LocationType ;
     rdfs:label "Mine/Mine Discharge" ;
-    us_wqp:featureDescription "Formed when pyrite (an iron sulfide) is exposed and reacts with air and water to form sulfuric acid and dissolved iron. Some or all of this iron can precipitate to form the red, orange, or yellow sediments in the bottom of streams containing mine drainage. The acid runoff further dissolves heavy metals such as copper, lead, and mercury into groundwater or surface water. "^^xsd:string .
+    rdfs:comment "Formed when pyrite (an iron sulfide) is exposed and reacts with air and water to form sulfuric acid and dissolved iron. Some or all of this iron can precipitate to form the red, orange, or yellow sediments in the bottom of streams containing mine drainage. The acid runoff further dissolves heavy metals such as copper, lead, and mercury into groundwater or surface water. "^^xsd:string .
 
 us_wqp_data:featureType.MineMineDischargeAditMineEntrance a us_wqp:LocationType ;
     rdfs:label "Mine/Mine Discharge Adit (Mine Entrance)" ;
-    us_wqp:featureDescription "An adit (from Latin aditus, entrance) is an entrance to an underground mine which is horizontal or nearly horizontal, by which the mine can be entered, drained of water, ventilated, and minerals extracted at the lowest convenient level."^^xsd:string .
+    rdfs:comment "An adit (from Latin aditus, entrance) is an entrance to an underground mine which is horizontal or nearly horizontal, by which the mine can be entered, drained of water, ventilated, and minerals extracted at the lowest convenient level."^^xsd:string .
 
 us_wqp_data:featureType.MineMineDischargeTailingsPile a us_wqp:LocationType ;
     rdfs:label "Mine/Mine Discharge Tailings Pile" ;
-    us_wqp:featureDescription "Materials left over after the process of separating the valuable fraction from the uneconomic fraction (gangue) of an ore. "^^xsd:string .
+    rdfs:comment "Materials left over after the process of separating the valuable fraction from the uneconomic fraction (gangue) of an ore. "^^xsd:string .
 
 us_wqp_data:featureType.MineMineDischargeWasteRockPile a us_wqp:LocationType ;
     rdfs:label "Mine/Mine Discharge Waste Rock Pile" ;
-    us_wqp:featureDescription "Mine drainage is metal-rich water formed from chemical reaction between water and rocks containing. sulfur-bearing minerals. â¢ The runoff formed is usually acidic and frequently comes from areas where ore or coal mining activities. have exposed rocks containing pyrite, a sulfur bearing mineral"^^xsd:string .
+    rdfs:comment "Mine drainage is metal-rich water formed from chemical reaction between water and rocks containing. sulfur-bearing minerals. â¢ The runoff formed is usually acidic and frequently comes from areas where ore or coal mining activities. have exposed rocks containing pyrite, a sulfur bearing mineral"^^xsd:string .
 
 us_wqp_data:featureType.MinePit a us_wqp:LocationType ;
     rdfs:label "Mine Pit" ;
-    us_wqp:featureDescription "Open-pit mining, also known as opencast mining, is a surface mining technique that extracts minerals from an open pit in the ground. Open-pits are sometimes called âquarriesâ when they produce building materials and dimension stone."^^xsd:string .
+    rdfs:comment "Open-pit mining, also known as opencast mining, is a surface mining technique that extracts minerals from an open pit in the ground. Open-pits are sometimes called âquarriesâ when they produce building materials and dimension stone."^^xsd:string .
 
 us_wqp_data:featureType.NationalAirMonitoringStation a us_wqp:LocationType ;
     rdfs:label "National Air Monitoring Station" ;
-    us_wqp:featureDescription "Ambient air monitoring is the systematic, long-term assessment of pollutant levels by measuring the quantity and types of certain pollutants in the surrounding, outdoor air."^^xsd:string .
+    rdfs:comment "Ambient air monitoring is the systematic, long-term assessment of pollutant levels by measuring the quantity and types of certain pollutants in the surrounding, outdoor air."^^xsd:string .
 
 us_wqp_data:featureType.Ocean a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Ocean" ;
-    us_wqp:featureDescription "An ocean is a body of water that composes much of a planet's hydrosphere."^^xsd:string .
+    rdfs:comment "An ocean is a body of water that composes much of a planet's hydrosphere."^^xsd:string .
 
 us_wqp_data:featureType.OilandGasWell a us_wqp:LocationType ;
     rdfs:label "Oil and Gas Well" ;
-    us_wqp:featureDescription "An oil well is a boring in the Earth that is designed to bring petroleum oil hydrocarbons to the surface. Usually some natural gas is released along with the oil. A well that is designed to produce only gas may be termed a gas well."^^xsd:string .
+    rdfs:comment "An oil well is a boring in the Earth that is designed to bring petroleum oil hydrocarbons to the surface. Usually some natural gas is released along with the oil. A well that is designed to produce only gas may be termed a gas well."^^xsd:string .
 
 us_wqp_data:featureType.OtherGroundWater a us_wqp:LocationType ;
     rdfs:label "Other-Ground Water" ;
-    us_wqp:featureDescription "The water present beneath Earth's surface in soil pore spaces and in the fractures of rock formations."^^xsd:string .
+    rdfs:comment "The water present beneath Earth's surface in soil pore spaces and in the fractures of rock formations."^^xsd:string .
 
 us_wqp_data:featureType.OtherSurfaceWater a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Other-Surface Water" ;
-    us_wqp:featureDescription "waterÂ on the surface of continents such as in aÂ river,Â lake, orÂ wetland."^^xsd:string .
+    rdfs:comment "waterÂ on the surface of continents such as in aÂ river,Â lake, orÂ wetland."^^xsd:string .
 
 us_wqp_data:featureType.PipeUnspecifiedSource a us_wqp:LocationType ;
     rdfs:label "Pipe, Unspecified Source" ;
-    us_wqp:featureDescription "Methods used to remove already formed contaminants from a stream of air, water, waste, product or similar. "^^xsd:string .
+    rdfs:comment "Methods used to remove already formed contaminants from a stream of air, water, waste, product or similar. "^^xsd:string .
 
 us_wqp_data:featureType.Playa a us_wqp:LocationType ;
     rdfs:label "Playa" ;
-    us_wqp:featureDescription "Known as an alkali flat or sabkha, a desert basin with no outlet which periodically fills with water to form a temporary lake."^^xsd:string .
+    rdfs:comment "Known as an alkali flat or sabkha, a desert basin with no outlet which periodically fills with water to form a temporary lake."^^xsd:string .
 
 us_wqp_data:featureType.Pond a us_wqp:LocationType ;
     rdfs:label "Pond" ;
-    us_wqp:featureDescription "Naturally occurring. A pond is an area filled with water, that is smaller than a lake. It may arise naturally in floodplains as part of a river system, or be a somewhat isolated depression (such as a kettle, vernal pool, or prairie pothole)."^^xsd:string .
+    rdfs:comment "Naturally occurring. A pond is an area filled with water, that is smaller than a lake. It may arise naturally in floodplains as part of a river system, or be a somewhat isolated depression (such as a kettle, vernal pool, or prairie pothole)."^^xsd:string .
 
 us_wqp_data:featureType.PondAnchialine a us_wqp:LocationType ;
     rdfs:label "Pond-Anchialine" ;
-    us_wqp:featureDescription "A landlocked body of water with a subterranean connection to the ocean. "^^xsd:string .
+    rdfs:comment "A landlocked body of water with a subterranean connection to the ocean. "^^xsd:string .
 
 us_wqp_data:featureType.PondSediment a us_wqp:LocationType ;
     rdfs:label "Pond-Sediment" ;
-    us_wqp:featureDescription "A naturally occurring material that is broken down by processes of weathering and erosion, and is subsequently transported by the action of wind, water, or ice or by the force of gravity acting on the particles."^^xsd:string .
+    rdfs:comment "A naturally occurring material that is broken down by processes of weathering and erosion, and is subsequently transported by the action of wind, water, or ice or by the force of gravity acting on the particles."^^xsd:string .
 
 us_wqp_data:featureType.PondStock a us_wqp:LocationType ;
     rdfs:label "Pond-Stock" ;
-    us_wqp:featureDescription "Ponds for a specific purpose for watering livestock."^^xsd:string .
+    rdfs:comment "Ponds for a specific purpose for watering livestock."^^xsd:string .
 
 us_wqp_data:featureType.PondStormwater a us_wqp:LocationType ;
     rdfs:label "Pond-Stormwater" ;
-    us_wqp:featureDescription "Stormwater, also spelled storm water, is water that originates during precipitation events and snow/ice melt."^^xsd:string .
+    rdfs:comment "Stormwater, also spelled storm water, is water that originates during precipitation events and snow/ice melt."^^xsd:string .
 
 us_wqp_data:featureType.PondWastewater a us_wqp:LocationType ;
     rdfs:label "Pond-Wastewater" ;
-    us_wqp:featureDescription "Any water that has been affected by human use.Â WastewaterÂ is \"used water from any combination of domestic, industrial, commercial or agricultural activities, surface runoff or stormwater, and any sewer inflow or sewer infiltration\"."^^xsd:string .
+    rdfs:comment "Any water that has been affected by human use.Â WastewaterÂ is \"used water from any combination of domestic, industrial, commercial or agricultural activities, surface runoff or stormwater, and any sewer inflow or sewer infiltration\"."^^xsd:string .
 
 us_wqp_data:featureType.Reservoir a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Reservoir" ;
-    us_wqp:featureDescription "An enlarged natural or artificial lake, pond or impoundment created using a dam or lock to store water."^^xsd:string .
+    rdfs:comment "An enlarged natural or artificial lake, pond or impoundment created using a dam or lock to store water."^^xsd:string .
 
 us_wqp_data:featureType.RiverStream a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "River/Stream" ;
-    us_wqp:featureDescription "A body of water with surface water flowing within the bed and banks of a channel."^^xsd:string .
+    rdfs:comment "A body of water with surface water flowing within the bed and banks of a channel."^^xsd:string .
 
 us_wqp_data:featureType.RiverStreamEphemeral a us_wqp:LocationType ;
     rdfs:label "River/Stream Ephemeral" ;
-    us_wqp:featureDescription "A stream that flows only briefly during and following a period of rainfall in the immediate locality"^^xsd:string .
+    rdfs:comment "A stream that flows only briefly during and following a period of rainfall in the immediate locality"^^xsd:string .
 
 us_wqp_data:featureType.RiverStreamIntermittent a us_wqp:LocationType ;
     rdfs:label "River/Stream Intermittent" ;
-    us_wqp:featureDescription "Mormally cease flowing for weeks or months each year. "^^xsd:string .
+    rdfs:comment "Mormally cease flowing for weeks or months each year. "^^xsd:string .
 
 us_wqp_data:featureType.RiverStreamPerennial a us_wqp:LocationType ;
     rdfs:label "River/Stream Perennial" ;
-    us_wqp:featureDescription "A stream or river (channel) that has continuous flow in parts of its stream bed all year round during years of normal rainfall."^^xsd:string .
+    rdfs:comment "A stream or river (channel) that has continuous flow in parts of its stream bed all year round during years of normal rainfall."^^xsd:string .
 
 us_wqp_data:featureType.RiverineImpoundment a us_wqp:LocationType ;
     rdfs:label "Riverine Impoundment" ;
-    us_wqp:featureDescription "Impoundments (also known as reservoirs) are artificially created standing water bodies, produced by dams on streams or rivers."^^xsd:string .
+    rdfs:comment "Impoundments (also known as reservoirs) are artificially created standing water bodies, produced by dams on streams or rivers."^^xsd:string .
 
 us_wqp_data:featureType.RiverstreamEffluentDominated a us_wqp:LocationType ;
     rdfs:label "River/stream Effluent-Dominated" ;
-    us_wqp:featureDescription "A stream or river that gets a significant portion of its flow from effulent discharge."^^xsd:string .
+    rdfs:comment "A stream or river that gets a significant portion of its flow from effulent discharge."^^xsd:string .
 
 us_wqp_data:featureType.Seep a us_wqp:LocationType ;
     rdfs:label "Seep" ;
-    us_wqp:featureDescription "A moist or wet place where water, usually groundwater, reaches the earth's surface from an underground aquifer."^^xsd:string .
+    rdfs:comment "A moist or wet place where water, usually groundwater, reaches the earth's surface from an underground aquifer."^^xsd:string .
 
 us_wqp_data:featureType.Soilsediment a us_wqp:LocationType ;
     rdfs:label "Soil sediment" ;
-    us_wqp:featureDescription "The unconsolidated mineral or organic material on the immediate surface of the Earth that serves as a natural medium for the growth of land plants"^^xsd:string .
+    rdfs:comment "The unconsolidated mineral or organic material on the immediate surface of the Earth that serves as a natural medium for the growth of land plants"^^xsd:string .
 
 us_wqp_data:featureType.SourceManMade a us_wqp:LocationType ;
     rdfs:label "Source-ManMade" ;
-    us_wqp:featureDescription "Industrial, agricultural, stormwater, sewer/septic, discharge/pipe, lagoon, or other source"^^xsd:string .
+    rdfs:comment "Industrial, agricultural, stormwater, sewer/septic, discharge/pipe, lagoon, or other source"^^xsd:string .
 
 us_wqp_data:featureType.SpigotFaucet a us_wqp:LocationType ;
     rdfs:label "Spigot / Faucet" ;
-    us_wqp:featureDescription "A spigot is a single knob faucet that only has one pipe it controls, like the outdoor spigot that you connect a garden hose to. A tap is used when there isn't a pipe"^^xsd:string .
+    rdfs:comment "A spigot is a single knob faucet that only has one pipe it controls, like the outdoor spigot that you connect a garden hose to. A tap is used when there isn't a pipe"^^xsd:string .
 
 us_wqp_data:featureType.Spring a us_wqp:DefWQPGroundWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Spring" ;
-    us_wqp:featureDescription "the result of an aquifer being filled to the point that the water overflows onto the land surface."^^xsd:string .
+    rdfs:comment "the result of an aquifer being filled to the point that the water overflows onto the land surface."^^xsd:string .
 
 us_wqp_data:featureType.StateLocalAirMonitoringStation a us_wqp:LocationType ;
     rdfs:label "State/Local Air Monitoring Station" ;
-    us_wqp:featureDescription "A Facility to measure systematically concentrations of pollutants in ambient air. Synonym: Air quality measurement station."^^xsd:string .
+    rdfs:comment "A Facility to measure systematically concentrations of pollutants in ambient air. Synonym: Air quality measurement station."^^xsd:string .
 
 us_wqp_data:featureType.StormSewer a us_wqp:LocationType ;
     rdfs:label "Storm Sewer" ;
-    us_wqp:featureDescription "A system designed to carry rainfall runoff and other drainage."^^xsd:string .
+    rdfs:comment "A system designed to carry rainfall runoff and other drainage."^^xsd:string .
 
 us_wqp_data:featureType.Subtidal a us_wqp:LocationType ;
     rdfs:label "Subtidal" ;
-    us_wqp:featureDescription "Refers to the area where the seabed is below the lowest tide"^^xsd:string .
+    rdfs:comment "Refers to the area where the seabed is below the lowest tide"^^xsd:string .
 
 us_wqp_data:featureType.Sump a us_wqp:LocationType ;
     rdfs:label "Sump" ;
-    us_wqp:featureDescription "A sump is a shallow borehole (no well construction) that intersects the water table"^^xsd:string .
+    rdfs:comment "A sump is a shallow borehole (no well construction) that intersects the water table"^^xsd:string .
 
 us_wqp_data:featureType.SurveyMonument a us_wqp:LocationType ;
     rdfs:label "Survey Monument" ;
-    us_wqp:featureDescription "Boundary monuments are placed at every corner of the property, including any angle or change of direction of the boundary line."^^xsd:string .
+    rdfs:comment "Boundary monuments are placed at every corner of the property, including any angle or change of direction of the boundary line."^^xsd:string .
 
 us_wqp_data:featureType.TestPit a us_wqp:LocationType ;
     rdfs:label "Test Pit" ;
-    us_wqp:featureDescription "A trial pit (or test pit) is an excavation of ground in order to study or sample the composition and structure of the subsurface, usually dug during a site investigation, a soil survey or a geological survey. Trial pits are dug before the construction. They are dug to determine the geology and the water table of that site."^^xsd:string .
+    rdfs:comment "A trial pit (or test pit) is an excavation of ground in order to study or sample the composition and structure of the subsurface, usually dug during a site investigation, a soil survey or a geological survey. Trial pits are dug before the construction. They are dug to determine the geology and the water table of that site."^^xsd:string .
 
 us_wqp_data:featureType.WastePit a us_wqp:LocationType ;
     rdfs:label "Waste Pit" ;
-    us_wqp:featureDescription "A mud pit in which a supply of drilling fluid has been stored. Also, a waste pit, usually an excavated, earthen-walled pit. It may be lined with plastic to prevent soil contamination."^^xsd:string .
+    rdfs:comment "A mud pit in which a supply of drilling fluid has been stored. Also, a waste pit, usually an excavated, earthen-walled pit. It may be lined with plastic to prevent soil contamination."^^xsd:string .
 
 us_wqp_data:featureType.WasteSewer a us_wqp:LocationType ;
     rdfs:label "Waste Sewer" ;
-    us_wqp:featureDescription "a waste pipe that carries away sewage or surface water"^^xsd:string .
+    rdfs:comment "a waste pipe that carries away sewage or surface water"^^xsd:string .
 
 us_wqp_data:featureType.Well a us_wqp:DefWQPGroundWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Well" ;
-    us_wqp:featureDescription "An excavation or structure created in the ground by digging, driving, or drilling to access liquid resources, usually water."^^xsd:string .
+    rdfs:comment "An excavation or structure created in the ground by digging, driving, or drilling to access liquid resources, usually water."^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarineDitch a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Ditch" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Vegetated and non-vegetated brackish and saltwater ditch"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Vegetated and non-vegetated brackish and saltwater ditch"^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarineEmergent a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Emergent" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Herbaceous marsh, fen, swale and wet meadow"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Herbaceous marsh, fen, swale and wet meadow"^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarineForested a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Forested" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Vegetated brackish and saltwater forest"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Vegetated brackish and saltwater forest"^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarineMarsh a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Marsh" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Vegetated brackish and saltwater marsh"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Vegetated brackish and saltwater marsh"^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarinePool a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Pool" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Vegetated brackish and saltwater pool: lagoons"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Vegetated brackish and saltwater pool: lagoons"^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarineScrubShrub a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Scrub-Shrub" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Vegetated brackish and saltwater scrub-shrub"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Vegetated brackish and saltwater scrub-shrub"^^xsd:string .
 
 us_wqp_data:featureType.WetlandEstuarineTidalCreek a us_wqp:LocationType ;
     rdfs:label "Wetland Estuarine-Tidal Creek" ;
-    us_wqp:featureDescription "Open water estuary, bay, sound Vegetated brackish and saltwater tidal creek"^^xsd:string .
+    rdfs:comment "Open water estuary, bay, sound Vegetated brackish and saltwater tidal creek"^^xsd:string .
 
 us_wqp_data:featureType.WetlandLacustrineAquaticBed a us_wqp:LocationType ;
     rdfs:label "Wetland Lacustrine-Aquatic Bed" ;
-    us_wqp:featureDescription "Includes nontidal wetlands fringing lakes and dominated by floating leaved and submergent plants"^^xsd:string .
+    rdfs:comment "Includes nontidal wetlands fringing lakes and dominated by floating leaved and submergent plants"^^xsd:string .
 
 us_wqp_data:featureType.WetlandLacustrineEmergent a us_wqp:LocationType ;
     rdfs:label "Wetland Lacustrine-Emergent" ;
-    us_wqp:featureDescription "bounded by upland or by wetland dominated by trees, shrubs, persistent emergents, emergent mosses, or lichens"^^xsd:string .
+    rdfs:comment "bounded by upland or by wetland dominated by trees, shrubs, persistent emergents, emergent mosses, or lichens"^^xsd:string .
 
 us_wqp_data:featureType.WetlandLacustrineUnconsolidatedBottom a us_wqp:LocationType ;
     rdfs:label "Wetland Lacustrine-Unconsolidated Bottom" ;
-    us_wqp:featureDescription "Includes nontidal wetlands ringing lakes in which substrate is at least 25% particles smaller than stones and vegetative cover less than 30%"^^xsd:string .
+    rdfs:comment "Includes nontidal wetlands ringing lakes in which substrate is at least 25% particles smaller than stones and vegetative cover less than 30%"^^xsd:string .
 
 us_wqp_data:featureType.WetlandPalustrineEmergent a us_wqp:LocationType ;
     rdfs:label "Wetland Palustrine-Emergent" ;
-    us_wqp:featureDescription "includes all nontidal wetlands characterized by erect, rooted, herbaceous hydrophytes, excluding mosses and lichens and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
+    rdfs:comment "includes all nontidal wetlands characterized by erect, rooted, herbaceous hydrophytes, excluding mosses and lichens and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
 
 us_wqp_data:featureType.WetlandPalustrineForested a us_wqp:LocationType ;
     rdfs:label "Wetland Palustrine-Forested" ;
-    us_wqp:featureDescription "includes all nontidal wetlands dominated by trees, forest, and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
+    rdfs:comment "includes all nontidal wetlands dominated by trees, forest, and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
 
 us_wqp_data:featureType.WetlandPalustrineMossLichen a us_wqp:LocationType ;
     rdfs:label "Wetland Palustrine-Moss-Lichen" ;
-    us_wqp:featureDescription "includes all nontidal wetlands dominated by mosses or lichens, and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
+    rdfs:comment "includes all nontidal wetlands dominated by mosses or lichens, and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
 
 us_wqp_data:featureType.WetlandPalustrinePond a us_wqp:LocationType ;
     rdfs:label "Wetland Palustrine Pond" ;
-    us_wqp:featureDescription "includes all nontidal wetlands dominated by pond and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
+    rdfs:comment "includes all nontidal wetlands dominated by pond and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
 
 us_wqp_data:featureType.WetlandPalustrineShrubScrub a us_wqp:LocationType ;
     rdfs:label "Wetland Palustrine-Shrub-Scrub" ;
-    us_wqp:featureDescription "includes all nontidal wetlands dominated by, shrubs, scrub and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
+    rdfs:comment "includes all nontidal wetlands dominated by, shrubs, scrub and all such wetlands that occur in tidal areas where salinity due to ocean-derived salts is below 0.5 â°"^^xsd:string .
 
 us_wqp_data:featureType.WetlandRiverineAquaticBed a us_wqp:LocationType ;
     rdfs:label "Wetland Riverine-Aquatic Bed" ;
-    us_wqp:featureDescription "Includes wetlands connected by or within low gradient rivers dominated by floating leaved and submergent plants "^^xsd:string .
+    rdfs:comment "Includes wetlands connected by or within low gradient rivers dominated by floating leaved and submergent plants "^^xsd:string .
 
 us_wqp_data:featureType.WetlandRiverineEmergent a us_wqp:LocationType ;
     rdfs:label "Wetland Riverine-Emergent" ;
-    us_wqp:featureDescription "wetlands connected by rivers. ... They are found along the edges of rivers, streams and creeks and include rivers, floodplains, marshes, lakes and billabongs. characterized by erect, rooted, herbaceous hydrophytes, excluding mosses and lichens"^^xsd:string .
+    rdfs:comment "wetlands connected by rivers. ... They are found along the edges of rivers, streams and creeks and include rivers, floodplains, marshes, lakes and billabongs. characterized by erect, rooted, herbaceous hydrophytes, excluding mosses and lichens"^^xsd:string .
 
 us_wqp_data:featureType.WetlandRiverineUnconsolidatedBottom a us_wqp:LocationType ;
     rdfs:label "Wetland Riverine-Unconsolidated Bottom" ;
-    us_wqp:featureDescription "Includes nontidal wetlands connected by rivers in which substrate is at least 25% particles smaller than stones and vegetative cover less than 30%  "^^xsd:string .
+    rdfs:comment "Includes nontidal wetlands connected by rivers in which substrate is at least 25% particles smaller than stones and vegetative cover less than 30%  "^^xsd:string .
 
 us_wqp_data:featureType.WetlandUndifferentiated a us_wqp:DefWQPSurfaceWaterFeatureType,
         us_wqp:LocationType ;
     rdfs:label "Wetland Undifferentiated" ;
-    us_wqp:featureDescription "a land area that is saturated with water, either permanently or seasonally, It primarily is characteristized by vegetation of aquatic plants, adapted to the unique hydric soil."^^xsd:string .
+    rdfs:comment "a land area that is saturated with water, either permanently or seasonally, It primarily is characteristized by vegetation of aquatic plants, adapted to the unique hydric soil."^^xsd:string .
 

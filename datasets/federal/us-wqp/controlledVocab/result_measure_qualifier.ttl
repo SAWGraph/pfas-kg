@@ -1,0 +1,1005 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+us_wqp_data:resultMeasureQualifier.%24 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier $"^^xsd:string ;
+    rdfs:comment "Incorrect sample container"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%26 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier &"^^xsd:string ;
+    rdfs:comment "biological organism established as dominant"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%28 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ("^^xsd:string ;
+    rdfs:comment "blank greater than the sample-specific Critical Level"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%29 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier )"^^xsd:string ;
+    rdfs:comment "sample specific MDC (Minimum Detectable Change) above contractual MDC"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%2A a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier *"^^xsd:string ;
+    rdfs:comment "Sample was warm when received"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%2B a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier +"^^xsd:string ;
+    rdfs:comment "Recovery is outside acceptance limits and/or RPD exceeds control limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%3C2B a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier <2B"^^xsd:string ;
+    rdfs:comment "Result was <2 times the blank concentration - set to Not Detected"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%3D a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ="^^xsd:string ;
+    rdfs:comment "Equal To"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.%5E a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ^"^^xsd:string ;
+    rdfs:comment "Yield outside of contractual acceptable range (USGS)"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.2-5B a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier 2-5B"^^xsd:string ;
+    rdfs:comment "Result was between 2-5 times the blank concentration - set to Detected Not Quantified"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.A a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier A"^^xsd:string ;
+    rdfs:comment "Compound not analyzed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.AC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier AC"^^xsd:string ;
+    rdfs:comment "sample variability described see activity comment for more details"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.AL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier AL"^^xsd:string ;
+    rdfs:comment "Aldol condensation present. Analyte may not be present."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ALK a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ALK"^^xsd:string ;
+    rdfs:comment "Estimate, Alkylated PAH Sum"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ALT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ALT"^^xsd:string ;
+    rdfs:comment "Alternate Method"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.AP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier AP"^^xsd:string ;
+    rdfs:comment "The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample. And serial dilution acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.AR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier AR"^^xsd:string ;
+    rdfs:comment "counts outside acceptable range"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.B a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier B"^^xsd:string ;
+    rdfs:comment "Detection in blank, Analyte found in sample and associated blank"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.B3 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier B3"^^xsd:string ;
+    rdfs:comment "Target analyte detected in calibration blank at or above the method reporting limit"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BAC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BAC"^^xsd:string ;
+    rdfs:comment "Correction Factor, background"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BQL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BQL"^^xsd:string ;
+    rdfs:comment "Below Quantitation Limit"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BRL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BRL"^^xsd:string ;
+    rdfs:comment "Below Reporting Limit"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BS"^^xsd:string ;
+    rdfs:comment "Compound was found in the blank and sample"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BSR"^^xsd:string ;
+    rdfs:comment "Lab spiked blank acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BT"^^xsd:string ;
+    rdfs:comment "Detection in Trip Blank"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.BVER a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier BVER"^^xsd:string ;
+    rdfs:comment "Continuing calibration blank criteria was not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.C a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier C"^^xsd:string ;
+    rdfs:comment "Presence of compound may be due to contamination of sample during laboratory processing"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.C25 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier C25"^^xsd:string ;
+    rdfs:comment "Dual Column result difference >25%"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.C40 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier C40"^^xsd:string ;
+    rdfs:comment "Dual Column result difference >40%"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CAJ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CAJ"^^xsd:string ;
+    rdfs:comment "Correction Factor, lab"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CAN a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CAN"^^xsd:string ;
+    rdfs:comment "No Result Reported, analysis canceled"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CBC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CBC"^^xsd:string ;
+    rdfs:comment "No Result Reported, cannot be calculated"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CBG a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CBG"^^xsd:string ;
+    rdfs:comment "CC B G; Co-eluting congener, analyte found in sample and associated blank, and lock mass interference present"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CBL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CBL"^^xsd:string ;
+    rdfs:comment "Correction Factor, blank"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CC"^^xsd:string ;
+    rdfs:comment "co-eluting congener"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CDI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CDI"^^xsd:string ;
+    rdfs:comment "Correction Factor, dilution"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CG a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CG"^^xsd:string ;
+    rdfs:comment "CC G; Co-eluting congener and lock mass interference present"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CKB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CKB"^^xsd:string ;
+    rdfs:comment "CC PK B; Co-eluting congener, peak detected but did not meet quantification criteria (result reported represents the estimated maximum possible concentration) and analyte found in sample and associated blank"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CKBJ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CKBJ"^^xsd:string ;
+    rdfs:comment "CC PK B J;Co-eluting congener, peak detected but did not meet quantification criteria (result reported represents the estimated maximum possible concentration), analyte found in sample and associated blank, and the reported result is an estimate (the value is less than the minimum calibration level"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CKG a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CKG"^^xsd:string ;
+    rdfs:comment "CC PK G; Co-eluting congener, peak detected but did not meet quantification criteria (result reported represents the estimated maximum possible concentration) and lock mass interference present"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CKJ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CKJ"^^xsd:string ;
+    rdfs:comment "CC PK J; Co-eluting congener, peak detected but did not meet quantification criteria (result reported represents the estimated maximum possible concentration) and the reported result is an estimate (the value is less than the minimum calibration level but greater than the estimated detection limit)"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CLC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CLC"^^xsd:string ;
+    rdfs:comment "Correction Factor, other"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CNT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CNT"^^xsd:string ;
+    rdfs:comment "Non-acceptable colony counts."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CON a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CON"^^xsd:string ;
+    rdfs:comment "Value Confirmed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CSR"^^xsd:string ;
+    rdfs:comment "Calibration standard acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.CUG a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier CUG"^^xsd:string ;
+    rdfs:comment "CC U G; Co-eluting congener, the analyte was not detected in the sample at the estimated detection limit and lock mass interference present"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.D a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier D"^^xsd:string ;
+    rdfs:comment "Contract Required Quantitation Limit (CRQL) not met due to sample matrix interference, dilution required.  "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.D%3ET a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier D>T"^^xsd:string ;
+    rdfs:comment "Result dissolved concentration was greater than its total and the absolute difference was greater than or equal to the total MDL - set to Detected Not Quantified"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.DE a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier DE"^^xsd:string ;
+    rdfs:comment "Serial dilution acceptance criteria not met."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.DEC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier DEC"^^xsd:string ;
+    rdfs:comment "Value Decensored -  reconstruct or remove the objectionable values of a measurement set"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.DI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier DI"^^xsd:string ;
+    rdfs:comment "Dilution required"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.DL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier DL"^^xsd:string ;
+    rdfs:comment "Not Detected: The analyte was not detected at a level >= to the Method Detection Limit for the analysis."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.DOM a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier DOM"^^xsd:string ;
+    rdfs:comment "count >= 15 percent (dominant)"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.DT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier DT"^^xsd:string ;
+    rdfs:comment "Date value on logger was incorrect; Changed to date of sampling event; Date and Time considered suspect."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.E a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier E"^^xsd:string ;
+    rdfs:comment "Concentration of analyte being analyzed exceeded calibration range of instrument."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EC"^^xsd:string ;
+    rdfs:comment "Analyte and the associated numerical value excluded from calculations"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ECI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ECI"^^xsd:string ;
+    rdfs:comment "Estimated Value, Coelution"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EE a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EE"^^xsd:string ;
+    rdfs:comment "Identifies compounds whose concentration exceed the calibration range addition of the instrument for that specific analysis."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EER a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EER"^^xsd:string ;
+    rdfs:comment "No Result Reported, entry error; Original value is known to be incorrect due to a data entry error.  The correct value could not be determined. No result value was reported"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EFAI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EFAI"^^xsd:string ;
+    rdfs:comment "Equipment failure"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EMCL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EMCL"^^xsd:string ;
+    rdfs:comment "Value Exceeds Maximum Contaminant Level"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EMPC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EMPC"^^xsd:string ;
+    rdfs:comment "Estimated Maximum Possible Concentration"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ESD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ESD"^^xsd:string ;
+    rdfs:comment "Estimated Value, serial dilution difference"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EST a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EST"^^xsd:string ;
+    rdfs:comment "Estimated Value, outside limit of precision"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EVA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EVA"^^xsd:string ;
+    rdfs:comment "Estimated Value, multiple Aroclors"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EVAD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EVAD"^^xsd:string ;
+    rdfs:comment "Estimated Value, degradation"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.EVID a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier EVID"^^xsd:string ;
+    rdfs:comment "Estimated Value, tentatively identified compound"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.F a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier F"^^xsd:string ;
+    rdfs:comment "Estimated value: compound failed initial calibration check (CCC) or QC criteria"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FDB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FDB"^^xsd:string ;
+    rdfs:comment "Dry Blank, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FDC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FDC"^^xsd:string ;
+    rdfs:comment "Drift Check, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FDL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FDL"^^xsd:string ;
+    rdfs:comment "Lab Duplicate, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FEQ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FEQ"^^xsd:string ;
+    rdfs:comment "Field Equipment Questionable"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FFB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FFB"^^xsd:string ;
+    rdfs:comment "Failed. Field blank not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FFD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FFD"^^xsd:string ;
+    rdfs:comment "Field Duplicate, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FFS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FFS"^^xsd:string ;
+    rdfs:comment "Failed. Field spike not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FFT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FFT"^^xsd:string ;
+    rdfs:comment "Failed. Trip blank not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FH a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FH"^^xsd:string ;
+    rdfs:comment "Failed high at audit check during deployment. Could include pre, mid or post deployment check."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FIS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FIS"^^xsd:string ;
+    rdfs:comment "Internal Standard, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FL"^^xsd:string ;
+    rdfs:comment "Failed low at audit check during deployment. Could include pre, mid or post deployment check."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FLA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FLA"^^xsd:string ;
+    rdfs:comment "Field Lab Anomaly"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FLC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FLC"^^xsd:string ;
+    rdfs:comment "Linearity Check, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FLD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FLD"^^xsd:string ;
+    rdfs:comment "Failed. Lab duplicate not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FLS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FLS"^^xsd:string ;
+    rdfs:comment "Failed. Lab spike recovery not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FMD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FMD"^^xsd:string ;
+    rdfs:comment "Failed. Matrix Spike Duplicate not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FMS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FMS"^^xsd:string ;
+    rdfs:comment "Failed. Matrix spike recovery not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FPC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FPC"^^xsd:string ;
+    rdfs:comment "Performance Check, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FPP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FPP"^^xsd:string ;
+    rdfs:comment "sample field preparation problem"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FPR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FPR"^^xsd:string ;
+    rdfs:comment "Ongoing Precision and Recovery, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FQC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FQC"^^xsd:string ;
+    rdfs:comment "Quality Control, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FRS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FRS"^^xsd:string ;
+    rdfs:comment "Lab Reference, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FS"^^xsd:string ;
+    rdfs:comment "Comparison of fractions (e.g. filtered > unfiltered) or species (e.g. isotopic Free ions > solids) are not consistent"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FSD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FSD"^^xsd:string ;
+    rdfs:comment "Lab Spike Duplicate, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FSL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FSL"^^xsd:string ;
+    rdfs:comment "Failed. Spiked lab blank recovery not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FSP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FSP"^^xsd:string ;
+    rdfs:comment "Failed. Surrogate spike recovery not acceptable."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.FUB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier FUB"^^xsd:string ;
+    rdfs:comment "Field Tubing Blank, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.G a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier G"^^xsd:string ;
+    rdfs:comment "lock mass interference present"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.GR4 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier GR4"^^xsd:string ;
+    rdfs:comment "The analyte present in the original sample is greater than 4 times the matrix spike concentration; therefore, control limits are not applicable"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.GT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier GT"^^xsd:string ;
+    rdfs:comment "The listed result is greater than the upper quantitation limit for either the analytical method or the meter used for the measurement. Equivalent to the Legacy STORET Remark Code of L: Actual Value is known to be greater than the value given."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.GXB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier GXB"^^xsd:string ;
+    rdfs:comment "Estimated Value, greater than 10x blank"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.H a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier H"^^xsd:string ;
+    rdfs:comment "Holding time exceeded: "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.H2 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier H2"^^xsd:string ;
+    rdfs:comment "Extraction or preparation was conducted outside of the recognized method holding time."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.H3 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier H3"^^xsd:string ;
+    rdfs:comment "Sample was received or analysis requested beyond the recognized method holding time."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.H4 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier H4"^^xsd:string ;
+    rdfs:comment "Sample was extracted past required extraction holding time, but analyzed within analysis holding time"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.H5 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier H5"^^xsd:string ;
+    rdfs:comment "Test specified to be performed in the field within 15 minutes of sampling; sample was received and analyzed past the regulatory holding time"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HE a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HE"^^xsd:string ;
+    rdfs:comment "value extrapolated at high end"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HF"^^xsd:string ;
+    rdfs:comment "Field parameter with a holding time of 15 minutes; test performed by laboratory at client's request"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HH a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HH"^^xsd:string ;
+    rdfs:comment "Out High"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HIB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HIB"^^xsd:string ;
+    rdfs:comment "Likely Biased High"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HICC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HICC"^^xsd:string ;
+    rdfs:comment "Initial calibration criteria not met â high"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HIM a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HIM"^^xsd:string ;
+    rdfs:comment "High Moisture "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HLBL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HLBL"^^xsd:string ;
+    rdfs:comment "high labeled compound recovery in sample"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HMSD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HMSD"^^xsd:string ;
+    rdfs:comment "Matrix spike duplicate acceptance criteria not met â high"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HMSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HMSR"^^xsd:string ;
+    rdfs:comment "high matrix spike recovery, potential high bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HNRO a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HNRO"^^xsd:string ;
+    rdfs:comment "high native analyte recovery in OPR (or LCS), potential high bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HQ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HQ"^^xsd:string ;
+    rdfs:comment "High Quality control measures"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HTH a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HTH"^^xsd:string ;
+    rdfs:comment "Hard to Homogenize"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HTI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HTI"^^xsd:string ;
+    rdfs:comment "Holding time for test is immediate; the laboratory measurement, therefore, cannot be used for compliance purposes"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.HVER a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier HVER"^^xsd:string ;
+    rdfs:comment "high calibration verification standard recovery, estimated value"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.I a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier I"^^xsd:string ;
+    rdfs:comment "Estimated value; compound failed initial calibration value"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ICA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ICA"^^xsd:string ;
+    rdfs:comment "Incorrect Initial Calibration Associated with Sample"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.IDL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier IDL"^^xsd:string ;
+    rdfs:comment "Instrument Detection Limit, less than"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.INT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier INT"^^xsd:string ;
+    rdfs:comment "Interference suspected. Analyte may not be present."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.IQCOL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier IQCOL"^^xsd:string ;
+    rdfs:comment "ICV,CCV,ICB,CCB, ISA, ISB, CRI, CRA, DLCK or MRL standard: Instrument related QC is outside acceptance limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.IS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier IS"^^xsd:string ;
+    rdfs:comment "instrument sensitivity problem"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ISAC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ISAC"^^xsd:string ;
+    rdfs:comment "Internal standard acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ISP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ISP"^^xsd:string ;
+    rdfs:comment "Improper Sample Preservation"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ISR%2A%2A a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ISR**"^^xsd:string ;
+    rdfs:comment "Internal Standard acceptance criteria not met***retired***use ISAC"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ITNA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ITNA"^^xsd:string ;
+    rdfs:comment "Incubation time not attained"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ITNM a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ITNM"^^xsd:string ;
+    rdfs:comment "Incubation temperature not maintained"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.J a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier J"^^xsd:string ;
+    rdfs:comment "Estimated value; The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.J%2B a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier J+"^^xsd:string ;
+    rdfs:comment "Estimated value; The analyte was positively identified and the associated numerical value is the approximate concentration of the analyte in the sample, and may have a potential positive bias."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.J- a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier J-"^^xsd:string ;
+    rdfs:comment "Estimated value; The analyte was positively identified; the associated numerical value is the approximate concentration of the analyte in the sample, and may have a potential negative bias."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.J-1 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier J-1"^^xsd:string ;
+    rdfs:comment "Estimated value; A full explanation is presented in the narrative."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.J-R a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier J-R"^^xsd:string ;
+    rdfs:comment "Approximate value result is below the reporting level but greater than the method detection limit"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.JCN a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier JCN"^^xsd:string ;
+    rdfs:comment "Sample Container Damaged, no sample lost"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.JCW a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier JCW"^^xsd:string ;
+    rdfs:comment "Sample Container Damaged, sample lost"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.K a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier K"^^xsd:string ;
+    rdfs:comment "Value below the detection Limit.  For BOD: depletion is less than 1.0"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.K5 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier K5"^^xsd:string ;
+    rdfs:comment "The dilution water D.O. depletion was > 0.2 mg/L"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.K6 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier K6"^^xsd:string ;
+    rdfs:comment "Glucose/glutamic acid BOD was below method acceptance criteria"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.KCF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier KCF"^^xsd:string ;
+    rdfs:comment "Known Contamination, field"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.KCX a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier KCX"^^xsd:string ;
+    rdfs:comment "Known Contamination, unknown"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.KK a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier KK"^^xsd:string ;
+    rdfs:comment "True bacterial concentration is assumed to be less than the reported value. "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.L a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier L"^^xsd:string ;
+    rdfs:comment "Lowest available reporting limit for the analytical method used."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LAC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LAC"^^xsd:string ;
+    rdfs:comment "No Result Reported, lab accident"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LBF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LBF"^^xsd:string ;
+    rdfs:comment "Lab Failed, sample not analyzed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LCS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LCS"^^xsd:string ;
+    rdfs:comment "LCS or LCSD"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LF"^^xsd:string ;
+    rdfs:comment "count < 0.5 percent"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LICC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LICC"^^xsd:string ;
+    rdfs:comment "Initial calibration criteria not met â low"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LIS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LIS"^^xsd:string ;
+    rdfs:comment "Lab internal standard(s) added to sample."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LL"^^xsd:string ;
+    rdfs:comment "True bacterial concentration is assumed to be greater than the reported value. "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LLBL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LLBL"^^xsd:string ;
+    rdfs:comment "low labeled compound recovery in sample"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LLS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LLS"^^xsd:string ;
+    rdfs:comment "Value less than lower quality control standard."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LMSD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LMSD"^^xsd:string ;
+    rdfs:comment "Matrix spike duplicate acceptance criteria not met â low"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LMSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LMSR"^^xsd:string ;
+    rdfs:comment "low matrix spike recovery, potential low bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LNRO a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LNRO"^^xsd:string ;
+    rdfs:comment "low native analyte recovery in OPR (or LCS), potential low bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LO a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LO"^^xsd:string ;
+    rdfs:comment "laboratory Control Sample (LCS) recovery outside of accept range"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LOB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LOB"^^xsd:string ;
+    rdfs:comment "Likely Biased Low"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LOPR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LOPR"^^xsd:string ;
+    rdfs:comment "low OPR (or LCS) recovery, potential low bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LQ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LQ"^^xsd:string ;
+    rdfs:comment "Low Quality control measures"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LR"^^xsd:string ;
+    rdfs:comment "Operating Range"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LSSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LSSR"^^xsd:string ;
+    rdfs:comment "Surrogate standard acceptance criteria not met â low"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LT"^^xsd:string ;
+    rdfs:comment "Less Than"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LTGTE a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LTGTE"^^xsd:string ;
+    rdfs:comment "Result is less than the MQL but greater than or equal to the MDL"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.LVER a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier LVER"^^xsd:string ;
+    rdfs:comment "low calibration verification standard recovery, potential low bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.M3 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier M3"^^xsd:string ;
+    rdfs:comment "Spike recovery value unusable since the analyte concentration in the sample is disproportionate to the spike level"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.M4 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier M4"^^xsd:string ;
+    rdfs:comment "The analysis of the spiked sample required a dilution such that the spike recovery calculation does not provide useful information"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.M6F a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier M6F"^^xsd:string ;
+    rdfs:comment "More Than 6 Flags Applied"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.MDL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier MDL"^^xsd:string ;
+    rdfs:comment "Method Detection Level"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.MHA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier MHA"^^xsd:string ;
+    rdfs:comment "Due to high levels of analyte in the sample, the MS/MSD calculation does not provide useful spike recovery information"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.MI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier MI"^^xsd:string ;
+    rdfs:comment "Matrix Interference"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.MSD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier MSD"^^xsd:string ;
+    rdfs:comment "MS and/or MSD"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.MSI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier MSI"^^xsd:string ;
+    rdfs:comment "Sample matrix interference caused MS and/or MSD to be above acceptance limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.MSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier MSR"^^xsd:string ;
+    rdfs:comment "Matrix spike acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.N a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier N"^^xsd:string ;
+    rdfs:comment "Presumptive evidence of a nontarget compound"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NAI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NAI"^^xsd:string ;
+    rdfs:comment "No Result Reported, interference"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NFNS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NFNS"^^xsd:string ;
+    rdfs:comment "Comparison of nutrient fractions (e.g. filtered > unfiltered) or nutrient species (e.g. PO4 > TP) are not consistent"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NHS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NHS"^^xsd:string ;
+    rdfs:comment "Non-homogenous sample"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NLBL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NLBL"^^xsd:string ;
+    rdfs:comment "no labeled compound recovery in sample, rejected"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NLRO a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NLRO"^^xsd:string ;
+    rdfs:comment "no labeled compound recovery in OPR (or LCS), rejected"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NN a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NN"^^xsd:string ;
+    rdfs:comment "authentic recovery is not within method/contract control limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NPNF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NPNF"^^xsd:string ;
+    rdfs:comment "Normal protocol not followed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NRB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NRB"^^xsd:string ;
+    rdfs:comment "negative result may indicate potential negative bias"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NRO a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NRO"^^xsd:string ;
+    rdfs:comment "Control sample acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NRP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NRP"^^xsd:string ;
+    rdfs:comment "No Result Possible"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NRR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NRR"^^xsd:string ;
+    rdfs:comment "No Result Reported, other"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NRS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NRS"^^xsd:string ;
+    rdfs:comment "Non Representative Sample; Sample does not represent the environmental conditions."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NSQ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NSQ"^^xsd:string ;
+    rdfs:comment "No Result Reported, insufficient quantity of sample"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.NW a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier NW"^^xsd:string ;
+    rdfs:comment "Not Within"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.O a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier O"^^xsd:string ;
+    rdfs:comment "result determined by alternate method"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.OA3 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier OA3"^^xsd:string ;
+    rdfs:comment "Outlier, across stations"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.OS3 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier OS3"^^xsd:string ;
+    rdfs:comment "Outlier, single station"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.OTHER a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier OTHER"^^xsd:string ;
+    rdfs:comment "Other"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.OUT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier OUT"^^xsd:string ;
+    rdfs:comment "Result value is defined as an outlier by data owner"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.P a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier P"^^xsd:string ;
+    rdfs:comment "PCDE interference"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PB"^^xsd:string ;
+    rdfs:comment "Continuous probe biased"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PK a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PK"^^xsd:string ;
+    rdfs:comment "Peak deteced but did not meet quantification criteria (result reported represents the estimated maximum possible concentration)"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PNQ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PNQ"^^xsd:string ;
+    rdfs:comment "No Quantifiable Result Reported"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PP"^^xsd:string ;
+    rdfs:comment "sample preparation problem"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PPD a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PPD"^^xsd:string ;
+    rdfs:comment "Spiked Blank Duplicate, failed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PQL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PQL"^^xsd:string ;
+    rdfs:comment "PQL or LQL"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.PRE a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier PRE"^^xsd:string ;
+    rdfs:comment "Presumptive evidence that analyte is present."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.Q a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier Q"^^xsd:string ;
+    rdfs:comment "The result did not pass the lab quality checks and there was an insufficient amount of the sample for re-analysis."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.QC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier QC"^^xsd:string ;
+    rdfs:comment "Quality Control problems"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.QCI a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier QCI"^^xsd:string ;
+    rdfs:comment "Quality Control incomplete"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.R a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier R"^^xsd:string ;
+    rdfs:comment "Rejected: The sample results are unusable due to the quality of the data generated because certain criteria were not met. The analyte may or may not be present in the sample. "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RA"^^xsd:string ;
+    rdfs:comment "Results fall outside the normal limits of variability and do not meet Data Quality Objectives. Reanalyses were performed with consistent results. All QA "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RC"^^xsd:string ;
+    rdfs:comment "See result comment"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.REX a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier REX"^^xsd:string ;
+    rdfs:comment "Re-Prepared"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RIN a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RIN"^^xsd:string ;
+    rdfs:comment "Re-Analyzed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RLRS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RLRS"^^xsd:string ;
+    rdfs:comment "Reporting limit raised, low total solids"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RMAX a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RMAX"^^xsd:string ;
+    rdfs:comment "result is a maximum value"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RNAF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RNAF"^^xsd:string ;
+    rdfs:comment "result not affected by noted QC issue"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RNON a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RNON"^^xsd:string ;
+    rdfs:comment "result reported as non-detect due to blank contamination"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RP"^^xsd:string ;
+    rdfs:comment "value reported is preferred"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RPDX a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RPDX"^^xsd:string ;
+    rdfs:comment "RPD is MS/MSD pair exceeds criterion, estimated value"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RPO a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RPO"^^xsd:string ;
+    rdfs:comment "% RPD outside of acceptable limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RR"^^xsd:string ;
+    rdfs:comment "Lab reported a result value"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RV a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RV"^^xsd:string ;
+    rdfs:comment "Results are within precision limits and are analytically equal."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.RVB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier RVB"^^xsd:string ;
+    rdfs:comment "Result Value Between"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.S2 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier S2"^^xsd:string ;
+    rdfs:comment "Shipping time exceeded two day limit"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SBB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SBB"^^xsd:string ;
+    rdfs:comment "Estimated Value, less than blank"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SCA a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SCA"^^xsd:string ;
+    rdfs:comment "Suspected Contamination, lab analysis"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SCF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SCF"^^xsd:string ;
+    rdfs:comment "Suspected Contamination, field"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SCP a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SCP"^^xsd:string ;
+    rdfs:comment "Suspected Contamination, lab preparation"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SCX a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SCX"^^xsd:string ;
+    rdfs:comment "Suspected Contamination, unknown"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SD%25EL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SD%EL"^^xsd:string ;
+    rdfs:comment "MS/MSD RPD exceeds control limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SDROL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SDROL"^^xsd:string ;
+    rdfs:comment "MS and/or MSD Recovery is outside acceptance limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SLB a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SLB"^^xsd:string ;
+    rdfs:comment "Spike level low compared to background"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SM a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SM"^^xsd:string ;
+    rdfs:comment "same method (USGS)"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SS"^^xsd:string ;
+    rdfs:comment "Sample size difference"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SSR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SSR"^^xsd:string ;
+    rdfs:comment "Surrogate standard acceptance criteria not met"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SSRV a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SSRV"^^xsd:string ;
+    rdfs:comment "Surrogate or spike recovery value associated with sample analyte or analytes"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.SUS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier SUS"^^xsd:string ;
+    rdfs:comment "Result value is defined as suspect by data owner. (HV) High variability: questionable precision and accuracy"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.T a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier T"^^xsd:string ;
+    rdfs:comment "Hardness by Calculation Method - Standard Methods 2340B - 19th Ed "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.T5 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier T5"^^xsd:string ;
+    rdfs:comment "Laboratory not licensed for this parameter"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.TMLF a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier TMLF"^^xsd:string ;
+    rdfs:comment "Time missing in logger file."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.TOC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier TOC"^^xsd:string ;
+    rdfs:comment "Temperature outside of criteria"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.TR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier TR"^^xsd:string ;
+    rdfs:comment "Trace"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.TT a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier TT"^^xsd:string ;
+    rdfs:comment "analyte recalculated against alternate labeled compound(s)"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.U a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier U"^^xsd:string ;
+    rdfs:comment "Not Detected: The analyte was analyzed for, but was not detected at a level greater than or equal to the level of the adjusted Contract Required Quantitation Limit (CRQL) for sample and method. "^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.UDL a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier UDL"^^xsd:string ;
+    rdfs:comment "Lab's detection limit is not known/available for validation or comparison to the result."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.UDQ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier UDQ"^^xsd:string ;
+    rdfs:comment "Lab's detection limit not known/available for comparison to the result; however with parameter specific evaluation determined to be quantified."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.UNC a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier UNC"^^xsd:string ;
+    rdfs:comment "Value Not Confirmed"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.V a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier V"^^xsd:string ;
+    rdfs:comment "Surrogate recoveries out of range"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.V1 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier V1"^^xsd:string ;
+    rdfs:comment "Continuing calibration verification (CCV) recovery was above method acceptance limits"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.VS a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier VS"^^xsd:string ;
+    rdfs:comment "compound identified verified by 2nd method"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.VVRR a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier VVRR"^^xsd:string ;
+    rdfs:comment "Value verified by rerun"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.VVRR2 a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier VVRR2"^^xsd:string ;
+    rdfs:comment "value verified by rerun, 2nd method"^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.ZZ a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier ZZ"^^xsd:string ;
+    rdfs:comment "Blank-corrected data were indicated by the \"Z\" qualifier code. The laboratory reported the concentration of analyte to the nearest unit. These data were qualified as blank-corrected and as undetected when the blank correction resulted in a concentration below the DL."^^xsd:string .
+
+us_wqp_data:resultMeasureQualifier.nan a us_wqp:ResultMeasureQualifier ;
+    rdfs:label "Result Measure Qualifier nan"^^xsd:string ;
+    rdfs:comment "Not Applicable"^^xsd:string .
+

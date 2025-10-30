@@ -7,6 +7,7 @@ import pandas as pd
 import re
 import json
 import logging
+import urllib
 from datetime import datetime
 from datetime import date
 from pyutil import *
@@ -90,7 +91,7 @@ def camel_case(s):
 
 def get_controlledvocabs():
     '''Get unique identifiers and other attributes for controlled vocabularies that use a enumeration code'''
-    metadata_files = ['Characteristic', 'Taxon', 'Analytical Method'] #'Activity Media', 'Sample Collection Method', 'Activity Media Subdivision', 'Analytical Method',  "Organization", 'Monitoring Location Type'
+    metadata_files = ['Characteristic', 'Taxon', 'Analytical Method'] #'Activity Media', 'Sample Collection Method', 'Activity Media Subdivision', 'Analytical Method',  "Organization", 'Monitoring Location Type', 'Result Measure Qualifier'
     cv = {}
 
     for filename in metadata_files:
@@ -186,6 +187,8 @@ def get_attributes(row):
         result['lab_id'] = ''.join(e for e in str(row['LabInfo_Name']) if e.isalnum())
     if 'LabInfo_AnalysisStartDate' in row.keys() and pd.notnull(row['LabInfo_AnalysisStartDate']):
         result['analysis_date'] = pd.to_datetime(row['LabInfo_AnalysisStartDate']).date()
+    if 'Result_MeasureQualifierCode' in row.keys() and pd.notnull(row['Result_MeasureQualifierCode']):
+        result['measure_qualifier'] = urllib.parse.quote(str(row['Result_MeasureQualifierCode']), safe='')
     if pd.notnull(row['Result_Measure']) and row['Result_Measure'] != 'ND':
         result['measure'] = row['Result_Measure'] 
     unit_lu = {
@@ -225,24 +228,25 @@ def get_iris(sample, samplepoint, result):
     #iris['wqp_site'] = prefixes['gcx'][f"wqp/{sample['provider']}/{sample['org_id']}/{samplepoint['id']}"]
     iris['wqp_site'] = prefixes['gcx_wqp'][f"{samplepoint['id']}"]
     iris['feature'] = prefixes['us_wqp_data'][f"d.wqp.sampledFeature.{samplepoint['id']}"]
-    iris['SampleCollectionMethod'] = prefixes["us_wqp_data"][f"d.wqp.sampleCollectionMethod.{sample['sample_method']}"] if 'sample_method' in sample.keys() else ''
-    iris['media'] = prefixes['us_wqp_data'][f"d.wqp.sampleMedia.{camel_case(sample['media'])}"] #could turn this into a subclass designation for tissue and water
-    iris['organization'] = prefixes["us_wqp_data"][f"{'d.wqp.organizaton'}.{sample['org_id']}"]
+    
+    iris['SampleCollectionMethod'] = prefixes["us_wqp_data"][f"sampleCollectionMethod.{sample['sample_method']}"] if 'sample_method' in sample.keys() else ''
+    iris['media'] = prefixes['us_wqp_data'][f"sampleMedia.{camel_case(sample['media'])}"] #could turn this into a subclass designation for tissue and water
+    iris['organization'] = prefixes["us_wqp_data"][f"{'organizaton'}.{sample['org_id']}"]
     iris['project'] = prefixes['us_wqp_data'][f"d.wqp.project.{sample['project_id']}"]
     if 'taxon' in sample.keys():
-        iris['taxon'] = prefixes['us_wqp_data'][f"d.wqp.biologicalTaxon.{sample['taxonID']}"]
+        iris['taxon'] = prefixes['us_wqp_data'][f"biologicalTaxon.{sample['taxonID']}"]
     else:
         iris['taxon'] = ''
 
     #observations and measurements
     iris['observation'] = prefixes['us_wqp_data'][f"d.wqp.observation.{result['id']}"]
-    iris['substance'] = prefixes['us_wqp_data'][f"wqp.substance.{result['substance_id']}"]
-    iris['analytical_method'] = prefixes['us_wqp_data'][f"d.wqp.analyticalMethod.{result['analytical_method']}"] if 'analytical_method' in result.keys() else ''
+    iris['substance'] = prefixes['us_wqp_data'][f"characteristic.{result['substance_id']}"]
+    iris['analytical_method'] = prefixes['us_wqp_data'][f"analyticalMethod.{result['analytical_method']}"] if 'analytical_method' in result.keys() else ''
     iris['measurement'] = prefixes['us_wqp_data'][f"d.wqp.measurement.{result['id']}"]
     iris['quantityValue'] = prefixes['us_wqp_data'][f"d.wqp.quantityValue.{result['id']}"] #TODO is this necessary to tie with observation id? Especially for non-detects
     iris['property'] = prefixes['coso']['SingleContaminantConcentrationQuantityKind']
     if 'lab_id' in result.keys():
-        iris['lab'] = prefixes['us_wqp_data'][f"d.wqp.lab.{result['lab_id']}"]
+        iris['lab'] = prefixes['us_wqp_data'][f"organization.lab.{result['lab_id']}"]
     if 'unit' in result.keys():
         if result['unit'] == 'NanoGM-PER-GM':
             iris['unit'] = prefixes['coso'][result['unit']]
@@ -338,6 +342,8 @@ def triplify(df):
         kg.add((iris['measurement'], RDF.type, prefixes['us_wqp']['Single-PFAS-Concentration'])) # TODO are they all single measurements?
         kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['quantityValue']))
         ## TODO do we need a quantity value specific to every observation if the values are the same?
+        if 'measure_qualifier' in result.keys():
+            kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], prefixes['us_wqp_data'][f"resultMeasureQualifier.{result['measure_qualifier']}"] ))
         if 'measure' in result.keys():
             kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['DetectQuantityValue']))
             kg.add((iris['quantityValue'], prefixes['qudt']['numericValue'], Literal(result['measure'], datatype=XSD.float)))

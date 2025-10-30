@@ -3,35 +3,35 @@
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:d.wqp.sampleMedia.air a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.air a us_wqp:SampleMedia ;
     rdfs:label "Air" ;
     rdfs:comment "the invisible gaseous substance surrounding the earth, a mixture of nitrogen, oxygen, and minute amounts of other gases that forms earth's atmosphere"^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.biological a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.biological a us_wqp:SampleMedia ;
     rdfs:label "Biological" ;
     rdfs:comment "relating to biology or living organisms"^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.habitat a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.habitat a us_wqp:SampleMedia ;
     rdfs:label "Habitat" ;
     rdfs:comment "the natural home or environment of an animal, plant, or other organism."^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.other a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.other a us_wqp:SampleMedia ;
     rdfs:label "Other" ;
     rdfs:comment "other: the area or natural environment in which an organism or substance is found"^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.sediment a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.sediment a us_wqp:SampleMedia ;
     rdfs:label "Sediment" ;
     rdfs:comment "matter that settles to the bottom of a liquid, dregs. Geology Solid fragmented material, such as silt, sand, gravel, chemical precipitates, and fossil fragments, that is transported and deposited by water, ice, or wind or that accumulates through chemical precipitation or secretion by organisms, and that forms layers on the Earth's surface."^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.soil a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.soil a us_wqp:SampleMedia ;
     rdfs:label "Soil" ;
     rdfs:comment "the loose top layer of the Earth's surface, a black or dark brown material consisting of rock and mineral particles mixed with decayed organic matter (humus), and capable of retaining water, providing nutrients for plants, and supporting a wide range of biotic communities."^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.tissue a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.tissue a us_wqp:SampleMedia ;
     rdfs:label "Tissue" ;
     rdfs:comment "an aggregate of cells usually of a particular kind together with their intercellular substance that form one of the structural materials of a plant or an animal"^^xsd:string .
 
-us_wqp_data:d.wqp.sampleMedia.water a us_wqp:SampleMedia ;
+us_wqp_data:sampleMedia.water a us_wqp:SampleMedia ;
     rdfs:label "Water" ;
     rdfs:comment "a colorless, transparent, odorless, tasteless liquid that forms the seas, lakes, rivers, and rain and is the basis of the fluids of living organisms."^^xsd:string .
 

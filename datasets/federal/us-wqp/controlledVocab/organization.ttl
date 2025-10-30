@@ -4,23 +4,74 @@
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:d.wqp.organizaton.11NPSWRD_WQX a us_wqp:Federal_USGovernment_Organization,
+us_wqp_data:organization.11NPSWRD_WQX a us_wqp:Federal_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "National Park Service Water Resources Division" ;
     us_wqp:organizationId "11NPSWRD_WQX"^^xsd:string .
 
-us_wqp_data:d.wqp.organizaton.MEDEP_WQX a us_wqp:StateGovernmentUS_Organization,
+us_wqp_data:organization.AZDEQ_GW a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "AZDEQ_GW" ;
+    us_wqp:organizationDescription "Water Quality Division: Groundwater"^^xsd:anyURI ;
+    us_wqp:organizationId "AZDEQ_GW"^^xsd:string .
+
+us_wqp_data:organization.AZDEQ_SW a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "AZDEQ_SW" ;
+    us_wqp:organizationDescription "Water Quality Division: Surface Water"^^xsd:anyURI ;
+    us_wqp:organizationId "AZDEQ_SW"^^xsd:string .
+
+us_wqp_data:organization.AZDEQ_WPD a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "AZDEQ_WPD" ;
+    us_wqp:organizationDescription "Waste Programs Division"^^xsd:anyURI ;
+    us_wqp:organizationId "AZDEQ_WPD"^^xsd:string .
+
+us_wqp_data:organization.EPA_GLNPO a us_wqp:Federal_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "EPA Great Lakes National Program" ;
+    us_wqp:organizationDescription "Will be used to store the historical GLENDA data that will be added to the WQX in the future."^^xsd:anyURI ;
+    us_wqp:organizationId "EPA_GLNPO"^^xsd:string .
+
+us_wqp_data:organization.GLEC a us_wqp:PrivateNon-Industrial_Organization,
+        prov:Organization ;
+    rdfs:label "Great Lakes Environmental Center" ;
+    us_wqp:organizationId "GLEC"^^xsd:string .
+
+us_wqp_data:organization.INSTOR_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "Indiana STORET" ;
+    us_wqp:organizationDescription "Indiana Department of Environmental Management"^^xsd:anyURI ;
+    us_wqp:organizationId "INSTOR_WQX"^^xsd:string .
+
+us_wqp_data:organization.MEDEP_WQX a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
     rdfs:label "Maine Department of Environmental Protection" ;
     us_wqp:organizationDescription "Maine Dept of Env Protection."^^xsd:anyURI ;
     us_wqp:organizationId "MEDEP_WQX"^^xsd:string .
 
-us_wqp_data:d.wqp.organizaton.OST_SHPD a us_wqp:Federal_USGovernment_Organization,
+us_wqp_data:organization.MNPCA a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "Minnesota Pollution Control Agency - Ambient Surface Water" ;
+    us_wqp:organizationDescription "Statewide ambient surface water monitoring, non-facility"^^xsd:anyURI ;
+    us_wqp:organizationId "MNPCA"^^xsd:string .
+
+us_wqp_data:organization.MNPCA_AGW a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Minnesota Pollution Control Agency - Ambient Groundwater" ;
+    us_wqp:organizationDescription "Statewide ambient groundwater monitoring, non-facility"^^xsd:anyURI ;
+    us_wqp:organizationId "MNPCA_AGW"^^xsd:string .
+
+us_wqp_data:organization.OST_SHPD a us_wqp:Federal_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "USEPA, Office of Water, Office of Science and Technology, Standards and Health Protection Division" ;
     us_wqp:organizationId "OST_SHPD"^^xsd:string .
 
-us_wqp:StateGovernmentUS_Organization rdfs:subClassOf us_wqp:Organization .
+us_wqp:PrivateNon-Industrial_Organization rdfs:subClassOf us_wqp:Organization .
+
+us_wqp:State_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
 
 us_wqp:Federal_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
+
+us_wqp:StateGovernmentUS_Organization rdfs:subClassOf us_wqp:Organization .
 

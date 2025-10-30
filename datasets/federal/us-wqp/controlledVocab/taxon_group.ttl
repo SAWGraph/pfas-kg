@@ -1,21 +1,21 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 
-us_wqp:taxonGroup.AquaticVegetation rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.AquaticVegetation rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.BacteriaVirus rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.BacteriaVirus rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.BenthicMacroinvertebrates rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.BenthicMacroinvertebrates rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.Corals rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.Corals rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.Diatoms rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.Diatoms rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.FishNekton rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.FishNekton rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.Invertebrates rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.Invertebrates rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.PhytoplanktonZooplankton rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.PhytoplanktonZooplankton rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:taxonGroup.TerrestrialVegetation rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.TerrestrialVegetation rdfs:subClassOf us_wqp:Taxon .
 

@@ -8,6 +8,7 @@ from urllib import parse
 import json
 import pandas as pd
 import encodings
+import urllib
 import logging
 import math
 from pathlib import Path
@@ -19,7 +20,7 @@ import re
 ## declare variables
 logname = "log"
 
-metadata_files = [ 'Activity Media', 'Analytical Method', 'Characteristic', 'Sample Collection Method', "Organization", 'Monitoring Location Type', 'Taxon', 'Taxon Group', 'Quantitation Limit Type', 'Analytical Method'] #'Activity Media Subdivision',
+metadata_files = [ 'Activity Media', 'Analytical Method', 'Characteristic', 'Sample Collection Method', "Organization", 'Monitoring Location Type', 'Taxon', 'Taxon Group', 'Quantitation Limit Type', 'Analytical Method', 'Result Measure Qualifier'] #'Activity Media Subdivision',
 
 
 ## data path
@@ -85,6 +86,8 @@ def main():
             kg= triplify_taxon_group(data_df, prefixes)
         elif filename == 'Quantitation Limit Type':
             kg = triplify_quantitation_limit_type(data_df, prefixes)
+        elif filename == 'Result Measure Qualifier':
+            kg = triplify_result_measure_qualifier(data_df, prefixes)
 
             
         data_df.iloc[0:0]
@@ -115,7 +118,7 @@ def triplify_media(df, _PREFIX):
         media_description = row['Description'] # description
         
         ## construct media IRI
-        media_iri = prefixes['us_wqp_data'][f"{'d.wqp.sampleMedia'}.{camel_case(media_name)}"]
+        media_iri = prefixes['us_wqp_data'][f"{'sampleMedia'}.{camel_case(media_name)}"]
                 
         ## specify media instance and it's data properties
         kg.add((media_iri, RDF.type, _PREFIX["us_wqp"]["SampleMedia"]) )
@@ -137,7 +140,7 @@ def triplify_media_subdivision(df, _PREFIX):
         media_name = ''.join(e for e in str(media_name) if e.isalnum())
         media_name = media_name.replace(' ', '')
         ## construct media IRI
-        media_iri = _PREFIX["us_wqp_data"][f"{'wqp.sampleMedia'}.{camel_case(media_name)}"]
+        media_iri = _PREFIX["us_wqp_data"][f"{'sampleMedia'}.{camel_case(media_name)}"]
                 
         ## specify media instance and it's data properties
         kg.add( (media_iri, RDF.type, _PREFIX["us_wqp"]["SampleMedia"]) )
@@ -177,7 +180,7 @@ def triplify_analytical_method(df, _PREFIX):
     #            kg.add( (method_iri, _PREFIX["us_wqp"]['url'], Literal(method_url, datatype = XSD.anyURI)) )
 
     #manually add unreferenced method from Maine data
-    method_iri = _PREFIX["us_wqp_data"][f"{'d.wqp.analyticalMethod'}.LM102"]
+    method_iri = _PREFIX["us_wqp_data"][f"{'analyticalMethod'}.LM102"]
     kg.add( (method_iri, RDF.type, _PREFIX["us_wqp"]["AnalyticalMethod"]) )
     kg.add( (method_iri, RDFS['label'], Literal(str("PFAS SPE/LC/MS/MS SGS FL EPA537M"))) )
     kg.add( (method_iri, RDFS.comment, Literal("DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537"))) 
@@ -229,7 +232,7 @@ def triplify_characteristic(df, _PREFIX):
                 parameter_srd_id = int(row['SRS ID']) if pd.notnull(row['SRS ID']) else False # Substance Registry Services (SRS) ID
                 
                 ## parameter IRI
-                parameter_iri = _PREFIX["us_wqp_data"][f"{'wqp.substance'}.{parameter_unique_id}"]
+                parameter_iri = _PREFIX["us_wqp_data"][f"{'characteristic'}.{parameter_unique_id}"]
                         
                 ## specify parameter instance and it's data properties
                 kg.add( (parameter_iri, RDF.type, _PREFIX["us_wqp"]["Characteristic"]) )
@@ -275,7 +278,7 @@ def triplify_sample_collection_method(df, _PREFIX):
             method_local_context = row['Local Context'] # local context
             method_unique_id_formatted = ''.join(e for e in str(method_unique_id) if e.isalnum())   
             ## method IRI
-            method_iri = _PREFIX["us_wqp_data"][f"{'wqp.sampleCollectionMethod'}.{method_unique_id_formatted}"]
+            method_iri = _PREFIX["us_wqp_data"][f"{'sampleCollectionMethod'}.{method_unique_id_formatted}"]
                             
             ## specify method instance and it's data properties
             kg.add( (method_iri, RDF.type, _PREFIX["us_wqp"]["SampleCollectionMethod"]) )
@@ -307,7 +310,7 @@ def triplify_organization(df, _PREFIX):
 
             organization_ID_formatted = organization_ID.replace(" ", '') #''.join(e for e in str(organization_ID) if e.isalnum())
             ## organization IRI
-            organization_iri = _PREFIX["us_wqp_data"][f"{'d.wqp.organizaton'}.{organization_ID_formatted}"]
+            organization_iri = _PREFIX["us_wqp_data"][f"{'organization'}.{organization_ID_formatted}"]
                         
             ## specify organization instance and it's data properties
             kg.add( (organization_iri, RDF.type, _PREFIX["prov"]["Organization"]) )
@@ -349,7 +352,7 @@ def triplify_monitoring_location_type(df, _PREFIX):
         if location_name_formatted in ['Outfall', 'Combinedsewer', 'Septicsystem', 'BEACHProgramSiteStormsewer', 'BEACHProgramSiteWastesewer' ,'Combined Sewer', 'FacilityMunicipalSewagePOTW']:
             kg.add( (location_iri, RDF.type, _PREFIX["us_wqp"]["DefWQPWasteWaterFeatureType"]) )
         kg.add( (location_iri, RDFS.label, Literal(str(location_name))) )
-        kg.add( (location_iri, _PREFIX["us_wqp"]['featureDescription'], Literal(location_description, datatype = XSD.string)) )
+        kg.add( (location_iri, RDFS.comment, Literal(location_description, datatype = XSD.string)) )
 
        
     return kg
@@ -368,13 +371,13 @@ def triplify_taxon(df, _PREFIX):
             taxon_rank = row['Rank']
             taxon_group = ''.join(e for e in str(row['Group Name']) if e.isalnum())
 
-            taxon_iri = _PREFIX['us_wqp_data'][f"d.wqp.biologicalTaxon.{taxon_id}"]
+            taxon_iri = _PREFIX['us_wqp_data'][f"biologicalTaxon.{taxon_id}"]
 
             kg.add((taxon_iri, RDF.type, _PREFIX ['us_wqp']['Taxon']))
             kg.add((taxon_iri, RDFS.label, Literal(taxon_name, datatype=XSD.string)))
             kg.add((taxon_iri, _PREFIX['us_wqp']['rank'], Literal(taxon_rank, datatype=XSD.string)))
             if pd.notnull(row['Group Name']) and taxon_group != 'NotAssigned':
-                kg.add((taxon_iri, RDF.type, _PREFIX['us_wqp'][f'taxonGroup.{taxon_group}']))
+                kg.add((taxon_iri, RDF.type, _PREFIX['us_wqp'][f'TaxonGroup.{taxon_group}']))
 
     return kg
 
@@ -383,7 +386,7 @@ def triplify_taxon_group(df, _PREFIX):
 
     for idx, row in df.iterrows():
         taxon_group_name = ''.join(e for e in str(row['Name']) if e.isalnum())
-        taxon_group_iri = _PREFIX['us_wqp'][f'taxonGroup.{taxon_group_name}']
+        taxon_group_iri = _PREFIX['us_wqp'][f'TaxonGroup.{taxon_group_name}']
 
         if len(taxon_group_name)> 1 and 'retired' not in taxon_group_name and taxon_group_name != 'NotAssigned':
             kg.add((taxon_group_iri, RDFS.subClassOf, _PREFIX['us_wqp']['Taxon']))
@@ -407,6 +410,21 @@ def triplify_quantitation_limit_type(df, _PREFIX):
         else:
             #print('unused quantitation:', ql_shortname)
             pass
+
+    return kg
+
+def triplify_result_measure_qualifier(data_df, prefixes):
+    kg = Initial_KG(prefixes)
+
+    for idx, row in data_df.iterrows():
+        code = row['Code']
+        code_uri = urllib.parse.quote(str(code), safe='')
+        #id = row['Unique Identifier']
+        desc = row['Description']
+        iri = prefixes['us_wqp_data'][f'resultMeasureQualifier.{code_uri}']
+        kg.add((iri, RDF.type, prefixes['us_wqp']['ResultMeasureQualifier']))
+        kg.add((iri, RDFS.label, Literal(f"Result Measure Qualifier {code}", datatype=XSD.string)))
+        kg.add((iri, RDFS.comment, Literal(desc, datatype=XSD.string)))
 
     return kg
 

@@ -2,7 +2,7 @@
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 
-us_wqp_data:d.wqp.analyticalMethod.LM102 a us_wqp:AnalyticalMethod ;
+us_wqp_data:analyticalMethod.LM102 a us_wqp:AnalyticalMethod ;
     rdfs:label "PFAS SPE/LC/MS/MS SGS FL EPA537M" ;
     rdfs:comment "DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537" .
 

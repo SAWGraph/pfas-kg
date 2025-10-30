@@ -3,81 +3,324 @@
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:d.wqp.biologicalTaxon.10575 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.10418 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Hypophthalmichthys molitrix"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.10575 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Ictalurus furcatus"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.10582 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.10582 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Ictalurus punctatus"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.10586 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.10586 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Ictiobus bubalus"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.11864 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.10587 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Ictiobus cyprinellus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.10588 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Ictiobus niger"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.11864 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Lepomis cyanellus"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.13166 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.11865 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Lepomis gibbosus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.11866 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Lepomis gulosus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.11868 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Lepomis macrochirus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.11870 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Lepomis megalotis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.11871 a us_wqp:Taxon ;
+    rdfs:label "Lepomis microlophus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.12345 a us_wqp:Taxon ;
+    rdfs:label "Lota lota"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13166 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Micropterus dolomieu"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.13169 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.13169 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Micropterus punctulatus"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.13170 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.13170 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Micropterus salmoides"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.15717 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.13212 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Minytrema melanops"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13368 a us_wqp:Taxon ;
+    rdfs:label "Morone"^^xsd:string ;
+    us_wqp:rank "Genus"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13370 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Morone chrysops"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13373 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Morone mississippiensis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13374 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Morone saxatilis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13378 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Moxostoma anisurum"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13386 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Moxostoma duquesnei"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13387 a us_wqp:Taxon ;
+    rdfs:label "Moxostoma duquesnii***retired***use Moxostoma duquesnei"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13388 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Moxostoma erythrurum"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.13393 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Moxostoma macrolepidotum"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.14353 a us_wqp:Taxon ;
+    rdfs:label "Notropis atherinoides"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.1447 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Aplodinotus grunniens"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.14722 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Oncorhynchus gorbuscha"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.14725 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Oncorhynchus kisutch"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.14727 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Oncorhynchus mykiss"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.14738 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Oncorhynchus tshawytscha"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.14950 a us_wqp:Taxon ;
+    rdfs:label "Osmerus mordax"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.15717 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Perca flavescens"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.16907 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.16907 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Pomoxis annularis"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.18441 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.16908 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Pomoxis nigromaculatus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.17178 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Prosopium cylindraceum"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.17772 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Pylodictis olivaris"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.18416 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Salmo trutta"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.18441 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Salvelinus fontinalis"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.23065 a us_wqp:Taxon ;
+us_wqp_data:biologicalTaxon.18458 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Salvelinus namaycush"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.19425 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Semotilus atromaculatus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.23065 a us_wqp:Taxon ;
     rdfs:label "Mytilus edulis"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.25364 a us_wqp:Taxon ;
+us_wqp_data:biologicalTaxon.25364 a us_wqp:Taxon ;
     rdfs:label "Mya arenaria"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.3757 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.30092 a us_wqp:Taxon ;
+    rdfs:label "Anas platyrhynchos"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.35624 a us_wqp:Taxon ;
+    rdfs:label "Branta canadensis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.3725 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Carpiodes carpio"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.3726 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Carpiodes cyprinus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.3753 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Catostomus catostomus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.3757 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Catostomus commersonii"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.7587 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.40317 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Sander vitreus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.40318 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Sander canadensis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.5472 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Coregonus artedi"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.5481 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Coregonus clupeaformis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.60539 a us_wqp:Taxon ;
+    rdfs:label "Sander vitreus x Sander canadensis"^^xsd:string ;
+    us_wqp:rank "Hybrid"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.6302 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Cyprinus carpio"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.64806 a us_wqp:Taxon ;
+    rdfs:label "Salvelinus namaycush x Salvelinus fontinalis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.65946 a us_wqp:Taxon ;
+    rdfs:label "Odocoileus virginianus"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.67203 a us_wqp:Taxon ;
+    rdfs:label "Salvelinus namaycush siscowet"^^xsd:string ;
+    us_wqp:rank "Subspecies"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.6926 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Dorosoma cepedianum"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.755 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Ambloplites rupestris"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.7586 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Esox lucius"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.7587 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Esox masquinongy"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.7588 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.7588 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Esox niger"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
-us_wqp_data:d.wqp.biologicalTaxon.818 a us_wqp:Taxon,
-        us_wqp:taxonGroup.FishNekton ;
+us_wqp_data:biologicalTaxon.816 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Ameiurus melas"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.817 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
+    rdfs:label "Ameiurus natalis"^^xsd:string ;
+    us_wqp:rank "Species"^^xsd:string .
+
+us_wqp_data:biologicalTaxon.818 a us_wqp:Taxon,
+        us_wqp:TaxonGroup.FishNekton ;
     rdfs:label "Ameiurus nebulosus"^^xsd:string ;
     us_wqp:rank "Species"^^xsd:string .
 
