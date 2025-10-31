@@ -6,6 +6,7 @@
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix wbd_data: <http://w3id.org/hyfo/wbd/v1/wbd-data#> .
 @prefix gcx_wqp: <https://geoconnex.us/iow/wqp/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
