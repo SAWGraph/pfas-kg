@@ -5,9 +5,10 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix prov: <http://www.w3.org/ns/prov#>.
 @prefix dcterms: <http://purl.org/dc/terms/>. 
-#rdf
-#owl
-#sosa
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+
 
 <http://w3id.org/sawgraph/v1/us-wqp#> rdf:type owl:Ontology ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,

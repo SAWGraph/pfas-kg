@@ -4,6 +4,8 @@
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <http://w3id.org/sawgraph/v1/us-wqp#controlledVocab> rdf:type owl:Ontology ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
