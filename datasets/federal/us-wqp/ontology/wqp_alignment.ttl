@@ -4,6 +4,7 @@
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
@@ -115,12 +116,12 @@ us_wqp:DefWQPWasteWaterFeatureType rdf:type owl:Class;
   
 us_wqp:DefWQPSampleFromSurfaceWaterFeature rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
-        owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType.
+        owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType;
         rdfs:subClassOf us_wqp:Sample.
 
 us_wqp:DefWQPSampleFromGroundWaterFeature rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
-        owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType.
+        owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType;
         rdfs:subClassOf us_wqp:Sample.
 
 us_wqp:DefWQPSurfaceWaterSample rdf:type owl:Class;
