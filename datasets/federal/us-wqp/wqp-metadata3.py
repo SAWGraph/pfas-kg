@@ -1,5 +1,5 @@
 import os
-from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, DCTERMS
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
@@ -16,6 +16,7 @@ import numpy as np
 from pyutil import *
 import sys
 import re
+import pprint
 
 ## declare variables
 logname = "log"
@@ -38,7 +39,7 @@ prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['gcx']= Namespace(f'https://geoconnex.us/')
 prefixes["prov"] = Namespace("http://www.w3.org/ns/prov#")
-prefixes['comptox'] = Namespace(f'http://w3id.org/comptox/v1/')
+prefixes['dsstox'] = Namespace(f'http://w3id.org/DSSTox/v1/')
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -187,7 +188,7 @@ def triplify_analytical_method(df, _PREFIX):
    
     return kg
 
-def get_comptox(srs_id):
+def get_dsstox(srs_id):
     #print(int(srs_id))
     url = f'https://cdxapps.epa.gov/oms-substance-registry-services/rest-api/substance/itn/{int(srs_id)}'
     resp = urllib3.request("GET", url, timeout=300.0)
@@ -196,6 +197,30 @@ def get_comptox(srs_id):
     #print(substance)
     return substance
 
+def get_inchi(dtxsid):
+    url = f'https://hcd.rtpnc.epa.gov/api/search/download/properties'  #&properties=InChI,InChIKey,SMILES'
+    id = dtxsid.replace("DTXSID","")
+    header = {
+              "ids": [{"id": id, "sim": 0.1}],
+              "format": "string",
+              "query": "string"}
+    #print(header)
+    resp=urllib3.request("POST", url, json=header, timeout=300.0)
+    substance = resp.data
+    substance = json.loads(substance)
+    #print(substance[0]['inchiKey'])
+    inchi = substance[0]['inchiKey']
+    
+    return substance
+
+def from_inchi(inchi):
+    url = f'https://hcd.rtpnc.epa.gov/api/resolver/classyfire?query={inchi}&idType=InChIKey&fuzzy=Not&page=0&size=1000'
+    resp=urllib3.request("GET", url, timeout=300.0)
+    substance = resp.data
+    substance = json.loads(substance)
+    #print(substance)
+    
+    return substance
 
 
 ## triplify the abox for pfas parameter
@@ -215,9 +240,10 @@ def triplify_characteristic(df, _PREFIX):
             else: #if row['Group Name'] in ['PFAS,Perfluorinated Alkyl Substance', 'PFOA, Perfluorooctanoic Acid','PFOS, Perfluorooctane Sulfonate', "Organics, PFAS"] or (row['Group Name'] == 'Stable Isotopes' and row['Name'] in ['13C3-PFBS', '13C2-4:2 FTS', '13C3-PFPeA', '13C3-PFBA', '13C3-HFPO-DA', '13C4-PFBA', '13C5-PFHxA', '13C5-PFPeA', '13C6-PFDA', '13C7-PFUnA', '13C8-PFOA', '13C9-PFNA', 'D3-N-MeFOSA', 'D5-N-EtFOSA', 'd7-NMe-FOSE', 'd9-NEt-FOSE', '13C2-PFTeDA', '13C2-PFDoA', '13C2-PFUnA', 'd5-EtFOSAA', 'd3-MeFOSAA',  '13C2-8:2 FTS', '13C2-PFDA', '13C8-PFOS', '13C8-PFOSA', '13C5-PFNA', '13C2-PFOA', '13C2-6:2 FTS', '13C3-PFHxS', '13C4-PFHpA', '13C2-PFHxA', 'CFC-12']):
                 ## Get DTXSID and other attributes from SRS 
                 if pd.notnull(row['SRS ID']):
-                    substance = get_comptox(row['SRS ID']) 
+                    substance = get_dsstox(row['SRS ID']) 
                     if len(substance)> 0 and substance[0]['dtxsid'] != None:
                         print(substance[0]["epaName"]," : ", substance[0]['dtxsid'])
+                        #pprint.pp(substance[0]['synonyms'])
                       
 
                 
@@ -244,18 +270,30 @@ def triplify_characteristic(df, _PREFIX):
                 if parameter_srd_id:
                     kg.add( (parameter_iri, _PREFIX["us_wqp"]['srsID'], Literal(str(parameter_srd_id), datatype = XSD.string)) )
                     if len(substance)> 0 and substance[0]['dtxsid'] != None:
-                        kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], _PREFIX['comptox'][f"CompTox_{substance[0]['dtxsid']}"]))
-                        kg.add((_PREFIX['comptox'][f"CompTox_{substance[0]['dtxsid']}"], RDF.type , _PREFIX['comptox']['ChemicalEntity']))
-                        kg.add((_PREFIX['comptox'][f"CompTox_{substance[0]['dtxsid']}"], RDFS.label , Literal(substance[0]['systematicName'])))
+                        kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance[0]['dtxsid']}"]))
+                        kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
+                        kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], _PREFIX['us_wqp']['hasInchiKey'] , Literal(substance[0]['systematicName'])))
                     if len(substance)> 0 and substance[0]['synonyms']:
                         for syn in substance[0]['synonyms']:
                             if len(syn['alternateIds']) >0 :
                                 for synonym in syn['alternateIds']:
-                                    if synonym['alternateIdTypeName']== 'DTXSID':
-                                       print(synonym)
-                                       kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], _PREFIX['comptox'][f"CompTox_{synonym['alternateId']}"]))
-                                       kg.add((_PREFIX['comptox'][f"CompTox_{synonym['alternateId']}"], RDF.type , _PREFIX['comptox']['ChemicalEntity']))
-                                       kg.add((_PREFIX['comptox'][f"CompTox_{synonym['alternateId']}"], RDFS.label , Literal(syn['synonymName'])))
+                                    if synonym['alternateIdTypeName']== 'DTXSID' or synonym['alternateIdTypeId']=='108':
+                                       #pprint.pp(synonym)
+                                       substance = get_inchi(synonym['alternateId'])
+                                       inchi = substance[0]['inchiKey']
+                                       if inchi.endswith('-N'):
+                                            #these link to the correct substances
+                                            kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{synonym['alternateId']}"]))
+                                       else:
+                                           #replace with Neutral version of InChIKey
+                                           inchi = inchi[:-1] + 'N'
+                                           #lookup dsstox again by inchikey
+                                           substance1 = from_inchi(inchi)
+                                           if 'content' in substance1.keys():
+                                               kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance1['content'][0]['sid']}"]))
+                                       #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
+                                       #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDFS.label , Literal(syn['synonymName'])))
+                                       kg.add((parameter_iri, DCTERMS.identifier, Literal(inchi, datatype=XSD.string)))
 
 
     return kg

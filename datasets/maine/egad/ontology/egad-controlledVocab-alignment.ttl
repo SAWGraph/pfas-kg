@@ -13,7 +13,7 @@
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
 @prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix comptox: <http://w3id.org/comptox/>.
+@prefix dsstox: <http://w3id.org/DSSTox/v1/>.
 
 <http://w3id.org/sawgraph/v1/me-egad#controlledVocab> rdf:type owl:Ontology ;
                                              terms:contributor <http://orcid.org/0000-0002-5331-5052> ,
