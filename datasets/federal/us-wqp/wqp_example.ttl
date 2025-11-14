@@ -110,14 +110,17 @@ us_wqp_data:sampleMedia.water a us_wqp:SampleMedia ;
 
 us_wqp_data:characteristic.3292 a us_wqp:Characteristic ;
     rdfs:label "Perfluorobutanoate" ;
-    comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID80892480 ;
+    dsstox:hasInChiKey "YPJUNDFVDDCYIH-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID4059916 ;
     coso:casNumber "45048-62-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
     us_wqp:srsID "1845663"^^xsd:string .
 
+
 us_wqp_data:characteristic.64478 a us_wqp:Characteristic ;
     rdfs:label "2H-Perfluorononanoic acid" ;
-    comptox:sameAsComptoxSubstance comptox:CompTox_DTXSID001035129 ;
+    dsstox:hasInChiKey "CVAZURDPUJIKIQ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID001035129 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
     us_wqp:srsID "1992041"^^xsd:string .
 

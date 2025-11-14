@@ -270,10 +270,22 @@ def triplify_characteristic(df, _PREFIX):
                 if parameter_srd_id:
                     kg.add( (parameter_iri, _PREFIX["us_wqp"]['srsID'], Literal(str(parameter_srd_id), datatype = XSD.string)) )
                     if len(substance)> 0 and substance[0]['dtxsid'] != None:
-                        kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance[0]['dtxsid']}"]))
-                        kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
-                        kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], DCTERMS.alternative , Literal(substance[0]['systematicName'])))
+                        #check to make sure substance is neutral form
+                        sub_inchi = get_inchi(substance[0]['dtxsid'])
+                        inchi = sub_inchi[0]['inchiKey']
+                        if inchi.endswith('-N'):
+                            kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance[0]['dtxsid']}"]))
+                            kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
+                            kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], DCTERMS.alternative , Literal(substance[0]['systematicName'])))
+                        else:
+                            #replace with Neutral version of InChIKey
+                            inchi = inchi[:-1] + 'N'
+                            #lookup dsstox again by inchikey
+                            substance0 = from_inchi(inchi)
+                            if 'content' in substance0.keys():
+                                kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance0['content'][0]['sid']}"]))
                     if len(substance)> 0 and substance[0]['synonyms']:
+                        #check the synonyms for DTXSID entries
                         for syn in substance[0]['synonyms']:
                             if len(syn['alternateIds']) >0 :
                                 for synonym in syn['alternateIds']:
