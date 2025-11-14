@@ -14,7 +14,7 @@ us_wqp_data:d.wqp.observation.STORET-301344919 a us_wqp:Observation ;
     rdfs:label "WQP PFAS Perfluorobutanoate Observation STORET-301344919 for sample MEDEP_WQX-CBEEEEREP1N31-10-07WH"^^xsd:string ;
     coso:analyzedSample us_wqp_data:d.wqp.sample.MEDEP_WQX-CBEEEEREP1N31-10-07WH ;
     coso:hasFeatureOfInterest us_wqp_data:d.wqp.sampledFeature.MEDEP_WQX-76140 ;
-    coso:hasResult us_wqp_data:d.wqp.measurement.STORET-301344919 ;l
+    coso:hasResult us_wqp_data:d.wqp.measurement.STORET-301344919 ;
     coso:observedAtSamplePoint gcx_wqp:MEDEP_WQX-76140 ;
     coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
     coso:observedTime "2007-10-31T00:00:00"^^xsd:dateTime ;

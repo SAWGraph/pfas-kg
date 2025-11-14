@@ -272,7 +272,7 @@ def triplify_characteristic(df, _PREFIX):
                     if len(substance)> 0 and substance[0]['dtxsid'] != None:
                         kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance[0]['dtxsid']}"]))
                         kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
-                        kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], _PREFIX['us_wqp']['hasInchiKey'] , Literal(substance[0]['systematicName'])))
+                        kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], DCTERMS.alternative , Literal(substance[0]['systematicName'])))
                     if len(substance)> 0 and substance[0]['synonyms']:
                         for syn in substance[0]['synonyms']:
                             if len(syn['alternateIds']) >0 :
@@ -293,7 +293,7 @@ def triplify_characteristic(df, _PREFIX):
                                                kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance1['content'][0]['sid']}"]))
                                        #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
                                        #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDFS.label , Literal(syn['synonymName'])))
-                                       kg.add((parameter_iri, DCTERMS.identifier, Literal(inchi, datatype=XSD.string)))
+                                       kg.add((parameter_iri, _PREFIX['dsstox']['hasInChiKey'], Literal(inchi, datatype=XSD.string)))
 
 
     return kg
