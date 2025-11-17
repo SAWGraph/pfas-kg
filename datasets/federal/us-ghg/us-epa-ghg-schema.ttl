@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> . 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stad: <http://sawgraph.spatialai.org/v1/stad#> .
 @prefix epa-frs: <http://w3id.org/fio/v1/epa-frs#> .
@@ -12,9 +13,13 @@
 @base <http://www.w3.org/2002/07/owl#> .
 
 <http://w3id.org/sawgraph/v1/us-epa-ghg#> rdf:type owl:Ontology ;
- terms:contributor "Shirly Stephen, Torsten Hahmann, Katrina Schweikert"@en ;
+                                             terms:contributor <http://orcid.org/0000-0002-5331-5052> ,
+                                                            <http://orcid.org/0000-0003-3547-8058> ,
+                                                            <https://orcid.org/0000-0003-3271-6700> ;
                                              terms:created "2025-01-09" ;
-                                             terms:creator "The SAWGraph Project"@en ;
+                                             terms:creator <http://orcid.org/0000-0002-5331-5052> ,
+                                                        <http://orcid.org/0000-0003-3547-8058> ,
+                                                        <https://orcid.org/0000-0003-3271-6700> ;
                                              terms:description "This ontology supports SAWGraph"@en ;
                                              terms:title "Ontology for US EPA Greenhouse Gas release data."@en ;
                                              owl:versionInfo "1.0"@en .
@@ -24,7 +29,7 @@
 #################################################################
 
 ###  http://sawgraph.spatialai.org/v1/us-ghg#Chemical
-us_ghg:GHG-Chemical rdf:type owl:Class ;
+us_ghg:Chemical rdf:type owl:Class ;
                     rdfs:subClassOf coso:Substance .
 
 us_ghg:GHG-Chemical-Collection rdf:type owl:Class ;
@@ -32,16 +37,23 @@ us_ghg:GHG-Chemical-Collection rdf:type owl:Class ;
 
 
 ###  http://sawgraph.spatialai.org/v1/us-ghg#Measurement
-us_ghg:GHG-Measurement rdf:type owl:Class ;
+us_ghg:Measurement rdf:type owl:Class ;
                        rdfs:subClassOf coso:AggregateContaminantMeasurement .
 
 
 ###  http://sawgraph.spatialai.org/v1/us-ghg#ReleaseObservation
-us_ghg:GHG-ReleaseObservation rdf:type owl:Class ;
+us_ghg:ReleaseObservation rdf:type owl:Class ;
                               rdfs:subClassOf coso:ContaminantReleaseObservation .
+
+### Feature
+us_ghg:Facility rdf:type owl:Class ;
+    rdfs:subClassOf coso:MonitoredFeature, epa-frs:FRS-Facility. 
 
 us_ghg:GHGSubpart rdf:type owl:Class ;
     rdfs:subClassOf coso:ObservationAnnotation. 
+
+epa-frs:FRS-Facility rdf:type owl:Class;
+    rdfs:subClassOf geo:Feature. 
 
 #################################################################
 # Object Properties

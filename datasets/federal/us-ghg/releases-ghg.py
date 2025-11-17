@@ -24,14 +24,15 @@ code_dir = Path(__file__).resolve().parent.parent
 #from variable import NAME_SPACE, _PREFIX
 
 ## declare variables
-logname = "log"
-state = ' ME'
+logname = "log.log"
+#state = ' ME'
+state=None
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/epa_pfas_analytic_tool/"
 metadata_dir = None
-output_dir = root_folder / "federal/us-ghg/"
+output_dir = root_folder / "federal/us-ghg/triples/"
 
 ##namespaces
 us_epa_ghg = Namespace(f'http://w3id.org/sawgraph/v1/us-ghg#')
@@ -47,7 +48,7 @@ geo = Namespace(f'http://www.opengis.net/ont/geosparql#')
 logging.basicConfig(filename=logname,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
+                    datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
 logging.info(f"Running triplification for ghg {state}")
@@ -55,19 +56,25 @@ logging.info(f"Running triplification for ghg {state}")
 
 def main():
     df = load_data()
-    kg, facility_kg = triplify(df)
-
-    kg_turtle_file = "us-ghg-releases-"+state.strip()+".ttl".format(output_dir)
-    kg.serialize(kg_turtle_file, format='turtle')
-    facility_turtle_file = "us-ghg-facilities-"+state.strip()+".ttl".format(output_dir)
-    facility_kg.serialize(facility_turtle_file, format='turtle')
-    logger = logging.getLogger(f'Finished triplifying ghg releases for {state}.')
+    if state:
+        states = [state] #convert to list of 1
+    else:
+        states = df['State Territory or Tribe'].unique().tolist()
+    #triplify per state
+    for state1 in states:
+        df1 = df[df['State Territory or Tribe'] == state1]
+        kg, facility_kg = triplify(df1)
+        kg_turtle_file = output_dir / f"us-ghg-releases-{state1.strip()}.ttl"
+        kg.serialize(kg_turtle_file, format='turtle')
+        facility_turtle_file = output_dir / f"us-ghg-facilities-{state1.strip()}.ttl"
+        facility_kg.serialize(facility_turtle_file, format='turtle')
+        logger = logging.getLogger(f'Finished triplifying ghg releases for {state1}.')
 
 
 def load_data():
-    df = pd.read_excel(data_dir / 'greenhousegas_cb4421f2-1c5c-473b-a175-9c785c2a752c.xlsx', dtype=str)
+    df = pd.read_excel(data_dir / 'greenhousegas.xlsx', dtype=str)
     #filter to just one state
-    df = df[df['State Territory or Tribe'] == state]
+    #df = df[df['State Territory or Tribe'] == state]
     print(df.info(verbose=True))
     logger = logging.getLogger('Data loaded to dataframe.')
     return df
@@ -78,8 +85,8 @@ def Initial_KG():
     kg = Graph()
     # for prefix in prefixes:
     #    kg.bind(prefix, prefixes[prefix])
-    kg.bind('us-epa-ghg', us_epa_ghg)
-    kg.bind('us-epa-ghg-data', us_epa_ghg_data)
+    kg.bind('us-ghg', us_epa_ghg)
+    kg.bind('us-ghg-data', us_epa_ghg_data)
     kg.bind('epa-frs', us_frs)
     kg.bind('epa-frs-data', us_frs_data)
     kg.bind('qudt', qudt)
@@ -107,7 +114,7 @@ def get_attributes(row):
     if row['Chemical Formula'] != '-':
         release['ChemicalFormula'] = row['Chemical Formula']
 
-    if row['CAS Number'] != '-':
+    if row['CAS Number'] != '-' and not pd.isna(row['CAS Number']):
         release['CAS'] = row['CAS Number']
 
     return release
@@ -116,7 +123,7 @@ def get_attributes(row):
 def get_iris(release):
     extra_iris = {}
 
-    chemicalName = str(release['Chemical']).replace(' ', '').replace('(', "").replace(')', '').replace(',','').replace(';', '').replace('[', '').replace(']', '').replace('/', '')
+    chemicalName = str(release['Chemical']).replace(' ', '').replace('(', "").replace(')', '').replace(',','').replace(';', '').replace('[', '').replace(']', '').replace('/', '').replace('–','-')
     
     #if len(chemicalName)<15:
     #    chemId = chemicalName
@@ -132,7 +139,7 @@ def get_iris(release):
         'd.ReleaseObservation.' + recordId]
     extra_iris['Chemical'] = us_epa_ghg_data['d.Chemical.' + chemicalName]
     extra_iris['Measurement'] = us_epa_ghg_data['d.ContaminantMeasurement.' + recordId]
-    extra_iris['Amount'] = us_epa_ghg_data['d.Amount.' + recordId]
+    extra_iris['Amount'] = us_epa_ghg_data['d.quantityValue.' + recordId]
     extra_iris['Subpart'] = us_epa_ghg_data['d.Subpart.' + subpart]
 
     if 'FRS_ID' not in release.keys():
@@ -168,7 +175,7 @@ def triplify(df):
         #print(extra_iris)
 
         #observation
-        kg.add((extra_iris['ReleaseObservation'], RDF.type, us_epa_ghg['GHG-ReleaseObservation']))
+        kg.add((extra_iris['ReleaseObservation'], RDF.type, us_epa_ghg['ReleaseObservation']))
         kg.add((extra_iris['ReleaseObservation'], SOSA.phenomenonTime,
                 extra_iris['TimeInterval'])) 
         kg.add((extra_iris['TimeInterval'], TIME.inXSDgYear, Literal( release['Year'],datatype=XSD.gYear)))
@@ -177,8 +184,9 @@ def triplify(df):
 
         #facility
         if 'FRS_Facility' in extra_iris.keys():
-            kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['FRS_Facility']))
+            kg.add((extra_iris['ReleaseObservation'], coso['releaseFeature'], extra_iris['FRS_Facility']))
             kg.add((extra_iris['FRS_Facility'], RDF.type, us_frs['FRS-Facility']))
+            kg.add((extra_iris['FRS_Facility'], RDF.type, us_epa_ghg['Facility']))
             facility_kg.add((extra_iris['FRS_Facility'], us_frs['hasGHGId'], Literal(release['GHG_id'], datatype=XSD.string))) #this graph goes to FIO repo
         elif 'GHG_Facility' in extra_iris.keys(): #this shouldn't run as long as all of the facilities missing FRS ID have been caught
             kg.add((extra_iris['ReleaseObservation'], coso['hasFeatureOfInterest'], extra_iris['GHG_Facility']))
@@ -196,23 +204,22 @@ def triplify(df):
         if 'CAS' in release.keys():
             kg.add((extra_iris['Chemical'], coso['casNumber'], Literal(release['CAS'], datatype=XSD.string)))
             if release['CAS'].find(',') > -1:
-                kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['GHG-Chemical-Collection']))
-            else: kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['GHG-Chemical']))
+                kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['Chemical-Collection']))
+            else: kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['Chemical']))
         else:
-            kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['GHG-Chemical']))
+            kg.add((extra_iris['Chemical'], RDF.type, us_epa_ghg['Chemical']))
 
         #measurement
         kg.add((extra_iris['ReleaseObservation'], coso['hasResult'], extra_iris['Measurement']))
-        kg.add((extra_iris['Measurement'], qudt['quantityKind'], coso['VolumeQuantityKind']))
+        kg.add((extra_iris['Measurement'], qudt['quantityKind'], qudt['Mass']))
         kg.add((extra_iris['Measurement'], qudt['quantityValue'], extra_iris['Amount'])) 
-        kg.add((extra_iris['Measurement'], RDF.type, us_epa_ghg['GHG-Measurement']))
+        kg.add((extra_iris['Measurement'], RDF.type, us_epa_ghg['Measurement']))
 
         #amount (quantity value)
         kg.add((extra_iris['Amount'], RDF.type, qudt['QuantityValue']))
         kg.add((extra_iris['Amount'], qudt['numericValue'], Literal(release['Amount'], datatype=XSD.float)))
-        kg.add((extra_iris['Amount'], qudt['unit'], unit['TON_Metric']))
+        kg.add((extra_iris['Amount'], qudt['hasUnit'], unit['TON_Metric']))
 
-        #TODO quantity kind / coso:ContaminationProperty
 
     return kg, facility_kg
 
