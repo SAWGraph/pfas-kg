@@ -1,0 +1,259 @@
+@prefix naics: <http://w3id.org/fio/v1/naics#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pfas-industries: <http://w3id.org/sawgraph/v1/pfas-industries#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+naics:NAICS-211120 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-211130 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-212221 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-212230 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-212291 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-313110 a pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-313210 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-313220 a pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-313230 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-313310 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-313320 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-314110 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-314910 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-314999 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-316110 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-316998 a pfas-industries:MN-PFAS-Industry .
+
+naics:NAICS-322121 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-322130 a pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-322219 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-322220 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-323111 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-323120 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-324110 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-324191 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-325110 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-325120 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-325130 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-325180 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-325193 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-325199 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-325211 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-325212 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-325220 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-325510 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-325611 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-325612 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-325613 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-325998 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-326112 a pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-326113 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-326121 a pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-326130 a pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-326211 a pfas-industries:OAR-PFAS-Industry .
+
+naics:NAICS-327215 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-327310 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-331313 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-332812 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-332813 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-332999 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-333249 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-333316 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-333318 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-334220 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-334310 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-334412 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-334413 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-334418 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-334419 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-335931 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-335999 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-424690 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-442291 a pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-488119 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-561740 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OAR-PFAS-Industry,
+        pfas-industries:OLEM-PFAS-Industry .
+
+naics:NAICS-562112 a pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-562211 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-562212 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-562213 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-562219 a pfas-industries:OECA-PFAS-Industry,
+        pfas-industries:Salvatore-PFAS-Industry .
+
+naics:NAICS-811420 a pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-928110 a pfas-industries:MN-PFAS-Industry,
+        pfas-industries:OECA-PFAS-Industry .
+
+naics:NAICS-nan a pfas-industries:OECA-PFAS-Industry .
+
+pfas-industries:PFAS-Handling-Industry a owl:Class .
+
+pfas-industries:MN-PFAS-Industry rdfs:label "Industries identified by Minnesota Pollution Control Agency as potential PFAS users" ;
+    rdfs:subClassOf pfas-industries:PFAS-Handling-Industry .
+
+pfas-industries:OAR-PFAS-Industry rdfs:label "Industries identified by EPA Office of Air and Radiation (OAR) as potential PFAS users" ;
+    rdfs:subClassOf pfas-industries:PFAS-Handling-Industry .
+
+pfas-industries:OLEM-PFAS-Industry rdfs:label "Industries identified by EPA Office of Land and Emergency Management (OLEM) as potential PFAS users" ;
+    rdfs:subClassOf pfas-industries:PFAS-Handling-Industry .
+
+pfas-industries:OECA-PFAS-Industry rdfs:label "Industries identified by EPA Office of Enforcement and Compliance Assurance (OECA) research as potential PFAS users" ;
+    rdfs:subClassOf pfas-industries:PFAS-Handling-Industry .
+
+pfas-industries:Salvatore-PFAS-Industry rdfs:label "Industries identified by Salvatore et al. (2022) as potential PFAS users" ;
+    rdfs:subClassOf pfas-industries:PFAS-Handling-Industry .
+
