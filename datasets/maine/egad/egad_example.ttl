@@ -120,6 +120,7 @@ me_egad_data:parameter.PFNA_A a me_egad:EGAD-PFAS-ParameterName,
     rdfs:label "PERFLUORONONANOIC ACID" ;
     me_egad:parameterAbbreviation "PFNA_A"^^xsd:string ;
     me_egad:parameterName "PERFLUORONONANOIC ACID"^^xsd:string .
+me_egad_data:parameter.PFNA_A DSSTox:sameAsDSSToxSubstance DSSTox:DSSTox_DTXSID8031863 .
 
 me_egad_data:parameter.PFOS_A a me_egad:EGAD-PFAS-ParameterName,
         coso:Substance,
@@ -130,6 +131,7 @@ me_egad_data:parameter.PFOS_A a me_egad:EGAD-PFAS-ParameterName,
         "PFOS_A_L + PFOS_A_BR"^^xsd:string ;
     me_egad:parameterName "PERFLOUROOCTANE SULFONIC ACID"^^xsd:string,
         "PERFLUOROOCTANE SULFONIC ACID"^^xsd:string .
+me_egad_data:parameter.PFOS_A DSSTox:sameAsDSSToxSubstance DSSTox:DSSTox_DTXSID3031864 .
 
 me_egad_data:resultType.TRG a me_egad:EGAD-ResultType,
         owl:NamedIndividual ;
