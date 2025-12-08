@@ -123,7 +123,7 @@ def get_attributes(row):
 def get_iris(release):
     extra_iris = {}
 
-    chemicalName = str(release['Chemical']).replace(' ', '').replace('(', "").replace(')', '').replace(',','').replace(';', '').replace('[', '').replace(']', '').replace('/', '').replace('–','-')
+    chemicalName = str(release['Chemical']).replace(' ', '').replace('(', "").replace(')', '').replace(',','').replace(';', '').replace('[', '').replace(']', '').replace('/', '').replace('–','-').replace("+","").replace("\n","").replace("\r","")
     
     #if len(chemicalName)<15:
     #    chemId = chemicalName

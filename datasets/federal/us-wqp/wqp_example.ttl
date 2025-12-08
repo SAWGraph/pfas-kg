@@ -1,4 +1,6 @@
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix gcx_wqp: <https://geoconnex.us/iow/wqp/> .
+@prefix kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,8 +9,9 @@
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 @prefix wbd_data: <http://w3id.org/hyfo/wbd/v1/wbd-data#> .
-@prefix gcx_wqp: <https://geoconnex.us/iow/wqp/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix dsstox: <http://w3id.org/DSSTox/v1/>.
 
 us_wqp_data:d.wqp.observation.STORET-301344919 a us_wqp:Observation ;
     rdfs:label "WQP PFAS Perfluorobutanoate Observation STORET-301344919 for sample MEDEP_WQX-CBEEEEREP1N31-10-07WH"^^xsd:string ;

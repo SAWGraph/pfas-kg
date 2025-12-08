@@ -5,6 +5,9 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix us_sdwis: <http://sawgraph.spatialai.org/v1/us-sdwis#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pfas:<http://w3id.org/sawgraph/v1/pfas#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
 #classes
 us_sdwis:PWS-PFAS rdf:type owl:Class;

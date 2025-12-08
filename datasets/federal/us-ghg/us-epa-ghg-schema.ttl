@@ -9,6 +9,7 @@
 @prefix stad: <http://sawgraph.spatialai.org/v1/stad#> .
 @prefix epa-frs: <http://w3id.org/fio/v1/epa-frs#> .
 @prefix us_ghg: <http://w3id.org/sawgraph/v1/us-ghg#> .
+@prefix terms: <http://purl.org/dc/terms/> .
 
 @base <http://www.w3.org/2002/07/owl#> .
 
