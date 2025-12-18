@@ -139,13 +139,11 @@ us_wqp:sampleID rdf:type owl:DatatypeProperty;
 
 us_wqp:siteId rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - site id";
-    rdfs:subPropertyOf owl:AnnotationProperty,
-        dcterms:identifier.  
+    rdfs:subPropertyOf dcterms:identifier.  
 
 us_wqp:siteName rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - site name"; 
-    rdfs:subPropertyOf owl:AnnotationProperty. 
-
+    rdfs:subPropertyOf dcterms:title. 
 us_wqp:groupName rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - characteristic group name"; 
     rdfs:domain us_wqp:Characteristic.
