@@ -4,150 +4,150 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-DSSTox:CompTox_DTXSID00192353 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID00192353 a DSSTox:ChemicalEntity;
   rdfs:label "8:2 Fluorotelomer sulfonic acid";
   skos:altLabel "8:2 FTSA" .
 
-DSSTox:CompTox_DTXSID00379268 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID00379268 a DSSTox:ChemicalEntity;
   rdfs:label "3:3 Fluorotelomer carboxylic acid";
   skos:altLabel "3:3 FTCA" .
 
 
-DSSTox:CompTox_DTXSID1032646 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID1032646 a DSSTox:ChemicalEntity;
   rdfs:label "N-Ethylperfluorooctane sulfonamide";
   skos:altLabel "EtFOSA" .
 
 
-DSSTox:CompTox_DTXSID1037303 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID1037303 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoroheptanoic acid";
   skos:altLabel "PFHpA" .
 
 
-DSSTox:CompTox_DTXSID10624392 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID10624392 a DSSTox:ChemicalEntity;
   rdfs:label "2-(N-Methylperfluorooctanesulfonamido)acetic acid" .
 
-DSSTox:CompTox_DTXSID1067629 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID1067629 a DSSTox:ChemicalEntity;
   rdfs:label "N-Methylperfluorooctanesulfonamide";
   skos:altLabel "MeFOSA" .
 
-DSSTox:CompTox_DTXSID20873011 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID20873011 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorododecanesulfonic acid";
   skos:altLabel "PFDoDS" .
 
-DSSTox:CompTox_DTXSID20874028 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID20874028 a DSSTox:ChemicalEntity;
   rdfs:label "2H,2H,3H,3H-Perfluorooctanoic acid" .
 
-DSSTox:CompTox_DTXSID3031860 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID3031860 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorodecanoic acid";
   skos:altLabel "PFDA" .
 
-DSSTox:CompTox_DTXSID3031862 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID3031862 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorohexanoic acid";
   skos:altLabel "PFHxA" .
 
-DSSTox:CompTox_DTXSID3031864 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID3031864 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorooctanesulfonic acid";
   skos:altLabel "PFOS" .
 
-DSSTox:CompTox_DTXSID30382063 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID30382063 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoro-3,6-dioxaheptanoic acid" .
 
-DSSTox:CompTox_DTXSID3038939 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID3038939 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorooctanesulfonamide" .
 
-DSSTox:CompTox_DTXSID3040148 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID3040148 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorodecanesulfonic acid";
   skos:altLabel "PFDS" .
 
-DSSTox:CompTox_DTXSID3059921 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID3059921 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorotetradecanoic acid";
   skos:altLabel "PFTeDA" .
 
-DSSTox:CompTox_DTXSID30891564 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID30891564 a DSSTox:ChemicalEntity;
   rdfs:label "4:2 Fluorotelomer sulfonic acid";
   skos:altLabel "4:2 FTSA" .
 
-DSSTox:CompTox_DTXSID4059916 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID4059916 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorobutanoic acid";
   skos:altLabel "PFBA" .
 
-DSSTox:CompTox_DTXSID40881350 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID40881350 a DSSTox:ChemicalEntity;
   rdfs:label "4,8-Dioxa-3H-perfluorononanoic acid" .
 
-DSSTox:CompTox_DTXSID40892507 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID40892507 a DSSTox:ChemicalEntity;
   rdfs:label "11-Chloroperfluoro-3-oxaundecanesulfonic acid" .
 
-DSSTox:CompTox_DTXSID5030030 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID5030030 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorobutanesulfonic acid";
   skos:altLabel "PFBS" .
 
-DSSTox:CompTox_DTXSID50379814 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID50379814 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoro-2-ethoxyethanesulfonic acid" .
 
-DSSTox:CompTox_DTXSID5062760 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID5062760 a DSSTox:ChemicalEntity;
   rdfs:label "2-(N-Ethylperfluorooctanesulfonamido)acetic acid" .
 
-DSSTox:CompTox_DTXSID6027426 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID6027426 a DSSTox:ChemicalEntity;
   rdfs:label "N-Ethyl-N-(2-hydroxyethyl)perfluorooctane sulfonamide" .
 
-DSSTox:CompTox_DTXSID60500450 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID60500450 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoro(4-methoxybutanoic acid)" .
 
-DSSTox:CompTox_DTXSID6062599 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID6062599 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoropentanoic acid";
   skos:altLabel "PFPeA" .
 
-DSSTox:CompTox_DTXSID6067331 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID6067331 a DSSTox:ChemicalEntity;
   rdfs:label "6:2 Fluorotelomer sulfonic acid";
   skos:altLabel "6:2 FTSA" .
 
-DSSTox:CompTox_DTXSID70191136 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID70191136 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoro-3-methoxypropanoic acid" .
 
-DSSTox:CompTox_DTXSID7027831 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID7027831 a DSSTox:ChemicalEntity;
   rdfs:label "N-Methyl-N-(2-hydroxyethyl)perfluorooctanesulfonamide" .
 
-DSSTox:CompTox_DTXSID7040150 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID7040150 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorohexanesulfonic acid";
   skos:altLabel "PFHxS" .
 
-DSSTox:CompTox_DTXSID70880215 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID70880215 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoro-2-methyl-3-oxahexanoic acid" .
 
-DSSTox:CompTox_DTXSID8031861 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8031861 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorododecanoic acid";
   skos:altLabel "PFDoDA" .
 
-DSSTox:CompTox_DTXSID8031863 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8031863 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorononanoic acid";
   skos:altLabel "PFNA" .
 
-DSSTox:CompTox_DTXSID8031865 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8031865 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorooctanoic acid";
   skos:altLabel "PFOA" .
 
-DSSTox:CompTox_DTXSID8047553 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8047553 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoroundecanoic acid";
   skos:altLabel "PFUnDA" .
 
-DSSTox:CompTox_DTXSID8059920 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8059920 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoroheptanesulfonic acid";
   skos:altLabel "PFHpS" .
 
-DSSTox:CompTox_DTXSID8062600 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8062600 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoropentanesulfonic acid";
   skos:altLabel "PFPeS" .
 
-DSSTox:CompTox_DTXSID8071356 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID8071356 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorononanesulfonic acid";
   skos:altLabel "PFNS" .
 
-DSSTox:CompTox_DTXSID80892506 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID80892506 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonic acid)" .
 
-DSSTox:CompTox_DTXSID90382620 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID90382620 a DSSTox:ChemicalEntity;
   rdfs:label "3-(Perfluoroheptyl)propanoic acid" .
 
-DSSTox:CompTox_DTXSID90868151 a DSSTox:ChemicalEntity;
+DSSTox:DTXSID90868151 a DSSTox:ChemicalEntity;
   rdfs:label "Perfluorotridecanoic acid";
   skos:altLabel "PFTrDA" .
