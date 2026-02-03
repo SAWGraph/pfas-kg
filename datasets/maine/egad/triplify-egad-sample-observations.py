@@ -354,10 +354,10 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['hasResult'], iris['result']) )
 
         if 'analysis_date' in sampleobs.keys():
-            kg_obs.add( (iris['sampleobs'], _PREFIX["sosa"]['resultTime'], Literal(sampleobs['analysis_date'] , datatype = XSD.date)) )
+            kg_obs.add( (iris['sampleobs'], _PREFIX["sosa"]['resultTime'], Literal(sampleobs['analysis_date'] , datatype = XSD.dateTime)) )
 
         if 'date' in sample.keys() and sample['date'] != '': #attach sample date to observation
-            kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['observedTime'], Literal(sample['date'], datatype = XSD.date)) )
+            kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['observedTime'], Literal(sample['date'], datatype = XSD.dateTime)) )
             # TODO full sosa:phenomenonTime pattern with owl:Time object
                 
         if 'analysis_method' in sampleobs.keys():

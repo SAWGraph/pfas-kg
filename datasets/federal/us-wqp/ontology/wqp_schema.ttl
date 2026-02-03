@@ -57,7 +57,7 @@ us_wqp:SampleCollectionMethod rdf:type owl:Class;
 
 us_wqp:ResultMeasureQualifier rdf:type owl:Class;
     rdfs:label 'WQP - Result Measure Qualifier';
-    rdfs:subclassOf coso:ResultQualifier,
+    rdfs:subClassOf coso:ResultQualifier,
         qudt:Enumeration.
 
 us_wqp:Characteristic rdf:type owl:Class;

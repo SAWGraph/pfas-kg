@@ -68,10 +68,10 @@ def main():
     kg.serialize(output_dir /f'{state}_wqp_observations.ttl', format='turtle')
 
 def load_data():
-    df = pd.read_csv(data_dir / f'{state}-pfas-results.csv')
+    df = pd.read_csv(data_dir / f'{state}-pfas-results.csv', low_memory=False)
     df = df.dropna(axis='columns', how='all') #drop columns that are all NA
     #drop rows that are stable isotope measurements that are not PFAS related
-    df= df[df['Result_CharacteristicGroup'].isin(['PFAS,Perfluorinated Alkyl Substance', 'PFOA, Perfluorooctanoic Acid','PFOS, Perfluorooctane Sulfonate', "Organics, PFAS"]) | df['Result_Characteristic'].isin([ ['13C3-PFBS', '13C2-4:2 FTS', '13C3-PFPeA', '13C3-PFBA', '13C3-HFPO-DA', '13C4-PFBA', '13C5-PFHxA', '13C5-PFPeA', '13C6-PFDA', '13C7-PFUnA', '13C8-PFOA', '13C9-PFNA', 'D3-N-MeFOSA', 'D5-N-EtFOSA', 'd7-NMe-FOSE', 'd9-NEt-FOSE', '13C2-PFTeDA', '13C2-PFDoA', '13C2-PFUnA', 'd5-EtFOSAA', 'd3-MeFOSAA',  '13C2-8:2 FTS', '13C2-PFDA', '13C8-PFOS', '13C8-PFOSA', '13C5-PFNA', '13C2-PFOA', '13C2-6:2 FTS', '13C3-PFHxS', '13C4-PFHpA', '13C2-PFHxA', 'CFC-12']])]
+    df= df[df['Result_CharacteristicGroup'].isin(['PFAS,Perfluorinated Alkyl Substance', 'PFOA, Perfluorooctanoic Acid','PFOS, Perfluorooctane Sulfonate', "Organics, PFAS"]) | df['Result_Characteristic'].isin(['13C3-PFBS', '13C2-4:2 FTS', '13C3-PFPeA', '13C3-PFBA', '13C3-HFPO-DA', '13C4-PFBA', '13C5-PFHxA', '13C5-PFPeA', '13C6-PFDA', '13C7-PFUnA', '13C8-PFOA', '13C9-PFNA', 'D3-N-MeFOSA', 'D5-N-EtFOSA', 'd7-NMe-FOSE', 'd9-NEt-FOSE', '13C2-PFTeDA', '13C2-PFDoA', '13C2-PFUnA', 'd5-EtFOSAA', 'd3-MeFOSAA',  '13C2-8:2 FTS', '13C2-PFDA', '13C8-PFOS', '13C8-PFOSA', '13C5-PFNA', '13C2-PFOA', '13C2-6:2 FTS', '13C3-PFHxS', '13C4-PFHpA', '13C2-PFHxA', 'CFC-12'])]
     return df
 
 def Initial_KG():
@@ -109,7 +109,7 @@ def get_attributes(row):
     #row.dropna()
     #sample -  mostly info from WQX Activity
     sample = {
-        'id':re.sub('[^A-Za-z0-9_\-]+', '', str(row['Activity_ActivityIdentifier']).replace(":", "-")), # sample ID (stripped to only numbers, letters dashes and underscores)
+        'id':re.sub('[^A-Za-z0-9_-]+', '', str(row['Activity_ActivityIdentifier']).replace(":", "-").replace(" ", "")), # sample ID (stripped to only numbers, letters dashes and underscores)
         'activity_id': row['Activity_ActivityIdentifier'], 
         'media': (''.join(e for e in str(row['Activity_Media']) if e.isalnum())).lower() , # sample media id (concatenated name)
         'project_id': ''.join(e for e in str(row['Project_Identifier']) if e.isalnum()), # annotation for sampling project (could be sampling collection)
@@ -153,7 +153,7 @@ def get_attributes(row):
     
     #Sample point -  from WQX location (also called site or station)
     samplepoint = {
-        'id': row['Location_Identifier'], # station where sample was taken
+        'id': re.sub('[^A-Za-z0-9_-]+', '', str(row['Location_Identifier'])) , # station where sample was taken
         'type': row['Activity_TypeCode']
     }
     ## Get coordinates (prefer standardized if they exist)
@@ -189,8 +189,11 @@ def get_attributes(row):
         result['analysis_date'] = pd.to_datetime(row['LabInfo_AnalysisStartDate']).date()
     if 'Result_MeasureQualifierCode' in row.keys() and pd.notnull(row['Result_MeasureQualifierCode']):
         result['measure_qualifier'] = urllib.parse.quote(str(row['Result_MeasureQualifierCode']), safe='')
-    if pd.notnull(row['Result_Measure']) and row['Result_Measure'] != 'ND':
-        result['measure'] = row['Result_Measure'] 
+    if pd.notnull(row['Result_Measure']):  #only valid floats are converted
+        try :
+            result['measure'] = float(row['Result_Measure'])
+        except:
+            print(row['Result_Measure'], " cannot be converted to float")
     unit_lu = {
         'ng/g': 'NanoGM-PER-GM', #this equivalent to MicroGM-PER-KiloGM
         'ng/L': 'NanoGM-PER-L',
@@ -201,7 +204,9 @@ def get_attributes(row):
         '% recovery': 'PERCENT',
         'mg/m3': 'MilliGM-PER-M3',
         'ug/kg': 'MicroGM-PER-KiloGM',
-        '% by wt': 'PERCENT' 
+        '% by wt': 'PERCENT',
+        'mg/L': 'MilliGM-PER-L', 
+        'mg/kg': 'MilliGM-PER-KiloGM'
               }
     if pd.notnull(row['Result_MeasureUnit']):
         result['unit_label'] = row['Result_MeasureUnit']
@@ -209,11 +214,13 @@ def get_attributes(row):
 
     if pd.notnull(row['DetectionLimit_MeasureA']) and pd.notnull(row['DetectionLimit_MeasureUnitA']):
         result['dl_type_A'] = str(row['DetectionLimit_TypeA']).replace(" ", "")
-        result['dl_measure_A'] = row['DetectionLimit_MeasureA']
+        if row['DetectionLimit_TypeA'] != 'Non Detect':
+            result['dl_measure_A'] = row['DetectionLimit_MeasureA']
         result['dl_unit_A'] = unit_lu[row['DetectionLimit_MeasureUnitA']]
     if 'DetectionLimit_TypeB' in row.keys() and pd.notnull(row['DetectionLimit_TypeB']):
         result['dl_type_B'] = str(row['DetectionLimit_TypeB']).title().replace(" ", "")
-        result['dl_measure_B'] = row['DetectionLimit_MeasureB']
+        if row['DetectionLimit_TypeB'] != 'Non Detect':
+            result['dl_measure_B'] = row['DetectionLimit_MeasureB']
         result['dl_unit_B'] = unit_lu[row['DetectionLimit_MeasureUnitB']]
 
     return sample, samplepoint, result
@@ -345,13 +352,17 @@ def triplify(df):
         if 'measure_qualifier' in result.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], prefixes['us_wqp_data'][f"resultMeasureQualifier.{result['measure_qualifier']}"] ))
         if 'measure' in result.keys():
-            kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['DetectQuantityValue']))
-            kg.add((iris['quantityValue'], prefixes['qudt']['numericValue'], Literal(result['measure'], datatype=XSD.float)))
+            if '<' in str(result['measure']) or str(result['measure']) in ('non detect', 'ND'): #some states use < for unquantified values
+                kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonDetectQuantityValue']))
+                kg.add((iris['quantityValue'], prefixes['qudt']['enumeratedValue'], prefixes['coso']['non-detect']))
+            else:
+                kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['DetectQuantityValue']))
+                kg.add((iris['quantityValue'], prefixes['qudt']['numericValue'], Literal(result['measure'], datatype=XSD.float)))
         if 'unit' in result.keys():
             kg.add((iris['quantityValue'], prefixes['qudt']['hasUnit'], iris['unit']))
         if 'non-detect' in result.keys():
             kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonDetectQuantityValue']))
-            kg.add((iris['quantityValue'], prefixes['qudt']['enumeratedValue'], Literal('non-detect', datatype=XSD.string)))
+            kg.add((iris['quantityValue'], prefixes['qudt']['enumeratedValue'], prefixes['coso']['non-detect'])) #Literal('non-detect', datatype=XSD.string)))
         if 'dl_type_A' in result.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], iris['dl_A']))
             kg.add((iris['dl_A'], RDF.type, prefixes['us_wqp'][result['dl_type_A']]))

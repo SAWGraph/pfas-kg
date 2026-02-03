@@ -194,7 +194,9 @@ def get_dsstox(srs_id):
     resp = urllib3.request("GET", url, timeout=300.0)
     substance = resp.data
     substance = json.loads(substance)
-    #print(substance)
+    for synonym in substance[0]['synonyms']:
+        if synonym['listName'] == 'OAR_Per- and polyfluoroalkyl Substances':
+            print(synonym['synonymName'], ' - ',synonym['listName'])
     return substance
 
 def get_inchi(dtxsid):
