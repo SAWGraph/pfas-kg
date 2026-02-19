@@ -36,29 +36,24 @@ us_wqp:Observation rdf:type owl:Class;
 
 us_wqp:SampleMedia rdf:type owl:Class;
     rdfs:label "WQP - Sample Media";
-    rdfs:subClassOf coso:SampleMaterialType;
-    rdfs:subClassOf qudt:Enumeration. 
+    rdfs:subClassOf coso:SampleMaterialType. 
 
 us_wqp:Taxon rdf:type owl:Class;
     rdfs:label "WQP - Taxon"; 
-    rdfs:subClassOf coso:SampleMaterialType;
-    rdfs:subClassOf qudt:Enumeration. 
+    rdfs:subClassOf coso:SampleMaterialType. 
 
 us_wqp:AnalyticalMethod rdf:type owl:Class;
     rdfs:label "WQP - Analytical Method"; 
-    rdfs:subClassOf coso:AnalysisMethod,
-        qudt:Enumeration. 
+    rdfs:subClassOf coso:AnalysisMethod. 
 
 us_wqp:SampleCollectionMethod rdf:type owl:Class;
     rdfs:label "WQP - Sample Collection Method"; 
     rdfs:subClassOf coso:SampleAnnotation, #this should be more specific
-            sosa:Procedure,
-            qudt:Enumeration. 
+            sosa:Procedure. 
 
 us_wqp:ResultMeasureQualifier rdf:type owl:Class;
     rdfs:label 'WQP - Result Measure Qualifier';
-    rdfs:subClassOf coso:ResultQualifier,
-        qudt:Enumeration.
+    rdfs:subClassOf coso:ResultQualifier.
 
 us_wqp:Characteristic rdf:type owl:Class;
     rdfs:label "WQP - Characteristic";
@@ -74,7 +69,7 @@ us_wqp:SampledFeature rdf:type owl:Class;
 
 us_wqp:LocationType rdf:type owl:Class;
     rdfs:label "WQP - Location Type"; 
-    rdfs:subClassOf qudt:Enumeration, coso:FeatureType. 
+    rdfs:subClassOf coso:FeatureType. 
 
 us_wqp:Project rdf:type owl:Class;
     rdfs:label "WQP - Project";

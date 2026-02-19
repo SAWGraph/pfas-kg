@@ -65,9 +65,6 @@ me_egad_data:DefEGADDrinkingWaterSample owl:unionOf ([rdf:type owl:Restriction;
 
      rdfs:subClassOf coso:DrinkingWaterSample. #need to add sample location 
 
-	
-me_egad_data:sampleMaterialType.PW rdf:type coso:WaterSample. 
-
 me_egad_data:DefEGADFilteredWaterSample owl:unionOf (
     [rdf:type owl:Restriction; 
     owl:onProperty me_egad:sampleCollectionLocation;
@@ -141,6 +138,7 @@ me_egad_data:DefEGADSolidWasteSample owl:unionOf (
 #	me_egad_data:sampleMaterialType.WW #wastewater
 #me_egad_data:sampleMaterialType.SPG #septage
 #me_egad_data:sampleMaterialType.SU #sludge
+#me_egad_data:sampleMaterialType.PW #process water
 me_egad_data:DefEGADWasteWaterSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
@@ -153,8 +151,10 @@ me_egad_data:DefEGADWasteWaterSample owl:unionOf (
   owl:hasValue me_egad_data:sampleMaterialType.WW]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SPG
-]
+  owl:hasValue me_egad_data:sampleMaterialType.SPG]
+[rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad_data:sampleMaterialType.PW]
 [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad_data:sampleMaterialType.SU

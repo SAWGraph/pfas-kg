@@ -88,11 +88,11 @@ us_wqp_data:d.wqp.measurement.STORET-866773925 a us_wqp:Single-PFAS-Concentratio
     coso:hasResultQualifier us_wqp_data:d.wqp.MethodDetectionLevel.STORET-866773925 .
 
 us_wqp_data:d.wqp.quantityValue.STORET-301344919 a coso:NonDetectQuantityValue ;
-    qudt:enumeratedValue "non-detect"^^xsd:string ;
+    qudt:enumeratedValue coso:non-detect ;
     qudt:hasUnit coso:NanoGM-PER-GM .
 
 us_wqp_data:d.wqp.quantityValue.STORET-866773925 a coso:NonDetectQuantityValue ;
-    qudt:enumeratedValue "non-detect"^^xsd:string ;
+    qudt:enumeratedValue coso:non-detect ;
     qudt:hasUnit unit:NanoGM-PER-L .
 
 us_wqp_data:d.wqp.LowerQuantitationLimit.STORET-301344919 a us_wqp:LowerQuantitationLimit ;
