@@ -6,17 +6,10 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
-PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
 PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#>
 
 PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
-prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#>
-PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
-PREFIX me_mgs_data: <http://sawgraph.spatialai.org/v1/me-mgs-data#>
-PREFIX qudt: <http://qudt.org/schema/qudt/>
-PREFIX unit: <http://qudt.org/vocab/unit/>
+PREFIX dsstox: <http://w3id.org/DSSTox/v1/>
 
 SELECT * WHERE {
     # Find all samples and their results from a particular samplePoint
@@ -26,7 +19,7 @@ SELECT * WHERE {
 		coso:analyzedSample ?sample;
         coso:ofSubstance ?substance;
         coso:hasResult ?result.
-  ?substance rdf:type <http://w3id.org/DSSTox/v1/ChemicalEntity> ;
+  ?substance rdf:type dsstox:ChemicalEntity ;
         skos:altLabel ?substanceLabel.
   ?result coso:measurementValue ?quantity.
 } 
