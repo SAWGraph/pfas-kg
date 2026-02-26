@@ -1,4 +1,4 @@
-# Get all samplepoints from a specific set of S2 cells (here cells with plastics manufacturers)
+# Get all samplepoints from a specific set of S2 cells (here cells with plastics manufacturers) and their associated samples
 # This does not require access to the Spatial graph
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

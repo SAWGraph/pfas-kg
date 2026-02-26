@@ -1,21 +1,32 @@
-# Get a count of how many samplepoints from a specific set of S2 cells (here cells with plastics manufacturers) have been tested for each substance 
-# This does not require access to the Spatial graph
+# Find all test results from a particular samplepoint, their associated observation, sample, analyzed substance (using DSSToxIDs) and result. 
+# This is limited to samples whose substance is mapped to DSSTox chemicals
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
+PREFIX spatial: <http://purl.org/spatialai/spatial/spatial-full#>
+
 PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
+prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#>
+PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
+PREFIX me_mgs_data: <http://sawgraph.spatialai.org/v1/me-mgs-data#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX unit: <http://qudt.org/vocab/unit/>
 
-SELECT DISTINCT ?substance (COUNT (DISTINCT ?sp) as ?no_samplepoints) WHERE {
-    ?sp rdf:type coso:SamplePoint; 
-      spatial:connectedTo ?s2cell.
-     VALUES ?s2cell {kwgr:s2.level13.5526502181185781760 kwgr:s2.level13.5526654257387798528 kwgr:s2.level13.5525241453665583104 kwgr:s2.level13.5526677690729365504 kwgr:s2.level13.5526660682658873344 kwgr:s2.level13.5526659411348553728 kwgr:s2.level13.5526649137786781696 kwgr:s2.level13.5526701502028054528 kwgr:s2.level13.5526671128019337216 kwgr:s2.level13.5526601309030973440 kwgr:s2.level13.5526595845832572928 kwgr:s2.level13.5526646148489543680 kwgr:s2.level13.5529487561413623808 kwgr:s2.level13.5526597666898706432 kwgr:s2.level13.5526675388626894848 kwgr:s2.level13.5526481599702499328 kwgr:s2.level13.5526677862528057344 kwgr:s2.level13.5525434349236781056 kwgr:s2.level13.5526344435626934272 kwgr:s2.level13.5526661541652332544 kwgr:s2.level13.5526594677601468416 kwgr:s2.level13.5526598594611642368 kwgr:s2.level13.5526612338506989568 kwgr:s2.level13.5525732007650263040 kwgr:s2.level13.5526340896573882368 kwgr:s2.level13.5525476783513665536 kwgr:s2.level13.5526638658066579456 kwgr:s2.level13.5526649962420502528 kwgr:s2.level13.5526595192997543936 kwgr:s2.level13.5525232520133607424}
-  ?observation rdf:type coso:ContaminantObservation;
-    	coso:observedAtSamplePoint ?sp;
-    	coso:ofSubstance ?substance .
-
-} GROUP BY ?substance ORDER BY DESC(?no_samplepoints)
+SELECT * WHERE {
+    # Find all samples and their results from a particular samplePoint
+   ?samp_pt rdf:type coso:SamplePoint .
+        VALUES ?samp_pt{<http://w3id.org/sawgraph/v1/me-egad-data#samplePoint.94300>} 
+  ?obs coso:observedAtSamplePoint ?samp_pt;
+		coso:analyzedSample ?sample;
+        coso:ofSubstance ?substance;
+        coso:hasResult ?result.
+  ?substance rdf:type <http://w3id.org/DSSTox/v1/ChemicalEntity> ;
+        skos:altLabel ?substanceLabel.
+  ?result coso:measurementValue ?quantity.
+} 
