@@ -1,4 +1,4 @@
-# Get the number of results and all substances that have been detected at over 4.0 ng/L at samplepoints from a specific set of S2 cells (here cells with plastics manufacturers) together with the sample material type where these substances have been detected in
+# Get the number of results and all substances that have been detected at over 4.0 ng/L from samples at samplepoints from a specific set of S2 cells (here cells with plastics manufacturers) together with the sample material type where these substances have been detected in
 # This does not require access to the Spatial graph
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -12,7 +12,7 @@ PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
 PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 
-SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (GROUP_CONCAT(DISTINCT ?substance; separator="; ") as ?substances) (GROUP_CONCAT(DISTINCT ?matTypeLabel; separator="; ") as ?materials) ?sp ?spWKT  WHERE {
+SELECT ?sp ?sample (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (GROUP_CONCAT(DISTINCT ?substanceLabel; separator="; ") as ?substances) (GROUP_CONCAT(DISTINCT ?matTypeLabel; separator="; ") as ?materials) ?spWKT  WHERE {
       ?sp rdf:type coso:SamplePoint; 
       spatial:connectedTo ?s2cell ;
   	  geo:hasGeometry/geo:asWKT ?spWKT.
@@ -22,7 +22,9 @@ SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (G
     	coso:ofSubstance ?substance ;
         coso:analyzedSample ?sample ;
     	coso:hasResult ?result .
-    ?sample rdfs:label ?sampleLabel;
+  ?substance rdf:type <http://w3id.org/DSSTox/v1/ChemicalEntity> ;
+        skos:altLabel ?substanceLabel.
+  ?sample rdfs:label ?sampleLabel;
   		coso:sampleOfMaterialType ?matType. 
   ?matType rdfs:label ?matTypeLabel. 
    ?result coso:measurementValue ?result_value;
@@ -31,4 +33,4 @@ SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (G
   VALUES ?unit {<http://qudt.org/vocab/unit/NanoGM-PER-L>}.
   ?unit qudt:symbol ?unit_sym.
     BIND((CONCAT(str(?result_value) , " ", ?unit_sym)) as ?subVal)
-} GROUP BY ?sp ?spWKT
+} GROUP BY ?sp ?spWKT ?sample

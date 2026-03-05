@@ -12,7 +12,7 @@ PREFIX kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>
 PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 
-SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (GROUP_CONCAT(DISTINCT ?substance; separator="; ") as ?substances)  ?sp ?spWKT  WHERE {
+SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (GROUP_CONCAT(DISTINCT ?substanceLabel; separator="; ") as ?substances)  ?sp ?spWKT  WHERE {
       ?sp rdf:type coso:SamplePoint; 
       spatial:connectedTo ?s2cell ;
   	  geo:hasGeometry/geo:asWKT ?spWKT.
@@ -23,6 +23,8 @@ SELECT (COUNT(DISTINCT ?subVal) as ?resultCount) (MAX(?result_value) as ?max) (G
     	coso:hasResult ?result .
    ?result coso:measurementValue ?result_value;
    		coso:measurementUnit ?unit .
+   ?substance rdf:type <http://w3id.org/DSSTox/v1/ChemicalEntity> ;
+        skos:altLabel ?substanceLabel.
   FILTER (?result_value > 4).
   VALUES ?unit {<http://qudt.org/vocab/unit/NanoGM-PER-L>}.
   ?unit qudt:symbol ?unit_sym.
