@@ -1,0 +1,127 @@
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsstox: <http://w3id.org/DSSTox/v1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix us_ucmr: <http://w3id.org/sawgraph/v1/us-ucmr#> .
+@prefix us_ucmr_data: <http://w3id.org/sawgraph/v1/us-ucmr-data#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://w3id.org/sawgraph/v1/us-ucmr> rdf:type owl:Ontology ;
+                    dcterms:contributor <https://orcid.org/0000-0003-3271-6700>,
+                                        <http://orcid.org/0000-0002-5331-5052> ;
+                    dcterms:created "2026-03-24";
+                    dcterms:updated "2026-03-24";
+                    dcterms:creator <https://orcid.org/0000-0003-3271-6700>;
+                    dcterms:description "This ontology covers EPA UCMR data testing for PFAS chemicals in drinking water"@en;
+                    dcterms:title "Ontology for EPA Unregulated Contaminant Monitoring Rule 3 and 5 for PFAS Chemicals"@en;
+                    owl:versionInfo "1.0"@en .
+
+#################################################################
+#    Classes
+#################################################################
+us_ucmr:Observation rdf:type owl:Class ;
+    rdfs:subClassOf coso:ContaminantSampleObservation ;
+    rdfs:label "UCMR Sample Observation" ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> .
+
+us_ucmr:Sample rdf:type owl:Class ;
+    rdfs:subClassOf coso:MaterialSample ;
+    rdfs:label "UCMR Sample " ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> .
+
+us_ucmr:SamplePointType rdf:type owl:Class ;
+    rdfs:label "Sample Point Type" ;
+    rdfs:subClassOf coso:FeatureType ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> . 
+
+us_ucmr:FacilityWaterType rdf:type owl:Class ;
+    rdfs:label "Facility Water Type" ;
+    rdfs:subClassOf coso:SampleMaterialType ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> . 
+
+us_ucmr:Single-PFAS-Concentration rdf:type owl:Class ;
+    rdfs:subClassOf coso:ContaminantRelativeMeasurement ,
+                    coso:SingleContaminantMeasurement ;
+    rdfs:label "UCMR single PFAS concentration" ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> .
+
+us_ucmr:MRL rdf:type owl:Class ;
+    rdfs:subClassOf coso:QuantitationLimit ;
+    rdfs:label "UCMR Minimum Reporting Limit " ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> .
+
+us_ucmr:Contaminant rdf:type owl:Class ;
+    rdfs:subClassOf coso:Substance ;
+    rdfs:label "UCMR Contaminant";
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> .
+
+#################################################################
+#    Data properties
+#################################################################
+###  http://w3id.org/sawgraph/v1/me-egad#sampleID
+us_ucmr:sampleID rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf dcterms:identifier ;
+                 rdfs:label "sample identifier" ;
+                 skos:definition "Sample identifier in the EPA UCMR dataset." ;
+                 rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> .
+
+#################################################################
+#    Individuals
+#################################################################
+us_ucmr_data:analyticalMethod.EPA537 rdf:type coso:AnalysisMethod ;
+    rdfs:label "EPA method 537.1" ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-ucmr> . 
+
+us_ucmr_data:contaminant.PFBS rdf:type us_ucmr:Contaminant ;
+    rdfs:label "perfluorobutanesulfonic acid" ; 
+    coso:casNumber "375-73-5" ;
+    skos:altLabel "PFBS" ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID5030030 .
+
+us_ucmr_data:contaminant.PFHpA rdf:type us_ucmr:Contaminant ;
+    rdfs:label "perfluoroheptanoic acid" ;
+    coso:casNumber "375-85-9" ;
+    skos:altLabel "PFHpA" .
+
+us_ucmr_data:contaminant.PFHxS rdf:type us_ucmr:Contaminant ;
+    rdfs:label "perfluorohexanesulfonic acid" ;
+    coso:casNumber "355-46-4" ;
+    skos:altLabel "PFHxS" .
+
+us_ucmr_data:contaminant.PFNA rdf:type us_ucmr:Contaminant ;
+    rdfs:label "perfluorononanoic acid" ;
+    coso:casNumber "375-95-1" ;
+    skos:altLabel "PFNA" .
+
+us_ucmr_data:contaminant.PFOA rdf:type us_ucmr:Contaminant ;
+    rdfs:label "perfluorooctanoic acid" ;
+    coso:casNumber "335-67-1" ;
+    skos:altLabel "PFOA" .
+
+us_ucmr_data:contaminant.PFOS rdf:type us_ucmr:Contaminant ;
+    rdfs:label "perfluorooctanesulfonic acid" ;
+    coso:casNumber "1763-23-1" ;
+    skos:altLabel "PFOS" . 
+
+us_ucmr_data:samplePointType.EP rdf:type us_ucmr:SamplePointType ;
+    rdfs:label "Entry Point" . 
+
+us_ucmr_data:samplePointType.MR rdf:type us_ucmr:SamplePointType ;
+    rdfs:label "distribution system at maximum residence time" . 
+
+us_ucmr_data:sampleType.SW rdf:type us_ucmr:FacilityWaterType ;
+    rdfs:label "Surface Water" . 
+
+us_ucmr_data:sampleType.GW rdf:type us_ucmr:FacilityWaterType ;
+    rdfs:label "Ground Water" . 
+
+us_ucmr_data:sampleType.GU rdf:type us_ucmr:FacilityWaterType ;
+    rdfs:label "ground water under the direct influence of surface water " . 
+
+us_ucmr_data:sampleType.MX rdf:type us_ucmr:FacilityWaterType ;
+    rdfs:label "any combination of ground water, surface water and ground water under the direct influence of surface water" . 

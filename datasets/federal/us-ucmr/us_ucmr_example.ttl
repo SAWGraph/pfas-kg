@@ -1,0 +1,45 @@
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix us_ucmr: <http://w3id.org/sawgraph/v1/us-ucmr#> .
+@prefix us_ucmr_data: <http://w3id.org/sawgraph/v1/us-ucmr-data#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix spatial: <http://purl.org/spatialai/spatial/spatial-full#> .
+@prefix us_sdwis_data: <http://sawgraph.spatialai.org/v1/us-sdwis-data#> .
+
+us_ucmr_data:d.ucmr.observation.100205P.PFBS a us_ucmr:Observation ;
+    rdfs:label "UCMR PFAS Sample 100205P  PFBS  for Berlin Township on 20130114"^^xsd:string ;
+    coso:analysisMethod us_ucmr_data:analyticalMethod.EPA537 ;
+    coso:analyzedSample us_ucmr_data:d.ucmr.sample.100205P ;
+    coso:hasFeatureOfInterest <http://geoconnex.us/ref/pws/MI0000635> ;
+    coso:hasResult us_ucmr_data:d.ucmr.measurement.100205P.PFBS ;
+    coso:observedAtSamplePoint us_ucmr_data:d.ucmr.SamplePoint.MI0000635.90001.EP001 ;
+    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
+    coso:observedTime "2013-01-14T00:00:00"^^xsd:dateTime ;
+    coso:ofDatasetSubstance us_ucmr_data:contaminant.PFBS .
+
+us_ucmr_data:d.ucmr.sample.100205P a us_ucmr:Sample ;
+    rdfs:label "UCMR PFAS Sample 100205P for Berlin Township on 20130114"^^xsd:string ;
+    coso:fromSamplePoint us_ucmr_data:d.ucmr.SamplePoint.MI0000635.90001.EP001 ;
+    coso:sampleOfMaterialType us_ucmr_data:samplePointType.EP,
+        us_ucmr_data:sampleType.SW ;
+    us_ucmr:sampleID "100205P"^^xsd:string .
+
+us_ucmr_data:d.ucmr.measurement.100205P.PFBS a us_ucmr:Single-PFAS-Concentration ;
+    qudt:quantityValue us_ucmr_data:d.ucmr.quantityValue.100205P.PFBS ;
+    coso:hasResultQualifier us_ucmr_data:d.ucmr.mrl.0.09.MicroGM-PER-L .
+
+us_ucmr_data:d.ucmr.SamplePoint.MI0000635.90001.EP001 a us_ucmr:SamplePoint ;
+    rdfs:label "UCMR Sample Point Sink EP001 for PWS MI0000635 Berlin Township at facility Quarry 90001"^^xsd:string ;
+    spatial:connectedTo us_sdwis_data:d.PWS-SubFeature.MI0000635.90001 .
+
+us_ucmr_data:d.ucmr.quantityValue.100205P.PFBS a coso:NonDetectQuantityValue ;
+    qudt:hasUnit unit:MicroGM-PER-L .
+
+us_ucmr_data:samplePointType.EP rdf:type us_ucmr:SamplePointType ;
+    rdfs:label "Entry Point" . 
+
+us_ucmr_data:sampleType.SW rdf:type us_ucmr:FacilityWaterType ;
+    rdfs:label "Surface Water" . 
