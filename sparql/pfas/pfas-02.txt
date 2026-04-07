@@ -1,8 +1,10 @@
 # Find the name of the PFAS Chemical with the DTXSID 8031865
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dsstox: <http://w3id.org/DSSTox/v1/>
 select * where {
-    ?s rdfs:subClassOf <http://example.com/0000004> .
+    ?s rdf:type dsstox:ChemicalEntity .
     ?s rdfs:label ?l.
-    ?s <http://example.com/0000003_0> "DTXSID8031865".
+    ?s dsstox:hasDTXSID "8031865".
 } 
