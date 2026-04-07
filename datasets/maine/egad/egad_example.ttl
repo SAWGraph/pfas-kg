@@ -36,7 +36,7 @@ me_egad_data:observation.AAWHL192275901.20190529.1763231 a me_egad:EGAD-PFAS-Obs
     coso:hasResult me_egad_data:result.L192275901.AAWH.20190529.1763231 ;
     coso:observedAtSamplePoint me_egad_data:samplePoint.63787 ;
     coso:ofDatasetSubstance me_egad_data:parameter.PFOS_A ;
-    coso:observedTime "2019-05-29T10:05:00"^^xsd:date ;
+    coso:observedTime "2019-05-29T10:05:00"^^xsd:dateTime ;
     coso:observedProperty coso:SingleContaminantConcentrationQuantityKind;
     me_egad:resultType me_egad_data:resultType.TRG ;
     prov:wasAttributedTo me_egad_data:organization.lab.AAWH .

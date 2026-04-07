@@ -52,7 +52,7 @@ output_dir = root_folder / "maine/egad/"
 logging.basicConfig(filename=logname,
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
+                    datefmt='%Y-%m-%d %H:%M:%S',
                     level=logging.DEBUG)
 
 logging.info("Running triplification for egad sites")
@@ -71,7 +71,7 @@ def main():
     print(len(sites_df))
 
     # see which sites are actually pfas associated
-    egad_sites_df = pd.read_excel( reference_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sites and Sample Points", usecols=['SITE_NUMBER', 'SITE_NAME'], header=0)
+    egad_sites_df = pd.read_excel( reference_dir / 'January 2026 Statewide PFAS File.xlsx', sheet_name="PFAS Sites and Sample Points", usecols=['SITE_NUMBER', 'SITE_NAME'], header=0)
     #print(egad_sites_df.info())
     pfas_sites = egad_sites_df['SITE_NUMBER'].unique()
     #print(pfas_sites)
@@ -81,8 +81,8 @@ def main():
     sites_df = sites_df[sites_df['EGAD_SEQ'].isin(pfas_sites)]
 
     #lookup site type shortnames
-    vocab_df = pd.read_csv(metadata_dir / 'site_type.csv', header=0, encoding='ISO-8859-1') #, index_col='DESCRIPTION'
-    #print('SITE TYPES: ', vocab_df.info())
+    vocab_df = pd.read_csv(metadata_dir / 'site_type.csv', header=0, encoding='utf_8') #, index_col='DESCRIPTION'
+    print('SITE TYPES: ', vocab_df.info())
     #print(vocab_df['DESCRIPTION'].unique())
     logger = logging.getLogger('Data loaded to dataframe.')
 
@@ -115,6 +115,7 @@ def triplify_data(df, vocab, _PREFIX):
         
         site_type = row['SITE_TYPE'] 
         #get value of site type
+        #print('site type:', site_type)
         site_value = vocab.loc[vocab['DESCRIPTION'] == site_type]['VALUE'].item()
         site_value_formatted = ''.join(e for e in site_value if e.isalnum()) #remove spaces and special characters
         

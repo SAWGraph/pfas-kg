@@ -95,7 +95,7 @@ logging.info("Running triplification for EGAD sites and samples")
 
 def main():
     #Load data - ignore NOT APPLICABLE and UNKNOWN data values
-    egad_samples_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
+    egad_samples_df = pd.read_excel(data_dir / 'January 2026 Statewide PFAS File.xlsx', sheet_name="PFAS Sample Data", header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
     logger = logging.getLogger('Data loaded to dataframe.')
     print(egad_samples_df.info(verbose=True, show_counts=True)) #show the columns available from the raw data
 
@@ -201,7 +201,8 @@ def get_attributes(row):
                   "NG/ML": 'NanoGM-PER-MicroL',
                   "MG/L": 'MilliGM-PER-L',
                   "UG/KG": 'MicroGM-PER-KiloGM', 
-                  "UG/L": 'MicroGM-PER-L'
+                  "UG/L": 'MicroGM-PER-L',
+                  "NG/KG": 'NanoGM-PER-KiloGM',
                  }
     
     result['units'] = unit_dict[row['PARAMETER_UNITS']] # units of measurement standardized name
@@ -245,7 +246,7 @@ def get_iris(samplepoint, sample, sampleobs, result):
 
     ## Result and Quantity and related Controlled Vocabs
     iris['result'] = _PREFIX["me_egad_data"][f"{'result'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
-    iris['quantity'] = _PREFIX["me_egad_data"][f"{'quantityValue'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['quantityValue'] = _PREFIX["me_egad_data"][f"{'quantityValue'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     iris['analysislab'] = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs['analysislab']]}"]
     iris['substance'] = _PREFIX["me_egad_data"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
 
@@ -348,7 +349,8 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['observedAtSamplePoint'], iris['samplepoint']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedSample'], iris['sample']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['hasFeatureOfInterest'], iris['samplefeature']) )
-        kg_obs.add( (iris['sampleobs'], _PREFIX["prov"]['wasAttributedTo'], iris['analysislab']) )
+        if lab_dict[sampleobs['analysislab']] != 'NA':
+            kg_obs.add( (iris['sampleobs'], _PREFIX["prov"]['wasAttributedTo'], iris['analysislab']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedSample'], iris['sample']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['ofDatasetSubstance'], iris['substance']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['hasResult'], iris['result']) )
@@ -361,7 +363,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             # TODO full sosa:phenomenonTime pattern with owl:Time object
                 
         if 'analysis_method' in sampleobs.keys():
-            kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['analysisMethod'], iris['analysis_method']) )
+            kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['usedAnalysisMethod'], iris['analysis_method']) )
 
         if 'type' in result.keys():
             kg_obs.add( (iris['sampleobs'], _PREFIX["me_egad"]['resultType'], iris['result_type']) )
@@ -369,7 +371,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         
         ## contaminantMeasurement (result) and substance and quantity kind
         kg_result.add( (iris['result'], RDFS['label'], Literal('EGAD PFAS measurements for sample '+ str(sample['id']))) )        
-        kg_result.add( (iris['result'], _PREFIX["qudt"]['quantityValue'], iris['quantity']) )
+        kg_result.add( (iris['result'], _PREFIX["qudt"]['quantityValue'], iris['quantityValue']) )
         ### aggregate measurements
         if (pfas_parameter_kind_dict[sampleobs['parameter']] == 'Cumulative'):
             #kg.add( (iris['substance'], RDF.type, _PREFIX['coso']['SubstanceCollection']))
@@ -387,11 +389,11 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
         ## Quantity Value
         if is_valid(result['pfas_concentration']):  #only materialize quantity value if there is a concentration 
-            kg_result.add((iris['quantity'], RDF.type, _PREFIX['coso']['DetectQuantityValue']))
-            kg_result.add( (iris['sampleobs'], _PREFIX["qudt"]['numericValue'], Literal(result['pfas_concentration'] , datatype = XSD.decimal)) )
+            kg_result.add((iris['quantityValue'], RDF.type, _PREFIX['coso']['DetectQuantityValue']))
+            kg_result.add( (iris['quantityValue'], _PREFIX["qudt"]['numericValue'], Literal(float(result['pfas_concentration']) , datatype = XSD.decimal)) )
             
             ## Unit
-            kg_result.add( (iris['quantity'], _PREFIX["qudt"]['hasUnit'], iris['unit']) )
+            kg_result.add( (iris['quantityValue'], _PREFIX["qudt"]['hasUnit'], iris['unit']) )
             ### describe units that arent in qudt
             if result['pfas_concentration_units'] == "NG/G":
                 kg_result.add( (iris['unit'], RDF.type, _PREFIX["qudt"]["Unit"]) )
@@ -405,8 +407,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
                 kg_result.add( (iris['unit'], RDFS['label'], Literal('PERCENT')) )
 
         else: #handling of non-detects
-            kg_result.add((iris['quantity'], RDF.type, _PREFIX['coso']['NonDetectQuantityValue']))
-            kg_result.add((iris['quantity'], _PREFIX['qudt']['enumeratedValue'], _PREFIX['coso']['non-detect']))
+            kg_result.add((iris['quantityValue'], RDF.type, _PREFIX['coso']['NonDetectQuantityValue']))
             
         if 'validationLevel' in iris.keys():
             kg_result.add( (iris['result'], _PREFIX["me_egad"]['validationLevel'], iris['validationLevel']) )

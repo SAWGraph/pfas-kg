@@ -1,21 +1,22 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <workspace:/datasets/maine/egad/ontology/egad-sites-samples-schema.ttl#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix sdwis: <http://w3id.org/sawgraph/v1/sdwis#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
-@base <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdwis: <http://w3id.org/sawgraph/v1/sdwis#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://w3id.org/sawgraph/v1/me-egad#> rdf:type owl:Ontology ;
+<http://w3id.org/sawgraph/v1/me-egad> rdf:type owl:Ontology ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
                                                             <http://orcid.org/0000-0003-3547-8058> ,
                                                             <https://orcid.org/0000-0003-3271-6700> ;
                                         dcterms:created "2024-07-26" ;
+                                        dcterms:updated "2026-03-13";
                                         dcterms:creator <http://orcid.org/0000-0002-5331-5052> ,
                                                         <http://orcid.org/0000-0003-3547-8058> ,
                                                         <https://orcid.org/0000-0003-3271-6700> ;
@@ -77,74 +78,87 @@ coso:sampleAnnotation rdf:type owl:ObjectProperty .
 
 ###  http://w3id.org/sawgraph/v1/me-egad#associatedSite
 me_egad:associatedSite rdf:type owl:ObjectProperty ;
-                       rdfs:label "egad - associated site" .
+                       rdfs:label "egad - associated site" ;
+                       rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#labQualifier
 me_egad:labQualifier rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf coso:hasResultQualifier ;
-                     rdfs:label "egad - lab qualifier" .
+                     rdfs:label "egad - lab qualifier" ;
+                     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#methodDetectionLimit
 me_egad:methodDetectionLimit rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf coso:hasResultQualifier ;
                              rdfs:range me_egad:EGAD-MethodDetectionLimit ;
-                             rdfs:label "egad - method detection limit" .
+                             rdfs:label "egad - method detection limit" ;
+                             rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#reportingLimit
 me_egad:reportingLimit rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf coso:hasResultQualifier ;
                        rdfs:range me_egad:EGAD-ReportingLimit ;
-                       rdfs:label "egad - reporting limit" .
+                       rdfs:label "egad - reporting limit" ;
+                       rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#resultType
 me_egad:resultType rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf coso:observationAnnotation ;
-                   rdfs:label "egad - result type" .
+                   rdfs:label "egad - result type" ;
+                   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#sampleCollectionLocation
 me_egad:sampleCollectionLocation rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf coso:sampleAnnotation ;
-                                 rdfs:label "egad - sample collection location" .
+                                 rdfs:label "egad - sample collection location" ;
+                                 rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#sampleCollectionMethod
 me_egad:sampleCollectionMethod rdf:type owl:ObjectProperty ;
                                rdfs:subPropertyOf coso:sampleAnnotation ;
-                               rdfs:label "egad - sample collection method" .
+                               rdfs:label "egad - sample collection method" ;
+                               rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#samplePointType
 me_egad:samplePointType rdf:type owl:ObjectProperty ;
-                        rdfs:label "egad - sample point type" .
+                        rdfs:subPropertyOf coso:ofFeatureType ;
+                        rdfs:label "egad - sample point type" ;
+                        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#sampleTreatmentStatus
 me_egad:sampleTreatmentStatus rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf coso:sampleAnnotation ;
-                              rdfs:label "egad - sample treatment status" .
+                              rdfs:label "egad - sample treatment status" ;
+                              rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#sampledFeatureType
 me_egad:sampledFeatureType rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf coso:ofFeatureType ;
-                           rdfs:label "egad - sampled feature type" .
+                           rdfs:label "egad - sampled feature type" ;
+                           rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#validationLevel
 me_egad:validationLevel rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf coso:resultAnnotation ;
-                        rdfs:label "egad - validation level" .
+                        rdfs:label "egad - validation level";
+                        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#validationQualifier
 me_egad:validationQualifier rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf coso:hasResultQualifier ;
-                            rdfs:label "egad - validation qualifier" .
+                            rdfs:label "egad - validation qualifier";
+                            rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 #################################################################
@@ -162,42 +176,47 @@ coso:substanceID rdf:type owl:DatatypeProperty .
 ###  http://w3id.org/sawgraph/v1/me-egad#dep_chemicalID
 me_egad:dep_chemicalID rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf coso:substanceID ;
-                       rdfs:label "egad - chemical identifier" .
+                       rdfs:label "egad - chemical identifier";
+                       rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#sampleID
 me_egad:sampleID rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf dcterms:identifier ;
                  rdfs:label "sample identifier" ;
-                 skos:definition "Sample identifier in the EGAD dataset from the state of Maine." .
+                 skos:definition "Sample identifier in the EGAD dataset from the state of Maine.";
+                 rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#samplePointNumber
 me_egad:samplePointNumber rdf:type owl:DatatypeProperty ;
                           rdfs:subPropertyOf dcterms:identifier ;
                           rdfs:label "sample point number" ;
-                          skos:definition "Sample point number in the EGAD dataset from the state of Maine." .
+                          skos:definition "Sample point number in the EGAD dataset from the state of Maine.";
+                          rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#samplePointWebName
 me_egad:samplePointWebName rdf:type owl:DatatypeProperty ;
                            rdfs:subPropertyOf skos:altLabel ;
                            rdfs:label "sample point web name" ;
-                           skos:definition "Sample point web name in the EGAD dataset from the state of Maine." .
+                           skos:definition "Sample point web name in the EGAD dataset from the state of Maine.";
+                           rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#siteNumber
 me_egad:siteNumber rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf dcterms:identifier ;
                    rdfs:label "site number" ;
-                   skos:definition "Site number in the EGAD dataset from the state of Maine." .
+                   skos:definition "Site number in the EGAD dataset from the state of Maine.";
+                   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad> .
 
 
 ###  http://w3id.org/sawgraph/v1/sdwis#pwsidNumber
 sdwis:pwsidNumber rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf dcterms:identifier ;
                   rdfs:label "public system water identifier" ;
-                  skos:definition "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reservation, and XXXXXXXXXX = the water system identification code assigned by the State." .
+                  skos:definition "Uniquely identifies the water system within a specific state. Format: SSXXXXXXXXXX where: SS = the Federal Information Processing Standard (FIPS) Pub 5-2 State abbreviation in which the water system is located, or the region number of the EPA region responsible for an Indian reservation, and XXXXXXXXXX = the water system identification code assigned by the State.".
 
 
 ###  http://www.w3.org/2004/02/skos/core#altLabel
@@ -284,19 +303,22 @@ coso:Substance rdf:type owl:Class .
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-AggregatePFAS-Concentration
 me_egad:EGAD-AggregatePFAS-Concentration rdf:type owl:Class ;
                                          rdfs:subClassOf coso:AggregateContaminantMeasurement ,
-                                                         coso:ContaminantRelativeMeasurement .
+                                                         coso:ContaminantRelativeMeasurement ;
+                                         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-AnalysisMethod
 me_egad:EGAD-AnalysisMethod rdf:type owl:Class ;
                             rdfs:subClassOf coso:AnalysisMethod ;
-                            rdfs:label "EGAD - Analysis Method" .
+                            rdfs:label "EGAD - Analysis Method" ;
+                            rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-ConcentrationQualifier
 me_egad:EGAD-ConcentrationQualifier rdf:type owl:Class ;
                                     rdfs:subClassOf coso:ResultQualifier ;
-                                    rdfs:label "EGAD - Lab Qualifier" .
+                                    rdfs:label "EGAD - Lab Qualifier" ;
+                                    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-MethodDetectionLimit
@@ -304,115 +326,135 @@ me_egad:EGAD-MethodDetectionLimit rdf:type owl:Class ;
                                   rdfs:subClassOf qudt:Quantity ,
                                                   coso:DetectionLimit ;
                                   rdfs:label "EGAD - Method Detection Limit" ;
-                                  skos:definition "Areas with land use activities which are potential and/or actual sources of contamination and areas where biological and surface water sampling is conducted." .
+                                  skos:definition "Areas with land use activities which are potential and/or actual sources of contamination and areas where biological and surface water sampling is conducted." ;
+                                  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-PFAS-Observation
 me_egad:EGAD-PFAS-Observation rdf:type owl:Class ;
                               rdfs:subClassOf coso:ContaminantSampleObservation ;
-                              rdfs:label "EGAD - PFAS Observation" .
+                              rdfs:label "EGAD - PFAS Observation" ;
+                              rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-PFAS-ParameterName
 me_egad:EGAD-PFAS-ParameterName rdf:type owl:Class ;
                                 rdfs:subClassOf coso:Substance ;
-                                rdfs:label "EGAD - PFAS Parameter Name" .
+                                rdfs:label "EGAD - PFAS Parameter Name" ;
+                                rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-PFAS-Site
 me_egad:EGAD-PFAS-Site rdf:type owl:Class ;
                        rdfs:subClassOf me_egad:EGAD-Site ;
-                       rdfs:label "EGAD - PFAS Site" .
+                       rdfs:label "EGAD - PFAS Site" ;
+                       rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-ReportingLimit
 me_egad:EGAD-ReportingLimit rdf:type owl:Class ;
                             rdfs:subClassOf coso:QuantitationLimit ;
-                            rdfs:label "EGAD - Reporting Limit" .
+                            rdfs:label "EGAD - Reporting Limit" ;
+                            rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-ResultType
 me_egad:EGAD-ResultType rdf:type owl:Class ;
                         rdfs:subClassOf coso:ObservationAnnotation ;
-                        rdfs:label "EGAD - Result Type" .
+                        rdfs:label "EGAD - Result Type" ;
+                        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-Sample
 me_egad:EGAD-Sample rdf:type owl:Class ;
                     rdfs:subClassOf coso:MaterialSample ;
-                    rdfs:label "EGAD - Sample" .
+                    rdfs:label "EGAD - Sample" ;
+                    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SampleCollectionMethod
 me_egad:EGAD-SampleCollectionMethod rdf:type owl:Class ;
                                     rdfs:subClassOf coso:SampleAnnotation ;
-                                    rdfs:label "EGAD - Sample Collection Method" .
+                                    rdfs:label "EGAD - Sample Collection Method" ;
+                                    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SampleDetailedLocation
 me_egad:EGAD-SampleDetailedLocation rdf:type owl:Class ;
                                     rdfs:subClassOf coso:SampleAnnotation ;
-                                    rdfs:label "EGAD - Sample Detailed Location" .
+                                    rdfs:label "EGAD - Sample Detailed Location" ;
+                                    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SampleMaterialType
 me_egad:EGAD-SampleMaterialType rdf:type owl:Class ;
                                 rdfs:subClassOf coso:SampleMaterialType ;
-                                rdfs:label "EGAD - Sample Material Type" .
+                                rdfs:label "EGAD - Sample Material Type" ;
+                                rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SampleMaterialTypeQualifier
 me_egad:EGAD-SampleMaterialTypeQualifier rdf:type owl:Class ;
                                          rdfs:subClassOf coso:SampleMaterialType ;
-                                         rdfs:label "EGAD - Sample Material Type Qualifier" .
+                                         rdfs:label "EGAD - Sample Material Type Qualifier" ;
+                                         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SamplePoint
 me_egad:EGAD-SamplePoint rdf:type owl:Class ;
                          rdfs:subClassOf coso:SamplePoint ;
-                         rdfs:label "EGAD - Sample Point" .
+                         rdfs:label "EGAD - Sample Point" ;
+                         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SamplePointType
 me_egad:EGAD-SamplePointType rdf:type owl:Class ;
                              rdfs:subClassOf coso:FeatureType ;
-                             rdfs:label "EGAD - Sample Point Type" .
+                             rdfs:label "EGAD - Sample Point Type" ;
+                             rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SampleTreatmentStatus
 me_egad:EGAD-SampleTreatmentStatus rdf:type owl:Class ;
                                    rdfs:subClassOf coso:SampleAnnotation ;
-                                   rdfs:label "EGAD - Sample Treatment Status" .
+                                   rdfs:label "EGAD - Sample Treatment Status" ;
+                                   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SampledFeature
 me_egad:EGAD-SampledFeature rdf:type owl:Class ;
                             rdfs:subClassOf coso:SampledFeature ;
-                            rdfs:label "EGAD - Sampled Feature" .
+                            rdfs:label "EGAD - Sampled Feature" ;
+                            rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SinglePFAS-Concentration
 me_egad:EGAD-SinglePFAS-Concentration rdf:type owl:Class ;
                                       rdfs:subClassOf coso:ContaminantRelativeMeasurement ,
-                                                      coso:SingleContaminantMeasurement .
+                                                      coso:SingleContaminantMeasurement ;
+                                      rdfs:label "EGAD - Single PFAS Concentration" ;
+                                      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-Site
 me_egad:EGAD-Site rdf:type owl:Class ;
                   rdfs:subClassOf coso:Feature ;
-                  rdfs:label "EGAD - Site" .
+                  rdfs:label "EGAD - Site" ;
+                  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-SiteType
 me_egad:EGAD-SiteType rdf:type owl:Class ;
                       rdfs:subClassOf coso:FeatureType ;
-                      rdfs:label "EGAD - Site Type" .
+                      rdfs:label "EGAD - Site Type" ;
+                      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  http://w3id.org/sawgraph/v1/me-egad#EGAD-ValidationLevel
 me_egad:EGAD-ValidationLevel rdf:type owl:Class ;
                              rdfs:subClassOf coso:ResultQualifier ;
-                             rdfs:label "EGAD - Validation Level" .
+                             rdfs:label "EGAD - Validation Level" ;
+                             rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad>.
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

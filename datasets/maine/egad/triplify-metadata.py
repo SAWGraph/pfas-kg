@@ -41,7 +41,7 @@ logging.info("Running triplification for EGAD metadata")
 
 def main():
     #load data to learn which instances of the controlled vocabulary are actually used in pfas data
-    egad_samples_df = pd.read_excel(dataset_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sample Data", usecols=['SAMPLE_POINT_TYPE', 'ANALYSIS_LAB','SAMPLE_TYPE_UPDATE', 'SAMPLE_TYPE_QUALIFIER', 'SAMPLE_LOCATION', 'TREATMENT_STATUS', 'SAMPLE_COLLECTION_METHOD',  'TEST_METHOD', 'RESULT_TYPE', 'PARAMETER_SHORTENED', 'PARAMETER_NAME','VALIDATION_LEVEL'], header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
+    egad_samples_df = pd.read_excel(dataset_dir / 'January 2026 Statewide PFAS File.xlsx', sheet_name="PFAS Sample Data", usecols=['SAMPLE_POINT_TYPE', 'ANALYSIS_LAB','SAMPLE_TYPE_UPDATE', 'SAMPLE_TYPE_QUALIFIER', 'SAMPLE_LOCATION', 'TREATMENT_STATUS', 'SAMPLE_COLLECTION_METHOD',  'TEST_METHOD', 'RESULT_TYPE', 'PARAMETER_SHORTENED', 'PARAMETER_NAME','VALIDATION_LEVEL'], header=0, engine='openpyxl', na_values=['NOT APPLICABLE','UNKNOWN','UNK','NONE'])
     unq_sample_point_type = egad_samples_df['SAMPLE_POINT_TYPE'].unique()
     unq_analysis_lab = egad_samples_df['ANALYSIS_LAB'].unique()
     unq_sample_type_update = egad_samples_df['SAMPLE_TYPE_UPDATE'].unique()
@@ -310,11 +310,11 @@ def triplify_param_mapping(df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
     for idx, row in combined.iterrows():
         id = row['DTXSID']
         parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
-        dtxsid_iri = _PREFIX['comptox'][f"CompTox_{id}"]
+        dtxsid_iri = _PREFIX['dsstox'][f"{id}"]
 
         if pd.notna(row['DTXSID']) and row['DTXSID'] != "-":
-            kg.add((parameter_iri, _PREFIX['comptox']['sameAsComptoxSubstance'], dtxsid_iri))
-            kg.add((dtxsid_iri, RDF.type, _PREFIX['comptox']['ChemicalEntity']))
+            kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], dtxsid_iri))
+            kg.add((dtxsid_iri, RDF.type, _PREFIX['dsstox']['ChemicalEntity']))
             kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
         else:
             print('skipping ', row['Abbreviation-aik-pfas-ont'])

@@ -57,7 +57,7 @@ logging.basicConfig(filename=logname,
 logging.info("Running triplification for EGAD site points")
 
 def main():
-    egad_sites_df = pd.read_excel(data_dir / 'Statewide EGAD PFAS File March 2024.xlsx', sheet_name="PFAS Sites and Sample Points", header=0)
+    egad_sites_df = pd.read_excel(data_dir / 'January 2026 Statewide PFAS File.xlsx', sheet_name="PFAS Sites and Sample Points", header=0)
     #pd.read_csv(data_dir / 'sites-samples-2024.csv', header=0, encoding='ISO-8859-1')
     logger = logging.getLogger('Data loaded to dataframe.')
     
@@ -114,7 +114,7 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         site_iri = _PREFIX["me_egad_data"][f"{'site'}.{site_number}"]
         sitegeometry_iri = _PREFIX["me_egad_data"][f"{'site.geometry'}.{site_number}"]
         samplepoint_iri = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint_number}"]
-        samplepoint_type_iri = _PREFIX["me_egad"][f"{'featureType'}.{samplepoint_type}"]
+        samplepoint_type_iri = _PREFIX["me_egad_data"][f"{'featureType'}.{samplepoint_type}"]
         samplepointgeometry_iri = _PREFIX["me_egad_data"][f"{'samplePoint.geometry'}.{samplepoint_number}"]
         
         ## triplify 

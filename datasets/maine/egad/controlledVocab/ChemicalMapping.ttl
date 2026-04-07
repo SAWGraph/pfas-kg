@@ -1,156 +1,159 @@
-@prefix DSSTox: <http://w3id.org/DSSTox/v1/> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dsstox: <http://w3id.org/DSSTox/v1/> .
 @prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms: <http://purl.org/dc/terms/>.
 
-me_egad_data:parameter.10-2_FTS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID50892578 .
+me_egad_data:parameter.10-2_FTS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID50892578 .
 
-me_egad_data:parameter.11CL-PF3OUDS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID401348697 .
+me_egad_data:parameter.11CL-PF3OUDS dsstox:sameAsDSSToxSubstance dsstox:DTXSID401348697 .
 
-me_egad_data:parameter.11CL-PF3OUDS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID40892507 .
+me_egad_data:parameter.11CL-PF3OUDS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID40892507 .
 
-me_egad_data:parameter.3-3_FTC_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID00379268 .
+me_egad_data:parameter.3-3_FTC_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID00379268 .
 
-me_egad_data:parameter.4-2_FTS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID90891565 .
+me_egad_data:parameter.4-2_FTS dsstox:sameAsDSSToxSubstance dsstox:DTXSID90891565 .
 
-me_egad_data:parameter.4-2_FTS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID30891564 .
+me_egad_data:parameter.4-2_FTS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID30891564 .
 
-me_egad_data:parameter.5-3_FTC_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID20874028 .
+me_egad_data:parameter.5-3_FTC_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID20874028 .
 
-me_egad_data:parameter.6-2_FTS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID6067331 .
+me_egad_data:parameter.6-2_FTS dsstox:sameAsDSSToxSubstance dsstox:DTXSID6067331 .
 
-me_egad_data:parameter.6-2_FTS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID6067331 .
+me_egad_data:parameter.6-2_FTS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID6067331 .
 
-me_egad_data:parameter.7-3_FTC_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID90382620 .
+me_egad_data:parameter.7-3_FTC_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID90382620 .
 
-me_egad_data:parameter.8-2_FTS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID00192353 .
+me_egad_data:parameter.8-2_FTS dsstox:sameAsDSSToxSubstance dsstox:DTXSID00192353 .
 
-me_egad_data:parameter.8-2_FTS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID00192353 .
+me_egad_data:parameter.8-2_FTS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID00192353 .
 
-me_egad_data:parameter.9CL-PF3ONS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID101348698 .
+me_egad_data:parameter.9CL-PF3ONS dsstox:sameAsDSSToxSubstance dsstox:DTXSID101348698 .
 
-me_egad_data:parameter.9CL-PF3ONS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID80892506 .
+me_egad_data:parameter.9CL-PF3ONS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID80892506 .
 
-me_egad_data:parameter.ADONA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID80893154 .
+me_egad_data:parameter.ADONA dsstox:sameAsDSSToxSubstance dsstox:DTXSID80893154 .
 
-me_egad_data:parameter.ADONA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID40881350 .
+me_egad_data:parameter.ADONA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID40881350 .
 
-me_egad_data:parameter.FBSA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID30880251 .
+me_egad_data:parameter.FBSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID30880251 .
 
-me_egad_data:parameter.FHXSA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID50469320 .
+me_egad_data:parameter.FHXSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID50469320 .
 
-me_egad_data:parameter.HFPO-DA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID70880215 .
+me_egad_data:parameter.HFPO-DA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID70880215 .
 
-me_egad_data:parameter.N-ETFOSA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID1032646 .
+me_egad_data:parameter.N-ETFOSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID1032646 .
 
-me_egad_data:parameter.N-EtFOSAA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID5062760 .
+me_egad_data:parameter.N-EtFOSAA dsstox:sameAsDSSToxSubstance dsstox:DTXSID5062760 .
 
-me_egad_data:parameter.N-EtFOSAA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID5062760 .
+me_egad_data:parameter.N-EtFOSAA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID5062760 .
 
-me_egad_data:parameter.N-EtFOSAA_A_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID5062760 .
+me_egad_data:parameter.N-EtFOSAA_A_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID5062760 .
 
-me_egad_data:parameter.N-EtFOSE DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID6027426 .
+me_egad_data:parameter.N-EtFOSE dsstox:sameAsDSSToxSubstance dsstox:DTXSID6027426 .
 
-me_egad_data:parameter.N-MEFOSA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID1067629 .
+me_egad_data:parameter.N-MEFOSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID1067629 .
 
-me_egad_data:parameter.N-MEFOSE DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID7027831 .
+me_egad_data:parameter.N-MEFOSE dsstox:sameAsDSSToxSubstance dsstox:DTXSID7027831 .
 
-me_egad_data:parameter.N-MeFOSAA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID10624392 .
+me_egad_data:parameter.N-MeFOSAA dsstox:sameAsDSSToxSubstance dsstox:DTXSID10624392 .
 
-me_egad_data:parameter.N-MeFOSAA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID10624392 .
+me_egad_data:parameter.N-MeFOSAA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID10624392 .
 
-me_egad_data:parameter.N-MeFOSAA_A_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID10624392 .
+me_egad_data:parameter.N-MeFOSAA_A_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID10624392 .
 
-me_egad_data:parameter.N-MeFOSSA_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID10624392 .
+me_egad_data:parameter.N-MeFOSSA_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID10624392 .
 
-me_egad_data:parameter.N-etFOSSA_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID5062760 .
+me_egad_data:parameter.N-etFOSSA_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID5062760 .
 
-me_egad_data:parameter.PFBA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID80892480 .
+me_egad_data:parameter.PFBA dsstox:sameAsDSSToxSubstance dsstox:DTXSID80892480 .
 
-me_egad_data:parameter.PFBA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID4059916 .
+me_egad_data:parameter.PFBA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID4059916 .
 
-me_egad_data:parameter.PFBS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID60873015 .
+me_egad_data:parameter.PFBS dsstox:sameAsDSSToxSubstance dsstox:DTXSID60873015 .
 
-me_egad_data:parameter.PFBS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID5030030 .
+me_egad_data:parameter.PFBSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID30880251 .
 
-me_egad_data:parameter.PFDA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3031860 .
+me_egad_data:parameter.PFBS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID5030030 .
 
-me_egad_data:parameter.PFDH_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID30382063 .
+me_egad_data:parameter.PFDA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID3031860 .
 
-me_egad_data:parameter.PFDOA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID00892482 .
+me_egad_data:parameter.PFDH_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID30382063 .
 
-me_egad_data:parameter.PFDOA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8031861 .
+me_egad_data:parameter.PFDOA dsstox:sameAsDSSToxSubstance dsstox:DTXSID00892482 .
 
-me_egad_data:parameter.PFDOS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID00904574 .
+me_egad_data:parameter.PFDOA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031861 .
 
-me_egad_data:parameter.PFDOS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID20873011 .
+me_egad_data:parameter.PFDOS dsstox:sameAsDSSToxSubstance dsstox:DTXSID00904574 .
 
-me_egad_data:parameter.PFDS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3040148 .
+me_egad_data:parameter.PFDOS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID20873011 .
 
-me_egad_data:parameter.PFECHS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID7022546 .
+me_egad_data:parameter.PFDS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID3040148 .
 
-me_egad_data:parameter.PFEES_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID50379814 .
+me_egad_data:parameter.PFECHS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID7022546 .
 
-me_egad_data:parameter.PFHPA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID1037303 .
+me_egad_data:parameter.PFEES_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID50379814 .
 
-me_egad_data:parameter.PFHPS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID20892505 .
+me_egad_data:parameter.PFHPA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID1037303 .
 
-me_egad_data:parameter.PFHPS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8059920 .
+me_egad_data:parameter.PFHPS dsstox:sameAsDSSToxSubstance dsstox:DTXSID20892505 .
 
-me_egad_data:parameter.PFHXA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID20892484 .
+me_egad_data:parameter.PFHPS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8059920 .
 
-me_egad_data:parameter.PFHXA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3031862 .
+me_egad_data:parameter.PFHXA dsstox:sameAsDSSToxSubstance dsstox:DTXSID20892484 .
 
-me_egad_data:parameter.PFHXDA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID1070800 .
+me_egad_data:parameter.PFHXA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID3031862 .
 
-me_egad_data:parameter.PFHXS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID7040150 .
+me_egad_data:parameter.PFHXDA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID1070800 .
 
-me_egad_data:parameter.PFHXS_A_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID7040150 .
+me_egad_data:parameter.PFHXSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID50469320 .
 
-me_egad_data:parameter.PFMB_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID60500450 .
+me_egad_data:parameter.PFHXS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID7040150 .
 
-me_egad_data:parameter.PFMP_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID70191136 .
+me_egad_data:parameter.PFHXS_A_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID7040150 .
 
-me_egad_data:parameter.PFNA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8031863 .
+me_egad_data:parameter.PFMB_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID60500450 .
 
-me_egad_data:parameter.PFNS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID60873010 .
+me_egad_data:parameter.PFMP_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID70191136 .
 
-me_egad_data:parameter.PFNS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID60873010 .
+me_egad_data:parameter.PFNA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031863 .
 
-me_egad_data:parameter.PFOA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8031865 .
+me_egad_data:parameter.PFNS dsstox:sameAsDSSToxSubstance dsstox:DTXSID60873010 .
 
-me_egad_data:parameter.PFOA_A_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8031865 .
+me_egad_data:parameter.PFNS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID60873010 .
 
-me_egad_data:parameter.PFODA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID1066071 .
+me_egad_data:parameter.PFOA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031865 .
 
-me_egad_data:parameter.PFOSA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3038939 .
+me_egad_data:parameter.PFOA_A_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031865 .
 
-me_egad_data:parameter.PFOS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3031864 .
+me_egad_data:parameter.PFODA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID1066071 .
 
-me_egad_data:parameter.PFOS_A_L DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3031864 .
+me_egad_data:parameter.PFOSA dsstox:sameAsDSSToxSubstance dsstox:DTXSID3038939 .
 
-me_egad_data:parameter.PFPEA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID00892487 .
+me_egad_data:parameter.PFOS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID3031864 .
 
-me_egad_data:parameter.PFPEA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID6062599 .
+me_egad_data:parameter.PFOS_A_L dsstox:sameAsDSSToxSubstance dsstox:DTXSID3031864 .
 
-me_egad_data:parameter.PFPES DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID70892479 .
+me_egad_data:parameter.PFPEA dsstox:sameAsDSSToxSubstance dsstox:DTXSID00892487 .
 
-me_egad_data:parameter.PFPES_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8062600 .
+me_egad_data:parameter.PFPEA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID6062599 .
 
-me_egad_data:parameter.PFRPS_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID30870531 .
+me_egad_data:parameter.PFPES dsstox:sameAsDSSToxSubstance dsstox:DTXSID70892479 .
 
-me_egad_data:parameter.PFTEA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID60892488 .
+me_egad_data:parameter.PFPES_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8062600 .
 
-me_egad_data:parameter.PFTEA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID3059921 .
+me_egad_data:parameter.PFRPS_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID30870531 .
 
-me_egad_data:parameter.PFTRDA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID20892489 .
+me_egad_data:parameter.PFTEA dsstox:sameAsDSSToxSubstance dsstox:DTXSID60892488 .
 
-me_egad_data:parameter.PFTRIA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID90868151 .
+me_egad_data:parameter.PFTEA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID3059921 .
 
-me_egad_data:parameter.PFUNDA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID30892475 .
+me_egad_data:parameter.PFTRDA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID20892489 .
 
-me_egad_data:parameter.PFUNDA_A DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID8047553 .
+me_egad_data:parameter.PFTRIA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID90868151 .
+
+me_egad_data:parameter.PFUNDA dsstox:sameAsDSSToxSubstance dsstox:DTXSID30892475 .
+
+me_egad_data:parameter.PFUNDA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8047553 .
 
 me_egad_data:parameter.SUM_OF_5_PFAS coso:hasMember me_egad_data:parameter.PFHPA,
         me_egad_data:parameter.PFHXS,
@@ -168,219 +171,219 @@ me_egad_data:parameter.SUM_OF_6_PFAS coso:hasMember me_egad_data:parameter.PFDA,
 me_egad_data:parameter.SUM_PFOA_PFOS coso:hasMember me_egad_data:parameter.PFOA,
         me_egad_data:parameter.PFOS .
 
-DSSTox:DTXSID00379268 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "3:3 Fluorotelomer carboxylic acid" .
+dsstox:DTXSID00379268 a dsstox:ChemicalEntity ;
+    rdfs:label "3:3 Fluorotelomer carboxylic acid" .
 
-DSSTox:DTXSID00892482 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorododecanoate" .
+dsstox:DTXSID00892482 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorododecanoate" .
 
-DSSTox:DTXSID00892487 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoropentanoate" .
+dsstox:DTXSID00892487 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoropentanoate" .
 
-DSSTox:DTXSID00904574 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorododecanesulfonate" .
+dsstox:DTXSID00904574 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorododecanesulfonate" .
 
-DSSTox:DTXSID101348698 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonate)" .
+dsstox:DTXSID101348698 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonate)" .
 
-DSSTox:DTXSID1032646 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "N-Ethylperfluorooctane sulfonamide" .
+dsstox:DTXSID1032646 a dsstox:ChemicalEntity ;
+    rdfs:label "N-Ethylperfluorooctane sulfonamide" .
 
-DSSTox:DTXSID1037303 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoroheptanoic acid" .
+dsstox:DTXSID1037303 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoroheptanoic acid" .
 
-DSSTox:DTXSID1066071 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorooctadecanoic acid" .
+dsstox:DTXSID1066071 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorooctadecanoic acid" .
 
-DSSTox:DTXSID1067629 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "N-Methylperfluorooctanesulfonamide" .
+dsstox:DTXSID1067629 a dsstox:ChemicalEntity ;
+    rdfs:label "N-Methylperfluorooctanesulfonamide" .
 
-DSSTox:DTXSID1070800 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorohexadecanoic acid" .
+dsstox:DTXSID1070800 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorohexadecanoic acid" .
 
-DSSTox:DTXSID20873011 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorododecanesulfonic acid" .
+dsstox:DTXSID20873011 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorododecanesulfonic acid" .
 
-DSSTox:DTXSID20874028 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "2H,2H,3H,3H-Perfluorooctanoic acid" .
+dsstox:DTXSID20874028 a dsstox:ChemicalEntity ;
+    rdfs:label "2H,2H,3H,3H-Perfluorooctanoic acid" .
 
-DSSTox:DTXSID20892484 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorohexanoate" .
+dsstox:DTXSID20892484 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorohexanoate" .
 
-DSSTox:DTXSID20892489 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorotridecanoate" .
+dsstox:DTXSID20892489 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorotridecanoate" .
 
-DSSTox:DTXSID20892505 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoroheptanesulfonate" .
+dsstox:DTXSID20892505 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoroheptanesulfonate" .
 
-DSSTox:DTXSID3031860 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorodecanoic acid" .
+dsstox:DTXSID3031860 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorodecanoic acid" .
 
-DSSTox:DTXSID3031862 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorohexanoic acid" .
+dsstox:DTXSID3031862 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorohexanoic acid" .
 
-DSSTox:DTXSID30382063 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro-3,6-dioxaheptanoic acid" .
+dsstox:DTXSID30382063 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro-3,6-dioxaheptanoic acid" .
 
-DSSTox:DTXSID3038939 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorooctanesulfonamide" .
+dsstox:DTXSID3038939 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorooctanesulfonamide" .
 
-DSSTox:DTXSID3040148 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorodecanesulfonic acid" .
+dsstox:DTXSID3040148 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorodecanesulfonic acid" .
 
-DSSTox:DTXSID3059921 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorotetradecanoic acid" .
+dsstox:DTXSID3059921 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorotetradecanoic acid" .
 
-DSSTox:DTXSID30870531 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoropropanesulfonic acid" .
+dsstox:DTXSID30870531 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoropropanesulfonic acid" .
 
-DSSTox:DTXSID30880251 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorobutanesulfonamide" .
+dsstox:DTXSID30891564 a dsstox:ChemicalEntity ;
+    rdfs:label "4:2 Fluorotelomer sulfonic acid" .
 
-DSSTox:DTXSID30891564 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "4:2 Fluorotelomer sulfonic acid" .
+dsstox:DTXSID30892475 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoroundecanoate" .
 
-DSSTox:DTXSID30892475 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoroundecanoate" .
+dsstox:DTXSID401348697 a dsstox:ChemicalEntity ;
+    rdfs:label "2-[(8-Chloro-1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8-hexadecafluorooctyl)oxy]-1,1,2,2-tetrafluoroethanesulfonate" .
 
-DSSTox:DTXSID401348697 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "2-[(8-Chloro-1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8-hexadecafluorooctyl)oxy]-1,1,2,2-tetrafluoroethanesulfonate" .
+dsstox:DTXSID4059916 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorobutanoic acid" .
 
-DSSTox:DTXSID4059916 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorobutanoic acid" .
+dsstox:DTXSID40881350 a dsstox:ChemicalEntity ;
+    rdfs:label "4,8-Dioxa-3H-perfluorononanoic acid" .
 
-DSSTox:DTXSID40881350 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "4,8-Dioxa-3H-perfluorononanoic acid" .
+dsstox:DTXSID40892481 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorodecanoate" .
 
-DSSTox:DTXSID40892481 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorodecanoate" .
+dsstox:DTXSID40892486 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorooctanoate" .
 
-DSSTox:DTXSID40892486 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorooctanoate" .
+dsstox:DTXSID40892507 a dsstox:ChemicalEntity ;
+    rdfs:label "11-Chloroperfluoro-3-oxaundecanesulfonic acid" .
 
-DSSTox:DTXSID40892507 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "11-Chloroperfluoro-3-oxaundecanesulfonic acid" .
+dsstox:DTXSID5030030 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorobutanesulfonic acid" .
 
-DSSTox:DTXSID5030030 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorobutanesulfonic acid" .
+dsstox:DTXSID50379814 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro-2-ethoxyethanesulfonic acid" .
 
-DSSTox:DTXSID50379814 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro-2-ethoxyethanesulfonic acid" .
+dsstox:DTXSID50892578 a dsstox:ChemicalEntity ;
+    rdfs:label "10:2 Fluorotelomer sulfonic acid" .
 
-DSSTox:DTXSID50469320 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorohexanesulfonamide" .
+dsstox:DTXSID6027426 a dsstox:ChemicalEntity ;
+    rdfs:label "N-Ethyl-N-(2-hydroxyethyl)perfluorooctane sulfonamide" .
 
-DSSTox:DTXSID50892578 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "10:2 Fluorotelomer sulfonic acid" .
+dsstox:DTXSID60500450 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro(4-methoxybutanoic acid)" .
 
-DSSTox:DTXSID6027426 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "N-Ethyl-N-(2-hydroxyethyl)perfluorooctane sulfonamide" .
+dsstox:DTXSID6062599 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoropentanoic acid" .
 
-DSSTox:DTXSID60500450 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro(4-methoxybutanoic acid)" .
+dsstox:DTXSID60873015 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorobutanesulfonate" .
 
-DSSTox:DTXSID6062599 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoropentanoic acid" .
+dsstox:DTXSID60892483 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoroheptanoate" .
 
-DSSTox:DTXSID60873015 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorobutanesulfonate" .
+dsstox:DTXSID60892488 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorotetradecanoate" .
 
-DSSTox:DTXSID60892483 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoroheptanoate" .
+dsstox:DTXSID70191136 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro-3-methoxypropanoic acid" .
 
-DSSTox:DTXSID60892488 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorotetradecanoate" .
+dsstox:DTXSID7022546 a dsstox:ChemicalEntity ;
+    rdfs:label "Acetohydroxamic acid" .
 
-DSSTox:DTXSID70191136 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro-3-methoxypropanoic acid" .
+dsstox:DTXSID7027831 a dsstox:ChemicalEntity ;
+    rdfs:label "N-Methyl-N-(2-hydroxyethyl)perfluorooctanesulfonamide" .
 
-DSSTox:DTXSID7022546 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Acetohydroxamic acid" .
+dsstox:DTXSID70880215 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro-2-methyl-3-oxahexanoic acid" .
 
-DSSTox:DTXSID7027831 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "N-Methyl-N-(2-hydroxyethyl)perfluorooctanesulfonamide" .
+dsstox:DTXSID70892479 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoropentanesulfonate" .
 
-DSSTox:DTXSID70880215 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro-2-methyl-3-oxahexanoic acid" .
+dsstox:DTXSID80108992 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorooctanesulfonate" .
 
-DSSTox:DTXSID70892479 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoropentanesulfonate" .
+dsstox:DTXSID8031861 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorododecanoic acid" .
 
-DSSTox:DTXSID80108992 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorooctanesulfonate" .
+dsstox:DTXSID8031863 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorononanoic acid" .
 
-DSSTox:DTXSID8031861 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorododecanoic acid" .
+dsstox:DTXSID8047553 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoroundecanoic acid" .
 
-DSSTox:DTXSID8031863 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorononanoic acid" .
+dsstox:DTXSID8059920 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoroheptanesulfonic acid" .
 
-DSSTox:DTXSID8047553 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoroundecanoic acid" .
+dsstox:DTXSID8062600 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoropentanesulfonic acid" .
 
-DSSTox:DTXSID8059920 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoroheptanesulfonic acid" .
+dsstox:DTXSID80873012 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorohexanesulfonate" .
 
-DSSTox:DTXSID8062600 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoropentanesulfonic acid" .
+dsstox:DTXSID80892480 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorobutanoate" .
 
-DSSTox:DTXSID80873012 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorohexanesulfonate" .
+dsstox:DTXSID80892485 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorononanoate" .
 
-DSSTox:DTXSID80892480 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorobutanoate" .
+dsstox:DTXSID80892506 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonic acid)" .
 
-DSSTox:DTXSID80892485 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorononanoate" .
+dsstox:DTXSID80893154 a dsstox:ChemicalEntity ;
+    rdfs:label "2,2,3-Trifluoro-3-[1,1,2,2,3,3-hexafluoro-3-(trifluoromethoxy)propoxy]propanoate" .
 
-DSSTox:DTXSID80892506 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluoro(2-((6-chlorohexyl)oxy)ethanesulfonic acid)" .
+dsstox:DTXSID90382620 a dsstox:ChemicalEntity ;
+    rdfs:label "3-(Perfluoroheptyl)propanoic acid" .
 
-DSSTox:DTXSID80893154 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "2,2,3-Trifluoro-3-[1,1,2,2,3,3-hexafluoro-3-(trifluoromethoxy)propoxy]propanoate" .
+dsstox:DTXSID90868151 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorotridecanoic acid" .
 
-DSSTox:DTXSID90382620 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "3-(Perfluoroheptyl)propanoic acid" .
+dsstox:DTXSID90891565 a dsstox:ChemicalEntity ;
+    rdfs:label "4:2 Fluorotelomer sulfonate" .
 
-DSSTox:DTXSID90868151 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorotridecanoic acid" .
+me_egad_data:parameter.PFDA dsstox:sameAsDSSToxSubstance dsstox:DTXSID40892481 .
 
-DSSTox:DTXSID90891565 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "4:2 Fluorotelomer sulfonate" .
+dsstox:DTXSID00192353 a dsstox:ChemicalEntity ;
+    rdfs:label "8:2 Fluorotelomer sulfonic acid" .
 
-me_egad_data:parameter.PFDA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID40892481 .
+dsstox:DTXSID3031864 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorooctanesulfonic acid" .
 
-DSSTox:DTXSID00192353 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "8:2 Fluorotelomer sulfonic acid" .
+dsstox:DTXSID30880251 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorobutanesulfonamide" .
 
-DSSTox:DTXSID3031864 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorooctanesulfonic acid" .
+dsstox:DTXSID50469320 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorohexanesulfonamide" .
 
-DSSTox:DTXSID6067331 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "6:2 Fluorotelomer sulfonic acid" .
+dsstox:DTXSID6067331 a dsstox:ChemicalEntity ;
+    rdfs:label "6:2 Fluorotelomer sulfonic acid" .
 
-DSSTox:DTXSID60873010 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorononanesulfonate" .
+dsstox:DTXSID60873010 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorononanesulfonate" .
 
-DSSTox:DTXSID7040150 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorohexanesulfonic acid" .
+dsstox:DTXSID7040150 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorohexanesulfonic acid" .
 
-DSSTox:DTXSID8031865 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "Perfluorooctanoic acid" .
+dsstox:DTXSID8031865 a dsstox:ChemicalEntity ;
+    rdfs:label "Perfluorooctanoic acid" .
 
-me_egad_data:parameter.PFHPA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID60892483 .
+me_egad_data:parameter.PFHPA dsstox:sameAsDSSToxSubstance dsstox:DTXSID60892483 .
 
-me_egad_data:parameter.PFHXS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID80873012 .
+me_egad_data:parameter.PFHXS dsstox:sameAsDSSToxSubstance dsstox:DTXSID80873012 .
 
-me_egad_data:parameter.PFNA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID80892485 .
+me_egad_data:parameter.PFNA dsstox:sameAsDSSToxSubstance dsstox:DTXSID80892485 .
 
-me_egad_data:parameter.PFOA DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID40892486 .
+me_egad_data:parameter.PFOA dsstox:sameAsDSSToxSubstance dsstox:DTXSID40892486 .
 
-me_egad_data:parameter.PFOS DSSTox:sameAsDSSToxSubstance DSSTox:DTXSID80108992 .
+me_egad_data:parameter.PFOS dsstox:sameAsDSSToxSubstance dsstox:DTXSID80108992 .
 
-DSSTox:DTXSID10624392 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "2-(N-Methylperfluorooctanesulfonamido)acetic acid" .
+dsstox:DTXSID10624392 a dsstox:ChemicalEntity ;
+    rdfs:label "2-(N-Methylperfluorooctanesulfonamido)acetic acid" .
 
-DSSTox:DTXSID5062760 a DSSTox:ChemicalEntity ;
-    dcterms:alternative "2-(N-Ethylperfluorooctanesulfonamido)acetic acid" .
+dsstox:DTXSID5062760 a dsstox:ChemicalEntity ;
+    rdfs:label "2-(N-Ethylperfluorooctanesulfonamido)acetic acid" .
 
