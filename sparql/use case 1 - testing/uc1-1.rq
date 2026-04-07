@@ -8,11 +8,11 @@ PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX me_mgs: <http://sawgraph.spatialai.org/v1/me-mgs#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX us_frs: <http://sawgraph.spatialai.org/v1/us-frs#>
+PREFIX epa_frs: <http://w3id.org/fio/v1/epa-frs#>
 
 SELECT ?well ?wellUse ?wellType ?facilityName ?facility WHERE {
     SERVICE <repository:FIO> {
-        ?facility rdf:type us_frs:EPA-PFAS-Facility ;
+        ?facility rdf:type epa_frs:EPA-PFAS-Facility ;
         		  rdfs:label ?facilityName .
         ?s2 kwg-ont:sfContains ?facility .
     }
