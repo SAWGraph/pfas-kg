@@ -1,77 +1,301 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
-@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:organization.11NPSWRD_WQX a us_wqp:Federal_USGovernment_Organization,
+us_wqp:organization.11113300 a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "New Hampshire Department Of Environmental Services (BEACH)" ;
+    us_wqp:organizationDescription "STATE OF NEW HAMPSHIRE ENVIRONMENTAL AGENCY"^^xsd:anyURI ;
+    us_wqp:organizationId "11113300"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.11NPSWRD_WQX a us_wqp:Federal_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "National Park Service Water Resources Division" ;
-    us_wqp:organizationId "11NPSWRD_WQX"^^xsd:string .
+    us_wqp:organizationId "11NPSWRD_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.AZDEQ_GW a us_wqp:StateGovernmentUS_Organization,
+us_wqp:organization.21AWIC a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "ALABAMA DEPT. OF ENVIRONMENTAL MANAGEMENT - WATER QUALITY DATA" ;
+    us_wqp:organizationId "21AWIC"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21IOWA_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "Iowa DNR Surface Water Monitoring Data" ;
+    us_wqp:organizationDescription "Data collected by the Iowa Dept. of Natural Resources Water Monitoring Section or one of its delegates."^^xsd:anyURI ;
+    us_wqp:organizationId "21IOWA_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21NC03WQ a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "North Carolina Dept of Environmental Quality NCDEQ-DWR WQX" ;
+    us_wqp:organizationDescription "State of North Carolina, Dept of Environment Quality, Div of Water Resources"^^xsd:anyURI ;
+    us_wqp:organizationId "21NC03WQ"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21NDHDWQ_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "North Dakota Department Of Environmental Quality" ;
+    us_wqp:organizationDescription "Division Of Water Quality"^^xsd:anyURI ;
+    us_wqp:organizationId "21NDHDWQ_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21NYDECA_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "New York State Dec Division Of Water" ;
+    us_wqp:organizationDescription "To protect and conserve the waters of New York State"^^xsd:anyURI ;
+    us_wqp:organizationId "21NYDECA_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21OHDGW_WQX a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Division of Drinking and Ground Water (Ohio)" ;
+    us_wqp:organizationId "21OHDGW_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21OHIO_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "Division of Surface water (Ohio)" ;
+    us_wqp:organizationId "21OHIO_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21PA_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "PA DEPARTMENT OF ENVIRONMENTAL PROTECTION" ;
+    us_wqp:organizationDescription "PA ENVIRONMENTAL PROTECTION"^^xsd:anyURI ;
+    us_wqp:organizationId "21PA_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.21VASWCB a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "VIRGINIA DEPARTMENT OF ENVIRONMENTAL QUALITY" ;
+    us_wqp:organizationId "21VASWCB"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.31DELRBC_WQX a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Delaware River Basin Commission" ;
+    us_wqp:organizationId "31DELRBC_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.AK-CHIN_WQX a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Ak-Chin Indian Community (Tribal)" ;
+    us_wqp:organizationDescription "Ak-Chin Indian Community (Tribal) || Ak-Chin Indian Community (Tribal)"^^xsd:anyURI ;
+    us_wqp:organizationId "AK-CHIN_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.ARDEQH2O_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "Arkansas Department of Environmental Quality" ;
+    us_wqp:organizationId "ARDEQH2O_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.AZDEQ_GW a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
     rdfs:label "AZDEQ_GW" ;
     us_wqp:organizationDescription "Water Quality Division: Groundwater"^^xsd:anyURI ;
-    us_wqp:organizationId "AZDEQ_GW"^^xsd:string .
+    us_wqp:organizationId "AZDEQ_GW"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.AZDEQ_SW a us_wqp:State_USGovernment_Organization,
+us_wqp:organization.AZDEQ_SW a us_wqp:State_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "AZDEQ_SW" ;
     us_wqp:organizationDescription "Water Quality Division: Surface Water"^^xsd:anyURI ;
-    us_wqp:organizationId "AZDEQ_SW"^^xsd:string .
+    us_wqp:organizationId "AZDEQ_SW"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.AZDEQ_WPD a us_wqp:StateGovernmentUS_Organization,
+us_wqp:organization.AZDEQ_WPD a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
     rdfs:label "AZDEQ_WPD" ;
     us_wqp:organizationDescription "Waste Programs Division"^^xsd:anyURI ;
-    us_wqp:organizationId "AZDEQ_WPD"^^xsd:string .
+    us_wqp:organizationId "AZDEQ_WPD"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.EPA_GLNPO a us_wqp:Federal_USGovernment_Organization,
+us_wqp:organization.DRBC a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Delaware River Basin Commission" ;
+    us_wqp:organizationDescription "Interstate River Basin Commission"^^xsd:anyURI ;
+    us_wqp:organizationId "DRBC"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.EPA_GLNPO a us_wqp:Federal_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "EPA Great Lakes National Program" ;
     us_wqp:organizationDescription "Will be used to store the historical GLENDA data that will be added to the WQX in the future."^^xsd:anyURI ;
-    us_wqp:organizationId "EPA_GLNPO"^^xsd:string .
+    us_wqp:organizationId "EPA_GLNPO"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.GLEC a us_wqp:PrivateNon-Industrial_Organization,
+us_wqp:organization.FMYN_WQX a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Fort McDowell Yavapai Nation, Arizona (Tribal)" ;
+    us_wqp:organizationDescription "Fort McDowell Yavapai Nation, Arizona (Tribal) || Fort McDowell Yavapai Nation, Arizona (Tribal)"^^xsd:anyURI ;
+    us_wqp:organizationId "FMYN_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.GLEC a us_wqp:PrivateNon-Industrial_Organization,
         prov:Organization ;
     rdfs:label "Great Lakes Environmental Center" ;
-    us_wqp:organizationId "GLEC"^^xsd:string .
+    us_wqp:organizationId "GLEC"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.INSTOR_WQX a us_wqp:StateGovernmentUS_Organization,
+us_wqp:organization.INSTOR_WQX a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
     rdfs:label "Indiana STORET" ;
     us_wqp:organizationDescription "Indiana Department of Environmental Management"^^xsd:anyURI ;
-    us_wqp:organizationId "INSTOR_WQX"^^xsd:string .
+    us_wqp:organizationId "INSTOR_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.MEDEP_WQX a us_wqp:StateGovernmentUS_Organization,
+us_wqp:organization.IOWAGW_WQX a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Iowa Groundwater Data" ;
+    us_wqp:organizationId "IOWAGW_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.KICKAPOO07 a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Kickapoo Tribe of Indians of the Kickapoo Reservation in Kansas (Tribal)" ;
+    us_wqp:organizationDescription "Kickapoo Tribe in Kansas;"^^xsd:anyURI ;
+    us_wqp:organizationId "KICKAPOO07"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.LSIOUX_WQX a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Lower Sioux Indian Community (Tribal)" ;
+    us_wqp:organizationId "LSIOUX_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.MDNR a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Missouri Dept. of Natural Resources" ;
+    us_wqp:organizationId "MDNR"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.MEDEP_WQX a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
     rdfs:label "Maine Department of Environmental Protection" ;
     us_wqp:organizationDescription "Maine Dept of Env Protection."^^xsd:anyURI ;
-    us_wqp:organizationId "MEDEP_WQX"^^xsd:string .
+    us_wqp:organizationId "MEDEP_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.MNPCA a us_wqp:StateGovernmentUS_Organization,
+us_wqp:organization.MESKWAKI_DNR a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Meskwaki Department of Natural Resources (Tribal)" ;
+    us_wqp:organizationDescription "Meskwaki Department of Natural Resources (Tribal) || Meskwaki Department of Natural Resources (Tribal)"^^xsd:anyURI ;
+    us_wqp:organizationId "MESKWAKI_DNR"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.MNPCA a us_wqp:StateGovernmentUS_Organization,
         prov:Organization ;
     rdfs:label "Minnesota Pollution Control Agency - Ambient Surface Water" ;
     us_wqp:organizationDescription "Statewide ambient surface water monitoring, non-facility"^^xsd:anyURI ;
-    us_wqp:organizationId "MNPCA"^^xsd:string .
+    us_wqp:organizationId "MNPCA"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.MNPCA_AGW a us_wqp:State_USGovernment_Organization,
+us_wqp:organization.MNPCA_AGW a us_wqp:State_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "Minnesota Pollution Control Agency - Ambient Groundwater" ;
     us_wqp:organizationDescription "Statewide ambient groundwater monitoring, non-facility"^^xsd:anyURI ;
-    us_wqp:organizationId "MNPCA_AGW"^^xsd:string .
+    us_wqp:organizationId "MNPCA_AGW"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
-us_wqp_data:organization.OST_SHPD a us_wqp:Federal_USGovernment_Organization,
+us_wqp:organization.NNEPA a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Navajo Nation, Arizona, New Mexico & Utah (Tribal)" ;
+    us_wqp:organizationDescription "Navajo Nation, Arizona, New Mexico & Utah (Tribal) || Navajo Nation, Arizona, New Mexico & Utah (Tribal)"^^xsd:anyURI ;
+    us_wqp:organizationId "NNEPA"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.OCDWEP_WQX a us_wqp:Local_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Onondaga County Department of Water Environment Protection" ;
+    us_wqp:organizationDescription "Onondaga County Department of Water Environment Protection"^^xsd:anyURI ;
+    us_wqp:organizationId "OCDWEP_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.OST_SHPD a us_wqp:Federal_USGovernment_Organization,
         prov:Organization ;
     rdfs:label "USEPA, Office of Water, Office of Science and Technology, Standards and Health Protection Division" ;
-    us_wqp:organizationId "OST_SHPD"^^xsd:string .
+    us_wqp:organizationId "OST_SHPD"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.PIIC_WQX a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Prairie Island Indian Community" ;
+    us_wqp:organizationId "PIIC_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.PIMA_AZ a us_wqp:Local_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "Pima County, Arizona (Regional Wastewater Reclamation Department)" ;
+    us_wqp:organizationId "PIMA_AZ"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.PRAIRIEBAND a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Prairie Band Potawatomi Nation (Tribal)" ;
+    us_wqp:organizationDescription "Prairie Band Potawatomi Nation (Tribal) || Prairie Band Potawatomi Nation (Tribal)"^^xsd:anyURI ;
+    us_wqp:organizationId "PRAIRIEBAND"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.SDDENR_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "South Dakota Department of Environment and Natural Resources" ;
+    us_wqp:organizationDescription "Department of Natural Resources"^^xsd:anyURI ;
+    us_wqp:organizationId "SDDENR_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.SOKAOGON_WQX a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Sokaogon Chippewa Community" ;
+    us_wqp:organizationId "SOKAOGON_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.SOUTHUTE a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Southern Ute Tribe" ;
+    us_wqp:organizationId "SOUTHUTE"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.TDECWR_WQX a us_wqp:State_USGovernment_Organization,
+        prov:Organization ;
+    rdfs:label "TDEC Division of Water Resources" ;
+    us_wqp:organizationId "TDECWR_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.UTEMTN a us_wqp:Tribal_Organization,
+        prov:Organization ;
+    rdfs:label "Ute Mountain Utes Tribe (Colorado)" ;
+    us_wqp:organizationId "UTEMTN"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
+
+us_wqp:organization.WIDNR_WQX a us_wqp:StateGovernmentUS_Organization,
+        prov:Organization ;
+    rdfs:label "Wisconsin Department of Natural Resources" ;
+    us_wqp:organizationDescription "Wisconsin Department of Natural Resources."^^xsd:anyURI ;
+    us_wqp:organizationId "WIDNR_WQX"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:organization .
 
 us_wqp:PrivateNon-Industrial_Organization rdfs:subClassOf us_wqp:Organization .
 
-us_wqp:State_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
+us_wqp:Local_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
 
 us_wqp:Federal_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
 
+us_wqp:State_USGovernment_Organization rdfs:subClassOf us_wqp:Organization .
+
+us_wqp:Tribal_Organization rdfs:subClassOf us_wqp:Organization .
+
 us_wqp:StateGovernmentUS_Organization rdfs:subClassOf us_wqp:Organization .
+
+us_wqp_cv:organization a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Organization from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Organization"^^xsd:string .
 

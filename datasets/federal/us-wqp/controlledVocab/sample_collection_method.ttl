@@ -1,1 +1,10 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+us_wqp_cv:sample_collection_method a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Sample Collection Method from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Sample Collection Method"^^xsd:string .
 

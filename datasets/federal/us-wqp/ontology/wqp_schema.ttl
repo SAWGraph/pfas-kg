@@ -1,16 +1,27 @@
+@prefix : <file:///c%3A/Users/kschw/Documents/SAWGraph/pfas-kg/datasets/federal/us-wqp/ontology/wqp_schema.ttl#> .
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 @prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
-@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
-@prefix prov: <http://www.w3.org/ns/prov#>.
-@prefix dcterms: <http://purl.org/dc/terms/>. 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> . 
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
 
-
-<http://w3id.org/sawgraph/v1/us-wqp#> rdf:type owl:Ontology ;
+<http://w3id.org/sawgraph/v1/us-wqp> rdf:type owl:Ontology ;
+                                        owl:imports <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp_alignment.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/activity_media.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/analytical_method.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/characteristic.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/monitoring_location_type.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/organization.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/quantitation_limit_type.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/result_measure_qualifier.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/sample_collection_method.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/taxon_group.ttl>,
+                                                    <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/taxon.ttl> ;                                                    ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
                                                             <http://orcid.org/0000-0003-3547-8058> ,
                                                             <https://orcid.org/0000-0003-3271-6700> ;
@@ -25,85 +36,146 @@
 ## Classes
 us_wqp:Sample rdf:type owl:Class;
     rdfs:subClassOf coso:MaterialSample;
-    rdfs:label "WQP - Sample".
+    rdfs:label "WQP - Sample";
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Observation rdf:type owl:Class;
     rdfs:subClassOf coso:ContaminantSampleObservation,
         [rdf:type owl:Restriction ;
         owl:allValuesFrom us_wqp:Lab ;
         owl:onProperty prov:wasAttributedTo];
-        rdfs:label "WQP - Observation".
+        rdfs:label "WQP - Observation";
+        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:SampleMedia rdf:type owl:Class;
     rdfs:label "WQP - Sample Media";
-    rdfs:subClassOf coso:SampleMaterialType. 
+    rdfs:subClassOf coso:SampleMaterialType; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Taxon rdf:type owl:Class;
     rdfs:label "WQP - Taxon"; 
-    rdfs:subClassOf coso:SampleMaterialType. 
+    rdfs:subClassOf coso:SampleMaterialType;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:AnalyticalMethod rdf:type owl:Class;
     rdfs:label "WQP - Analytical Method"; 
-    rdfs:subClassOf coso:AnalysisMethod. 
+    rdfs:subClassOf coso:AnalysisMethod; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:SampleCollectionMethod rdf:type owl:Class;
     rdfs:label "WQP - Sample Collection Method"; 
     rdfs:subClassOf coso:SampleAnnotation, #this should be more specific
-            sosa:Procedure. 
+            sosa:Procedure; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:ResultMeasureQualifier rdf:type owl:Class;
     rdfs:label 'WQP - Result Measure Qualifier';
-    rdfs:subClassOf coso:ResultQualifier.
+    rdfs:subClassOf coso:ResultQualifier;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Characteristic rdf:type owl:Class;
     rdfs:label "WQP - Characteristic";
-    rdfs:subClassOf coso:Substance.
+    rdfs:subClassOf coso:Substance;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Site rdf:type owl:Class;
     rdfs:label "WQP - Site / Station";
-    rdfs:subClassOf coso:SamplePoint. 
+    rdfs:subClassOf coso:SamplePoint; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:SampledFeature rdf:type owl:Class;
     rdfs:label "WQP - Sampled Feature"; 
-    rdfs:subClassOf coso:SampledFeature. 
+    rdfs:subClassOf coso:SampledFeature;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:LocationType rdf:type owl:Class;
     rdfs:label "WQP - Location Type"; 
-    rdfs:subClassOf coso:FeatureType. 
+    rdfs:subClassOf coso:FeatureType;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:ActivityType rdf:type owl:Class;
+    rdfs:subClassOf coso:ObservationAnnotation;
+    rdfs:label "WQP - Activity Type";
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
 
 us_wqp:Project rdf:type owl:Class;
     rdfs:label "WQP - Project";
-    rdfs:subClassOf coso:SampleAnnotation. 
+    rdfs:subClassOf coso:SampleAnnotation;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Single-PFAS-Concentration rdf:type owl:Class;
     rdfs:label "WQP - Single PFAS Concentration";
     rdfs:subClassOf coso:SingleContaminantMeasurement, 
-        coso:ContaminantRelativeMeasurement. 
+        coso:ContaminantRelativeMeasurement;
+        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:Aggregate-PFAS-Concentration rdf:type owl:Class;
+    rdfs:label "WQP - Aggregate PFAS Concentration";
+    rdfs:subClassOf coso:AggregateContaminantMeasurement, 
+        coso:ContaminantRelativeMeasurement;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Organization rdf:type owl:Class;
     rdfs:label "WQP - Organization";
-    rdfs:subClassOf prov:Organization. 
+    rdfs:subClassOf prov:Organization;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:Lab rdf:type owl:Class;
     rdfs:label "WQP - Lab";
-    rdfs:subClassOf us_wqp:Organization.
+    rdfs:subClassOf us_wqp:Organization;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
     #additional organization classes defined in controlled vocab
 
 # Align detection limits to coso classes 
 
-us_wqp:CensoringLevel rdfs:subClassOf coso:DetectionLimit. 
+us_wqp:CensoringLevel rdfs:subClassOf coso:DetectionLimit; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
-us_wqp:MethodDetectionLevel rdfs:subClassOf coso:DetectionLimit. 
+us_wqp:MethodDetectionLevel rdfs:subClassOf coso:DetectionLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
-us_wqp:InstrumentDetectionLevel rdfs:subClassOf coso:DetectionLimit. 
+us_wqp:ContractQuantitationLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
-us_wqp:LaboratoryReportingLevel rdfs:subClassOf coso:QuantitationLimit. 
+us_wqp:InstrumentDetectionLevel rdfs:subClassOf coso:DetectionLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
-us_wqp:LowerQuantitationLimit rdfs:subClassOf coso:QuantitationLimit. 
+us_wqp:EstimatedDetectionLevel rdfs:subClassOf coso:DetectionLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
-us_wqp:Sample-SpecificQuantitationLimit rdfs:subClassOf coso:QuantitationLimit. 
+us_wqp:LaboratoryReportingLevel rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
-us_wqp:LowerReportingLimit rdfs:subClassOf coso:QuantitationLimit.
+us_wqp:LowerQuantitationLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:Sample-SpecificQuantitationLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:LowerReportingLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:MinimumReportingLevel rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:PracticalQuantitationLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:Sample-SpecificQuantitationLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:SampleDetectionLimit rdfs:subClassOf coso:DetectionLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:UpperQuantitationLimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:Sample-specificmindetectconc rdfs:subClassOf coso:DetectionLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
+us_wqp:Reportinglimit rdfs:subClassOf coso:QuantitationLimit;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 ## properties
 
@@ -112,44 +184,53 @@ us_wqp:hasProjectId rdf:type owl:ObjectProperty;
     rdfs:subPropertyOf coso:sampleAnnotation;
     rdfs:label "wqp - has project id";
     rdfs:domain us_wqp:Sample;
-    rdfs:range us_wqp:Project.
+    rdfs:range us_wqp:Project;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:sampleCollectionMethod rdf:type owl:ObjectProperty;
     rdfs:label "wqp - sample collection method"; 
     rdfs:subPropertyOf coso:sampleAnnotation;
     rdfs:domain us_wqp:Sample;
-    rdfs:range us_wqp:SampleCollectionMethod.  
+    rdfs:range us_wqp:SampleCollectionMethod;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:locationType rdf:type owl:ObjectProperty;
     rdfs:label "wqp - location type";
     rdfs:domain us_wqp:SampledFeature;
     rdfs:range us_wqp:LocationType;
-    rdfs:subPropertyOf coso:ofFeatureType.  
+    rdfs:subPropertyOf coso:ofFeatureType; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 ### datatype properties
 us_wqp:sampleID rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - sample id";
     rdfs:subPropertyOf coso:sampleAnnotation,
-    dcterms:identifier.
+    dcterms:identifier;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:siteId rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - site id";
-    rdfs:subPropertyOf dcterms:identifier.  
+    rdfs:subPropertyOf dcterms:identifier;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:siteName rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - site name"; 
-    rdfs:subPropertyOf dcterms:title. 
+    rdfs:subPropertyOf dcterms:title;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
+
 us_wqp:groupName rdf:type owl:DatatypeProperty;
     rdfs:label "wqp - characteristic group name"; 
-    rdfs:domain us_wqp:Characteristic.
+    rdfs:domain us_wqp:Characteristic;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:srsID rdf:type owl:DatatypeProperty; 
     rdfs:label "wqp - characteristic substance registry service ID"; 
     rdfs:domain us_wqp:Characteristic;
-    rdfs:subPropertyOf coso:substanceID, dcterms:identifier. 
+    rdfs:subPropertyOf coso:substanceID, dcterms:identifier;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 us_wqp:rank rdf:type owl:DatatypeProperty; 
-    rdfs:label "wqp - taxon rank". 
-
+    rdfs:label "wqp - taxon rank";
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp> .
 
 

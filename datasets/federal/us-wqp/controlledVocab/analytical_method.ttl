@@ -1,8 +1,17 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
-@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:analyticalMethod.LM102 a us_wqp:AnalyticalMethod ;
+us_wqp:analyticalMethod.LM102 a us_wqp:AnalyticalMethod ;
     rdfs:label "PFAS SPE/LC/MS/MS SGS FL EPA537M" ;
-    rdfs:comment "DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537" .
+    rdfs:comment "DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537" ;
+    rdfs:isDefinedBy us_wqp_cv:analytical_method .
+
+us_wqp_cv:analytical_method a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Analytical Method from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Analytical Method"^^xsd:string .
 

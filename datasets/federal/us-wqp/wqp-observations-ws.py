@@ -1,5 +1,5 @@
 import os
-from rdflib.namespace import OWL, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XSD, RDF, RDFS, DCTERMS
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import Literal
@@ -29,17 +29,18 @@ fips_lookup = {'AL':'01','AK':'02','AZ':'04',
 'UT':'49','VT':'50','VA':'51','VI':'78','WA':'53','WV':'54',
 'WI':'55','WY':'56'} #FIPS for each state can be used for web retrival
 statecode = f"US%3A{fips_lookup[state]}"
-
+version = "v2"
 ##data path
 root_folder = Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/water-quality-data-portal/"
 metadata_dir = root_folder / "federal/us-wqp/metadata_3/"
 output_dir = root_folder / "federal/us-wqp/triples/"
+verbose=False
 
 ##namespaces
 prefixes = {}
 prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
-prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
+prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/{version}/us-wqp-data#')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
 prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
@@ -59,9 +60,10 @@ logging.info(f"Running triplification for WQP observations {state}")
 
 def main():
     df = load_data()
-    print(df.info(show_counts=True))
+    if verbose:
+        print(df.info(show_counts=True))
     #print('Characteristics:', df['Result_Characteristic'].unique())
-    print('Media:', df.Activity_Media.unique())
+    print('Media:', list(df.Activity_Media.unique()))
     global cv
     cv = get_controlledvocabs()
     kg = triplify(df)
@@ -79,6 +81,8 @@ def Initial_KG():
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
+    kg.add((prefixes['us_wqp_data'][f'{state}_wqp_observations'], RDF.type, OWL.Ontology ))
+    kg.add((prefixes['us_wqp_data'][f'{state}_wqp_observations'], DCTERMS.modified, Literal(datetime.today().strftime('%Y-%m-%d'),datatype=XSD.date )))
         
     #for ns in kg.namespaces():
     #    print(ns)    
@@ -90,8 +94,8 @@ def camel_case(s):
 
 
 def get_controlledvocabs():
-    '''Get unique identifiers and other attributes for controlled vocabularies that use a enumeration code'''
-    metadata_files = ['Characteristic', 'Taxon', 'Analytical Method'] #'Activity Media', 'Sample Collection Method', 'Activity Media Subdivision', 'Analytical Method',  "Organization", 'Monitoring Location Type', 'Result Measure Qualifier'
+    '''Get unique identifiers and other attributes for controlled vocabularies that use a enumeration code that isnt exposed in the results'''
+    metadata_files = ['Characteristic', 'Taxon', 'Analytical Method','Activity Type'] #'Activity Media', 'Sample Collection Method', 'Activity Media Subdivision', 'Analytical Method',  "Organization", 'Monitoring Location Type', 'Result Measure Qualifier'
     cv = {}
 
     for filename in metadata_files:
@@ -111,6 +115,7 @@ def get_attributes(row):
     sample = {
         'id':re.sub('[^A-Za-z0-9_-]+', '', str(row['Activity_ActivityIdentifier']).replace(":", "-").replace(" ", "")), # sample ID (stripped to only numbers, letters dashes and underscores)
         'activity_id': row['Activity_ActivityIdentifier'], 
+        'activity_type':row['Activity_TypeCode'], #routine, QC, etc.
         'media': (''.join(e for e in str(row['Activity_Media']) if e.isalnum())).lower() , # sample media id (concatenated name)
         'project_id': ''.join(e for e in str(row['Project_Identifier']) if e.isalnum()), # annotation for sampling project (could be sampling collection)
         'org_id': f"{row['Org_Identifier']}-{row['Location_StatePostalCode']}" if row['Org_Identifier'] =='USGS' else row['Org_Identifier'].replace(' ', ''), #organization that does sampling
@@ -118,8 +123,9 @@ def get_attributes(row):
         'provider': 'NWIS' if row['ProviderName']=='USGS' else row['ProviderName'], #data provider
         
     }
-    if 'org_conducting' in row.keys() and pd.notnull(row['org_conduting']):
+    if 'org_conducting' in row.keys() and pd.notnull(row['org_conducting']):
         sample['org_conducting'] = row['Activity_ConductingOrganization'], #team/ program conducting activity
+    
     
     if pd.notnull(row['Activity_StartDate']) and row['Activity_StartDate'] != 'nan':
         sample['sample_date']= datetime.strptime(str(row['Activity_StartDate']), '%Y-%m-%d') #date
@@ -144,7 +150,8 @@ def get_attributes(row):
             sample['comment'] = row['Activity_Comment']
 
     #if pd.notnull(row['SampleCollectionMethod_IdentifierContext']) and row['SampleCollectionMethod_IdentifierContext'] != 'nan':
-    #    sample['collectionMethod']['source'] = row['SampleCollectionMethod_IdentifierContext']
+        #sample['collectionMethod']['source'] = row['SampleCollectionMethod_IdentifierContext']
+        #print(row['SampleCollectionMethod_IdentifierContext'])
     #if pd.notnull(row['SampleCollectionMethod_Description']):
     #    sample['collectionMethod']['description'] = row['SampleCollectionMethod_Description']
     #if pd.notnull(row['SampleCollectionMethod_EquipmentName']):
@@ -170,16 +177,22 @@ def get_attributes(row):
     result = {
         'id':row['Result_MeasureIdentifier'], #unique result id
         'type_annotation': row['Activity_TypeCode'], #Routine or QC sample 
-        'substance_id': [v['id'] for k,v in cv['Characteristic'].items() if str(row['Result_Characteristic']) in k][0]  #chemical identifier from CV (based on start of name because of deprecated names)
-                
+        'substance_id': [v['id'] for k,v in cv['Characteristic'].items() if str(row['Result_Characteristic']) in k][0],  #chemical identifier from CV (based on start of name because of deprecated names)
+        'activity_id': cv['Activity Type'][row['Activity_TypeCode']]['id'], #get id for activity type
     }
     #replace retired characteristics with updated code
     if  '***retired***' in row['Result_Characteristic']:
         result['characteristic'] = row['Result_Characteristic'].split("***retired***use ")[1] #take only the updated name
     else:
         result['characteristic']= row['Result_Characteristic']    
-    if pd.notnull(row['Result_ResultDetectionCondition']) and row['Result_ResultDetectionCondition'] == 'Not Detected': #TODO there are additional values in CV that should be considered here
+    if pd.notnull(row['Result_ResultDetectionCondition']) and row['Result_ResultDetectionCondition'] in ['Not Detected', True]: #TODO there are additional values in CV that should be considered here
         result['non-detect'] = True
+    elif pd.notnull(row['Result_ResultDetectionCondition']) and row['Result_ResultDetectionCondition'] in ['Present Below Quantification Limit', 'Present Above Quantification Limit', 'Below Sample-specific Detect Limit', 'Below Detection Limit', 'Below Method Detection Limit', 'Below Reporting Limit' ]:
+        result['non-quantified'] = True
+    elif pd.notnull(row['Result_ResultDetectionCondition']) and row['Result_ResultDetectionCondition'] in ['Not Reported']:
+        pass
+    elif pd.notnull(row['Result_ResultDetectionCondition']):
+        print("***Warning:", row['Result_ResultDetectionCondition'], ' - unhandled detection condition')
     if 'ResultAnalyticalMethod_Identifier' in row.keys() and pd.notnull(row['ResultAnalyticalMethod_Identifier']):
         result['analytical_method'] = row['ResultAnalyticalMethod_Identifier']# cv['Analytical Method'][row['ResultAnalyticalMethod_Identifier']]['id'] #get id for analytical method
     if pd.notnull(row['LabInfo_Name']):
@@ -189,11 +202,12 @@ def get_attributes(row):
         result['analysis_date'] = pd.to_datetime(row['LabInfo_AnalysisStartDate']).date()
     if 'Result_MeasureQualifierCode' in row.keys() and pd.notnull(row['Result_MeasureQualifierCode']):
         result['measure_qualifier'] = urllib.parse.quote(str(row['Result_MeasureQualifierCode']), safe='')
-    if pd.notnull(row['Result_Measure']):  #only valid floats are converted
+    if pd.notnull(row['Result_Measure']) and str(row['Result_Measure']):  #only valid floats are converted
         try :
-            result['measure'] = float(row['Result_Measure'])
+            result['measure'] = pd.to_numeric(row['Result_Measure'], errors='raise')
         except:
-            print(row['Result_Measure'], " cannot be converted to float")
+            #print(row['Result_Measure'], " cannot be converted to float")
+            result['non-detect'] = True #if there is a measure but it cannot be converted to a float, we will assume it is a non-detect or unquantified value based on the qualifier or detection condition 
     unit_lu = {
         'ng/g': 'NanoGM-PER-GM', #this equivalent to MicroGM-PER-KiloGM
         'ng/L': 'NanoGM-PER-L',
@@ -206,22 +220,34 @@ def get_attributes(row):
         'ug/kg': 'MicroGM-PER-KiloGM',
         '% by wt': 'PERCENT',
         'mg/L': 'MilliGM-PER-L', 
-        'mg/kg': 'MilliGM-PER-KiloGM'
+        'mg/kg': 'MilliGM-PER-KiloGM',
+        'pg/g': 'PicoGM-PER-GM',
+        'ppb':'MicroGM-PER-L',
+        'ng': 'NanoGM' #this is an error in PA, probably ng/l
               }
     if pd.notnull(row['Result_MeasureUnit']):
         result['unit_label'] = row['Result_MeasureUnit']
         result['unit'] = unit_lu[row['Result_MeasureUnit']]     
 
     if pd.notnull(row['DetectionLimit_MeasureA']) and pd.notnull(row['DetectionLimit_MeasureUnitA']):
-        result['dl_type_A'] = str(row['DetectionLimit_TypeA']).replace(" ", "")
-        if row['DetectionLimit_TypeA'] != 'Non Detect':
-            result['dl_measure_A'] = row['DetectionLimit_MeasureA']
-        result['dl_unit_A'] = unit_lu[row['DetectionLimit_MeasureUnitA']]
+        try:
+            pd.to_numeric(row['DetectionLimit_MeasureA'])
+            result['dl_type_A'] = str(row['DetectionLimit_TypeA']).replace(" ", "")
+            if row['DetectionLimit_TypeA'] != 'Non Detect':
+                result['dl_measure_A'] = row['DetectionLimit_MeasureA']
+            result['dl_unit_A'] = unit_lu[row['DetectionLimit_MeasureUnitA']]
+        except:
+            pass
+        
     if 'DetectionLimit_TypeB' in row.keys() and pd.notnull(row['DetectionLimit_TypeB']):
-        result['dl_type_B'] = str(row['DetectionLimit_TypeB']).title().replace(" ", "")
-        if row['DetectionLimit_TypeB'] != 'Non Detect':
-            result['dl_measure_B'] = row['DetectionLimit_MeasureB']
-        result['dl_unit_B'] = unit_lu[row['DetectionLimit_MeasureUnitB']]
+        try:
+            pd.to_numeric(row['DetectionLimit_MeasureB'])
+            result['dl_type_B'] = str(row['DetectionLimit_TypeB']).title().replace(" ", "")
+            if row['DetectionLimit_TypeB'] != 'Non Detect':
+                result['dl_measure_B'] = row['DetectionLimit_MeasureB']
+            result['dl_unit_B'] = unit_lu[row['DetectionLimit_MeasureUnitB']]
+        except:
+            pass
 
     return sample, samplepoint, result
 
@@ -232,28 +258,40 @@ def get_iris(sample, samplepoint, result):
     iris = {}
     #samples and features
     iris['sample'] = prefixes["us_wqp_data"][f"d.wqp.sample.{sample['id']}"]
+    iris['activity']= prefixes['us_wqp'][f"activity.{result['activity_id']}"]
     #iris['wqp_site'] = prefixes['gcx'][f"wqp/{sample['provider']}/{sample['org_id']}/{samplepoint['id']}"]
     iris['wqp_site'] = prefixes['gcx_wqp'][f"{samplepoint['id']}"]
     iris['feature'] = prefixes['us_wqp_data'][f"d.wqp.sampledFeature.{samplepoint['id']}"]
     
-    iris['SampleCollectionMethod'] = prefixes["us_wqp_data"][f"sampleCollectionMethod.{sample['sample_method']}"] if 'sample_method' in sample.keys() else ''
-    iris['media'] = prefixes['us_wqp_data'][f"sampleMedia.{camel_case(sample['media'])}"] #could turn this into a subclass designation for tissue and water
-    iris['organization'] = prefixes["us_wqp_data"][f"{'organizaton'}.{sample['org_id']}"]
-    iris['project'] = prefixes['us_wqp_data'][f"d.wqp.project.{sample['project_id']}"]
+    iris['SampleCollectionMethod'] = prefixes["us_wqp"][f"sampleCollectionMethod.{sample['sample_method']}"] if 'sample_method' in sample.keys() else ''
+    iris['media'] = prefixes['us_wqp'][f"sampleMedia.{camel_case(sample['media'])}"] #could turn this into a subclass designation for tissue and water
+    iris['organization'] = prefixes["us_wqp"][f"{'organization'}.{sample['org_id']}"]  #CV
+    iris['project'] = prefixes['us_wqp_data'][f"d.wqp.project.{sample['project_id']}"] #not in CV
     if 'taxon' in sample.keys():
-        iris['taxon'] = prefixes['us_wqp_data'][f"biologicalTaxon.{sample['taxonID']}"]
+        iris['taxon'] = prefixes['us_wqp'][f"biologicalTaxon.{sample['taxonID']}"]
     else:
         iris['taxon'] = ''
 
     #observations and measurements
     iris['observation'] = prefixes['us_wqp_data'][f"d.wqp.observation.{result['id']}"]
-    iris['substance'] = prefixes['us_wqp_data'][f"characteristic.{result['substance_id']}"]
-    iris['analytical_method'] = prefixes['us_wqp_data'][f"analyticalMethod.{result['analytical_method']}"] if 'analytical_method' in result.keys() else ''
+    iris['substance'] = prefixes['us_wqp'][f"characteristic.{result['substance_id']}"]
+    iris['analytical_method'] = prefixes['us_wqp'][f"analyticalMethod.{result['analytical_method']}"] if 'analytical_method' in result.keys() else ''
     iris['measurement'] = prefixes['us_wqp_data'][f"d.wqp.measurement.{result['id']}"]
     iris['quantityValue'] = prefixes['us_wqp_data'][f"d.wqp.quantityValue.{result['id']}"] #TODO is this necessary to tie with observation id? Especially for non-detects
-    iris['property'] = prefixes['coso']['SingleContaminantConcentrationQuantityKind']
+    if 'Composite Without Parents' in sample['activity_type'].lower() or 'time' in sample['activity_type'].lower():
+        if sample['activity_type'] == 'Sample-Composite Without Parents' :
+            iris['property'] = prefixes['coso']['AggregateContaminantConcentrationQuantityKind']
+            iris['measureType'] = prefixes['us_wqp']['Aggregate-PFAS-Concentration']
+        else:
+            print(f"New Composite or time-based observation: {sample['activity_type']}")
+            iris['property'] = prefixes['coso']['SingleContaminantConcentrationQuantityKind']
+            iris['measureType'] = prefixes['us_wqp']['Single-PFAS-Concentration']
+
+    else:
+        iris['property'] = prefixes['coso']['SingleContaminantConcentrationQuantityKind']
+        iris['measureType'] = prefixes['us_wqp']['Single-PFAS-Concentration']
     if 'lab_id' in result.keys():
-        iris['lab'] = prefixes['us_wqp_data'][f"organization.lab.{result['lab_id']}"]
+        iris['lab'] = prefixes['us_wqp'][f"organization.lab.{result['lab_id']}"]  #not in CV but other organizations are
     if 'unit' in result.keys():
         if result['unit'] == 'NanoGM-PER-GM':
             iris['unit'] = prefixes['coso'][result['unit']]
@@ -264,6 +302,7 @@ def get_iris(sample, samplepoint, result):
             iris['unit_A'] = prefixes['coso'][result['dl_unit_A']]
         else:
             iris['unit_A'] = prefixes['unit'][result['dl_unit_A']]
+    if 'dl_type_A' in result.keys():
         iris['dl_A'] = prefixes['us_wqp_data'][f"d.wqp.{result['dl_type_A']}.{result['id']}"]
     if 'dl_unit_B' in result.keys():
         if result['dl_unit_B']  == 'NanoGM-PER-GM':
@@ -281,6 +320,8 @@ def triplify(df):
     characteristic_set = set()
     smethod_set = set()
     organization_set = set()
+    activity_set = set()
+    amethod_set = set()
 
     kg = Initial_KG()
     for idx, row in df.iterrows():
@@ -291,6 +332,7 @@ def triplify(df):
 
         #triplify sample
         kg.add((iris['sample'], RDF.type, prefixes["us_wqp"]["Sample"]) )
+        kg.add((iris['sample'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp']))
         if 'sample_date' in sample.keys():
             kg.add(( iris['sample'], RDFS['label'], Literal('WQP PFAS Sample '+ str(sample['activity_id']) ))) #+' collected at site '+ str(samplepoint['id']) + ' on ' + sample['sample_date'].strftime("%Y-%m-%d") 
             
@@ -302,7 +344,8 @@ def triplify(df):
             'sample_method': (prefixes['us_wqp']['sampleCollectionMethod'], iris['SampleCollectionMethod']),
             'media': (prefixes['coso']['sampleOfMaterialType'], iris['media']),
             'taxon': (prefixes['coso']['sampleOfMaterialType'], iris['taxon']),
-            'project_id': (prefixes['us_wqp']['hasProjectId'], iris['project'])
+            'project_id': (prefixes['us_wqp']['hasProjectId'], iris['project']),
+            'org_id': (prefixes['prov']['wasAttributedTo'], iris['organization'])
             
         }
         #add any attributes that don't exist for all samples based on the above triple mappings
@@ -313,6 +356,7 @@ def triplify(df):
         #project info
         if 'project_name' in sample.keys():
             kg.add(( iris['project'], RDFS.label, Literal(sample['project_name'], datatype=XSD.string)))
+            kg.add(( iris['project'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
 
         #metadata subset detection
         if 'taxonID' in sample.keys():
@@ -323,6 +367,7 @@ def triplify(df):
             
         #triplify observation
         kg.add((iris['observation'], RDF.type, prefixes['us_wqp']['Observation']))
+        kg.add((iris['observation'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
         kg.add((iris['observation'], RDFS.label, Literal(f"WQP PFAS {result['characteristic']} Observation {str(result['id'])} for sample {str(sample['id'])}", datatype=XSD.string)))
         kg.add((iris['observation'], prefixes['coso']['analyzedSample'], iris['sample']))
         kg.add((iris['observation'], prefixes['coso']['observedTime'], Literal(sample['sample_date_formatted'], datatype=XSD.dateTime)))
@@ -331,46 +376,66 @@ def triplify(df):
         characteristic_set.add(result['substance_id'])
         kg.add((iris['observation'], prefixes['coso']['hasResult'], iris['measurement']))
         kg.add((iris['observation'], prefixes['coso']['observedAtSamplePoint'], iris['wqp_site']))
-        kg.add((iris['observation'], prefixes['coso']['observedProperty'], iris['property']))
+        kg.add((iris['observation'], prefixes['coso']['observedProperty'], iris['property'])) #all single contaminant concentration 
         observation_po = { #list of optional triples for each observation (based on data)
             'analytical_method': (prefixes['coso']['analysisMethod'], iris['analytical_method']),
             'analysis_date': (prefixes['sosa']['resultTime'], Literal(str(result['analysis_date']), datatype=XSD.date)) if 'analysis_date' in result.keys() else '',
             'lab_id':(prefixes['prov']['wasAttributedTo'], iris['lab']) if 'lab' in iris.keys() else '',
+            'activity_id': (prefixes['us_wqp']['activityID'], iris['activity']),
 
         }
+        activity_set.add(result['activity_id'])
 
         for key in result.keys():
             if key in observation_po.keys():
                 kg.add(( iris['observation'], observation_po[key][0], observation_po[key][1]))
+            if key == 'analytical_method':
+                amethod_set.add(result['analytical_method'])
         if 'lab' in result.keys():
             kg.add((iris['lab'], RDFS.label, Literal(result['lab'], datatype=XSD.string)))
+            kg.add((iris['lab'], RDF.type, prefixes['us_wqp']['Organization']))
+            kg.add((iris['lab'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
 
         #triplify measurement
-        kg.add((iris['measurement'], RDF.type, prefixes['us_wqp']['Single-PFAS-Concentration'])) # TODO are they all single measurements?
+
+        kg.add((iris['measurement'], RDF.type, iris['measureType']))
+        kg.add((iris['measurement'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
         kg.add((iris['measurement'], prefixes['qudt']['quantityValue'], iris['quantityValue']))
         ## TODO do we need a quantity value specific to every observation if the values are the same?
         if 'measure_qualifier' in result.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], prefixes['us_wqp_data'][f"resultMeasureQualifier.{result['measure_qualifier']}"] ))
-        if 'measure' in result.keys():
-            if '<' in str(result['measure']) or str(result['measure']) in ('non detect', 'ND'): #some states use < for unquantified values
+        if 'measure' in result.keys(): 
+            # catch non-detects
+            if str(result['measure']) in ('non detect', 'ND', 'UJ', 'Non Detect'): 
                 kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonDetectQuantityValue']))
-                kg.add((iris['quantityValue'], prefixes['qudt']['enumeratedValue'], prefixes['coso']['non-detect']))
-            else:
+                kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
+            elif '<' in str(result['measure']): #some states use < for non-detects or unquantified values
+                kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonQuantifiedQuantityValue']))
+                kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
+            else: #detects with values
                 kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['DetectQuantityValue']))
+                kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
                 kg.add((iris['quantityValue'], prefixes['qudt']['numericValue'], Literal(result['measure'], datatype=XSD.float)))
-        if 'unit' in result.keys():
-            kg.add((iris['quantityValue'], prefixes['qudt']['hasUnit'], iris['unit']))
+                if 'unit' in result.keys():
+                    kg.add((iris['quantityValue'], prefixes['qudt']['hasUnit'], iris['unit']))
         if 'non-detect' in result.keys():
             kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonDetectQuantityValue']))
-            kg.add((iris['quantityValue'], prefixes['qudt']['enumeratedValue'], prefixes['coso']['non-detect'])) #Literal('non-detect', datatype=XSD.string)))
-        if 'dl_type_A' in result.keys():
+            kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
+        if 'non-quantified' in result.keys():
+            kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonQuantifiedQuantityValue']))
+            kg.add((iris['quantityValue'], prefixes['qudt']['symbol'], Literal('non-quantified', datatype=XSD.string)))
+            kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
+        if 'dl_type_A' in result.keys() and 'dl_A' in iris.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], iris['dl_A']))
             kg.add((iris['dl_A'], RDF.type, prefixes['us_wqp'][result['dl_type_A']]))
+            kg.add((iris['dl_A'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
             kg.add((iris['dl_A'], prefixes['qudt']['numericValue'], Literal(result['dl_measure_A'], datatype=XSD.float)))
-            kg.add((iris['dl_A'], prefixes['qudt']['hasUnit'], iris['unit_A']))
+            if 'unit_A' in iris.keys():
+                kg.add((iris['dl_A'], prefixes['qudt']['hasUnit'], iris['unit_A']))
         if 'dl_type_B' in result.keys():
             kg.add((iris['measurement'], prefixes['coso']['hasResultQualifier'], iris['dl_B']))
             kg.add((iris['dl_B'], RDF.type, prefixes['us_wqp'][result['dl_type_B']]))
+            kg.add((iris['dl_B'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
             kg.add((iris['dl_B'], prefixes['qudt']['numericValue'], Literal(result['dl_measure_B'], datatype=XSD.float)))
             kg.add((iris['dl_B'], prefixes['qudt']['hasUnit'], iris['unit_B']))
     
@@ -380,7 +445,7 @@ def triplify(df):
         l = eval(f.read())
         for t in l:
             taxon_set.add(t) 
-        print('full taxon:', taxon_set)
+        #print('full taxon:', taxon_set)
     with open(output_dir / f'wqp_used_taxa.txt', 'w+') as f:
         f.writelines(str(list(taxon_set)))
     
@@ -400,6 +465,15 @@ def triplify(df):
     with open(output_dir / f'wqp_used_samplemethods.txt', 'w+') as f:
         f.writelines(str(list(smethod_set)))
 
+    print('Analytical Method:', amethod_set)
+    with open(output_dir / f'wqp_used_analyticalmethods.txt', 'r') as f:
+        l = eval(f.read())
+        for t in l:
+            amethod_set.add(t)
+    with open(output_dir / f'wqp_used_analyticalmethods.txt', 'w+') as f:
+        f.writelines(str(list(amethod_set)))
+
+
     print('Organization', organization_set)
     with open(output_dir / f'wqp_used_organizations.txt', 'r') as f:
         l = eval(f.read())
@@ -408,6 +482,10 @@ def triplify(df):
     with open(output_dir / f'wqp_used_organizations.txt', 'w+') as f:
         f.writelines(str(list(organization_set)))
     
+    print('Activity', activity_set)
+    with open(output_dir / f'wqp_used_activities.txt', 'w+') as f:
+        f.writelines(str(list(activity_set)))
+
     return kg
 
 #utility functions

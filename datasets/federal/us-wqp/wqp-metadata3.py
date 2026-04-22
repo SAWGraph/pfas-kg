@@ -1,4 +1,6 @@
+import datetime
 import os
+from pickle import GLOBAL
 from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, DCTERMS
 from rdflib import Namespace
 from rdflib import Graph
@@ -21,7 +23,7 @@ import pprint
 ## declare variables
 logname = "log"
 
-metadata_files = [ 'Activity Media', 'Analytical Method', 'Characteristic', 'Sample Collection Method', "Organization", 'Monitoring Location Type', 'Taxon', 'Taxon Group', 'Quantitation Limit Type', 'Analytical Method', 'Result Measure Qualifier'] #'Activity Media Subdivision',
+metadata_files = [ 'Activity Media', 'Analytical Method', 'Characteristic', 'Sample Collection Method', "Organization", 'Monitoring Location Type', 'Taxon', 'Taxon Group', 'Quantitation Limit Type', 'Analytical Method', 'Result Measure Qualifier', 'Activity Type'] #'Activity Media Subdivision',
 
 
 ## data path
@@ -32,6 +34,7 @@ triples_dir = root_folder / "federal/us-wqp/triples/"
 
 ##namespaces
 prefixes = {}
+prefixes['us_wqp_cv']=Namespace(f'http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/')
 prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
 prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
@@ -40,6 +43,7 @@ prefixes['geo'] = Namespace(f'http://www.opengis.net/ont/geosparql#')
 prefixes['gcx']= Namespace(f'https://geoconnex.us/')
 prefixes["prov"] = Namespace("http://www.w3.org/ns/prov#")
 prefixes['dsstox'] = Namespace(f'http://w3id.org/DSSTox/v1/')
+
 
 ## initiate log file
 logging.basicConfig(filename=logname,
@@ -53,47 +57,63 @@ logging.info("Running triplification for WQP metadata")
 def main():
     # iterate over files in data directory
     for filename in metadata_files:
-        data_df = pd.read_csv(data_dir / f"{filename}.csv", header=0, encoding='ISO-8859-1')
+        data_df = pd.read_csv(data_dir / f"{filename}.csv", header=0, encoding='UTF-8')
         logger = logging.getLogger('Data loaded to dataframe')
+        cv_name = (filename.lower()).replace(" ", "_")
+
+        kg = Initial_KG(prefixes)
+        kg.add((prefixes['us_wqp_cv'][f"{cv_name}"], RDF.type, OWL.Ontology))
+        kg.add((prefixes['us_wqp_cv'][f"{cv_name}"], DCTERMS.title, Literal(f"WQP Controlled Vocabulary - {filename}", datatype=XSD.string)))
+        kg.add((prefixes['us_wqp_cv'][f"{cv_name}"], DCTERMS.description, Literal(f"This ontology contains the controlled vocabulary for {filename} from the Water Quality Portal", datatype=XSD.string)))
+        kg.add((prefixes['us_wqp_cv'][f"{cv_name}"], DCTERMS.modified, Literal(datetime.datetime.today().strftime('%Y-%m-%d'), datatype=XSD.date )))
+
         if filename == 'Activity Media Subdivision':
-            kg = triplify_media_subdivision(data_df, prefixes)
+            kg = triplify_media_subdivision(kg, data_df, prefixes, cv_name)
         elif filename == 'Activity Media':
-            kg = triplify_media(data_df, prefixes)
+            kg = triplify_media(kg, data_df, prefixes, cv_name)
         elif filename == 'Analytical Method':
-            kg = triplify_analytical_method(data_df, prefixes)
+            kg = triplify_analytical_method(kg, data_df, prefixes, cv_name)
         elif filename == 'Characteristic':
             with open(triples_dir / f'wqp_used_characteristics.txt', 'r') as f:
                 l = eval(f.read())
-                data_df = data_df[data_df['Unique Identifier'].isin(l)] #filter to only used characteristics
-            kg = triplify_characteristic(data_df, prefixes)
+            data_df = data_df[data_df['Unique Identifier'].isin(l)] #filter to only used characteristics
+            print('characteristic:', data_df.shape[0])
+            kg = triplify_characteristic(kg, data_df, prefixes, cv_name)
         elif filename == 'Sample Collection Method':
             with open(triples_dir / f'wqp_used_samplemethods.txt', 'r') as f:
                 l = eval(f.read())
-                data_df = data_df[data_df['ID'].isin(l)] #filter to only used sample methods
-            kg = triplify_sample_collection_method(data_df, prefixes)
+            data_df = data_df[data_df['ID'].isin(l)] #filter to only used sample methods
+            print('collection method:', data_df.shape[0])
+            kg = triplify_sample_collection_method(kg, data_df, prefixes, cv_name)
         elif filename == 'Organization':
             with open(triples_dir / f'wqp_used_organizations.txt', 'r') as f:
                 l = eval(f.read())
-                data_df = data_df[data_df['ID'].isin(l)] #filter to only used organizations
-            kg = triplify_organization(data_df, prefixes)
+            data_df = data_df[data_df['ID'].isin(l)] #filter to only used organizations
+            print('organizations:', data_df.shape[0])
+            kg = triplify_organization(kg, data_df, prefixes, cv_name)
         elif filename == 'Monitoring Location Type':
-            kg = triplify_monitoring_location_type(data_df, prefixes)
+            kg = triplify_monitoring_location_type(kg, data_df, prefixes, cv_name)
         elif filename == 'Taxon':
             with open(triples_dir / f'wqp_used_taxa.txt', 'r') as f:
                 l = eval(f.read())
-                data_df = data_df[data_df['Unique Identifier'].isin(l)] #filter to only used taxa
-            kg = triplify_taxon(data_df, prefixes)
+            data_df = data_df[data_df['Unique Identifier'].isin(l)] #filter to only used taxa
+            print('Taxon:', data_df.shape[0])
+            kg = triplify_taxon(kg, data_df, prefixes, cv_name)
         elif filename == 'Taxon Group':
-            kg= triplify_taxon_group(data_df, prefixes)
+            kg= triplify_taxon_group(kg, data_df, prefixes, cv_name)
         elif filename == 'Quantitation Limit Type':
-            kg = triplify_quantitation_limit_type(data_df, prefixes)
+            kg = triplify_quantitation_limit_type(kg, data_df, prefixes, cv_name)
         elif filename == 'Result Measure Qualifier':
-            kg = triplify_result_measure_qualifier(data_df, prefixes)
+            kg = triplify_result_measure_qualifier(kg, data_df, prefixes, cv_name)
+        elif filename == 'Activity Type':
+            #with open(triples_dir / f'wqp_used_activities.txt', 'r') as f:
+            #    l = eval(f.read())
+            #data_df = data_df[data_df['Unique Identifier'].isin(l)] #filter to only used activities
+            #print('Activity Type:', data_df.shape[0])
+            kg = triplify_activity_type(kg, data_df, prefixes, cv_name)
 
-            
-        data_df.iloc[0:0]
-        filename = (filename.lower()).replace(" ", "_")
-        kg_turtle_file = output_dir / f"{filename}.ttl"
+        kg_turtle_file = output_dir / f"{cv_name}.ttl"
+        print(filename, ' triplified')
         kg.serialize(kg_turtle_file,format='turtle')
 
 
@@ -109,8 +129,7 @@ def camel_case(s):
 
 
 ## triplify the abox for media
-def triplify_media(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_media(kg, df, _PREFIX, cv_name):
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -119,20 +138,20 @@ def triplify_media(df, _PREFIX):
         media_description = row['Description'] # description
         
         ## construct media IRI
-        media_iri = prefixes['us_wqp_data'][f"{'sampleMedia'}.{camel_case(media_name)}"]
+        media_iri = _PREFIX["us_wqp"][f"{'sampleMedia'}.{camel_case(media_name)}"]
                 
         ## specify media instance and it's data properties
         kg.add((media_iri, RDF.type, _PREFIX["us_wqp"]["SampleMedia"]) )
         kg.add((media_iri, RDFS['label'], Literal(str(media_name))) )
         kg.add((media_iri, RDFS['comment'], Literal(media_description, datatype = XSD.string)) )
+        kg.add((media_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
 
    
     return kg
 
 ## triplify the abox for media subdivisions
-def triplify_media_subdivision(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
-    
+def triplify_media_subdivision(kg, df, _PREFIX, cv_name):
+  
     ## materialize each record
     for idx, row in df.iterrows():
         ## media record details
@@ -141,20 +160,20 @@ def triplify_media_subdivision(df, _PREFIX):
         media_name = ''.join(e for e in str(media_name) if e.isalnum())
         media_name = media_name.replace(' ', '')
         ## construct media IRI
-        media_iri = _PREFIX["us_wqp_data"][f"{'sampleMedia'}.{camel_case(media_name)}"]
+        media_iri = _PREFIX["us_wqp"][f"{'sampleMedia'}.{camel_case(media_name)}"]
                 
         ## specify media instance and it's data properties
         kg.add( (media_iri, RDF.type, _PREFIX["us_wqp"]["SampleMedia"]) )
         kg.add( (media_iri, RDFS['label'], Literal(str(media_name))) )
         kg.add( (media_iri, RDFS['comment'], Literal(media_description, datatype = XSD.string)) )
+        kg.add((media_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
 
    
     return kg
 
 
 ## triplify the abox for analytical method
-def triplify_analytical_method(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_analytical_method(kg, df, _PREFIX, cv_name):
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -170,7 +189,7 @@ def triplify_analytical_method(df, _PREFIX):
     #        method_url = row['URL'] # URL
            
     #         # method IRI
-    #        method_iri = _PREFIX["us_wqp_data"][f"{'d.wqp.analyticalMethod'}.{method_unique_id}"]
+    #        method_iri = _PREFIX["us_wqp"][f"{'d.wqp.analyticalMethod'}.{method_unique_id}"]
                     
     #         # specify method instance and it's data properties
     #        kg.add( (method_iri, RDF.type, _PREFIX["us_wqp"]["AnalyticalMethod"]) )
@@ -181,11 +200,12 @@ def triplify_analytical_method(df, _PREFIX):
     #            kg.add( (method_iri, _PREFIX["us_wqp"]['url'], Literal(method_url, datatype = XSD.anyURI)) )
 
     #manually add unreferenced method from Maine data
-    method_iri = _PREFIX["us_wqp_data"][f"{'analyticalMethod'}.LM102"]
+    method_iri = _PREFIX["us_wqp"][f"{'analyticalMethod'}.LM102"]
     kg.add( (method_iri, RDF.type, _PREFIX["us_wqp"]["AnalyticalMethod"]) )
     kg.add( (method_iri, RDFS['label'], Literal(str("PFAS SPE/LC/MS/MS SGS FL EPA537M"))) )
     kg.add( (method_iri, RDFS.comment, Literal("DESCRIPTION: Linear and branched perfluorinated alkyl acids (PFAS) by solid phase extraction (SPE) and liquid chromatography/tandem mass spectrometry (EPA Method 537 as modified by SGS Orlando [FL-SGSEL]); CITATION(S): USEPA | 537"))) 
-   
+    kg.add((method_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
+
     return kg
 
 def get_dsstox(srs_id):
@@ -194,9 +214,9 @@ def get_dsstox(srs_id):
     resp = urllib3.request("GET", url, timeout=300.0)
     substance = resp.data
     substance = json.loads(substance)
-    for synonym in substance[0]['synonyms']:
-        if synonym['listName'] == 'OAR_Per- and polyfluoroalkyl Substances':
-            print(synonym['synonymName'], ' - ',synonym['listName'])
+    #for synonym in substance[0]['synonyms']:
+    #    if synonym['listName'] == 'OAR_Per- and polyfluoroalkyl Substances':
+    #        print(synonym['synonymName'], ' - ',synonym['listName'])
     return substance
 
 def get_inchi(dtxsid):
@@ -211,7 +231,10 @@ def get_inchi(dtxsid):
     substance = resp.data
     substance = json.loads(substance)
     #print(substance[0]['inchiKey'])
-    inchi = substance[0]['inchiKey']
+    try:
+        inchi = substance[0]['inchiKey']
+    except:
+        print("no inchiKey found for DTXSID:", dtxsid)
     
     return substance
 
@@ -226,25 +249,20 @@ def from_inchi(inchi):
 
 
 ## triplify the abox for pfas parameter
-def triplify_characteristic(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_characteristic(kg, df, _PREFIX, cv_name):
     
     ## materialize each record
     for idx, row in df.iterrows():
-        #only characteristics used in ME, IL pfas data
-        #if row['Unique Identifier'] in [20865, 18826, 19467, 20877, 18574, 18191, 62354, 22803, 9364, 8083, 9235, 18456, 6681, 9368, 8091, 6680, 19739, 18078, 19482, 8096, 8097, 8095, 3112, 3113, 64556, 3117, 
-        #                                16303, 19762, 19383, 20794, 18755, 8004, 20426, 3281, 3282, 18897, 18521, 3291, 3292, 19292, 64478, 16351, 18908, 64483, 19684, 19043, 18024, 19176, 9450, 62959, 19823, 19698, 9458, 18813,
-        #                                19594, 17683, 8097, 64556, 19505, 16586, 17614, 18785, 8168, 8169, 8170, 8173, 20082, 21754, 3114]:
-            if '***retired***' in row['Name']:
-                #don't triplify retired substances
-                pass
+                if '***retired***' in row['Name']:
+                #dont do anything special with retired substances
+                    pass
 
-            else: #if row['Group Name'] in ['PFAS,Perfluorinated Alkyl Substance', 'PFOA, Perfluorooctanoic Acid','PFOS, Perfluorooctane Sulfonate', "Organics, PFAS"] or (row['Group Name'] == 'Stable Isotopes' and row['Name'] in ['13C3-PFBS', '13C2-4:2 FTS', '13C3-PFPeA', '13C3-PFBA', '13C3-HFPO-DA', '13C4-PFBA', '13C5-PFHxA', '13C5-PFPeA', '13C6-PFDA', '13C7-PFUnA', '13C8-PFOA', '13C9-PFNA', 'D3-N-MeFOSA', 'D5-N-EtFOSA', 'd7-NMe-FOSE', 'd9-NEt-FOSE', '13C2-PFTeDA', '13C2-PFDoA', '13C2-PFUnA', 'd5-EtFOSAA', 'd3-MeFOSAA',  '13C2-8:2 FTS', '13C2-PFDA', '13C8-PFOS', '13C8-PFOSA', '13C5-PFNA', '13C2-PFOA', '13C2-6:2 FTS', '13C3-PFHxS', '13C4-PFHpA', '13C2-PFHxA', 'CFC-12']):
+                #if row['Group Name'] in ['PFAS,Perfluorinated Alkyl Substance', 'PFOA, Perfluorooctanoic Acid','PFOS, Perfluorooctane Sulfonate', "Organics, PFAS"] or (row['Group Name'] == 'Stable Isotopes' and row['Name'] in ['13C3-PFBS', '13C2-4:2 FTS', '13C3-PFPeA', '13C3-PFBA', '13C3-HFPO-DA', '13C4-PFBA', '13C5-PFHxA', '13C5-PFPeA', '13C6-PFDA', '13C7-PFUnA', '13C8-PFOA', '13C9-PFNA', 'D3-N-MeFOSA', 'D5-N-EtFOSA', 'd7-NMe-FOSE', 'd9-NEt-FOSE', '13C2-PFTeDA', '13C2-PFDoA', '13C2-PFUnA', 'd5-EtFOSAA', 'd3-MeFOSAA',  '13C2-8:2 FTS', '13C2-PFDA', '13C8-PFOS', '13C8-PFOSA', '13C5-PFNA', '13C2-PFOA', '13C2-6:2 FTS', '13C3-PFHxS', '13C4-PFHpA', '13C2-PFHxA', 'CFC-12']):
                 ## Get DTXSID and other attributes from SRS 
                 if pd.notnull(row['SRS ID']):
                     substance = get_dsstox(row['SRS ID']) 
-                    if len(substance)> 0 and substance[0]['dtxsid'] != None:
-                        print(substance[0]["epaName"]," : ", substance[0]['dtxsid'])
+                    #if len(substance)> 0 and substance[0]['dtxsid'] != None:
+                    #    print(substance[0]["epaName"]," : ", substance[0]['dtxsid'])
                         #pprint.pp(substance[0]['synonyms'])
                       
 
@@ -260,26 +278,27 @@ def triplify_characteristic(df, _PREFIX):
                 parameter_srd_id = int(row['SRS ID']) if pd.notnull(row['SRS ID']) else False # Substance Registry Services (SRS) ID
                 
                 ## parameter IRI
-                parameter_iri = _PREFIX["us_wqp_data"][f"{'characteristic'}.{parameter_unique_id}"]
+                parameter_iri = _PREFIX["us_wqp"][f"{'characteristic'}.{parameter_unique_id}"]
                         
                 ## specify parameter instance and it's data properties
                 kg.add( (parameter_iri, RDF.type, _PREFIX["us_wqp"]["Characteristic"]) )
                 kg.add( (parameter_iri, RDFS['label'], Literal(str(parameter_name))) )
+                
                 if parameter_group:
                     kg.add( (parameter_iri, _PREFIX["us_wqp"]['groupName'], Literal(parameter_group, datatype = XSD.string)) )
                 if parameter_cas_no:
                     kg.add( (parameter_iri, _PREFIX["coso"]['casNumber'], Literal(parameter_cas_no, datatype = XSD.string)) )
                 if parameter_srd_id:
                     kg.add( (parameter_iri, _PREFIX["us_wqp"]['srsID'], Literal(str(parameter_srd_id), datatype = XSD.string)) )
-                    if len(substance)> 0 and substance[0]['dtxsid'] != None:
+                    if len(substance)> 0 and substance[0]['dtxsid'] != None and 'inchiKey' in substance[0].keys():
                         #check to make sure substance is neutral form
                         sub_inchi = get_inchi(substance[0]['dtxsid'])
                         inchi = sub_inchi[0]['inchiKey']
-                        if inchi.endswith('-N'):
+                        if inchi and inchi.endswith('-N'):
                             kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance[0]['dtxsid']}"]))
                             kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
                             kg.add((_PREFIX['dsstox'][f"{substance[0]['dtxsid']}"], DCTERMS.alternative , Literal(substance[0]['systematicName'])))
-                        else:
+                        elif inchi:
                             #replace with Neutral version of InChIKey
                             inchi = inchi[:-1] + 'N'
                             #lookup dsstox again by inchikey
@@ -294,28 +313,29 @@ def triplify_characteristic(df, _PREFIX):
                                     if synonym['alternateIdTypeName']== 'DTXSID' or synonym['alternateIdTypeId']=='108':
                                        #pprint.pp(synonym)
                                        substance = get_inchi(synonym['alternateId'])
-                                       inchi = substance[0]['inchiKey']
-                                       if inchi.endswith('-N'):
-                                            #these link to the correct substances
-                                            kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{synonym['alternateId']}"]))
-                                       else:
-                                           #replace with Neutral version of InChIKey
-                                           inchi = inchi[:-1] + 'N'
-                                           #lookup dsstox again by inchikey
-                                           substance1 = from_inchi(inchi)
-                                           if 'content' in substance1.keys():
-                                               kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance1['content'][0]['sid']}"]))
-                                       #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
-                                       #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDFS.label , Literal(syn['synonymName'])))
-                                       kg.add((parameter_iri, _PREFIX['dsstox']['hasInChiKey'], Literal(inchi, datatype=XSD.string)))
-
+                                       if len(substance)> 0 and substance[0] != None:
+                                        #print(substance[0].keys())
+                                        inchi = substance[0]['inchiKey']
+                                        if inchi.endswith('-N'):
+                                                #these link to the correct substances
+                                                kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{synonym['alternateId']}"]))
+                                        else:
+                                            #replace with Neutral version of InChIKey
+                                            inchi = inchi[:-1] + 'N'
+                                            #lookup dsstox again by inchikey
+                                            substance1 = from_inchi(inchi)
+                                            if 'content' in substance1.keys():
+                                                kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], _PREFIX['dsstox'][f"{substance1['content'][0]['sid']}"]))
+                                        #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDF.type , _PREFIX['dsstox']['ChemicalEntity']))
+                                        #kg.add((_PREFIX['dsstox'][f"{synonym['alternateId']}"], RDFS.label , Literal(syn['synonymName'])))
+                                        kg.add((parameter_iri, _PREFIX['dsstox']['hasInChiKey'], Literal(inchi, datatype=XSD.string)))
+                kg.add(( parameter_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
 
     return kg
 
 
 ## triplify the abox for sample collection method
-def triplify_sample_collection_method(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_sample_collection_method(kg, df, _PREFIX, cv_name):
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -330,7 +350,7 @@ def triplify_sample_collection_method(df, _PREFIX):
             method_local_context = row['Local Context'] # local context
             method_unique_id_formatted = ''.join(e for e in str(method_unique_id) if e.isalnum())   
             ## method IRI
-            method_iri = _PREFIX["us_wqp_data"][f"{'sampleCollectionMethod'}.{method_unique_id_formatted}"]
+            method_iri = _PREFIX["us_wqp"][f"{'sampleCollectionMethod'}.{method_unique_id_formatted}"]
                             
             ## specify method instance and it's data properties
             kg.add( (method_iri, RDF.type, _PREFIX["us_wqp"]["SampleCollectionMethod"]) )
@@ -342,13 +362,13 @@ def triplify_sample_collection_method(df, _PREFIX):
             kg.add( (method_iri, _PREFIX["us_wqp"]['wqp_samplingMethodLocalContext'], Literal(method_local_context, datatype = XSD.anyURI)) )
             kg.add( (method_iri, _PREFIX["us_wqp"]['wqp_samplingMethodID'], Literal(method_ID, datatype = XSD.string)) )
             #TODO none of these datatypeproperties exist in the schema (methods dont exist in current controlled vocab)
+            kg.add((method_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
 
    
     return kg
 
 ## triplify the abox for organization
-def triplify_organization(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_organization(kg, df, _PREFIX, cv_name):
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -362,7 +382,7 @@ def triplify_organization(df, _PREFIX):
 
             organization_ID_formatted = organization_ID.replace(" ", '') #''.join(e for e in str(organization_ID) if e.isalnum())
             ## organization IRI
-            organization_iri = _PREFIX["us_wqp_data"][f"{'organization'}.{organization_ID_formatted}"]
+            organization_iri = _PREFIX["us_wqp"][f"{'organization'}.{organization_ID_formatted}"]
                         
             ## specify organization instance and it's data properties
             kg.add( (organization_iri, RDF.type, _PREFIX["prov"]["Organization"]) )
@@ -373,14 +393,14 @@ def triplify_organization(df, _PREFIX):
             kg.add( (organization_iri, _PREFIX["us_wqp"]['organizationId'], Literal(organization_ID, datatype = XSD.string)) )
             if pd.notnull(row['Description']):
                 kg.add( (organization_iri, _PREFIX["us_wqp"]['organizationDescription'], Literal(organization_description, datatype = XSD.anyURI)) )
+            kg.add((organization_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
 
        
     return kg
 
 ## triplify the abox for monitoring location type
-def triplify_monitoring_location_type(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
-    
+def triplify_monitoring_location_type(kg, df, _PREFIX, cv_name):
+
     ## materialize each record
     for idx, row in df.iterrows():
         ## location type details
@@ -391,7 +411,7 @@ def triplify_monitoring_location_type(df, _PREFIX):
         location_name_formatted = ''.join(e for e in str(location_name) if e.isalnum())
             
         ## location IRI
-        location_iri = _PREFIX["us_wqp_data"][f"{'featureType'}.{location_name_formatted}"]
+        location_iri = _PREFIX["us_wqp"][f"{'featureType'}.{location_name_formatted}"]
                     
         ## specify location type instance and it's data properties   
         kg.add( (location_iri, RDF.type, _PREFIX["us_wqp"]["LocationType"]) )
@@ -406,12 +426,11 @@ def triplify_monitoring_location_type(df, _PREFIX):
         kg.add( (location_iri, RDFS.label, Literal(str(location_name))) )
         kg.add( (location_iri, RDFS.comment, Literal(location_description, datatype = XSD.string)) )
 
-       
+        kg.add((location_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]) )
     return kg
 
 #triplify taxon
-def triplify_taxon(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_taxon(kg, df, _PREFIX, cv_name):
 
     for idx, row in df.iterrows():
         #if row['Unique Identifier'] in [13166, 13170, 15717, 18441, 23065, 25364, 3757, 7587, 7588, 818, 14727, 17772, 3725, 13166, 18416, 10582, 13370, 13374,
@@ -423,60 +442,73 @@ def triplify_taxon(df, _PREFIX):
             taxon_rank = row['Rank']
             taxon_group = ''.join(e for e in str(row['Group Name']) if e.isalnum())
 
-            taxon_iri = _PREFIX['us_wqp_data'][f"biologicalTaxon.{taxon_id}"]
+            taxon_iri = _PREFIX['us_wqp'][f"biologicalTaxon.{taxon_id}"]
 
             kg.add((taxon_iri, RDF.type, _PREFIX ['us_wqp']['Taxon']))
             kg.add((taxon_iri, RDFS.label, Literal(taxon_name, datatype=XSD.string)))
             kg.add((taxon_iri, _PREFIX['us_wqp']['rank'], Literal(taxon_rank, datatype=XSD.string)))
             if pd.notnull(row['Group Name']) and taxon_group != 'NotAssigned':
                 kg.add((taxon_iri, RDF.type, _PREFIX['us_wqp'][f'TaxonGroup.{taxon_group}']))
+            kg.add((taxon_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]))
 
     return kg
 
-def triplify_taxon_group(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
-
+def triplify_taxon_group(kg, df, _PREFIX, cv_name):
     for idx, row in df.iterrows():
         taxon_group_name = ''.join(e for e in str(row['Name']) if e.isalnum())
         taxon_group_iri = _PREFIX['us_wqp'][f'TaxonGroup.{taxon_group_name}']
 
         if len(taxon_group_name)> 1 and 'retired' not in taxon_group_name and taxon_group_name != 'NotAssigned':
             kg.add((taxon_group_iri, RDFS.subClassOf, _PREFIX['us_wqp']['Taxon']))
+            kg.add((taxon_group_iri, RDFS.label, Literal(row['Name'], datatype=XSD.string)))
+            kg.add((taxon_group_iri, RDFS.comment, Literal(row['Description'], datatype=XSD.string)))
+            kg.add((taxon_group_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]))
 
     return kg
 
 
-def triplify_quantitation_limit_type(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
-
+def triplify_quantitation_limit_type(kg, df, _PREFIX, cv_name):
     for idx, row in df.iterrows():
         ql_name = row['Name']
         ql_shortname = str(row['Name']).title().replace(" ", "").replace("%", "percent")
         ql_description = row['Description']
 
         ql_iri = _PREFIX['us_wqp'][ql_shortname]
-        if ql_shortname in ['Sample-SpecificQuantitationLimit', 'InstrumentDetectionLevel', 'LaboratoryReportingLevel', 'CensoringLevel', 'MethodDetectionLevel', 'LowerQuantitationLimit','LowerReportingLimit'] :
+        if ql_shortname in ['Sample-SpecificQuantitationLimit', 'InstrumentDetectionLevel', 'LaboratoryReportingLevel', 'CensoringLevel', 'MethodDetectionLevel', 'LowerQuantitationLimit','LowerReportingLimit', 'PracticalQuantitationLimit', 'UpperQuantitationLimit','ContractQuantitationLimit','Reportinglimit','EstimatedDetectionLevel','SampleDetectionLimit','Sample-specificmindetectconc', 'MinimumReportingLevel'] :
             kg.add((ql_iri, RDFS.subClassOf, _PREFIX['coso']['ResultQualifier'])) #also make instance of pfas classes based on values
             kg.add((ql_iri, RDFS.label, Literal(ql_name, datatype=XSD.string)))
             kg.add((ql_iri, RDFS.comment, Literal(ql_description, datatype=XSD.string)))
+            kg.add((ql_iri, RDFS.isDefinedBy, _PREFIX["us_wqp_cv"][cv_name]))
         else:
             #print('unused quantitation:', ql_shortname)
             pass
 
     return kg
 
-def triplify_result_measure_qualifier(data_df, prefixes):
-    kg = Initial_KG(prefixes)
-
+def triplify_result_measure_qualifier(kg, data_df, prefixes, cv_name):
     for idx, row in data_df.iterrows():
         code = row['Code']
         code_uri = urllib.parse.quote(str(code), safe='')
         #id = row['Unique Identifier']
         desc = row['Description']
-        iri = prefixes['us_wqp_data'][f'resultMeasureQualifier.{code_uri}']
+        iri = prefixes['us_wqp'][f'resultMeasureQualifier.{code_uri}']
+
         kg.add((iri, RDF.type, prefixes['us_wqp']['ResultMeasureQualifier']))
         kg.add((iri, RDFS.label, Literal(f"Result Measure Qualifier {code}", datatype=XSD.string)))
         kg.add((iri, RDFS.comment, Literal(desc, datatype=XSD.string)))
+        kg.add((iri, RDFS.isDefinedBy, prefixes["us_wqp_cv"][cv_name]))
+
+    return kg
+
+def triplify_activity_type(kg, data_df, prefixes, cv_name):
+    for idx, row in data_df.iterrows():
+        id = row['Unique Identifier']
+        iri = prefixes['us_wqp'][f"activity.{id}"]
+
+        kg.add((iri, RDF.type, prefixes['us_wqp'][f'ActivityType']))
+        kg.add((iri, RDFS.label, Literal(row['Name'], datatype=XSD.string)))
+        kg.add((iri, RDFS.comment, Literal(row['Description'], datatype=XSD.string)))
+        kg.add((iri, RDFS.isDefinedBy, prefixes["us_wqp_cv"][cv_name]))
 
     return kg
 

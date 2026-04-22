@@ -1,5 +1,5 @@
 import os
-from rdflib.namespace import OWL, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XSD, RDF, RDFS, DCTERMS
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import Literal
@@ -35,11 +35,12 @@ root_folder = Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/water-quality-data-portal/"
 metadata_dir = root_folder / "federal/us-wqp/metadata_3/"
 output_dir = root_folder / "federal/us-wqp/triples/"
+version = "v2"
 
 ##namespaces
 prefixes = {}
 prefixes['us_wqp'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp#')
-prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/v1/us-wqp-data#')
+prefixes['us_wqp_data'] = Namespace(f'http://w3id.org/sawgraph/{version}/us-wqp-data#')
 prefixes['geoconnex'] = Namespace(f'http://geoconnex.us/')
 prefixes['qudt'] = Namespace(f'http://qudt.org/schema/qudt/')
 prefixes['coso'] = Namespace(f'http://w3id.org/coso/v1/contaminoso#')
@@ -81,6 +82,8 @@ def Initial_KG():
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
+    kg.add((prefixes['us_wqp_data'][f'{state}_wqp_sites'], RDF.type, OWL.Ontology ))
+    kg.add((prefixes['us_wqp_data'][f'{state}_wqp_sites'], DCTERMS.modified, Literal(datetime.today().strftime('%Y-%m-%d'),datatype =XSD.date )))
     return kg
 
 def get_controlledvocabs():
@@ -89,7 +92,7 @@ def get_controlledvocabs():
     return cv
 
 def get_attributes(row):
-    site = {'id': row['Location_Identifier'].replace(" ", ""),
+    site = {'id': str(row['Location_Identifier']).replace(" ", ""),
             'provider':'NWIS' if row['ProviderName']=='USGS' else row['ProviderName'],
             'org_id': f"{row['Org_Identifier']}-{row['Location_StatePostalCode']}" if row['Org_Identifier'] == 'USGS' else row['Org_Identifier'], #add state to org id to make unique except for USGS
             'name': row['Location_Name'],
@@ -103,7 +106,7 @@ def get_attributes(row):
     
     if pd.notnull(row['Location_Type']):
         site['type_label'] = row['Location_Type']
-        site['type'] = ''.join(e for e in str(row['Location_Type']) if e.isalnum()) 
+        site['featureType'] = ''.join(e for e in str(row['Location_Type']) if e.isalnum()) 
     
     #additional location information varies by data provider. Sometimes contains a list or dictionary of attributes. 
     #if pd.notnull(row['Location_Description']):
@@ -132,13 +135,15 @@ def get_iris(site: dict)-> dict:
         #'wqp_site': prefixes['gcx'][f"wqp/{site['provider']}/{site['org_id']}/{site['id']}"],
         'wqp_site': prefixes['gcx_wqp'][f"{site['id']}"],
         'wqp_site_geom':prefixes['us_wqp_data'][f"d.wqp.SiteGeometry.iow.wqp.{site['id']}"],  #TODO how to create geometry for gcx features?
-        'organization': prefixes['us_wqp_data'][f"organization.{site['org_id']}"],
+        'organization': prefixes['us_wqp'][f"organization.{site['org_id']}"],
         'feature': prefixes['us_wqp_data'][f"d.wqp.SampledFeature.{site['id']}"],
-        'featureType': prefixes['us_wqp_data'][f"{'featureType'}.{site['type']}"]
+        
         
     }
     if 'huc12' in site.keys():
         iris['huc12'] = prefixes['wbd_data'][f"d.HUC12.{site['huc12']}"]
+    if 'featureType' in site.keys():
+        iris['featureType'] = prefixes['us_wqp'][f"{'featureType'}.{site['featureType']}"]
         
     return iris
 
@@ -151,6 +156,7 @@ def triplify(df: pd.DataFrame):
 
         #triplify Sample Point
         kg.add((iris['wqp_site'], RDF.type, prefixes['us_wqp']['Site']))
+        kg.add((iris['wqp_site'], RDFS.isDefinedBy, Namespace(f'http://w3id.org/sawgraph/{version}/')['us-wqp-data']))
         kg.add((iris['wqp_site'], RDFS.label, Literal(f"{site['name']} ({site['id']}) site data in the Water Quality Portal", datatype=XSD.string)))
         kg.add((iris['wqp_site'], prefixes['us_wqp']['siteId'], Literal(site['id'], datatype=XSD.string)))
         kg.add((iris['wqp_site'], prefixes['us_wqp']['siteName'], Literal(site['name'], datatype=XSD.string)))
@@ -166,14 +172,17 @@ def triplify(df: pd.DataFrame):
 
         #triplify Feature
         kg.add((iris['feature'], RDF.type, prefixes['us_wqp']['SampledFeature']))
-        kg.add((iris['feature'], RDFS.label, Literal(f"{site['type_label']}: from {site['provider']} {site['org_id']} {site['name']}", datatype=XSD.string)))
-        kg.add((iris['feature'], prefixes['us_wqp']['locationType'], iris['featureType']))
+        kg.add((iris['feature'], RDFS.isDefinedBy, Namespace(f'http://w3id.org/sawgraph/{version}/')['us-wqp-data']))
+        kg.add((iris['feature'], RDFS.label, Literal(f" {site['name']}: {site['type_label'] if 'type_label' in site.keys() else None} from {site['provider']} {site['org_id']}", datatype=XSD.string)))
+        if 'featureType' in iris.keys():
+            kg.add((iris['feature'], prefixes['us_wqp']['locationType'], iris['featureType']))
         #TODO add feature geometry
 
         if 'huc12' in iris.keys():
             kg.add((iris['wqp_site'], prefixes['kwg-ont']['sfWithin'], iris['huc12']))
             kg.add((iris['huc12'], RDF.type, prefixes['us_wqp']['SampledFeature']))
             #TODO huc12 as sampled feature instead of using spatial relation (link back to sample)
+
 
     return kg
 

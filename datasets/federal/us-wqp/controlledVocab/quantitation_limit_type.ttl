@@ -1,33 +1,78 @@
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 us_wqp:CensoringLevel rdfs:label "Censoring level"^^xsd:string ;
     rdfs:comment "Lower or upper value at which the result is censored"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:ContractQuantitationLimit rdfs:label "Contract Quantitation Limit"^^xsd:string ;
+    rdfs:comment "- Minimum level of reliable quantitation acceptable under the contract Statement of Work (SOW)."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:EstimatedDetectionLevel rdfs:label "Estimated Detection Level"^^xsd:string ;
+    rdfs:comment "Estimated Detection Level -- Minimum concentration required to produce a specified signal-to-noise (S/N) ratio."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:InstrumentDetectionLevel rdfs:label "Instrument Detection Level"^^xsd:string ;
     rdfs:comment "Instrument Detection Level(IDL)--Lowest concentration that can be detected by an instrument without correction for the effects of sample matrix or method-specific parameters such as sample preparation"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:LaboratoryReportingLevel rdfs:label "Laboratory Reporting Level"^^xsd:string ;
     rdfs:comment "Laboratory Reporting Level - formerly referred to as Non-Detection Value"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:LowerQuantitationLimit rdfs:label "Lower Quantitation Limit"^^xsd:string ;
     rdfs:comment "Lower Limit of Quantitation(LLQ) Generally the same as EQL. "^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:LowerReportingLimit rdfs:label "Lower Reporting Limit"^^xsd:string ;
     rdfs:comment "Lower Reporting Limit"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:MethodDetectionLevel rdfs:label "Method Detection Level"^^xsd:string ;
     rdfs:comment "Synonymous with Method Detection Limit (MDL), is the minimum concentration of a substance that can be measured and reported with a 99% confidence that the analyte concentration is greater than zero."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:MinimumReportingLevel rdfs:label "Minimum Reporting Level"^^xsd:string ;
+    rdfs:comment "Minimum Reporting Level is the smallest measured concentration of a constituent that can be reliably measured using a given analytical method"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:PracticalQuantitationLimit rdfs:label "Practical Quantitation Limit"^^xsd:string ;
+    rdfs:comment "Practical Quantitation Limit (PQL)"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
 
 us_wqp:Sample-SpecificQuantitationLimit rdfs:label "Sample-Specific Quantitation Limit"^^xsd:string ;
     rdfs:comment "The largest or smallest concentration that an instrument can reliably detect for a specific sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
     rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:SampleDetectionLimit rdfs:label "Sample Detection Limit"^^xsd:string ;
+    rdfs:comment "Sample Detection Limit (SDL) - The MDL adjusted to reflect sample-specific actions such as dilution or use of smaller aliquot sizes, or to report results on a dry-weight basis."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp:UpperQuantitationLimit rdfs:label "Upper Quantitation Limit"^^xsd:string ;
+    rdfs:comment "The largest concentration that an instrument can reliably detect."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:quantitation_limit_type ;
+    rdfs:subClassOf coso:ResultQualifier .
+
+us_wqp_cv:quantitation_limit_type a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Quantitation Limit Type from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Quantitation Limit Type"^^xsd:string .
 

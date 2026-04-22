@@ -1,418 +1,1128 @@
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dsstox: <http://w3id.org/DSSTox/v1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
-@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp_data:characteristic.16351 a us_wqp:Characteristic ;
+us_wqp:characteristic.14657 a us_wqp:Characteristic ;
+    rdfs:label "(-)-delta9-THC-d3" ;
+    coso:casNumber "81586-39-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.16303 a us_wqp:Characteristic ;
+    rdfs:label "Perfluorodecanesulfonate" ;
+    dsstox:hasInChiKey "HYWZIAVPBSTISZ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3040148 ;
+    coso:casNumber "126105-34-8"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845682"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.16351 a us_wqp:Characteristic ;
     rdfs:label "Perfluorododecanesulfonic acid" ;
     dsstox:hasInChiKey "CFCRODHVHXGTPC-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID20873011 ;
     coso:casNumber "79780-39-5"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845687"^^xsd:string .
+    us_wqp:srsID "1845687"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.16586 a us_wqp:Characteristic ;
+us_wqp:characteristic.16586 a us_wqp:Characteristic ;
     rdfs:label "Perfluorobutylsulfonamide" ;
     dsstox:hasInChiKey "FUVKFLJWBHVMHX-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID30880251 ;
     coso:casNumber "30334-69-1"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845666"^^xsd:string .
+    us_wqp:srsID "1845666"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.16771 a us_wqp:Characteristic ;
+us_wqp:characteristic.16771 a us_wqp:Characteristic ;
     rdfs:label "3:3 Fluorotelomer carboxylate, ion(1-)" ;
     dsstox:hasInChiKey "ISFKSWMQWIRDNC-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID00379268 ;
     coso:casNumber "1169706-83-5"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1851707"^^xsd:string .
+    us_wqp:srsID "1851707"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.17614 a us_wqp:Characteristic ;
+us_wqp:characteristic.17614 a us_wqp:Characteristic ;
     rdfs:label "10:2 Fluorotelomer sulfonic acid" ;
     dsstox:hasInChiKey "AJMAYLFJZQYRHN-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID50892578 ;
     coso:casNumber "120226-60-0"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1843198"^^xsd:string .
+    us_wqp:srsID "1843198"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.17683 a us_wqp:Characteristic ;
+us_wqp:characteristic.17617 a us_wqp:Characteristic ;
+    rdfs:label "Potassium 1,1,2,2-tetrafluoro-2-(pentafluoroethoxy)ethane-1-sulfonate" ;
+    dsstox:hasInChiKey "LRLOPVLXVNLHIC-UHFFFAOYSA-N"^^xsd:string ;
+    coso:casNumber "117205-07-9"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845863"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.17683 a us_wqp:Characteristic ;
     rdfs:label "Potassium 11-chloroeicosafluoro-3-oxaundecane-1-sulfonate" ;
     dsstox:hasInChiKey "BDKYEEMJFNONPU-UHFFFAOYSA-N"^^xsd:string ;
     coso:casNumber "83329-89-9"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845866"^^xsd:string .
+    us_wqp:srsID "1845866"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.18191 a us_wqp:Characteristic ;
+us_wqp:characteristic.18078 a us_wqp:Characteristic ;
+    rdfs:label "1-Butanesulfonic acid, 1,1,2,2,3,3,4,4,4-nonafluoro-***retired***use Perfluorobutanesulfonic acid" ;
+    dsstox:hasInChiKey "JGTNAGYHADQMCM-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID5030030 ;
+    coso:casNumber "375-73-5"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "44412"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18191 a us_wqp:Characteristic ;
     rdfs:label "Potassium 9-chlorohexadecafluoro-3-oxanonane-1-sulfonate" ;
     dsstox:hasInChiKey "OWQCHLFKOGVODW-UHFFFAOYSA-N"^^xsd:string ;
     coso:casNumber "73606-19-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845876"^^xsd:string .
+    us_wqp:srsID "1845876"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.18755 a us_wqp:Characteristic ;
+us_wqp:characteristic.18456 a us_wqp:Characteristic ;
+    rdfs:label "Glycine, N-[(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluorooctyl)sulfonyl]-N-methyl-***retired***use N-methyl perfluorooctanesulfonamidoacetic acid" ;
+    us_wqp:groupName "Organics, Other"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18521 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonamide, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-***retired***use Perfluorooctanesulfonamide" ;
+    dsstox:hasInChiKey "RRRXPPIDPYTNJG-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3038939 ;
+    coso:casNumber "754-91-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "5240163"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18574 a us_wqp:Characteristic ;
+    rdfs:label "1-Butanesulfonic acid, 1,1,2,2,3,3,4,4,4-nonafluoro-, ion(1-)***retired***use Perfluorobutanesulfonate" ;
+    dsstox:hasInChiKey "JGTNAGYHADQMCM-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID5030030 ;
+    coso:casNumber "45187-15-3"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1736164"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18587 a us_wqp:Characteristic ;
+    rdfs:label "1,2-Benzenedicarboxamide, N2-[1,1-dimethyl-2-(methylsulfonyl)ethyl]-3-iodo-N1-[2-methyl-4-[1,2,2,2-tetrafluoro-1-(trifluoromethyl)ethyl]phenyl]-***retired***use Flubendiamide" ;
+    dsstox:hasInChiKey "ZGNITFSDLCMLGI-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID4047672 ;
+    coso:casNumber "272451-65-7"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1734802"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18605 a us_wqp:Characteristic ;
+    rdfs:label "1-Hexanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,6-tridecafluoro-, ion(1-)" ;
+    dsstox:hasInChiKey "QZHDEAJFRJCDMF-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID7040150 ;
+    coso:casNumber "108427-53-8"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1736764"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18755 a us_wqp:Characteristic ;
     rdfs:label "6-H-Perfluorohexanoate" ;
     dsstox:hasInChiKey "XRFUZLYVDISQAA-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID20880169 ;
     coso:casNumber "1696259-63-8"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1851882"^^xsd:string .
+    us_wqp:srsID "1851882"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.18826 a us_wqp:Characteristic ;
+us_wqp:characteristic.18785 a us_wqp:Characteristic ;
+    rdfs:label "1-Hexanesulfonic acid, 3,3,4,4,5,5,6,6,6-nonafluoro-***retired***use Fluorotelomer sulfonate 4:2" ;
+    dsstox:hasInChiKey "TXGIGTRUEITPSC-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID30891564 ;
+    coso:casNumber "757124-72-4"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1826301"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18813 a us_wqp:Characteristic ;
+    rdfs:label "13-H-Perfluorotridecanoate" ;
+    dsstox:hasInChiKey "KPYKBTOWOKVJKN-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID40892941 ;
+    coso:casNumber "1696259-78-5"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1851886"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18826 a us_wqp:Characteristic ;
     rdfs:label "12-H-Perfluorododecanoate" ;
     dsstox:hasInChiKey "YUBCZTSMCHHYJK-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID60892923 ;
     coso:casNumber "1696259-75-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1851885"^^xsd:string .
+    us_wqp:srsID "1851885"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.18897 a us_wqp:Characteristic ;
+us_wqp:characteristic.18897 a us_wqp:Characteristic ;
     rdfs:label "4,8-Dioxa-3H-perfluorononanoic acid" ;
     dsstox:hasInChiKey "AFDRCEOKCOUICI-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID40881350 ;
     coso:casNumber "919005-14-4"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1828897"^^xsd:string .
+    us_wqp:srsID "1828897"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.18912 a us_wqp:Characteristic ;
+us_wqp:characteristic.18908 a us_wqp:Characteristic ;
+    rdfs:label "14-H-Perfluorotetradecanoate" ;
+    dsstox:hasInChiKey "SHTFBHPXHZCYQE-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID70892939 ;
+    coso:casNumber "1696259-81-0"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1851887"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.18912 a us_wqp:Characteristic ;
     rdfs:label "Octanoic acid, 4,4,5,5,6,6,7,7,8,8,8-undecafluoro-" ;
     dsstox:hasInChiKey "ABFCFCPCGMHSRX-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID20874028 ;
     coso:casNumber "914637-49-3"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1828609"^^xsd:string .
+    us_wqp:srsID "1828609"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.19256 a us_wqp:Characteristic ;
+us_wqp:characteristic.19043 a us_wqp:Characteristic ;
+    rdfs:label "Methyl Perfluorodecanoate" ;
+    dsstox:hasInChiKey "QJFHNYDPNSFJMR-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID60369822 ;
+    coso:casNumber "307-79-9"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845297"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19053 a us_wqp:Characteristic ;
+    rdfs:label "Methyl perfluoro-3,6-dioxaheptanoate" ;
+    dsstox:hasInChiKey "NDRNDAZKCQFBST-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID40377687 ;
+    coso:casNumber "39187-41-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845295"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19169 a us_wqp:Characteristic ;
+    rdfs:label "Sodium Perfluorononanesulfonate" ;
+    dsstox:hasInChiKey "CJBQJWNHEORPRL-UHFFFAOYSA-N"^^xsd:string ;
+    coso:casNumber "98789-57-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845985"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19176 a us_wqp:Characteristic ;
+    rdfs:label "Methyl Perfluorononanoate" ;
+    dsstox:hasInChiKey "CFNCFMKWDPDIPT-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID40379560 ;
+    coso:casNumber "51502-45-5"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845303"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19256 a us_wqp:Characteristic ;
     rdfs:label "Decanoic acid, 4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-pentadecafluoro-" ;
     dsstox:hasInChiKey "HLBRGVKRZQSQHB-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID90382620 ;
     coso:casNumber "812-70-4"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1833954"^^xsd:string .
+    us_wqp:srsID "1833954"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.19577 a us_wqp:Characteristic ;
+us_wqp:characteristic.19292 a us_wqp:Characteristic ;
+    rdfs:label "Pentanoic acid, 2,2,3,3,4,4,5,5,5-nonafluoro-***retired***use Perfluorovaleric acid" ;
+    dsstox:hasInChiKey "CXZGQIAOTKWCDB-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID6062599 ;
+    coso:casNumber "2706-90-3"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "106476"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19383 a us_wqp:Characteristic ;
+    rdfs:label "1-Pentanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,5-undecafluoro-***retired***use Perfluoropentanesulfonic acid" ;
+    dsstox:hasInChiKey "ACEKLXZRZOWKRY-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID8062600 ;
+    coso:casNumber "2706-91-4"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "106484"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19467 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-***retired***use Perfluorooctane sulfonic acid" ;
+    dsstox:hasInChiKey "YFSUTJLHUFNCNZ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3031864 ;
+    coso:casNumber "1763-23-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "92205"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19482 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonamide, N-ethyl-1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-N-(2-hydroxyethyl)-***retired***use N-Ethyl-N-(2-hydroxyethyl)perfluorooctanesulfonamide\r" ;
+    dsstox:hasInChiKey "HUFHNYZNTFSKCT-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID6027426 ;
+    coso:casNumber "1691-99-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "90852"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19505 a us_wqp:Characteristic ;
+    rdfs:label "1-Hexanesulfonic acid, 3,3,4,4,5,5,6,6,6-nonafluoro-, ion(1-)***retired***use FtS 4:2 ion" ;
+    dsstox:hasInChiKey "TXGIGTRUEITPSC-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID30891564 ;
+    coso:casNumber "414911-30-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1833941"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19556 a us_wqp:Characteristic ;
+    rdfs:label "1-Decanesulfonic acid, 3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-heptadecafluoro-, ion(1-)***retired***use FtS 8:2 ion" ;
+    dsstox:hasInChiKey "ALVYVCQIFHTIRD-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID00192353 ;
+    coso:casNumber "481071-78-7"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1833945"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19577 a us_wqp:Characteristic ;
     rdfs:label "2H,2H,3H,3H-Perfluorooctanoate" ;
     dsstox:hasInChiKey "ABFCFCPCGMHSRX-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID20874028 ;
     coso:casNumber "1799325-94-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1851912"^^xsd:string .
+    us_wqp:srsID "1851912"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.19594 a us_wqp:Characteristic ;
+us_wqp:characteristic.19579 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonic acid, 3,3,4,4,5,5,6,6,7,7,8,8,8-tridecafluoro-, ion(1-)***retired***use FtS 6:2 ion" ;
+    dsstox:hasInChiKey "VIONGDJUYAYOPU-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID6067331 ;
+    coso:casNumber "425670-75-3"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1833943"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19594 a us_wqp:Characteristic ;
     rdfs:label "1-Propanesulfonic acid, 1,1,2,2,3,3,3-heptafluoro-" ;
     dsstox:hasInChiKey "XBWQFDNGNOOMDZ-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID30870531 ;
     coso:casNumber "423-41-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1833942"^^xsd:string .
+    us_wqp:srsID "1833942"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.19684 a us_wqp:Characteristic ;
+us_wqp:characteristic.19684 a us_wqp:Characteristic ;
     rdfs:label "11-Chloro-Perfluoroundecanoic acid" ;
     dsstox:hasInChiKey "ACWJDDIKDCUGLO-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID10892918 ;
     coso:casNumber "2823-49-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1849959"^^xsd:string .
+    us_wqp:srsID "1849959"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.19698 a us_wqp:Characteristic ;
+us_wqp:characteristic.19698 a us_wqp:Characteristic ;
     rdfs:label "12-Cl-Perfluorododecanoic acid" ;
     dsstox:hasInChiKey "DIRFOJTVNYDFBA-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID90892618 ;
     coso:casNumber "574715-87-0"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1849958"^^xsd:string .
+    us_wqp:srsID "1849958"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.19762 a us_wqp:Characteristic ;
+us_wqp:characteristic.19739 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonamide, N-ethyl-1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-***retired***use Sulfluramid" ;
+    dsstox:hasInChiKey "CCEKAJIANROZEO-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID1032646 ;
+    coso:casNumber "4151-50-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "121954"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19762 a us_wqp:Characteristic ;
     rdfs:label "10-H-Perfluorodecanoic acid" ;
     dsstox:hasInChiKey "OCDHRWMTOBLTSC-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID10630918 ;
     coso:casNumber "112823-28-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1849961"^^xsd:string .
+    us_wqp:srsID "1849961"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.20426 a us_wqp:Characteristic ;
+us_wqp:characteristic.19823 a us_wqp:Characteristic ;
+    rdfs:label "Glycine, N-ethyl-N-[(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluorooctyl)sulfonyl]-***retired***use N-ethyl perfluorooctanesulfonamidoacetic acid" ;
+    dsstox:hasInChiKey "CKRXVVGETMYFIO-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID5062760 ;
+    coso:casNumber "2991-50-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "109702"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.19926 a us_wqp:Characteristic ;
+    rdfs:label "Hexanoic acid, 4,4,5,5,6,6,6-heptafluoro-***retired***use 3:3 Fluorotelomer carboxylic acid" ;
+    dsstox:hasInChiKey "ISFKSWMQWIRDNC-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID00379268 ;
+    coso:casNumber "356-02-5"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1842145"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.20082 a us_wqp:Characteristic ;
+    rdfs:label "Octadecanoic acid, 2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18,18-pentatriacontafluoro-***retired***use Octadecanoic acid, pentatriacontafluoro-" ;
+    dsstox:hasInChiKey "ZTSDOGSKTICNPQ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID1066071 ;
+    coso:casNumber "16517-11-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "204610"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.20353 a us_wqp:Characteristic ;
+    rdfs:label "2,2,3-Trifluoro-3-[1,1,2,2,3,3-hexafluoro-3-(trifluoromethoxy)propoxy]propanoate" ;
+    dsstox:hasInChiKey "AFDRCEOKCOUICI-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID40881350 ;
+    coso:casNumber "2127366-90-7"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1851971"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.20426 a us_wqp:Characteristic ;
     rdfs:label "13-H-Perfluorotridecanoic acid" ;
     dsstox:hasInChiKey "KPYKBTOWOKVJKN-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID40892941 ;
     coso:casNumber "423-73-4"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1848917"^^xsd:string .
+    us_wqp:srsID "1848917"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.20794 a us_wqp:Characteristic ;
+us_wqp:characteristic.20794 a us_wqp:Characteristic ;
     rdfs:label "14-H-Perfluorotetradecanoic acid" ;
     us_wqp:groupName "Organics, Other"^^xsd:string ;
-    us_wqp:srsID "1848916"^^xsd:string .
+    us_wqp:srsID "1848916"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.20865 a us_wqp:Characteristic ;
+us_wqp:characteristic.20865 a us_wqp:Characteristic ;
     rdfs:label "11-H-Perfluoroundecanoate" ;
     dsstox:hasInChiKey "MMYNPHSPRPZSSN-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID5061954 ;
     coso:casNumber "69681-37-4"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1973587"^^xsd:string .
+    us_wqp:srsID "1973587"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.2180 a us_wqp:Characteristic ;
+us_wqp:characteristic.20877 a us_wqp:Characteristic ;
+    rdfs:label "7-H-Perfluoroheptanoate" ;
+    dsstox:hasInChiKey "JZHDEEOTEUVLHR-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID70165670 ;
+    coso:casNumber "69681-35-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1973586"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.20963 a us_wqp:Characteristic ;
+    rdfs:label "Ammonium bis(3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-heptadecafluorodecyl) phosphate" ;
+    dsstox:hasInChiKey "JNZVTKOEMWLMOF-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID80239593 ;
+    coso:casNumber "93776-20-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1844800"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.21754 a us_wqp:Characteristic ;
+    rdfs:label "Hexadecanoic acid, 2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,16-hentriacontafluoro-***retired***use Perfluoropalmitic acid" ;
+    dsstox:hasInChiKey "OJMBMWRMTMHMSZ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID1070800 ;
+    coso:casNumber "67905-19-5"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "373605"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.2180 a us_wqp:Characteristic ;
     rdfs:label "CFC-114" ;
     dsstox:hasInChiKey "DDMOUSALMHHKOS-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID8026434 ;
     coso:casNumber "76-14-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "6155"^^xsd:string .
+    us_wqp:srsID "6155"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.21871 a us_wqp:Characteristic ;
+us_wqp:characteristic.21871 a us_wqp:Characteristic ;
     rdfs:label "Perfluoro(2-ethoxyethane)sulfonic acid" ;
     dsstox:hasInChiKey "RJGUAQKOHAABLK-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID50379814 ;
     coso:casNumber "113507-82-7"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845585"^^xsd:string .
+    us_wqp:srsID "1845585"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.22382 a us_wqp:Characteristic ;
+us_wqp:characteristic.22382 a us_wqp:Characteristic ;
     rdfs:label "Perfluoro(4-methoxybutanoic) acid" ;
     dsstox:hasInChiKey "CZTBTZZANBJSLY-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID60500450 ;
     coso:casNumber "863090-89-5"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845592"^^xsd:string .
+    us_wqp:srsID "1845592"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.22572 a us_wqp:Characteristic ;
+us_wqp:characteristic.22572 a us_wqp:Characteristic ;
     rdfs:label "Perfluoro-3-methoxypropanoic acid" ;
     dsstox:hasInChiKey "AGIMOOYNBDLMJV-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID70191136 ;
     coso:casNumber "377-73-1"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845646"^^xsd:string .
+    us_wqp:srsID "1845646"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.31056 a us_wqp:Characteristic ;
+us_wqp:characteristic.22803 a us_wqp:Characteristic ;
+    rdfs:label "1-Nonanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,9-nonadecafluoro-***retired***use Perfluoro-1-nonanesulfonic acid" ;
+    dsstox:hasInChiKey "MNEXVZFQQPKDHC-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID8071356 ;
+    coso:casNumber "68259-12-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "413716"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.25421 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonamide, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-N-methyl-, reaction products with benzene-chlorine-sulfur chloride (S2Cl2) reaction products chlorides" ;
+    coso:casNumber "182700-90-9"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "5241740"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31056 a us_wqp:Characteristic ;
     rdfs:label "3H-Perfluorobutanoic acid" ;
     dsstox:hasInChiKey "AZLUIEGTKBIKSG-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID90626970 ;
     coso:casNumber "379-90-8"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1844347"^^xsd:string .
+    us_wqp:srsID "1844347"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.3112 a us_wqp:Characteristic ;
+us_wqp:characteristic.3112 a us_wqp:Characteristic ;
     rdfs:label "1-Heptanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,7-pentadecafluoro-" ;
     dsstox:hasInChiKey "OYGQVDSRYXATEL-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID8059920 ;
     coso:casNumber "375-92-8"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "44461"^^xsd:string .
+    us_wqp:srsID "44461"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.3113 a us_wqp:Characteristic ;
+us_wqp:characteristic.31125 a us_wqp:Characteristic ;
+    rdfs:label "13C3-PFBS" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31126 a us_wqp:Characteristic ;
+    rdfs:label "13C2-4:2 FTS" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.3113 a us_wqp:Characteristic ;
     rdfs:label "1-Decanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-heneicosafluoro-" ;
     dsstox:hasInChiKey "HYWZIAVPBSTISZ-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID3040148 ;
     coso:casNumber "335-77-3"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "42895"^^xsd:string .
+    us_wqp:srsID "42895"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.3281 a us_wqp:Characteristic ;
+us_wqp:characteristic.3114 a us_wqp:Characteristic ;
+    rdfs:label "Heptafluorobutyric acid***retired***use Perfluorobutanoic acid" ;
+    dsstox:hasInChiKey "YPJUNDFVDDCYIH-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID4059916 ;
+    coso:casNumber "375-22-4"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "44370"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.3117 a us_wqp:Characteristic ;
+    rdfs:label "Perfluorolauric acid***retired***use Perfluorododecanoic acid" ;
+    dsstox:hasInChiKey "CXGONMQFMIYUJR-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031861 ;
+    coso:casNumber "307-55-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "41947"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.3118 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoromyristic acid***retired***use Perfluorotetradecanoic acid" ;
+    dsstox:hasInChiKey "RUDINRUXCKIXAJ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3059921 ;
+    coso:casNumber "376-06-7"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "44487"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31708 a us_wqp:Characteristic ;
+    rdfs:label "9-Chlorohexadecafluoro-3-oxanonane-1-sulfonic acid" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31709 a us_wqp:Characteristic ;
+    rdfs:label "4,8-dioxa-3H-perfluorononanoate" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31711 a us_wqp:Characteristic ;
+    rdfs:label "Hexafluoropropylene oxide-dimer acid" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31713 a us_wqp:Characteristic ;
+    rdfs:label "N-Ethylperfluorooctane-1-sulfonamide" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31714 a us_wqp:Characteristic ;
+    rdfs:label "N-Ethyl perfluorooctane sulfonamido ethanol" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31715 a us_wqp:Characteristic ;
+    rdfs:label "N-Methyl perfluorooctane sulfonamide" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31716 a us_wqp:Characteristic ;
+    rdfs:label "N-Methylperfluorooctane sulfonamido ethanol" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.31720 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoropentane sulfonic acid" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.32703 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro-1-dodecanesulfonate" ;
+    coso:casNumber "1260224-54-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1993440"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.3281 a us_wqp:Characteristic ;
     rdfs:label "Perfluorooctanesulfonate" ;
     dsstox:hasInChiKey "YFSUTJLHUFNCNZ-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID3031864 ;
     coso:casNumber "45298-90-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "17026840"^^xsd:string .
+    us_wqp:srsID "17026840"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.3282 a us_wqp:Characteristic ;
+us_wqp:characteristic.3282 a us_wqp:Characteristic ;
     rdfs:label "Perfluorohexanesulfonate" ;
     dsstox:hasInChiKey "QZHDEAJFRJCDMF-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID7040150 ;
     coso:casNumber "108427-53-8"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1736764"^^xsd:string .
+    us_wqp:srsID "1736764"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.3292 a us_wqp:Characteristic ;
+us_wqp:characteristic.3291 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoropentanoate" ;
+    dsstox:hasInChiKey "CXZGQIAOTKWCDB-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID6062599 ;
+    coso:casNumber "45167-47-3"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845750"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.3292 a us_wqp:Characteristic ;
     rdfs:label "Perfluorobutanoate" ;
     dsstox:hasInChiKey "YPJUNDFVDDCYIH-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID4059916 ;
     coso:casNumber "45048-62-2"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845663"^^xsd:string .
+    us_wqp:srsID "1845663"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.62959 a us_wqp:Characteristic ;
+us_wqp:characteristic.3930 a us_wqp:Characteristic ;
+    rdfs:label "Hexaflumuron" ;
+    dsstox:hasInChiKey "RGNPBRKPHBKNKX-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3032620 ;
+    coso:casNumber "86479-06-3"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "599928"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62287 a us_wqp:Characteristic ;
+    rdfs:label "13C3-HFPO-DA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62288 a us_wqp:Characteristic ;
+    rdfs:label "13C4-PFBA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62289 a us_wqp:Characteristic ;
+    rdfs:label "13C5-PFHxA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62290 a us_wqp:Characteristic ;
+    rdfs:label "13C5-PFPeA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62291 a us_wqp:Characteristic ;
+    rdfs:label "13C6-PFDA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62292 a us_wqp:Characteristic ;
+    rdfs:label "13C7-PFUnA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62293 a us_wqp:Characteristic ;
+    rdfs:label "13C8-PFOA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62294 a us_wqp:Characteristic ;
+    rdfs:label "13C9-PFNA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62295 a us_wqp:Characteristic ;
+    rdfs:label "D3-N-MeFOSA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62296 a us_wqp:Characteristic ;
+    rdfs:label "D5-N-EtFOSA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62297 a us_wqp:Characteristic ;
+    rdfs:label "d7-NMe-FOSE" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62298 a us_wqp:Characteristic ;
+    rdfs:label "d9-NEt-FOSE" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62299 a us_wqp:Characteristic ;
+    rdfs:label "13C2-PFTeDA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62300 a us_wqp:Characteristic ;
+    rdfs:label "13C2-PFDoA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62302 a us_wqp:Characteristic ;
+    rdfs:label "d5-EtFOSAA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62303 a us_wqp:Characteristic ;
+    rdfs:label "d3-MeFOSAA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62304 a us_wqp:Characteristic ;
+    rdfs:label "13C2-8:2 FTS" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62306 a us_wqp:Characteristic ;
+    rdfs:label "13C8-PFOS" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62307 a us_wqp:Characteristic ;
+    rdfs:label "13C8-PFOSA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62310 a us_wqp:Characteristic ;
+    rdfs:label "13C2-6:2 FTS" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62311 a us_wqp:Characteristic ;
+    rdfs:label "13C3-PFHxS" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62312 a us_wqp:Characteristic ;
+    rdfs:label "13C4-PFHpA" ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62354 a us_wqp:Characteristic ;
+    rdfs:label "PFOA ion" ;
+    dsstox:hasInChiKey "SNGREZUHAYWORS-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031865 ;
+    coso:casNumber "45285-51-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1833944"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.62959 a us_wqp:Characteristic ;
     rdfs:label "5H-Perfluorohexanesulfonic acid" ;
     dsstox:hasInChiKey "DOWJLTPWPGXVFD-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID101032330 ;
     coso:casNumber "2089109-56-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1989091"^^xsd:string .
+    us_wqp:srsID "1989091"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.64478 a us_wqp:Characteristic ;
+us_wqp:characteristic.63261 a us_wqp:Characteristic ;
+    rdfs:label "8H-Perfluorononanesulfonic acid" ;
+    dsstox:hasInChiKey "WJKBXFRRXIONGT-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID301032605 ;
+    coso:casNumber "2089109-59-9"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1989094"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.63453 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro(2-propoxypropanoate)" ;
+    dsstox:hasInChiKey "CSEBNABAWMZWIF-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID70880215 ;
+    coso:casNumber "122499-17-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1988612"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.64478 a us_wqp:Characteristic ;
     rdfs:label "2H-Perfluorononanoic acid" ;
     dsstox:hasInChiKey "CVAZURDPUJIKIQ-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID001035129 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992041"^^xsd:string .
+    us_wqp:srsID "1992041"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.64483 a us_wqp:Characteristic ;
+us_wqp:characteristic.64483 a us_wqp:Characteristic ;
     rdfs:label "2H-Perfluorohexanoic acid" ;
     dsstox:hasInChiKey "CYFXTKNPCJAIPM-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID301035178 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992040"^^xsd:string .
+    us_wqp:srsID "1992040"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.64488 a us_wqp:Characteristic ;
+us_wqp:characteristic.64488 a us_wqp:Characteristic ;
     rdfs:label "2H-Perfluoropentanoic acid" ;
     dsstox:hasInChiKey "FFQUPGMSRKIOLT-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID601035165 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992043"^^xsd:string .
+    us_wqp:srsID "1992043"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.64556 a us_wqp:Characteristic ;
+us_wqp:characteristic.64556 a us_wqp:Characteristic ;
     rdfs:label "2H-Perfluoroheptanoic acid" ;
     dsstox:hasInChiKey "HWFPEKMIHWSKHB-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID401035226 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992038"^^xsd:string .
+    us_wqp:srsID "1992038"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8083 a us_wqp:Characteristic ;
+us_wqp:characteristic.64960 a us_wqp:Characteristic ;
+    rdfs:label "(2E)-4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-Pentadecafluorodec-2-enoic acid" ;
+    dsstox:hasInChiKey "RRROMQAILYJNAL-OWOJBTEDSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID701026589 ;
+    coso:casNumber "56017-63-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1989397"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.6680 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonic acid, 3,3,4,4,5,5,6,6,7,7,8,8,8-tridecafluoro-***retired***use 6:2 Fluorotelomer sulfonate acid" ;
+    dsstox:hasInChiKey "VIONGDJUYAYOPU-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID6067331 ;
+    coso:casNumber "27619-97-2"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "246447"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.6681 a us_wqp:Characteristic ;
+    rdfs:label "1-Decanesulfonic acid, 3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-heptadecafluoro-***retired***use Fluorotelomer sulfonate 8:2" ;
+    dsstox:hasInChiKey "ALVYVCQIFHTIRD-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID00192353 ;
+    coso:casNumber "39108-34-4"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1826299"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.760 a us_wqp:Characteristic ;
+    rdfs:label "CFC-12" ;
+    coso:casNumber "75-71-8"^^xsd:string ;
+    us_wqp:groupName "Stable Isotopes"^^xsd:string ;
+    us_wqp:srsID "5801"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8083 a us_wqp:Characteristic ;
     rdfs:label "11-chloroeicosafluoro-3-oxaundecane-1-sulfonic acid" ;
     dsstox:hasInChiKey "SZVGIJOITCPDPM-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID40892507 ;
     coso:casNumber "763051-92-9"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1846120"^^xsd:string .
+    us_wqp:srsID "1846120"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8086 a us_wqp:Characteristic ;
+us_wqp:characteristic.8084 a us_wqp:Characteristic ;
+    rdfs:label "2-(N-ethylperfluoro-1-octanesulfonamido)-ethanol***retired***use N-Ethylperfluorooctanesulfonamidoethanol" ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8086 a us_wqp:Characteristic ;
     rdfs:label "9-Chlorohexadecafluoro-3-oxanone-1-sulfonic acid" ;
     dsstox:hasInChiKey "GGOUUEMCWBTDMT-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID80892506 ;
     coso:casNumber "756426-58-1"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845577"^^xsd:string .
+    us_wqp:srsID "1845577"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8087 a us_wqp:Characteristic ;
+us_wqp:characteristic.8087 a us_wqp:Characteristic ;
     rdfs:label "Ammonium 4,8-dioxa-3H-perfluorononanoate" ;
     dsstox:hasInChiKey "PLWXPXSPYCHPTF-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID00874026 ;
     coso:casNumber "958445-44-8"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1828597"^^xsd:string .
+    us_wqp:srsID "1828597"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8091 a us_wqp:Characteristic ;
+us_wqp:characteristic.8091 a us_wqp:Characteristic ;
     rdfs:label "Hexafluoropropylene oxide dimer acid" ;
     dsstox:hasInChiKey "CSEBNABAWMZWIF-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID70880215 ;
     coso:casNumber "13252-13-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1731626"^^xsd:string .
+    us_wqp:srsID "1731626"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8094 a us_wqp:Characteristic ;
+us_wqp:characteristic.8094 a us_wqp:Characteristic ;
     rdfs:label "Perfluorododecanesulfonate" ;
     dsstox:hasInChiKey "CFCRODHVHXGTPC-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID20873011 ;
     coso:casNumber "343629-43-6"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1973153"^^xsd:string .
+    us_wqp:srsID "1973153"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8095 a us_wqp:Characteristic ;
+us_wqp:characteristic.8095 a us_wqp:Characteristic ;
     rdfs:label "Perfluoroheptanesulfonate" ;
     dsstox:hasInChiKey "OYGQVDSRYXATEL-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID8059920 ;
     coso:casNumber "146689-46-5"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845701"^^xsd:string .
+    us_wqp:srsID "1845701"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8096 a us_wqp:Characteristic ;
+us_wqp:characteristic.8096 a us_wqp:Characteristic ;
     rdfs:label "Perfluorononanesulfonate" ;
     dsstox:hasInChiKey "MNEXVZFQQPKDHC-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID8071356 ;
     coso:casNumber "474511-07-4"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845724"^^xsd:string .
+    us_wqp:srsID "1845724"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8097 a us_wqp:Characteristic ;
+us_wqp:characteristic.8097 a us_wqp:Characteristic ;
     rdfs:label "Perfluoropentanesulfonate" ;
     dsstox:hasInChiKey "ACEKLXZRZOWKRY-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID8062600 ;
     coso:casNumber "175905-36-9"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1845749"^^xsd:string .
+    us_wqp:srsID "1845749"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8168 a us_wqp:Characteristic ;
+us_wqp:characteristic.8160 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2,3,4,5,6,7-13C7]undecanoic acid" ;
+    dsstox:hasInChiKey "SIDINRCMMRKXGQ-BNUYUSEDSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID101028082 ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992681"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8162 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2,3,4,6-13C5]hexanoic acid" ;
+    dsstox:hasInChiKey "PXUULQAPEKKVAH-ZFKNMOOESA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID801028083 ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992682"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8163 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2,3,4-13C4]butanoic acid" ;
+    dsstox:hasInChiKey "YPJUNDFVDDCYIH-JCDJMFQYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID201028085 ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992683"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8166 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2-13C2]dodecanoic acid" ;
+    dsstox:hasInChiKey "CXGONMQFMIYUJR-ZDOIIHCHSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID001028089 ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992684"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8167 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro[1,2-13C2]hexadecanoic acid" ;
+    dsstox:hasInChiKey "OJMBMWRMTMHMSZ-ZDOIIHCHSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID601028087 ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1992685"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.8168 a us_wqp:Characteristic ;
     rdfs:label "Perfluoro[1,2-13C2]hexanoic acid" ;
     dsstox:hasInChiKey "PXUULQAPEKKVAH-ZDOIIHCHSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID901028086 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992686"^^xsd:string .
+    us_wqp:srsID "1992686"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8169 a us_wqp:Characteristic ;
+us_wqp:characteristic.8169 a us_wqp:Characteristic ;
     rdfs:label "Perfluoro[1,2-13C2]tetradecanoic acid" ;
     dsstox:hasInChiKey "RUDINRUXCKIXAJ-ZDOIIHCHSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID301028088 ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992687"^^xsd:string .
+    us_wqp:srsID "1992687"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8170 a us_wqp:Characteristic ;
+us_wqp:characteristic.8170 a us_wqp:Characteristic ;
     rdfs:label "Perfluoro[1,2-13C2]undecanoic acid" ;
     coso:casNumber "960315-51-9"^^xsd:string ;
-    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string .
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.8173 a us_wqp:Characteristic ;
+us_wqp:characteristic.8173 a us_wqp:Characteristic ;
     rdfs:label "Sodium perfluoro-1-hexane[18O2]sulfonate" ;
     dsstox:hasInChiKey "WXNIEINRHBIHRE-NVEWVSFYSA-N"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "1992777"^^xsd:string .
+    us_wqp:srsID "1992777"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.9007 a us_wqp:Characteristic ;
+us_wqp:characteristic.9007 a us_wqp:Characteristic ;
     rdfs:label "9-Chlorohexadecafluoro-3-oxanonane-1-sulfonate" ;
     coso:casNumber "756426-58-1"^^xsd:string ;
     us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
-    us_wqp:srsID "524680102"^^xsd:string .
+    us_wqp:srsID "524680102"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.9235 a us_wqp:Characteristic ;
+us_wqp:characteristic.9084 a us_wqp:Characteristic ;
+    rdfs:label "Sodium 1H,1H,2H,2H-perfluoro1-decanesulfonate" ;
+    coso:casNumber "2708218-90-8"^^xsd:string ;
+    us_wqp:groupName "PFOS, Perfluorooctane Sulfonate"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9235 a us_wqp:Characteristic ;
     rdfs:label "N-Methylperfluorooctanesulfonamidoacetate" ;
-    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string .
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.9364 a us_wqp:Characteristic ;
+us_wqp:characteristic.9359 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro-1-octanesulfonamide***retired***use Perfluorooctanesulfonamide" ;
+    dsstox:hasInChiKey "RRRXPPIDPYTNJG-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3038939 ;
+    coso:casNumber "754-91-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "5240163"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9361 a us_wqp:Characteristic ;
+    rdfs:label "1H,1H, 2H, 2H-Perfluorohexane sulfonic acid***retired***use Fluorotelomer sulfonate 4:2" ;
+    dsstox:hasInChiKey "TXGIGTRUEITPSC-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID30891564 ;
+    coso:casNumber "757124-72-4"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1826301"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9364 a us_wqp:Characteristic ;
     rdfs:label "2H,2H,3H,3H-Perfluorooctanoic acid" ;
     dsstox:hasInChiKey "ABFCFCPCGMHSRX-UHFFFAOYSA-N"^^xsd:string ;
     dsstox:sameAsDSSToxSubstance dsstox:DTXSID20874028 ;
     coso:casNumber "914637-49-3"^^xsd:string ;
     us_wqp:groupName "Not Assigned"^^xsd:string ;
-    us_wqp:srsID "1828609"^^xsd:string .
+    us_wqp:srsID "1828609"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-us_wqp_data:characteristic.9450 a us_wqp:Characteristic ;
+us_wqp:characteristic.9368 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonamide, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-N-(2-hydroxyethyl)-N-methyl-***retired***use 2-(N-methylperfluoro-1-octanesulfonamido)-ethanol" ;
+    dsstox:hasInChiKey "PLGACQRCZCVKGK-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID7027831 ;
+    coso:casNumber "24448-09-7"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "226159"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9388 a us_wqp:Characteristic ;
+    rdfs:label "1H,1H, 2H, 2H-Perfluorodecane sulfonic acid***retired***use Fluorotelomer sulfonate 8:2" ;
+    dsstox:hasInChiKey "ALVYVCQIFHTIRD-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID00192353 ;
+    coso:casNumber "39108-34-4"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1826299"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9409 a us_wqp:Characteristic ;
+    rdfs:label "3-Perfluoropropyl propanoic acid***retired***use 3:3 Fluorotelomer carboxylic acid" ;
+    dsstox:hasInChiKey "ISFKSWMQWIRDNC-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID00379268 ;
+    coso:casNumber "356-02-5"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1842145"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9410 a us_wqp:Characteristic ;
+    rdfs:label "Perfluoro-1-decanesulfonic acid***retired***use 1-Decanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,10-heneicosafluoro-" ;
+    dsstox:hasInChiKey "HYWZIAVPBSTISZ-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID3040148 ;
+    coso:casNumber "335-77-3"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "42895"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9439 a us_wqp:Characteristic ;
+    rdfs:label "1-Pentanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,5-undecafluoro-, potassium salt" ;
+    dsstox:hasInChiKey "MNUZXTVANFJFPD-UHFFFAOYSA-N"^^xsd:string ;
+    coso:casNumber "3872-25-1"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "119735"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
+
+us_wqp:characteristic.9450 a us_wqp:Characteristic ;
     rdfs:label "N-Ethylperfluorooctanesulfonamidoacetate" ;
-    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string .
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-dsstox:DTXSID101032330 a dsstox:ChemicalEntity ;
-    dcterms:alternative "5H-Perfluorohexanesulfonic acid" .
+us_wqp:characteristic.9458 a us_wqp:Characteristic ;
+    rdfs:label "1-Octanesulfonamide, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,8-heptadecafluoro-N-methyl-***retired***use N-methylperfluoro-1-octanesulfonamide" ;
+    dsstox:hasInChiKey "SRMWNTGHXHOWBT-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID1067629 ;
+    coso:casNumber "31506-32-8"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "259697"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-dsstox:DTXSID10630918 a dsstox:ChemicalEntity ;
-    dcterms:alternative "10-H-Perfluorodecanoic acid" .
+us_wqp:characteristic.9611 a us_wqp:Characteristic ;
+    rdfs:label "Nonafluoro-3,6-dioxaheptanoic acid***retired***use Perfluoro-3,6-dioxaheptanoic acid" ;
+    dsstox:hasInChiKey "PPWRLPJIHGWGFH-UHFFFAOYSA-N"^^xsd:string ;
+    dsstox:sameAsDSSToxSubstance dsstox:DTXSID30382063 ;
+    coso:casNumber "151772-58-6"^^xsd:string ;
+    us_wqp:groupName "PFAS,Perfluorinated Alkyl Substance"^^xsd:string ;
+    us_wqp:srsID "1845640"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:characteristic .
 
-dsstox:DTXSID10892918 a dsstox:ChemicalEntity ;
-    dcterms:alternative "11-Chloro-Perfluoroundecanoic acid" .
-
-dsstox:DTXSID30880251 a dsstox:ChemicalEntity ;
-    dcterms:alternative "1-Butanesulfonamide, 1,1,2,2,3,3,4,4,4-nonafluoro-" .
-
-dsstox:DTXSID50379814 a dsstox:ChemicalEntity ;
-    dcterms:alternative "Ethanesulfonic acid, 1,1,2,2-tetrafluoro-2-(1,1,2,2,2-pentafluoroethoxy)-" .
-
-dsstox:DTXSID50892578 a dsstox:ChemicalEntity ;
-    dcterms:alternative "1-Dodecanesulfonic acid, 3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,12-heneicosafluoro-" .
-
-dsstox:DTXSID60500450 a dsstox:ChemicalEntity ;
-    dcterms:alternative "Butanoic acid, 2,2,3,3,4,4-hexafluoro-4-(trifluoromethoxy)-" .
-
-dsstox:DTXSID70191136 a dsstox:ChemicalEntity ;
-    dcterms:alternative "Propanoic acid, 2,2,3,3-tetrafluoro-3-(trifluoromethoxy)-" .
-
-dsstox:DTXSID70880215 a dsstox:ChemicalEntity ;
-    dcterms:alternative "Propanoic acid, 2,3,3,3-tetrafluoro-2-(1,1,2,2,3,3,3-heptafluoropropoxy)-" .
-
-dsstox:DTXSID80892506 a dsstox:ChemicalEntity ;
-    dcterms:alternative "Ethanesulfonic acid, 2-[(6-chloro-1,1,2,2,3,3,4,4,5,5,6,6-dodecafluorohexyl)oxy]-1,1,2,2-tetrafluoro-" .
-
-dsstox:DTXSID90626970 a dsstox:ChemicalEntity ;
-    dcterms:alternative "Butanoic acid, 2,2,3,4,4,4-hexafluoro-" .
-
-dsstox:DTXSID20873011 a dsstox:ChemicalEntity ;
-    dcterms:alternative "1-Dodecanesulfonic acid, 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,12-pentacosafluoro-" .
+us_wqp_cv:characteristic a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Characteristic from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Characteristic"^^xsd:string .
 

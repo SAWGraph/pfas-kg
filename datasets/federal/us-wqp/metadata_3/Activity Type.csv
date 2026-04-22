@@ -1,4 +1,4 @@
-Domain,Unique Identifier,Code,Description,Analytical Method Required,Monitoring Location Required,Last Change Date,Abbreviation
+Domain,Unique Identifier,Name,Description,Analytical Method Required,Monitoring Location Required,Last Change Date,Abbreviation
 Activity Type(ActivityTypeCode),1,Field Msr/Obs,"MEASUREMENTS involve something measured in its environmental setting usually using some type of equipment.  OBSERVATIONS are made by people, usually without the use of equipment, and are frequently qualitative.",N,Y,4/15/2016 8:33:54 PM,FM
 Activity Type(ActivityTypeCode),66,Field Msr/Obs-Continuous Time Series,"Continuous time series (sensor) data submitted as calculated statistics (up to 6 per day), with the full time series included as a text file attachment. Measurements are automatically collected in the field by a fixed, deployed single or multi-parameter data logger.",N,Y,7/26/2023 9:40:43 AM,FMCTS
 Activity Type(ActivityTypeCode),3,Field Msr/Obs-Habitat Assessment,"A field activity conducted to evaluate a habitat, according to an organizations pre-defined habitat assessment scheme.",N,Y,7/26/2006 10:57:46 AM,FMHA
@@ -74,4 +74,3 @@ Activity Type(ActivityTypeCode),36,Sample-Other,This category contains a sample 
 Activity Type(ActivityTypeCode),11,Sample-Positive Control,A controlled sample with presence of analyte.,Y,Y,7/26/2006 10:57:46 AM,SPC
 Activity Type(ActivityTypeCode),4,Sample-Routine,A sample gathered using straightforward grab  procedures for purposes of a general evaluation of the environment at the site.,Y,Y,7/26/2006 10:57:46 AM,SR
 Activity Type(ActivityTypeCode),52,Sample-Routine Resample,A RE-sample (second or more) gathered using straightforward grab  procedures for purposes of a general evaluation of the environment at the site.,Y,Y,5/10/2016 2:13:01 PM,SRR
-

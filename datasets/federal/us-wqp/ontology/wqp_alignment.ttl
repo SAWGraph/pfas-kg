@@ -7,7 +7,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<http://w3id.org/sawgraph/v1/us-wqp#controlledVocab> rdf:type owl:Ontology ;
+<http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment> rdf:type owl:Ontology ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
                                                             <http://orcid.org/0000-0003-3547-8058> ,
                                                             <https://orcid.org/0000-0003-3271-6700>,
@@ -21,122 +21,156 @@
 
 # species mapping to NCBI (& FOODON)
 
-us_wqp_data:biologicalTaxon.10575 rdf:type obo:NCBITaxon_66913. 
+us_wqp_data:biologicalTaxon.10575 rdf:type obo:NCBITaxon_66913;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.10582 rdf:type obo:NCBITaxon_7998. 
+us_wqp_data:biologicalTaxon.10582 rdf:type obo:NCBITaxon_7998;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13166 rdf:type obo:NCBITaxon_147949. 
+us_wqp_data:biologicalTaxon.13166 rdf:type obo:NCBITaxon_147949; 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13169 rdf:type obo:NCBITaxon_225060. 
+us_wqp_data:biologicalTaxon.13169 rdf:type obo:NCBITaxon_225060;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13170 rdf:type obo:NCBITaxon_27706. 
+us_wqp_data:biologicalTaxon.13170 rdf:type obo:NCBITaxon_27706;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13370 rdf:type obo:NCBITaxon_46259. 
+us_wqp_data:biologicalTaxon.13370 rdf:type obo:NCBITaxon_46259;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13374 rdf:type obo:NCBITaxon_34816. 
+us_wqp_data:biologicalTaxon.13374 rdf:type obo:NCBITaxon_34816;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.1447 rdf:type obo:NCBITaxon_225389. 
+us_wqp_data:biologicalTaxon.1447 rdf:type obo:NCBITaxon_225389;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.14727 rdf:type obo:NCBITaxon_8022. 
+us_wqp_data:biologicalTaxon.14727 rdf:type obo:NCBITaxon_8022;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.15717 rdf:type obo:NCBITaxon_8167. 
+us_wqp_data:biologicalTaxon.15717 rdf:type obo:NCBITaxon_8167;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.17772 rdf:type obo:NCBITaxon_75288. 
+us_wqp_data:biologicalTaxon.17772 rdf:type obo:NCBITaxon_75288;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.18416 rdf:type obo:NCBITaxon_8032. 
+us_wqp_data:biologicalTaxon.18416 rdf:type obo:NCBITaxon_8032;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.18441 rdf:type obo:NCBITaxon_8038. 
+us_wqp_data:biologicalTaxon.18441 rdf:type obo:NCBITaxon_8038;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.23065 rdf:type obo:NCBITaxon_6550.
+us_wqp_data:biologicalTaxon.23065 rdf:type obo:NCBITaxon_6550;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.25364 rdf:type obo:NCBITaxon_6604. 
+us_wqp_data:biologicalTaxon.25364 rdf:type obo:NCBITaxon_6604;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.3725 rdf:type obo:NCBITaxon_154811.
+us_wqp_data:biologicalTaxon.3725 rdf:type obo:NCBITaxon_154811;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.3757 rdf:type obo:NCBITaxon_7971.
+us_wqp_data:biologicalTaxon.3757 rdf:type obo:NCBITaxon_7971;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.40317 rdf:type obo:NCBITaxon_283036.
+us_wqp_data:biologicalTaxon.40317 rdf:type obo:NCBITaxon_283036;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.7587 rdf:type obo:NCBITaxon_126735. 
+us_wqp_data:biologicalTaxon.7587 rdf:type obo:NCBITaxon_126735;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.7588 rdf:type obo:NCBITaxon_184451. 
+us_wqp_data:biologicalTaxon.7588 rdf:type obo:NCBITaxon_184451;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.818 rdf:type obo:NCBITaxon_27778. 
+us_wqp_data:biologicalTaxon.818 rdf:type obo:NCBITaxon_27778;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.11868 rdf:type obo:NCBITaxon_13106.
+us_wqp_data:biologicalTaxon.11868 rdf:type obo:NCBITaxon_13106;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.817 rdf:type obo:NCBITaxon_66912.
+us_wqp_data:biologicalTaxon.817 rdf:type obo:NCBITaxon_66912;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:sampleMedia.tissue rdf:type obo:FOODON_02010032. #all tissue samples some animal muscle tissue. 
+us_wqp_data:sampleMedia.tissue rdf:type obo:FOODON_02010032; #all tissue samples some animal muscle tissue. 
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 # sample type by media 
 us_wqp:DefWQPWaterSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue us_wqp_data:sampleMedia.water; 
-        rdfs:subClassOf coso:WaterSample.
+        rdfs:subClassOf coso:WaterSample;
+        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
     
 us_wqp:DefWQPSoilSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue us_wqp_data:sampleMedia.soil; 
-    rdfs:subClassOf coso:SoilSample.
+    rdfs:subClassOf coso:SoilSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPSedimentSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue us_wqp_data:sampleMedia.sediment; 
-    rdfs:subClassOf coso:SedimentSample.
+    rdfs:subClassOf coso:SedimentSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPBiologicalSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue us_wqp_data:sampleMedia.biological; 
-    rdfs:subClassOf coso:BiotaSample.
+    rdfs:subClassOf coso:BiotaSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPTissueSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue us_wqp_data:sampleMedia.tissue; 
-    rdfs:subClassOf coso:AnimalTissueSample.
+    rdfs:subClassOf coso:AnimalTissueSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPAirSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue us_wqp_data:sampleMedia.air; 
-    rdfs:subClassOf coso:AirSample.
+    rdfs:subClassOf coso:AirSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 # monitoring location feature type mapping 
 
 us_wqp:DefWQPSurfaceWaterFeatureType rdf:type owl:Class;
-    rdfs:subClassOf us_wqp:LocationType.
+    rdfs:subClassOf us_wqp:LocationType;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPGroundWaterFeatureType rdf:type owl:Class;
-    rdfs:subClassOf us_wqp:LocationType.
+    rdfs:subClassOf us_wqp:LocationType;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPWasteWaterFeatureType rdf:type owl:Class;
-      rdfs:subClassOf us_wqp:LocationType.
+      rdfs:subClassOf us_wqp:LocationType;
+      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 #Water material samples by source mapping using activity media and monitoring location
   
 us_wqp:DefWQPSampleFromSurfaceWaterFeature rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
         owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType;
-        rdfs:subClassOf us_wqp:Sample.
+        rdfs:subClassOf us_wqp:Sample;
+        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPSampleFromGroundWaterFeature rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
         owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType;
-        rdfs:subClassOf us_wqp:Sample.
+        rdfs:subClassOf us_wqp:Sample;
+        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPSurfaceWaterSample rdf:type owl:Class;
     owl:intersectionOf (us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromSurfaceWaterFeature); 
-    rdfs:subClassOf coso:SurfaceWaterSample. 
+    rdfs:subClassOf coso:SurfaceWaterSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
 us_wqp:DefWQPGroundWaterSample rdf:type owl:Class;
     owl:intersectionOf(us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromGroundWaterFeature);
-    rdfs:subClassOf coso:GroundWaterSample. 
+    rdfs:subClassOf coso:GroundWaterSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
 us_wqp:DefWQPWasteWaterSample rdf:type owl:Class;
     owl:intersectionOf (us_wqp:DefWQPWaterSample [rdf:type owl:Restriction;
     owl:onProperty coso:sampleFeatureType;
     owl:someValuesFrom us_wqp:DefWQPWasteWaterFeatureType]);
-    rdfs:subClassOf coso:WasteWaterSample.
- 
-#TODO property chain to infer huc12 as sampled feature when point/feature it within the huc12
-
-# Chemical mapping - coming from substance registry api? 
+    rdfs:subClassOf coso:WasteWaterSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.

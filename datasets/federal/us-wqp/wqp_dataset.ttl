@@ -1,0 +1,105 @@
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_data: <http://w3id.org/sawgraph/v2/us-wqp-data#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdwis: <http://w3id.org/sawgraph/v1/sdwis#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stad: <http://purl.org/spatialai/stad/v2/core/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>.
+
+<http://w3id.org/sawgraph/v2/us-wqp-data> rdf:type owl:Ontology ;
+                                        owl:imports <http://w3id.org/sawgraph/v2/us-wqp-data/AL_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/AL_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/AR_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/AR_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/AZ_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/AZ_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/CO_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/CO_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/CT_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/CT_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/DC_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/DC_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/IA_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/IA_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/IL_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/IL_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/IN_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/IN_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/KS_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/KS_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/KY_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/KY_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MA_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MA_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MD_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MD_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/ME_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/ME_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MI_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MI_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MN_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MN_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MO_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/MO_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/NC_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/NC_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/NH_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/NH_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/NY_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/NY_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/OH_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/OH_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/PA_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/PA_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/RI_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/RI_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/SC_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/SC_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/SD_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/SD_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/TN_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/TN_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/VA_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/VA_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/VT_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/VT_wqp_sites>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/WI_wqp_observations>,
+                                                    <http://w3id.org/sawgraph/v2/us-wqp-data/WI_wqp_sites>;
+                                        dcterms:issued "2024-07-26"^^xsd:dateTime ;  #first triplification release
+                                        dcterms:modified "2026-04-17"^^xsd:dateTime ; #date of last triplification
+                                        dcterms:description "Abox for Water Quality Portal PFAS Dataset for SAWGraph"@en ;
+                                        dcterms:title "Water Quality Portal PFAS Dataset"@en ;
+                                        prov:wasDerivedFrom us_wqp_data:sourceDataset;
+                                        owl:versionInfo "2.0"@en .
+us_wqp_data:sourceDataset rdf:type stad:Dataset;
+                rdfs:label "Water Quality Portal WQX 3.0 "@en;
+                dcterms:issued "2024-04-15"^^xsd:dateTime;  #dataset publication date
+                dcterms:source <https://www.waterqualitydata.us/beta/>;
+                stad:hasSpatialCoverage kwgr:administrativeRegion.USA.01, kwgr:administrativeRegion.USA.05, kwgr:administrativeRegion.USA.04, 
+                                        kwgr:administrativeRegion.USA.08,kwgr:administrativeRegion.USA.09,kwgr:administrativeRegion.USA.11,
+                                        kwgr:administrativeRegion.USA.19,kwgr:administrativeRegion.USA.20,kwgr:administrativeRegion.USA.21,
+                                        kwgr:administrativeRegion.USA.25,kwgr:administrativeRegion.USA.24,kwgr:administrativeRegion.USA.23,
+                                        kwgr:administrativeRegion.USA.26, kwgr:administrativeRegion.USA.27,kwgr:administrativeRegion.USA.29,
+                                        kwgr:administrativeRegion.USA.37, kwgr:administrativeRegion.USA.33, kwgr:administrativeRegion.USA.36,
+                                        kwgr:administrativeRegion.USA.39,kwgr:administrativeRegion.USA.42,kwgr:administrativeRegion.USA.44,
+                                        kwgr:administrativeRegion.USA.45,kwgr:administrativeRegion.USA.46,kwgr:administrativeRegion.USA.47,
+                                        kwgr:administrativeRegion.USA.51,kwgr:administrativeRegion.USA.50,kwgr:administrativeRegion.USA.55 ;
+                stad:hasTemporalCoverage us_wqp_data:temporalCoverage.
+us_wqp_data:temporalCoverage a time:ProperInterval;
+                              #time:hasBeginning us_wqp_data:temporalCoverage.start ;
+                              time:hasEnd us_wqp_data:temporalCoverage.end. # ;
+                              #time:hasDurationDescription us_wqp_data:temporalCoverage.duration .
+#us_wqp_data:temporalCoverage.start a time:Instant ;
+#                                    time:inXSDDate ""^^xsd:date .
+us_wqp_data:temporalCoverage.end a time:Instant ;
+                                  time:inXSDDate "2026-04-13"^^xsd:date .
+#us_wqp_data:temporalCoverage.duration a time:DurationDescription ;
+#                                       time:years ""^^xsd:decimal .

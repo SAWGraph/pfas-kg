@@ -1,21 +1,57 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-us_wqp:TaxonGroup.AquaticVegetation rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.AquaticVegetation rdfs:label "Aquatic Vegetation"^^xsd:string ;
+    rdfs:comment "Aquatic Vegetation - https://www.nps.gov/im/klmn/species-lists.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.BacteriaVirus rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.BacteriaVirus rdfs:label "Bacteria/Virus"^^xsd:string ;
+    rdfs:comment "Bacteria/Virus - https://www.nps.gov/im/klmn/species-lists.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.BenthicMacroinvertebrates rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.BenthicMacroinvertebrates rdfs:label "Benthic Macroinvertebrates"^^xsd:string ;
+    rdfs:comment "Benthic Macroinvertebrates - https://www.nps.gov/im/klmn/species-lists.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.Corals rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.Corals rdfs:label "Corals"^^xsd:string ;
+    rdfs:comment "Corals - https://www.nps.gov/im/klmn/species-lists.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.Diatoms rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.Diatoms rdfs:label "Diatoms"^^xsd:string ;
+    rdfs:comment "Diatoms are a type of plankton called phytoplankton, diatoms are classed as microalgae. "^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.FishNekton rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.FishNekton rdfs:label "Fish/Nekton"^^xsd:string ;
+    rdfs:comment "North American Native Fishes Association Fish List -  http://www.nanfa.org/checklist.shtml"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.Invertebrates rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.Invertebrates rdfs:label "Invertebrates"^^xsd:string ;
+    rdfs:comment "Invertebrate animals is without a vertebral column or lacking backbone/spinal column - https://www.nps.gov/im/klmn/species-lists.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.PhytoplanktonZooplankton rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.PhytoplanktonZooplankton rdfs:label "Phytoplankton/Zooplankton"^^xsd:string ;
+    rdfs:comment "Near-microscopic plants and animals found in the water column between the surface and the bottom. - https://www.nps.gov/im/klmn/species-lists.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
 
-us_wqp:TaxonGroup.TerrestrialVegetation rdfs:subClassOf us_wqp:Taxon .
+us_wqp:TaxonGroup.TerrestrialVegetation rdfs:label "Terrestrial Vegetation"^^xsd:string ;
+    rdfs:comment "NPS Terrestrial Vegetation - https://www.nps.gov/im/klmn/vegetation.htm"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:taxon_group ;
+    rdfs:subClassOf us_wqp:Taxon .
+
+us_wqp_cv:taxon_group a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Taxon Group from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Taxon Group"^^xsd:string .
 

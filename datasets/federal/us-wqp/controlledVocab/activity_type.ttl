@@ -1,0 +1,387 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
+@prefix us_wqp_cv: <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+us_wqp:activity.1 a us_wqp:ActivityType ;
+    rdfs:label "Field Msr/Obs"^^xsd:string ;
+    rdfs:comment "MEASUREMENTS involve something measured in its environmental setting usually using some type of equipment.  OBSERVATIONS are made by people, usually without the use of equipment, and are frequently qualitative."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.10 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Composite Without Parents"^^xsd:string ;
+    rdfs:comment "Describes a sample which is a composite of either several discrete sampling events not described elsewhere, or is a sample collected by a continuous process over some time period. No database record exists as its parent."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.11 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Positive Control"^^xsd:string ;
+    rdfs:comment "A controlled sample with presence of analyte."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.116 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Lab Sample Equipment Rinsate Blank"^^xsd:string ;
+    rdfs:comment "A sample of analyte-free media that has been used to rinse the sampling equipment in the laboratory. It is collected after completion of decontamination and prior to sampling. This blank is useful in documenting adequate decontamination of sampling equipment prior to the equipment being used in the field."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.12 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Negative Control"^^xsd:string ;
+    rdfs:comment "A controlled sample with absence of analyte."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.13 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Field Subsample"^^xsd:string ;
+    rdfs:comment "A sample created in the field from a portion of a mother or parent sample"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.136 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Control Standard"^^xsd:string ;
+    rdfs:comment "Lab Control Standard - A standard, certified by an outside agency, used to measure the bias in a procedure. For certain constituents and matrices use NIST Standard Reference Materials when available."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.137 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Surrogate Control Standard Duplicate"^^xsd:string ;
+    rdfs:comment "Surrogate Standard - A pure compound added to a sample in the lab before processing so that the efficiency of the method can be determined. The purpose of duplicates is to test for laboratory bias. Duplicate samples are used to assess variance of the total method including sampling and analysis."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.138 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Surrogate Control Standard"^^xsd:string ;
+    rdfs:comment "Surrogate Standard - A pure compound added to a sample in the lab before processing so that the efficiency of the method can be determined."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.139 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Surrogate Method Blank"^^xsd:string ;
+    rdfs:comment "Surrogate - Organic compounds which are similar to analytes of interest in chemical composition, extraction, and chromatography, but are not found in the environmental samples. These compounds are spiked into blanks, calibration standards, check standards, samples and spiked samples. Percent recovery are calculated for each surrogate."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.14 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Field Split"^^xsd:string ;
+    rdfs:comment "A sample created in the field from half of a mother or parent sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.140 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Control Standard Duplicate"^^xsd:string ;
+    rdfs:comment "Lab Control Standard - A standard, certified by an outside agency, used to measure the bias in a procedure. For certain constituents and matrices use NIST Standard Reference Materials when available. The purpose of duplicates is to test for laboratory bias. Duplicate samples are used to assess variance of the total method including sampling and analysis."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.15 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Replicate Habitat Assessment"^^xsd:string ;
+    rdfs:comment "A habitat measurement or evaluation collected to assess the reproducibility of the sampling technique."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.156 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Duplicate 2"^^xsd:string ;
+    rdfs:comment "The second of two samples taken from the same population and carried through all steps of the sampling and analytical procedures in an identical manner. Duplicate samples are used to assess variance of the total method including sampling and analysis."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.16 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Replicate Msr/Obs"^^xsd:string ;
+    rdfs:comment "A field measurement or observation taken to assess the reproducity of the sampling technique or analytical method."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.17 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Replicate Portable Data Logger"^^xsd:string ;
+    rdfs:comment "A measurement taken to verify the quality of data taken by a data logger."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.176 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Spike Target"^^xsd:string ;
+    rdfs:comment "The reference expected value when a known mass of target analyte is added to a blank sample or subsample in the laboratory. The purpose of a laboratory spike is to show that sample preparation procedures do not contribute to loss of analytes."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.177 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control-Calibration Check Buffer"^^xsd:string ;
+    rdfs:comment "A standard run during or after field work to verify that an instrument has maintained its calibration."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.178 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control-Meter Lab Blank"^^xsd:string ;
+    rdfs:comment "Lab Blanks are analyte-free matrices prepared in the lab and measured with a portable meter or logger to check for meter contamination or bias.  Examples are zero DO standard and distilled water for conductivity."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.179 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control-Meter Lab Duplicate"^^xsd:string ;
+    rdfs:comment "One of two samples taken from the same matrix and measured with different portable meters or loggers and/or by different personnel. Duplicates are used to assess variance of the meters or measurement process."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.18 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Sample Equipment Rinsate Blank"^^xsd:string ;
+    rdfs:comment "A sample of analyte-free media that has been used to rinse the sampling equipment. It is collected after completion of decontamination and prior to sampling. This blank is useful in documenting adequate decontamination of sampling equipment."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.180 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control-Meter Lab Duplicate 2"^^xsd:string ;
+    rdfs:comment "The second of two samples taken from the same matrix and measured with different portable meters or loggers and/or by different personnel. Duplicates are used to assess variance of the meters or measurement process."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.181 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control-Calibration Check"^^xsd:string ;
+    rdfs:comment "The resulting value for a standard run during or after field work to verify that an instrument has maintained its calibration."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.19 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Calibration Check"^^xsd:string ;
+    rdfs:comment "A standard independently prepared ( different source, different analyst) from the calibration standards and run after the original calibration to verify the original calibration.  There is usually one calibration  check standard per batch."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.2 a us_wqp:ActivityType ;
+    rdfs:label "Field Msr/Obs-Portable Data Logger"^^xsd:string ;
+    rdfs:comment "Continuous time series (sensor) data collected and submitted as a series of measurements with equal time steps in between. Measurements are collected in the field by an \"attended or unattended\" single or multi-parameter data logger. This Activity Type Code should only be used for short deployments (less than two weeks). For longer deployments, submit using \"Field Msr/Obs-Continuous Time Series\"."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.20 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Field Spike"^^xsd:string ;
+    rdfs:comment "A known mass of target analyte added to a blank sample or subsample in the field. The pupose of a field spike is to show that sample preperation procedures do not contribute to loss of analytes."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.21 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Field Blank"^^xsd:string ;
+    rdfs:comment "A sample of analyte free water poured into a sample container in the field, preserved and shipped to the laboratory with field samples.  The purpose of a field blank is to assess contamination from field conditions during sampling."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.22 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Field Replicate"^^xsd:string ;
+    rdfs:comment "Multiple samples taken within each combination of time, location, and any other controlled variables. The purpose of collecting replicate samples is to obtain precision. For a large size field it is important to break field into homogeneous sub-areas and collect samples proportions to the size of each sub-area."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.23 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Field Ambient Conditions Blank"^^xsd:string ;
+    rdfs:comment "The analyte free media is tested to assure the preciseness of ambient conditions. It helps in controlling the effects of environment on the sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.24 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Duplicate"^^xsd:string ;
+    rdfs:comment "One of two samples taken from the same population and carried through all steps of the sampling and analytical procedures in an identical manner. Duplicate samples are used to assess variance of the total method including sampling and analysis."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.25 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Field Surrogate Spike"^^xsd:string ;
+    rdfs:comment "A pure substance with properties that mimic the analyte of interest is called surrogate. Target Surrogate is added in sample to determine the recovery efficiency for quality control purposes."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.26 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Trip Blank"^^xsd:string ;
+    rdfs:comment "Trip blanks are test samples of analyte-free media taken from the laboratory to the sampling site and returned to the laboratory unopened. They are used to measure cross-contamination from the container and preservative during transport, field handling, and storage. Usually, at least one trip blank should be prepared for each sample type per trip."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.27 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Reagent Blank"^^xsd:string ;
+    rdfs:comment "Reagent Blank is analyte free water analyzed with samples, one per sample test. The reagent blank is analyzed to control the quality. "^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.28 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Equipment Blank"^^xsd:string ;
+    rdfs:comment "A sample of analyte free water analyzed with field samples to assess the presence or absence of equipment or instrument contamination."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.29 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Pre-preservative Blank"^^xsd:string ;
+    rdfs:comment "The analyte-free media tested before undergoing the same preserving process as the samples. This Blank is tested to check the quality of preservation process."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.3 a us_wqp:ActivityType ;
+    rdfs:label "Field Msr/Obs-Habitat Assessment"^^xsd:string ;
+    rdfs:comment "A field activity conducted to evaluate a habitat, according to an organizations pre-defined habitat assessment scheme."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.30 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Post-preservative Blank"^^xsd:string ;
+    rdfs:comment "The analyte-free media which has undergone the same preserving process as the samples. This Blank is tested to check the quality of the preservation process."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.31 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Reference Sample"^^xsd:string ;
+    rdfs:comment "A sample (i.e., test sample or control sample/standard) with known analyte concentration used either singly or in replicate, as appropriate, to monitor method performance characteristics. "^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.32 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Measurement Precision Sample"^^xsd:string ;
+    rdfs:comment "A sample (i.e., test sample or control sample/standard) used either singly or in replicate, as appropriate, to monitor the precision of method."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.33 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Blind Duplicate"^^xsd:string ;
+    rdfs:comment "The duplicate samples are identical samples (collected from same source and same time) however blind duplicates are submitted to the laboratory by an identification scheme so that the laboratory does not know the samples are identical.   The purpose of blind duplicates is to test for laboratory bias.  "^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.34 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Inter-lab Split"^^xsd:string ;
+    rdfs:comment "Split samples are obtained by dividing one sample into two or more identical sub-samples, and analyzed at different laboratories.  Interlaboraory splits are used to compare the accuracy and precision of the laboratories doing the analyses."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.35 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Other"^^xsd:string ;
+    rdfs:comment "This category contains quality control measures of any other process to which a sample is subjected, and not included in this list."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.36 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Other"^^xsd:string ;
+    rdfs:comment "This category contains a sample collected following a process which is not included in this list."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.37 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Depletion Replicate"^^xsd:string ;
+    rdfs:comment "Lab Blanks are  analyte-free matrices prepared in the lab and analyzed with samples to identify potential lab sources of contamination."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.38 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Composite With Parents"^^xsd:string ;
+    rdfs:comment "A sample split in the laboratory from half of a mother or parent sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.39 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control-Negative Control"^^xsd:string ;
+    rdfs:comment "The process to control the quality of measurement with absence of analyte or habitat is negative control."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.4 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Routine"^^xsd:string ;
+    rdfs:comment "A sample gathered using straightforward grab  procedures for purposes of a general evaluation of the environment at the site."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.40 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Spike"^^xsd:string ;
+    rdfs:comment "A known mass of target analyte added to a blank sample or subsample in the laboratory. The pupose of a laboratory spike is to show that sample preperation procedures do not contribute to loss of analytes."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.41 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Blank"^^xsd:string ;
+    rdfs:comment "Lab Blanks are  analyte-free matrices prepared in the lab and analyzed with samples to identify potential lab sources of contamination."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.42 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Split"^^xsd:string ;
+    rdfs:comment "A sample split in the laboratory from half of a mother or parent sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.43 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Re-Analysis"^^xsd:string ;
+    rdfs:comment "A sample that is analyzed more than once."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.44 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Matrix Spike"^^xsd:string ;
+    rdfs:comment "An aliquot of an environmental sample to which known quantities of analytes are added in the laboratory.  The matrix spike is analyzed in an identical manner as the sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.45 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Alternative Measurement Sensitivity"^^xsd:string ;
+    rdfs:comment "A repeated measurement of the same field (also a lab where detection limits do not apply) sample collected to control sensitivity typically for a specific instrument in order calculate the alternative measurement sensitivity (AMS). AMS is the standard deviation of 7 measurements of a sample (with a signal in the quantitative range) times the two-sided critical t-value for 99% confidence (3.708)"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.46 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Alternative Measurement Sensitivity Plus"^^xsd:string ;
+    rdfs:comment "A repeated measurement of different field samples collected to control sensitivity typically for a specific instrument/sensor in order calculate the alternative measurement sensitivity (AMS+).  AMS+ is defined as the standard deviation of 7 measurements of samples collected very closely in time and space times the two-sided critical t-value for 99% confidence."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.47 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Control Sample/Blank Spike"^^xsd:string ;
+    rdfs:comment "In the lab deionized water is spiked with all the analytes in concentrations close to those in the field samples, prepared as a sample, and run/re-run on a set frequency."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.48 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Spike of a Lab Blank"^^xsd:string ;
+    rdfs:comment "The lab blank (method blank) is prepared in the lab to represent the matrix as closely as possible, then spiked with known concentrations of the analytes."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.49 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Matrix Spike Duplicate"^^xsd:string ;
+    rdfs:comment "An aliquot of an environmental sample to which known quantities of analytes are added in the laboratory.  The matrix spike is analyzed in an identical manner as the sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.5 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Integrated Time Series"^^xsd:string ;
+    rdfs:comment "A discrete/integrated sample, usually derived from a continuous time series of samples, representing some portion or segment of elapsed time within the overall activity duration or sample period. This Activity Type Code should not be used for Continuous Time Series data collected using a data logger (sensors)."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.50 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Control Sample/Blank Spike Duplicate"^^xsd:string ;
+    rdfs:comment "In the lab deionized water is spiked with all the analytes in concentrations close to those in the field samples, prepared as a sample, and run/re-run on a set frequency."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.51 a us_wqp:ActivityType ;
+    rdfs:label "Field Msr/Obs-Incidental"^^xsd:string ;
+    rdfs:comment "A field observation of a non-target species/analytes made during a formal survey and/or a field observation made during a non-formal survey."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.52 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Routine Resample"^^xsd:string ;
+    rdfs:comment "A RE-sample (second or more) gathered using straightforward grab  procedures for purposes of a general evaluation of the environment at the site."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.53 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Replicate Sample-Composite"^^xsd:string ;
+    rdfs:comment "A composite of either several discrete sampling events or a sample collected by a continuous process samples taken from various vertical and horizontal locations combined into one sample to assess the reproducity of the sampling technique or analytical method."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.54 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Integrated Horizontal and Vertical Composite Profile"^^xsd:string ;
+    rdfs:comment "A discrete/integrated sample, usually derived from a continuous record, representing some portion or segment of a horizontal and vertical track within the study area."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.55 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Continuing Calibration Verification"^^xsd:string ;
+    rdfs:comment "A check standards run at set points during the analysis"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.56 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Initial Calibration Verification"^^xsd:string ;
+    rdfs:comment "A initial check standards run after the calibration curve"^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.57 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Initial Calib Certified Reference Material"^^xsd:string ;
+    rdfs:comment "A certified standard reference material purchased from an outside vendor."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.58 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Sample-Lab Spike Duplicate"^^xsd:string ;
+    rdfs:comment "A known mass of target analyte added to a blank sample or subsample in the laboratory. The purpose of a laboratory spike is to show that sample preparation procedures do not contribute to loss of analytes."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.59 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Msr/Obs Post-Calibration"^^xsd:string ;
+    rdfs:comment "Measurements against a specified standard post calibration."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.6 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Integrated Flow Proportioned"^^xsd:string ;
+    rdfs:comment "A sample integrated over an interval or space within which changes in flow are used to alter the proportion of the sampled medium contributing to the integrated sample."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.60 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Msr/Obs Pre-Calibration"^^xsd:string ;
+    rdfs:comment "Initial measurements against a specified standard prior to calibration."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.61 a us_wqp:ActivityType ;
+    rdfs:label "Quality Control Field Replicate Sample-Field Subsample"^^xsd:string ;
+    rdfs:comment "it’s a Field Replicate and a Field Subsample: A Subsample of either several discrete sampling events or a sample collected by a continuous process samples taken from various vertical and horizontal locations combined into one sample to assess the reproducity of the sampling technique or analytical method."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.66 a us_wqp:ActivityType ;
+    rdfs:label "Field Msr/Obs-Continuous Time Series"^^xsd:string ;
+    rdfs:comment "Continuous time series (sensor) data submitted as calculated statistics (up to 6 per day), with the full time series included as a text file attachment. Measurements are automatically collected in the field by a fixed, deployed single or multi-parameter data logger."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.7 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Integrated Horizontal Profile"^^xsd:string ;
+    rdfs:comment "A discrete/integrated sample, usually derived from a continuous record, representing some portion or segment of a horizontal track within the study area."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.8 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Integrated Vertical Profile"^^xsd:string ;
+    rdfs:comment "A discrete/integrated sample, usually derived from a continuous record, representing some portion or segment of a vertical track within the study area."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp:activity.9 a us_wqp:ActivityType ;
+    rdfs:label "Sample-Integrated Cross-Sectional Profile"^^xsd:string ;
+    rdfs:comment "A discrete/integrated sample, usually derived from a continuous record, representing cross-section of the stream."^^xsd:string ;
+    rdfs:isDefinedBy us_wqp_cv:activity_type .
+
+us_wqp_cv:activity_type a owl:Ontology ;
+    dcterms:description "This ontology contains the controlled vocabulary for Activity Type from the Water Quality Portal"^^xsd:string ;
+    dcterms:modified "2026-04-22"^^xsd:date ;
+    dcterms:title "WQP Controlled Vocabulary - Activity Type"^^xsd:string .
+

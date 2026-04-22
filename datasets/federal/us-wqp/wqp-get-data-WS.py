@@ -55,11 +55,30 @@ def get_result(statecode):
         #type+=";"
     #old_url = f'https://www.waterqualitydata.us/data/Result/search?countrycode=US&statecode=US%3A{statecode}&characteristicType={type}'
     url = f'https://www.waterqualitydata.us/wqx3/Result/search?statecode=US%3A{statecode}{type}&dataProfile=fullPhysChem&mimeType=csv'
-    print(url, len(url))
+    
     if len(url) > 2048:
         raise Warning('The request may be too long to process')
-    resp = urllib3.request("GET", url, timeout=300.0)
-    results = resp.data #this returns a csv
+    if statecode in ('05',"29","54"): #these states have too much data to return in one request, so we need to split it up by county
+        results= []
+        county_maxfips = {'05':150, '29':230, '54':110}
+        for i in range(1, 150, 2): #150
+            url1=f'https://www.waterqualitydata.us/wqx3/Result/search?countycode=US%3A{statecode}%3A{str(i).zfill(3)}&{type}&dataProfile=fullPhysChem&mimeType=csv'
+            print(url1)
+            resp1 = urllib3.request("GET", url1, timeout=1000.0)
+            #print("PFAS", url1, resp1.data[-30:].decode('utf-8'))
+            results.append(resp1.data)
+        if statecode == "29":
+            #also get non-sequential saint louis county
+            i = 510
+            url1=f'https://www.waterqualitydata.us/wqx3/Result/search?countycode=US%3A{statecode}%3A{str(i).zfill(3)}&{type}&dataProfile=fullPhysChem&mimeType=csv'
+            print(url1)
+            resp1 = urllib3.request("GET", url1, timeout=1000.0)
+            results.append(resp1.data)
+
+    else:
+        print(url)
+        resp = urllib3.request("GET", url, timeout=1000.0)
+        results = resp.data #this returns a csv
     
     return results
 
@@ -83,4 +102,25 @@ if __name__ == "__main__":
     write_csv(f'{state}-pfas-stations.csv', stations)
 
     results = get_result(fips)
-    write_csv(f'{state}-pfas-results.csv', results) 
+    if state in ('AR',"MO","WV"):
+        output = f'{state}-pfas-results.csv'
+        for i, result in enumerate(results):
+            result_split = result.decode('utf-8').split('\n')
+            for line in result_split:
+                    if line.startswith("Org_Identifier,"):
+                        if i == 0:
+                            with open(output, 'w') as outfile:
+                                outfile.write(line)
+                        else:
+                            pass
+                    elif line.startswith("ERROR: "):
+                        print('ERROR county: ', i*2+1)
+                    elif line == "":
+                        pass
+                    else:
+                        with open(output, 'a') as outfile:
+                            outfile.write(line)
+            print(i)
+    else:
+        write_csv(f'{state}-pfas-results.csv', results) 
+        print(results[-30:].decode('utf-8'))
