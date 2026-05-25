@@ -1,0 +1,16 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:resultType.TRG a me_egad:EGAD-ResultType,
+        owl:NamedIndividual ;
+    rdfs:label "TARGET/REGULAR RESULT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/result_type> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/result_type> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD result_type" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - result_type"^^xsd:string .
+

@@ -1,0 +1,336 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:featureType.AST a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "ABOVEGROUND STORAGE TANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.AW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "AGRICULTURAL WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.BLDG a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "BUILDING" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.BR a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "BARN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.BT a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "BULK MILK TANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.CB a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "CATCH BASIN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.DM a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "DRUM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.DP a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "DETENTION POND" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.DT a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "DITCH" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.DWS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "DISCONTINUED WATER SUPPLY (I.E. WELL EXISTS BUT NOT USED FOR DRINKING WATER)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.EW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "EXTRACTION WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.EXS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "EXCAVATION SOIL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.EXW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "EXCAVATION GROUNDWATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.FF a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "FARM FIELD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.GH a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "GREENHOUSE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.GP a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "GEOPROBE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.GR a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "GARDEN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.HT a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "HIGH TUNNEL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.IM a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "IMPOUNDMENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.IWSW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "INDUSTRIAL WATER SUPPLY WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LDS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LEAK DETECTION SYSTEM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LG a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LAGOON" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LK a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LAKE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LPD a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LEACHATE POND" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LPS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LEACHATE PUMP STATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LEACHATE SYSTEM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.LSL a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "LANDSPREAD SOIL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.MH a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "MAN HOLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.MI a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "MICRO-WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.MISA a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "MULTI-INCREMENT SAMPLE AREA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.MRN a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "MARINE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.MUW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "MULTI USE WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.MW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "MONITORING WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PC a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PRODUCT CONTAINER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PD a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "POND" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PI a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PIEZOMETER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PM a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PROCESS MATERIAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PORE a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PORE WATER SAMPLER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.POWS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PROCESS WATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PP a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PUSH POINT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PRWS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PRIVATE WATER SUPPLY - HISTORIC" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PUWSS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PUBLIC WATER SUPPLY SURFACE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PUWSW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PUBLIC WATER SUPPLY WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PWS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PUBLIC WATER SUPPLY - HISTORIC" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PWSS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PRIVATE WATER SUPPLY SURFACE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.PWSW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "PRIVATE WATER SUPPLY WELL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.QA a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "QA/QC" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.RE a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "RESERVOIR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.RI a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "RIVER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SA a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "SOIL AUGER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SD a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "STORM DRAIN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SM a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "SEEP MARSH" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SPM a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "STOCKPILE MATERIAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SPR a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "SPRING/SEEP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SPT a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "SEPTIC TANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "SURFACE SOIL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.ST a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "STREAM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.SW a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "STANDING WATER (E.G. PUDDLE)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.TB a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "TEST BORING" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.TP a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "TEST PIT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.TS a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "TREATMENT SYSTEM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.UD a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "UNDER DRAIN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.WI a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "WILDERNESS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.WLD a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "WETLAND" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+me_egad:featureType.WP a me_egad:EGAD-SamplePointType,
+        owl:NamedIndividual ;
+    rdfs:label "WASTE PILE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD sample_point_type" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - sample_point_type"^^xsd:string .
+

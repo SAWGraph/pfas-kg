@@ -1,0 +1,246 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:sampleMaterialType.AS a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "ASH (BOTTOM & FLY)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.BC a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "BEDROCK CHIPS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.BD a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "BLOOD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.BM a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "BUILDING MATERIAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.CH a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "CHEESE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.CO a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOST" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.DW a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "DRINKING WATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.EG a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "EGG" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.FA a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "FLY ASH" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.FB a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "FIELD BLANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.FE a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "FEED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.GR a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "GRAINS (GROWN BY FARM)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.GW a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "GROUNDWATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.HT a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "HEART" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.L a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "LEACHATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.LG a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "LEAFY GREENS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.LV a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "LIVER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.MA a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "MANURE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.MEA a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "MEAT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.MLK a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "MILK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.MTB a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "MUSCLE TISSUE BIOPSY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.MU a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "MUSCLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.N a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "NEAT SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.NRV a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "NON-ROOT VEGETABLES" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.O a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "OFFAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.PE a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "PERFORMANCE EVALUATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.PO a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "PORE WATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.POL a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "POLYMER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.PW a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "PROCESS WATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.RI a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "RINSATE SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.RN a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "RAIN PRECIPITATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.RV a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "ROOT VEGETABLES" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SA a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SAWDUST" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SD a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SEDIMENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SF a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SKINLESS FILLET" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SL a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SOIL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SOF a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SKIN-ON FILLET" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SPG a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SEPTAGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SR a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "STORM WATER RUNOFF" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SU a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SLUDGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SW a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SURFACE WATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.SWS a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "SURFACE WATER SUBSTRATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.V a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "VEGETATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.W a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "WASTE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.WH a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "WHOLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.WS a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "WHOLE WITHOUT SKIN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+me_egad:sampleMaterialType.WW a me_egad:EGAD-SampleMaterialType,
+        owl:NamedIndividual ;
+    rdfs:label "WASTE WATER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD sample_type" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - sample_type"^^xsd:string .
+

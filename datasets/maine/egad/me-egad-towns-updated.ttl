@@ -3,7 +3,7 @@
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v2/me-egad-data#> .
 @prefix dcgeoid: <https://datacommons.org/browser/geoId/> .
 
 me_egad_data:samplePoint.95064 kwg-ont:sfWithin dcgeoid:2300138565 .

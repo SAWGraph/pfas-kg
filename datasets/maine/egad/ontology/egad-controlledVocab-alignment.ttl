@@ -1,21 +1,22 @@
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix terms: <http://purl.org/dc/terms/> .
+@prefix dsstox: <http://w3id.org/DSSTox/v1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
 @prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
-@prefix dsstox: <http://w3id.org/DSSTox/v1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://w3id.org/sawgraph/v1/me-egad#controlledVocab> rdf:type owl:Ontology ;
+<http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment> rdf:type owl:Ontology ;
                                              terms:contributor <http://orcid.org/0000-0002-5331-5052> ,
                                                            <http://orcid.org/0000-0003-3547-8058> ,
                                                             <https://orcid.org/0000-0003-3271-6700>;
@@ -27,273 +28,353 @@
                                              terms:title "Ontology for Maine Environmental and Geographic Analysis Database (EGAD) PFAS Dataset Sample Type mapping"@en ;
                                              owl:versionInfo "1.0"@en .
 
-#me_egad_data:sampleMaterialType.SW
-me_egad_data:DefEGADSurfaceWaterSample owl:equivalentClass [rdf:type owl:Restriction;
+#me_egad:sampleMaterialType.SW
+me_egad:DefEGADSurfaceWaterSample owl:equivalentClass [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SW
+  owl:hasValue me_egad:sampleMaterialType.SW
   ];
-     rdfs:subClassOf coso:SurfaceWaterSample. #need to add sample location 
+     rdfs:subClassOf coso:SurfaceWaterSample;  #need to add sample location 
+     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
-#me_egad_data:sampleMaterialType.GW #groundwater
-#me_egad_data:sampleMaterialType.PO #pore water
-me_egad_data:DefEGADGroundWaterSample owl:unionOf (
+#me_egad:sampleMaterialType.GW #groundwater
+#me_egad:sampleMaterialType.PO #pore water
+me_egad:DefEGADGroundWaterSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.GW
+  owl:hasValue me_egad:sampleMaterialType.GW
   ]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.PO]
+  owl:hasValue me_egad:sampleMaterialType.PO]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialTypeQualifier.AR
+  owl:hasValue me_egad:sampleMaterialTypeQualifier.AR
   ]
   );
-     rdfs:subClassOf coso:GroundWaterSample. #need to add sample location 
+     rdfs:subClassOf coso:GroundWaterSample; #need to add sample location 
+     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad_data:sampleMaterialType.DW #drinking water
-me_egad_data:DefEGADDrinkingWaterSample owl:unionOf ([rdf:type owl:Restriction;
+#me_egad:sampleMaterialType.DW #drinking water
+me_egad:DefEGADDrinkingWaterSample owl:unionOf ([rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.DW]
+  owl:hasValue me_egad:sampleMaterialType.DW]
   [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionMethod;
-    owl:hasValue me_egad_data:sampleLocation.T] #inside tap
+    owl:hasValue me_egad:sampleLocation.T] #inside tap
     [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionMethod;
-    owl:hasValue me_egad_data:sampleLocation.OT]  #outside tap
+    owl:hasValue me_egad:sampleLocation.OT]  #outside tap
 );
 
-     rdfs:subClassOf coso:DrinkingWaterSample. #need to add sample location 
+     rdfs:subClassOf coso:DrinkingWaterSample;
+     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #need to add sample location 
 
-me_egad_data:DefEGADFilteredWaterSample owl:unionOf (
+me_egad:DefEGADFilteredWaterSample owl:unionOf (
     [rdf:type owl:Restriction; 
     owl:onProperty me_egad:sampleCollectionLocation;
-    owl:hasValue me_egad_data:sampleLocation.AF]  #after filter
+    owl:hasValue me_egad:sampleLocation.AF]  #after filter
     
 );
-  rdfs:subClassOf coso:FilteredWaterSample. 
+  rdfs:subClassOf coso:FilteredWaterSample;
+  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad_data:DefEGADTreatedWaterSample owl:unionOf (
+me_egad:DefEGADTreatedWaterSample owl:unionOf (
     [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
-    owl:hasValue me_egad_data:sampleLocation.EF] #treatment system effluent
+    owl:hasValue me_egad:sampleLocation.EF] #treatment system effluent
     [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
-    owl:hasValue me_egad_data:sampleLocation.AS] #after softener
+    owl:hasValue me_egad:sampleLocation.AS] #after softener
     [ rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleTreatmentStatus;
-    owl:hasValue me_egad_data:treatmentStatus.T] #treated
+    owl:hasValue me_egad:treatmentStatus.T] #treated
 );
-  rdfs:subClassOf coso:TreatedWaterSample. 
+  rdfs:subClassOf coso:TreatedWaterSample;
+  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad_data:DefEGADRawWaterSample owl:unionOf (
+me_egad:DefEGADRawWaterSample owl:unionOf (
   [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
-    owl:hasValue me_egad_data:sampleLocation.BE] #before filter
+    owl:hasValue me_egad:sampleLocation.BE] #before filter
   [ rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
-    owl:hasValue me_egad_data:sampleLocation.PU] #wellhead
+    owl:hasValue me_egad:sampleLocation.PU] #wellhead
   [ rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleTreatmentStatus;
-    owl:hasValue me_egad_data:treatmentStatus.N] #not treated
+    owl:hasValue me_egad:treatmentStatus.N] #not treated
 );
-  rdfs:subClassOf coso:RawWaterSample. 
+  rdfs:subClassOf coso:RawWaterSample;
+ rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad_data:sampleMaterialType.SL  #soil
-me_egad_data:DefEGADSoilSample owl:equivalentClass [rdf:type owl:Restriction;
+#me_egad:sampleMaterialType.SL  #soil
+me_egad:DefEGADSoilSample owl:equivalentClass [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SL];
+  owl:hasValue me_egad:sampleMaterialType.SL];
     rdfs:subClassOf coso:SoilSample.
 
-#me_egad_data:sampleMaterialType.SD #sediment
-#me_egad_data:sampleMaterialType.SWS #surface water substrate
-me_egad_data:DefEGADSedimentSample owl:unionOf ( [rdf:type owl:Restriction;
+#me_egad:sampleMaterialType.SD #sediment
+#me_egad:sampleMaterialType.SWS #surface water substrate
+me_egad:DefEGADSedimentSample owl:unionOf ( [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SD]
+  owl:hasValue me_egad:sampleMaterialType.SD]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SWS
+  owl:hasValue me_egad:sampleMaterialType.SWS
   ]);
-    rdfs:subClassOf coso:SedimentSample.
+    rdfs:subClassOf coso:SedimentSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
-#me_egad_data:sampleMaterialType.MA #manure
-#me_egad_data:sampleMaterialType.CO #compost #ash #flyash
-me_egad_data:DefEGADSolidWasteSample owl:unionOf (
+#me_egad:sampleMaterialType.MA #manure
+#me_egad:sampleMaterialType.CO #compost #ash #flyash
+me_egad:DefEGADSolidWasteSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.MA
+  owl:hasValue me_egad:sampleMaterialType.MA
   ]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.AS #ash
+  owl:hasValue me_egad:sampleMaterialType.AS #ash
   ]
   [	rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.FA #fly ash
+  owl:hasValue me_egad:sampleMaterialType.FA #fly ash
 ]);
-  rdfs:subClassOf coso:SolidWasteSample. 
+  rdfs:subClassOf coso:SolidWasteSample;
+  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad_data:sampleMaterialType.L #leachate 
-#me_egad_data:sampleMaterialType.RIN #rinsate 
-#	me_egad_data:sampleMaterialType.WW #wastewater
-#me_egad_data:sampleMaterialType.SPG #septage
-#me_egad_data:sampleMaterialType.SU #sludge
-#me_egad_data:sampleMaterialType.PW #process water
-me_egad_data:DefEGADWasteWaterSample owl:unionOf (
+#me_egad:sampleMaterialType.L #leachate 
+#me_egad:sampleMaterialType.RIN #rinsate 
+#	me_egad:sampleMaterialType.WW #wastewater
+#me_egad:sampleMaterialType.SPG #septage
+#me_egad:sampleMaterialType.SU #sludge
+#me_egad:sampleMaterialType.PW #process water
+me_egad:DefEGADWasteWaterSample owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.L ]
+  owl:hasValue me_egad:sampleMaterialType.L ]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.RIN]
+  owl:hasValue me_egad:sampleMaterialType.RIN]
     [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.WW]
+  owl:hasValue me_egad:sampleMaterialType.WW]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SPG]
+  owl:hasValue me_egad:sampleMaterialType.SPG]
 [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.PW]
+  owl:hasValue me_egad:sampleMaterialType.PW]
 [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad_data:sampleMaterialType.SU
+  owl:hasValue me_egad:sampleMaterialType.SU
 ]);
-  rdfs:subClassOf coso:WasteWaterSample. 
+  rdfs:subClassOf coso:WasteWaterSample;
+  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad_data:sampleMaterialType.BC #bedrock chips
-#me_egad_data:sampleMaterialType.BM #building material
-#me_egad_data:sampleMaterialType.POL #polymer
-#me_egad_data:sampleMaterialType.SA #sawdust
-me_egad_data:DefEGADSolidMaterials owl:unionOf (
+#me_egad:sampleMaterialType.BC #bedrock chips
+#me_egad:sampleMaterialType.BM #building material
+#me_egad:sampleMaterialType.POL #polymer
+#me_egad:sampleMaterialType.SA #sawdust
+me_egad:DefEGADSolidMaterials owl:unionOf (
   [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad_data:sampleMaterialType.BC]
+    owl:hasValue me_egad:sampleMaterialType.BC]
       [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad_data:sampleMaterialType.BM]
+    owl:hasValue me_egad:sampleMaterialType.BM]
       [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad_data:sampleMaterialType.POL]
+    owl:hasValue me_egad:sampleMaterialType.POL]
       [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad_data:sampleMaterialType.SA]
-); rdfs:subClassOf coso:SolidMaterialSample. 
+    owl:hasValue me_egad:sampleMaterialType.SA]
+); rdfs:subClassOf coso:SolidMaterialSample;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
+
+
+me_egad:DefEGADFishFillet owl:unionOf([
+  rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad:sampleMaterialType.SF]
+  [ rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad:sampleMaterialType.SOF]);
+  owl:equivalentClass obo:FOODON_0000267; #fish fillet
+  #obo:RO_0002162 obo:
+  rdfs:subClassOf coso:AnimalTissueSample.
+
+me_egad:DefEGADWholeMarineAnimal owl:intersectionOf (
+  owl:unionOf(
+  [ rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad:sampleMaterialType.WH] #whole
+  [ rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad:sampleMaterialType.WS] ) #whole without skin
+  [ rdf:type owl:Restriction;
+  owl:onProperty prov:wasAttributedTo;
+  owl:hasValue me_egad_data:SWATMW]);
+  rdfs:subClassOf coso:AnimalMaterialSample. 
+
 
 #########################################################################
 # sample material type to FOODON organism material and/or food product 
 
-me_egad_data:sampleMaterialType.BD rdf:type obo:FOODON_02010015. #animal blood
+me_egad:sampleMaterialType.BD rdf:type obo:FOODON_02010015;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animal blood
 	
-me_egad_data:sampleMaterialType.EG rdf:type obo:FOODON_03420194. #egg
+me_egad:sampleMaterialType.EG rdf:type obo:FOODON_03420194;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #egg
 
-me_egad_data:sampleMaterialType.FE rdf:type obo:FOODON_00004172. #feed
+me_egad:sampleMaterialType.FE rdf:type obo:FOODON_00004172;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #feed
 
-me_egad_data:sampleMaterialType.GR rdf:type obo:FOODON_00001093. #cereal grain
+me_egad:sampleMaterialType.GR rdf:type obo:FOODON_00001093;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #cereal grain
 
-me_egad_data:sampleMaterialType.HR rdf:type obo:FOODON_00003042 .#herb food product
+me_egad:sampleMaterialType.HR rdf:type obo:FOODON_00003042;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment> .#herb food product
 
-me_egad_data:sampleMaterialType.HT rdf:type obo:FOODON_02010042. #animal heart
+me_egad:sampleMaterialType.HT rdf:type obo:FOODON_02010042;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animal heart
 
-me_egad_data:sampleMaterialType.LG rdf:type obo:FOODON_03411566. #leafy greens / leafy vegetable plant
+me_egad:sampleMaterialType.LG rdf:type obo:FOODON_03411566;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #leafy greens / leafy vegetable plant
 
-me_egad_data:sampleMaterialType.LV rdf:type obo:FOODON_02010045. #animal liver
+me_egad:sampleMaterialType.LV rdf:type obo:FOODON_02010045;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animal liver
 
-me_egad_data:sampleMaterialType.MEA rdf:type obo:FOODON_02010107. #piece of animal meat
+me_egad:sampleMaterialType.MEA rdf:type obo:FOODON_02010107;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #piece of animal meat
 
-me_egad_data:sampleMaterialType.MLK rdf:type obo:FOODON_02010012. #animal milk
+me_egad:sampleMaterialType.MLK rdf:type obo:FOODON_02010012;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animal milk
 
-me_egad_data:sampleMaterialType.MTB rdf:type obo:FOODON_02010032. 
+me_egad:sampleMaterialType.MTB rdf:type obo:FOODON_02010032;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad_data:sampleMaterialType.MU rdf:type obo:FOODON_02010032. 
+me_egad:sampleMaterialType.MU rdf:type obo:FOODON_02010032;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad_data:sampleMaterialType.NRV rdf:type obo:FOODON_03411057. #non-root vegetable > vegetable-producing plant, above-ground parts & plant above surface
+me_egad:sampleMaterialType.NRV rdf:type obo:FOODON_03411057;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #non-root vegetable > vegetable-producing plant, above-ground parts & plant above surface
 
-me_egad_data:sampleMaterialType.O rdf:type obo:FOODON_00004436, #animal organ
-                                            obo:FOODON_00002165. #organ meat food product
+me_egad:sampleMaterialType.O rdf:type [ owl:unionOf (obo:FOODON_00004436 obo:FOODON_00002165)];
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animal organ or #organ meat food product
 
-me_egad_data:sampleMaterialType.RV rdf:type obo:FOODON_00003572. #root vegetable
+me_egad:sampleMaterialType.RV rdf:type obo:FOODON_00003572;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #root vegetable
 
-me_egad_data:sampleMaterialType.SF rdf:type obo:FOODON_02021803. #animal fillet skinless, raw
+me_egad:sampleMaterialType.SF rdf:type obo:FOODON_02021803;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animal fillet skinless, raw
 
-me_egad_data:sampleMaterialType.SOF rdf:type obo:FOODON_02021805. #animel fillet (with skin)
+me_egad:sampleMaterialType.SOF rdf:type obo:FOODON_02021805;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #animel fillet (with skin)
 
-me_egad_data:sampleMaterialType.V rdf:type obo:FOODON_03420150, # plant whole or pieces
-    obo:FOODON_03413358. #plant used as fodder (organism)
+me_egad:sampleMaterialType.V rdf:type obo:FOODON_03420150, # plant whole or pieces
+    obo:FOODON_03413358;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #plant used as fodder (organism)
 
-me_egad_data:sampleMaterialType.WH rdf:type obo:FOODON_03420116. # whole > organism material #in egad this is used for whole seafood
-#me_egad_data:DefEGADWholeMarineAnimal owl:unionOf (me_egad_data:sampleMaterialType.WH 
+me_egad:sampleMaterialType.WH rdf:type obo:FOODON_03420116;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. # whole > organism material #in egad this is used for whole seafood
+#me_egad:DefEGADWholeMarineAnimal owl:unionOf (me_egad:sampleMaterialType.WH 
 #[] )
 #        rdfs:subClassOf obo:FOODON_03411021 
 
-me_egad_data:sampleMaterialType.WS rdf:type obo:FOODON_03420147. #whole without skin > whole animal skinned. 
-#me_egad_data:DefEGADWholeMarineAnimalWithoutSkin
+me_egad:sampleMaterialType.WS rdf:type obo:FOODON_03420147;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #whole without skin > whole animal skinned. 
+
 
 ############################################################################
 # Sample material type maps to FOODON organism and/or food material
 
-me_egad_data:sampleMaterialTypeQualifier.BA rdf:type obo:FOODON_03413378. # baleage >  forage
+me_egad:sampleMaterialTypeQualifier.BA rdf:type obo:FOODON_03413378;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. # baleage >  forage (no specific taxon, derives from some plant used as fodder)
 
-me_egad_data:sampleMaterialTypeQualifier.BE rdf:type obo:FOODON_02020892.  #cow 
+me_egad:sampleMaterialTypeQualifier.BE rdf:type obo:FOODON_02020892;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.  #cow 
                                                     
-me_egad_data:sampleMaterialTypeQualifier.BI rdf:type obo:FOODON_02020840. # bison
+me_egad:sampleMaterialTypeQualifier.BI rdf:type obo:FOODON_02020840;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. # bison
 
-me_egad_data:sampleMaterialTypeQualifier.BKT rdf:type obo:NCBITaxon_8038. #brook trout
+me_egad:sampleMaterialTypeQualifier.BKT rdf:type obo:FOODON_03411077;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_8038. #brook trout
 
-me_egad_data:sampleMaterialTypeQualifier.BKTH rdf:type obo:NCBITaxon_8038. #brook trout (hatchery part not currently included)
+me_egad:sampleMaterialTypeQualifier.BKTH rdf:type obo:FOODON_03411077;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_8038. #brook trout (hatchery part not currently included)
 
-me_egad_data:sampleMaterialTypeQualifier.BLC rdf:type obo:NCBITaxon_8182. #black crappie 
+me_egad:sampleMaterialTypeQualifier.BLC rdf:type obo:FOODON_03411819;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_8182. #black crappie 
 
-me_egad_data:sampleMaterialTypeQualifier.BVR rdf:type obo:FOODON_03411325. #beaver
+me_egad:sampleMaterialTypeQualifier.BVR rdf:type obo:FOODON_03411325;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #beaver
 
-me_egad_data:sampleMaterialTypeQualifier.CH rdf:type obo:FOODON_03411457. #chicken
+me_egad:sampleMaterialTypeQualifier.CH rdf:type obo:FOODON_03411457;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #chicken
 
-me_egad_data:sampleMaterialTypeQualifier.CS rdf:type obo:NCBITaxon_381124, obo:FOODON_00003425. #corn 
+me_egad:sampleMaterialTypeQualifier.CS rdf:type obo:FOODON_00003425;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #corn  obo:NCBITaxon_381124 # silage is whole corn plant food product 
 
-me_egad_data:sampleMaterialTypeQualifier.CSN rdf:type [owl:intersectionOf (obo:FOODON_00004460 obo:FOODON_03420181)] ;
-  obo:RO_0002162 obo:NCBITaxon_381124.
+me_egad:sampleMaterialTypeQualifier.CSN rdf:type [owl:unionOf (obo:FOODON_00004460 obo:FOODON_03420181)] ;  #snaplage (corn cob and husk) 
+  rdf:type obo:FOODON_00003425;
+  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
+  #obo:RO_0002162 obo:NCBITaxon_381124.
 
-#obo:NCBITaxon_381124, obo:FOODON_00003425. #corn- this could be expanded to include parts
+me_egad:sampleMaterialTypeQualifier.DE rdf:type obo:FOODON_03411583;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #deer 
 
-me_egad_data:sampleMaterialTypeQualifier.DE rdf:type obo:FOODON_03411583. #deer 
+me_egad:sampleMaterialTypeQualifier.GO rdf:type obo:FOODON_03411328;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #goat 
 
-me_egad_data:sampleMaterialTypeQualifier.GO rdf:type obo:FOODON_03411328. #goat 
+me_egad:sampleMaterialTypeQualifier.GRF rdf:type [owl:unionOf (obo:FOODON_03411324 obo:FOODON_03413378)];
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #grain plant  # 'straw, fodder or forage of cereal grains and grasses'
 
-me_egad_data:sampleMaterialTypeQualifier.GRF rdf:type obo:FOODON_03411324, #grain plant
-                                                      obo:FOODON_03413378. # 'straw, fodder or forage of cereal grains and grasses'
+me_egad:sampleMaterialType.GRS rdf:type obo:FOODON_03301761;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #grass animal feed - no species except derives from some whole plant
 
-me_egad_data:sampleMaterialType.GRS rdf:type obo:FOODON_03301761. #grass animal feed
+me_egad:sampleMaterialTypeQualifier.LA rdf:type obo:FOODON_03411669;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #lamb (superclass has in taxon relation) 
 
-me_egad_data:sampleMaterialTypeQualifier.LA rdf:type obo:FOODON_03411669. #lamb
+me_egad:sampleMaterialTypeQualifier.LMB rdf:type obo:FOODON_03412182;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_27706. # largemouth bass
 
-me_egad_data:sampleMaterialTypeQualifier.LMB rdf:type obo:NCBITaxon_27706. # largemouth bass
+me_egad:sampleMaterialTypeQualifier.MU rdf:type obo:FOODON_03411183;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #sheep
 
-me_egad_data:sampleMaterialTypeQualifier.MU rdf:type obo:FOODON_03411183. #sheep
+me_egad:sampleMaterialTypeQualifier.NPK rdf:type obo:FOODON_03411143;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_8010. #northern pike
 
-me_egad_data:sampleMaterialTypeQualifier.NPK rdf:type obo:NCBITaxon_8010. #northern pike
+me_egad:sampleMaterialTypeQualifier.PO rdf:type obo:FOODON_02021651;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #pig 
 
-me_egad_data:sampleMaterialTypeQualifier.PO rdf:type obo:FOODON_02021651. #pig 
+me_egad:sampleMaterialTypeQualifier.SG rdf:type obo:FOODON_00002477;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #game animal food product , no taxon
 
-me_egad_data:sampleMaterialTypeQualifier.SG rdf:type obo:FOODON_00002477. #game animal food product
+me_egad:sampleMaterialTypeQualifier.SH rdf:type obo:FOODON_03411183;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #sheep
 
-me_egad_data:sampleMaterialTypeQualifier.SH rdf:type obo:FOODON_03411183. #sheep
+me_egad:sampleMaterialTypeQualifier.SI rdf:type obo:FOODON_03413358;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #plant used as fodder 
 
-me_egad_data:sampleMaterialTypeQualifier.SI rdf:type obo:FOODON_03413358. #plant used as fodder 
+me_egad:sampleMaterialTypeQualifier.SMB rdf:type obo:FOODON_03412427;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_147949. #small mouth bass
 
-me_egad_data:sampleMaterialTypeQualifier.SMB rdf:type obo:NCBITaxon_147949. #small mouth bass
+me_egad:sampleMaterialTypeQualifier.TMR rdf:type obo:FOODON_00004172;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #feedstuff
 
-me_egad_data:sampleMaterialTypeQualifier.TMR rdf:type obo:FOODON_00004172. #feedstuff
+me_egad:sampleMaterialTypeQualifier.TU rdf:type obo:FOODON_03411236;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #turkey 
 
-me_egad_data:sampleMaterialTypeQualifier.TU rdf:type obo:FOODON_03411236. #turkey 
+me_egad:sampleMaterialTypeQualifier.VE rdf:type obo:FOODON_00003083;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #veal (taxon on superclass cow)
 
-me_egad_data:sampleMaterialTypeQualifier.VE rdf:type obo:FOODON_00003083. #veal
+me_egad:sampleMaterialTypeQualifier.WHP obo:RO_0002162 obo:FOODON_03411152;
+rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #NCBITaxon_46260. #white perch 
 
-me_egad_data:sampleMaterialTypeQualifier.WHP obo:RO_0002162 obo:NCBITaxon_46260. #white perch
 
-
-#me_egad_data:sampleMaterialTypeQualifier.NES #normal environmental sample
-#me_egad_data:sampleMaterialTypeQualifier.R #reanalysis
-#me_egad_data:sampleMaterialTypeQualifier.RSD #research and development
-#me_egad_data:sampleMaterialTypeQualifier.S #split
-#me_egad_data:sampleMaterialTypeQualifier.FD #field duplicate
-#me_egad_data:sampleMaterialType.PE #performance evaluation
+#me_egad:sampleMaterialTypeQualifier.NES #normal environmental sample
+#me_egad:sampleMaterialTypeQualifier.R #reanalysis
+#me_egad:sampleMaterialTypeQualifier.RSD #research and development
+#me_egad:sampleMaterialTypeQualifier.S #split
+#me_egad:sampleMaterialTypeQualifier.FD #field duplicate
+#me_egad:sampleMaterialType.PE #performance evaluation

@@ -73,15 +73,15 @@
                                                     <http://w3id.org/sawgraph/v2/us-wqp-data/VT_wqp_sites>,
                                                     <http://w3id.org/sawgraph/v2/us-wqp-data/WI_wqp_observations>,
                                                     <http://w3id.org/sawgraph/v2/us-wqp-data/WI_wqp_sites>;
-                                        dcterms:issued "2024-07-26"^^xsd:dateTime ;  #first triplification release
-                                        dcterms:modified "2026-04-17"^^xsd:dateTime ; #date of last triplification
+                                        dcterms:issued "2024-07-26"^^xsd:date ;  #first triplification release
+                                        dcterms:modified "2026-04-17"^^xsd:date ; #date of last triplification
                                         dcterms:description "Abox for Water Quality Portal PFAS Dataset for SAWGraph"@en ;
                                         dcterms:title "Water Quality Portal PFAS Dataset"@en ;
                                         prov:wasDerivedFrom us_wqp_data:sourceDataset;
                                         owl:versionInfo "2.0"@en .
 us_wqp_data:sourceDataset rdf:type stad:Dataset;
                 rdfs:label "Water Quality Portal WQX 3.0 "@en;
-                dcterms:issued "2024-04-15"^^xsd:dateTime;  #dataset publication date
+                dcterms:issued "2024-04-15"^^xsd:date;  #dataset publication date
                 dcterms:source <https://www.waterqualitydata.us/beta/>;
                 stad:hasSpatialCoverage kwgr:administrativeRegion.USA.01, kwgr:administrativeRegion.USA.05, kwgr:administrativeRegion.USA.04, 
                                         kwgr:administrativeRegion.USA.08,kwgr:administrativeRegion.USA.09,kwgr:administrativeRegion.USA.11,

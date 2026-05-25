@@ -5,7 +5,7 @@
 @prefix kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v2/me-egad-data#> .
 @prefix dcgeoid: <https://datacommons.org/browser/geoId/> .
 
 me_egad_data:samplePoint.95064 kwg-ont:sfWithin dcgeoid:2300138565, kwgr:s2.level13.5526498710852206592 .

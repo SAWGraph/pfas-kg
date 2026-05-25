@@ -1,0 +1,131 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:sampleLocation.AF a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "AFTER FILTERS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.AS a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "AFTER SOFTENER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.B a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "BOAT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.BE a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "BEFORE FILTERS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.BK a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "BANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.BM a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "BASEMENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.BR a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "BRIDGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.BT a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "BETWEEN FILTERS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.EF a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "TREATMENT SYSTEM - EFFLUENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.F a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "FLOOR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.FF a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "FIRST FLOOR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.GR a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "GARAGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.IN a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "TREATMENT SYSTEM - INFLUENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.MH a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "MANHOLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.MP a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "TREATMENT SYSTEM - MIDPOINT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.O a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "OTHER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.OD a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "OUTDOOR AIR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.OT a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "OUTSIDE TAP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.PT a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "PRESSURE TANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.PU a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "WELLHEAD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.SH a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "SHORE ACCESS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.SW a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "STAIRWAY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.T a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "INSIDE TAP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+me_egad:sampleLocation.W a me_egad:EGAD-SampleDetailedLocation,
+        owl:NamedIndividual ;
+    rdfs:label "WADING" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD sample_location" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - sample_location"^^xsd:string .
+

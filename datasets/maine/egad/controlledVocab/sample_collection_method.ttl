@@ -1,0 +1,141 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:samplingMethod.ANG a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "ANGLING" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.BS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "BAILED SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.CLE a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "CAPTURE-LETHAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.CO a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "CORE SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.CS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOSITE SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.DP a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "DIRECT PUSH SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.DPN a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "DIRECT PUSH-NO PURGE SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.EF a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "ELECTROFISHING" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.EK a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "ECKMAN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.EPGS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "EXTENSION POLE (GRAB)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.GN a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "GILL NET" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.GS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "GRAB SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.HA a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "HAND AUGER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.HP a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "HAND-PICKED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.ISS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "INCREMENTAL SOIL SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.LFS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "LOW-FLOW SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.LFSM a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "LOW-FLOW SAMPLE - MODIFIED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.NP a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "NO-PURGE SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.O a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "OTHER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.PER a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "PERISTALTIC PUMP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.PP a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "PURGE PUMP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.PS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "PACKER SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.PST a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "PLUMBING SYSTEM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.PWS a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "PORE WATER SAMPLER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.PWSP a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "PORE WATER SAMPLER WITH PURGE PUMP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+me_egad:samplingMethod.VFR a me_egad:EGAD-SampleCollectionMethod,
+        owl:NamedIndividual ;
+    rdfs:label "VARIABLE FLOW RATE PUMP" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD sample_collection_method" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - sample_collection_method"^^xsd:string .
+

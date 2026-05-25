@@ -1,4 +1,3 @@
-@prefix : <workspace:/datasets/maine/egad/ontology/egad-sites-samples-schema.ttl#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .

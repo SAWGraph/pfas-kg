@@ -1,6 +1,8 @@
+from datetime import datetime
 import os
+from pickle import GLOBAL
 from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, SKOS
-from rdflib import Namespace
+from rdflib import DCTERMS, Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
 import pandas as pd
@@ -19,9 +21,9 @@ from variable import NAME_SPACE, _PREFIX
 ## declare variables
 logname = "log"
 
-metadata_files = ['analysis_lab', 'sample_collection_method', 'sample_location', 'sample_point_type', 'sample_type', 'sample_type_qualifier', 'site_type', 'pfas_parameter', 'test_method', 'concentration_qualifier', 'validation_level', 'result_type', 'sample_treatment_status', 'ChemicalMapping']
+metadata_files = ['analysis_lab', 'ChemicalMapping', 'concentration_qualifier','pfas_parameter', 'result_type', 'sample_collection_method', 'sample_location', 'sample_point_type',  'sample_treatment_status','sample_type', 'sample_type_qualifier', 'site_type',  'test_method', 'validation_level' ]
 #this variable can be manipulated to only run some of the metadata
-metadata_files = ['ChemicalMapping']
+#metadata_files = ['ChemicalMapping']
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent.parent
@@ -57,36 +59,37 @@ def main():
 
     # load files and send each to its own triplification function 
     for filename in metadata_files:
-        data_df = pd.read_csv(data_dir / f'{filename}.csv', header=0, encoding='ISO-8859-1')
+        print(filename)
+        data_df = pd.read_csv(data_dir / f'{filename}.csv', header=0)
         logger = logging.getLogger('Data loaded to dataframe')
         if filename == 'analysis_lab':
-            kg = triplify_lab(data_df, _PREFIX, unq_analysis_lab)
+            kg = triplify_lab(filename, data_df, _PREFIX, unq_analysis_lab)
         elif filename == 'sample_collection_method':
-            kg = triplify_collection_method(data_df, _PREFIX, unq_sample_collection_method)
+            kg = triplify_collection_method(filename, data_df, _PREFIX, unq_sample_collection_method)
         elif filename == 'sample_location':
-            kg = triplify_location(data_df, _PREFIX, unq_sample_location)
+            kg = triplify_location(filename, data_df, _PREFIX, unq_sample_location)
         elif filename == 'sample_point_type':
-            kg = triplify_point_type(data_df, _PREFIX, unq_sample_point_type)
+            kg = triplify_point_type(filename, data_df, _PREFIX, unq_sample_point_type)
         elif filename == 'sample_type':
-            kg = triplify_sample_type(data_df, _PREFIX, unq_sample_type_update)
+            kg = triplify_sample_type(filename, data_df, _PREFIX, unq_sample_type_update)
         elif filename == 'sample_type_qualifier':
-            kg = triplify_sample_type_qualifier(data_df, _PREFIX, unq_sample_type_qualifier)
+            kg = triplify_sample_type_qualifier(filename, data_df, _PREFIX, unq_sample_type_qualifier)
         elif filename == 'site_type':
-            kg = triplify_site_type(data_df, _PREFIX)
+            kg = triplify_site_type(filename, data_df, _PREFIX)
         elif filename == 'pfas_parameter':
-            kg = triplify_pfas_parameter(data_df, _PREFIX, unq_param)
+            kg = triplify_pfas_parameter(filename, data_df, _PREFIX, unq_param)
         elif filename == 'test_method':
-            kg = triplify_test_method(data_df, _PREFIX, unq_test_method)
+            kg = triplify_test_method(filename, data_df, _PREFIX, unq_test_method)
         elif filename == 'concentration_qualifier':
-            kg = triplify_concentration_qualifier(data_df, _PREFIX)
+            kg = triplify_concentration_qualifier(filename, data_df, _PREFIX)
         elif filename == 'validation_level':
-            kg = triplify_validation_level(data_df, _PREFIX, unq_valid)
+            kg = triplify_validation_level(filename, data_df, _PREFIX, unq_valid)
         elif filename == 'result_type':
-            kg = triplify_result_type(data_df, _PREFIX, unq_result_type)
+            kg = triplify_result_type(filename, data_df, _PREFIX, unq_result_type)
         elif filename == 'sample_treatment_status':
-            kg = triplify_treatment_status(data_df, _PREFIX, unq_treatment_status)
+            kg = triplify_treatment_status(filename, data_df, _PREFIX, unq_treatment_status)
         elif filename == 'ChemicalMapping':
-            kg = triplify_param_mapping(data_df, _PREFIX, unq_param_named)
+            kg = triplify_param_mapping(filename, data_df, _PREFIX, unq_param_named)
 
 
         # output the resulting triples for each metadata file
@@ -95,39 +98,47 @@ def main():
         kg.serialize(kg_turtle_file,format='turtle')
 
 
-def Initial_KG(_PREFIX):
+def Initial_KG(_PREFIX, filename):
     prefixes = _PREFIX
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
+    
+    kg.add((URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}"), RDF.type, OWL.Ontology))
+    kg.add((URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}"), DCTERMS.title, Literal(f"Maine EGAD Controlled Vocabulary - {filename}", datatype=XSD.string)))
+    kg.add((URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}"), DCTERMS.description, Literal(f"Controlled Vocabulary for Maine EGAD {filename}")))
+    kg.add((URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}"), DCTERMS.modified, Literal(datetime.today().strftime('%Y-%m-%d'), datatype=XSD.date )))
     return kg
 
 
 ## triplify the abox for labs
-def triplify_lab(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_lab(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
+    print(df.info)
+
     for idx, row in df.iterrows():
         ## lab record details
         lab_value = row['VALUE'] # lab abbreviation
         lab_description = row['DESCRIPTION'] # lab description
         
         ## construct lab IRI
-        lab_iri = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_value}"]
+        lab_iri = _PREFIX["me_egad"][f"{'organization.lab'}.{lab_value}"]
                 
         ## specify lab instance and it's data properties
         if pd.notnull(lab_value) and lab_value != 'ZZ' and lab_description in usage:
             kg.add( (lab_iri, RDF.type, _PREFIX["prov"]["Organization"]) )
             kg.add( (lab_iri, RDFS['label'], Literal(str(lab_description))) )
+            kg.add((lab_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
         #kg.add( (lab_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(lab_description, datatype = XSD.string)) )
-
+        
    
     return kg
 
 ## triplify the abox for sample collection methods
-def triplify_collection_method(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_collection_method(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -136,13 +147,14 @@ def triplify_collection_method(df, _PREFIX, usage):
         collection_description = row['DESCRIPTION'] # collection description
         
         ## construct collection IRI
-        collection_iri = _PREFIX["me_egad_data"][f"{'samplingMethod'}.{collection_value}"]
+        collection_iri = _PREFIX["me_egad"][f"{'samplingMethod'}.{collection_value}"]
                 
         ## specify collection instance and it's data properties
         if collection_description in usage:
             kg.add( (collection_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (collection_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampleCollectionMethod"]) )
             kg.add( (collection_iri, RDFS['label'], Literal(str(collection_description))) )
+            kg.add((collection_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
             #kg.add( (collection_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(collection_description, datatype = XSD.string)) )
 
    
@@ -150,8 +162,8 @@ def triplify_collection_method(df, _PREFIX, usage):
 
 
 ## triplify the abox for sample location
-def triplify_location(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_location(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -160,13 +172,14 @@ def triplify_location(df, _PREFIX, usage):
         location_description = row['DESCRIPTION'] # location description
         
         ## construct collection IRI
-        location_iri = _PREFIX["me_egad_data"][f"{'sampleLocation'}.{location_value}"]
+        location_iri = _PREFIX["me_egad"][f"{'sampleLocation'}.{location_value}"]
                 
         ## specify location instance and it's data properties
         if location_description in usage:
             kg.add( (location_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (location_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampleDetailedLocation"]) )
             kg.add( (location_iri, RDFS['label'], Literal(str(location_description))) )
+            kg.add((location_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
             #kg.add( (collection_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(collection_description, datatype = XSD.string)) )
 
    
@@ -174,8 +187,8 @@ def triplify_location(df, _PREFIX, usage):
 
 
 ## triplify the tbox for sample point type
-def triplify_point_type(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_point_type(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -185,7 +198,7 @@ def triplify_point_type(df, _PREFIX, usage):
         point_value_formatted = ''.join(e for e in point_value if e.isalnum())
         
         ## construct point IRI
-        point_iri = _PREFIX["me_egad_data"][f"{'featureType'}.{point_value_formatted}"]
+        point_iri = _PREFIX["me_egad"][f"{'featureType'}.{point_value_formatted}"]
                 
         ## specify point instance and it's data properties
         if point_description in usage:
@@ -193,6 +206,7 @@ def triplify_point_type(df, _PREFIX, usage):
             kg.add( (point_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (point_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SamplePointType"]) )
             kg.add( (point_iri, RDFS['label'], Literal(str(point_description))) )
+            kg.add((point_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
             #kg.add( (collection_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(collection_description, datatype = XSD.string)) )
 
    
@@ -200,8 +214,8 @@ def triplify_point_type(df, _PREFIX, usage):
 
 
 ## triplify the abox for sample material type
-def triplify_sample_type(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_sample_type(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -210,40 +224,43 @@ def triplify_sample_type(df, _PREFIX, usage):
         type_description = row['DESCRIPTION'] # material description
         
         ## construct type IRI
-        type_iri = _PREFIX["me_egad_data"][f"{'sampleMaterialType'}.{type_value}"]
+        type_iri = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{type_value}"]
                 
         ## specify type instance and it's data properties
         if type_description in usage:
             kg.add( (type_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (type_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampleMaterialType"]) )
             kg.add( (type_iri, RDFS['label'], Literal(str(type_description))) )
+            kg.add((type_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
             #kg.add( (collection_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(collection_description, datatype = XSD.string)) )
 
    
     return kg
 
-def triplify_sample_type_qualifier(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+
+def triplify_sample_type_qualifier(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     ## materialize each record
     for idx, row in df.iterrows():
         type_value = row['VALUE'] # material abbreviation
         type_description = row['DESCRIPTION'] # material description
 
         ## construct type IRI
-        type_iri = _PREFIX["me_egad_data"][f"{'sampleMaterialTypeQualifier'}.{type_value}"]
+        type_iri = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{type_value}"]
                 
         ## specify type instance and it's data properties
         if type_description in usage:   #only create iris for the vocab terms that are used
             kg.add( (type_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (type_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampleMaterialTypeQualifier"]) )
             kg.add( (type_iri, RDFS['label'], Literal(str(type_description))) )
+            kg.add((type_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
         
     return kg
 
 
 ## triplify the tbox for site type
-def triplify_site_type(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_site_type(filename, df, _PREFIX):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -254,7 +271,7 @@ def triplify_site_type(df, _PREFIX):
         site_value_formatted = ''.join(e for e in site_value if e.isalnum())
         
         ## construct site IRI
-        site_iri = _PREFIX["me_egad_data"][f"{'siteType'}.{site_value_formatted}"]
+        site_iri = _PREFIX["me_egad"][f"{'siteType'}.{site_value_formatted}"]
                 
         ## specify site instance and it's data properties
         
@@ -264,13 +281,13 @@ def triplify_site_type(df, _PREFIX):
         kg.add( (site_iri, RDFS['label'], Literal(str(site_description))) )
         kg.add( (site_iri, _PREFIX["skos"]['definition'], Literal(str(site_definition))) )
         #kg.add( (collection_iri, _PREFIX["aik-pfas-ont"]['labDescription'], Literal(collection_description, datatype = XSD.string)) )
-
+        kg.add((site_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
    
     return kg
 
 ## triplify the abox for pfas parameters
-def triplify_pfas_parameter(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_pfas_parameter(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     print(usage)
     #print(df.info(verbose=True))
@@ -281,7 +298,7 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
         parameter_abbreviation = row['Abbreviation'] # parameter abbreviation
         
         ## construct type IRI
-        parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
+        parameter_iri = _PREFIX["me_egad"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
                 
         ## specify type instance and it's data properties
         kg.add( (parameter_iri, RDF.type, OWL.NamedIndividual) )
@@ -290,6 +307,7 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
         kg.add( (parameter_iri, _PREFIX["skos"]['altLabel'], Literal(parameter_abbreviation, datatype = XSD.string)) )
         #kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterAbbreviation'], Literal(parameter_abbreviation, datatype = XSD.string)) )
         #kg.add( (parameter_iri, _PREFIX["me_egad"]['parameterName'], Literal(parameter_name, datatype = XSD.string)) )
+        kg.add((parameter_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
 
         if (row['QuantityKind'] == 'Cumulative'):
             kg.add( (parameter_iri, RDF.type, _PREFIX['coso']['SubstanceCollection']))
@@ -301,40 +319,43 @@ def triplify_pfas_parameter(df, _PREFIX, usage):
    
     return kg
 
-def triplify_param_mapping(df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
-    kg = Initial_KG(_PREFIX)
+def triplify_param_mapping(filename, df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
+    kg = Initial_KG(_PREFIX, filename)
     
     lookup = lookup.set_index('Parameter')
-    combined = df.join(lookup, on='ï»¿INPUT', how='right')
+    combined = df.join(lookup, on='INPUT', how='right')
     print(combined.info())
     for idx, row in combined.iterrows():
         id = row['DTXSID']
-        parameter_iri = _PREFIX["me_egad_data"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
+        parameter_iri = _PREFIX["me_egad"][f"{'parameter'}.{row['Abbreviation-aik-pfas-ont']}"]
         dtxsid_iri = _PREFIX['dsstox'][f"{id}"]
 
         if pd.notna(row['DTXSID']) and row['DTXSID'] != "-":
             kg.add((parameter_iri, _PREFIX['dsstox']['sameAsDSSToxSubstance'], dtxsid_iri))
             kg.add((dtxsid_iri, RDF.type, _PREFIX['dsstox']['ChemicalEntity']))
             kg.add((dtxsid_iri, RDFS.label, Literal(row['PREFERRED_NAME'])))
+            kg.add((dtxsid_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
         else:
             print('skipping ', row['Abbreviation-aik-pfas-ont'])
 
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFNA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFDA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFNA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFDA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_6_PFAS'], RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
 
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_PFOA_PFOS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_PFOA_PFOS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_PFOA_PFOS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_PFOA_PFOS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_PFOA_PFOS'], RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
 
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFNA']))
-    kg.add((_PREFIX['me_egad_data']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
-
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHPA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFHXS']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFNA']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_5_PFAS'], _PREFIX['coso']['hasMember'], _PREFIX['me_egad_data']['parameter.PFOS']))
+    kg.add((_PREFIX['me_egad']['parameter.SUM_OF_5_PFAS'], RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
 
     return kg
 
@@ -342,8 +363,8 @@ def triplify_param_mapping(df:pd.DataFrame, _PREFIX, lookup:pd.DataFrame):
 
 
 ## triplify the controlled vocabulary for test methods
-def triplify_test_method(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_test_method(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     print(usage)
     print(df['VALUE'].unique())
     
@@ -356,19 +377,20 @@ def triplify_test_method(df, _PREFIX, usage):
         ## construct type IRI
         method_name = method_name.replace(' ', "")
         method_name = method_name.replace("/", "")
-        method_iri = _PREFIX["me_egad_data"][f"{'testMethod'}.{method_name}"]
+        method_iri = _PREFIX["me_egad"][f"{'testMethod'}.{method_name}"]
                 
         ## specify type instance and it's data properties
         if method_name in usage:
             kg.add( (method_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (method_iri, RDF.type, _PREFIX["me_egad"]["EGAD-AnalysisMethod"]) )
             kg.add( (method_iri, RDFS['label'], Literal(str(method_description))) )       
+            kg.add((method_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
    
     return kg
 
 ## triplify the controlled vocabulary for concentration qualifiers
-def triplify_concentration_qualifier(df, _PREFIX):
-    kg = Initial_KG(_PREFIX)
+def triplify_concentration_qualifier(filename, df, _PREFIX):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -379,7 +401,7 @@ def triplify_concentration_qualifier(df, _PREFIX):
         qualfier_name = qualfier_name.replace("/", "-").replace('*', "s")
         
         ## construct type IRI
-        qualfier_iri = _PREFIX["me_egad_data"][f"{'concentrationQualifier'}.{qualfier_name}"]
+        qualfier_iri = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{qualfier_name}"]
                 
         ## specify type instance and it's data properties
         kg.add( (qualfier_iri, RDF.type, OWL.NamedIndividual) )
@@ -387,13 +409,14 @@ def triplify_concentration_qualifier(df, _PREFIX):
         #kg.add( (qualfier_iri, RDF.type, _PREFIX["me_egad"]["EGAD-LabQualifier"]) )
         kg.add( (qualfier_iri, RDFS['label'], Literal(str(qualfier_description))) )
        # kg.add( (qualfier_iri, _PREFIX["me_egad"]['parameterGroup'], Literal(str(qualfier_group))) )
-   
+        kg.add((qualfier_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
+
     return kg
 
 
 ## triplify the controlled vocabulary for validation level
-def triplify_validation_level(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_validation_level(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -404,19 +427,20 @@ def triplify_validation_level(df, _PREFIX, usage):
         ## construct type IRI
         validation_level_name = validation_level_name.replace(' ', "")
         validation_level_name = validation_level_name.replace("/", "")
-        validation_level_iri = _PREFIX["me_egad_data"][f"{'validationLevel'}.{validation_level_name}"]
+        validation_level_iri = _PREFIX["me_egad"][f"{'validationLevel'}.{validation_level_name}"]
                 
         ## specify type instance and it's data properties
         if validation_level_description in usage:
             kg.add( (validation_level_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (validation_level_iri, RDF.type, _PREFIX["me_egad"]["EGAD-ValidationLevel"]) )
             kg.add( (validation_level_iri, RDFS['label'], Literal(str(validation_level_description))) )       
+            kg.add((validation_level_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
    
     return kg
 
 ## triplify the controlled vocabulary for result type
-def triplify_result_type(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_result_type(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -427,19 +451,20 @@ def triplify_result_type(df, _PREFIX, usage):
         ## construct type IRI
         result_type_value = result_type_value.replace(' ', "")
         result_type_value = result_type_value.replace("/", "")
-        result_type_iri = _PREFIX["me_egad_data"][f"{'resultType'}.{result_type_value}"]
+        result_type_iri = _PREFIX["me_egad"][f"{'resultType'}.{result_type_value}"]
                 
         ## specify type instance and it's data properties
         if result_type_description in usage:
             kg.add( (result_type_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (result_type_iri, RDF.type, _PREFIX["me_egad"]["EGAD-ResultType"]) )
             kg.add( (result_type_iri, RDFS['label'], Literal(str(result_type_description))) )       
+            kg.add((result_type_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
    
     return kg
 
 ## triplify the controlled vocabulary for treatment status
-def triplify_treatment_status(df, _PREFIX, usage):
-    kg = Initial_KG(_PREFIX)
+def triplify_treatment_status(filename, df, _PREFIX, usage):
+    kg = Initial_KG(_PREFIX, filename)
     
     ## materialize each record
     for idx, row in df.iterrows():
@@ -448,14 +473,15 @@ def triplify_treatment_status(df, _PREFIX, usage):
         treatment_status_description = row['DESCRIPTION'] # treatment status description
         
         ## construct type IRI
-        treatment_status_iri = _PREFIX["me_egad_data"][f"{'treatmentStatus'}.{row['VALUE']}"]
+        treatment_status_iri = _PREFIX["me_egad"][f"{'treatmentStatus'}.{row['VALUE']}"]
                 
         ## specify type instance and it's data properties
         if treatment_status_description in usage:
             kg.add( (treatment_status_iri, RDF.type, OWL.NamedIndividual) )
             kg.add( (treatment_status_iri, RDF.type, _PREFIX["me_egad"]["EGAD-SampleTreatmentStatus"]) )
             kg.add( (treatment_status_iri, RDFS['label'], Literal(str(treatment_status_description))) )       
-   
+            kg.add((treatment_status_iri, RDFS.isDefinedBy, URIRef(f"https://w3id.org/sawgraph/v1/me-egad/controlledVocab/{filename}")))
+
     return kg
 
 def is_valid(value):

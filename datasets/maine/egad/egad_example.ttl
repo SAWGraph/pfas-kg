@@ -1,117 +1,130 @@
-@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
-@prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
+@prefix DSSTox: <http://w3id.org/DSSTox/v1/> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsstox: <http://w3id.org/DSSTox/v1/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v2/me-egad-data#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix DSSTox: <http://w3id.org/DSSTox/v1/>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
-
-me_egad_data:observation.BNOC0591FS.20230918.375951 a me_egad:EGAD-PFAS-Observation ;
+me_egad_data:d.egad.observation.BNOC0591FS.20230918.375951 a me_egad:EGAD-PFAS-Observation ;
     rdfs:label "EGAD PFAS observation for sample 840 003 243 771 487 / BEAUTY" ;
-    sosa:resultTime "2023-11-21T21:36:00"^^xsd:dateTime ;
-    coso:analysisMethod me_egad_data:testMethod.E537M ;
-    coso:analyzedSample me_egad_data:sample.BNOC0591FS.20230918 ;
-    coso:hasFeatureOfInterest me_egad_data:sampledFeature.152663 ;
-    coso:hasResult me_egad_data:result.C0591FS.BNO.20230918.375951 ;
-    coso:observedAtSamplePoint me_egad_data:samplePoint.152663 ;
-    coso:ofDatasetSubstance me_egad_data:parameter.PFNA_A ;
+    coso:analyzedSample me_egad_data:d.egad.sample.BNOC0591FS.20230918 ;
+    coso:hasFeatureOfInterest me_egad_data:d.egad.sampledFeature.152663 ;
+    coso:hasResult me_egad_data:d.egad.result.C0591FS.BNO.20230918.375951 ;
+    coso:observedAtSamplePoint me_egad_data:d.egad.samplePoint.152663 ;
+    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
     coso:observedTime "2023-09-18T11:15:00"^^xsd:dateTime ;
-    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind;
-    me_egad:resultType me_egad_data:resultType.TRG ;
-    prov:wasAttributedTo me_egad_data:organization.lab.BNO .
+    coso:ofDatasetSubstance me_egad:parameter.PFNA_A ;
+    coso:usedAnalysisMethod me_egad:testMethod.E537M ;
+    me_egad:resultType me_egad:resultType.TRG ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v2/me_egad_data> ;
+    prov:wasAttributedTo me_egad:organization.lab.BNO ;
+    sosa:resultTime "2023-11-21T21:36:00"^^xsd:dateTime .
 
-me_egad_data:observation.AAWHL192275901.20190529.1763231 a me_egad:EGAD-PFAS-Observation ;
+me_egad_data:d.egad.observation.AAWHL192275901.20190529.1763231 a me_egad:EGAD-PFAS-Observation ;
     rdfs:label "EGAD PFAS observation for sample SW-3" ;
-    sosa:resultTime "2019-06-11T23:24:00"^^xsd:dateTime ;
-    coso:analysisMethod me_egad_data:testMethod.E537M ;
-    coso:analyzedSample me_egad_data:sample.AAWHL192275901.20190529 ;
-    coso:hasFeatureOfInterest me_egad_data:sampledFeature.63787 ;
-    coso:hasResult me_egad_data:result.L192275901.AAWH.20190529.1763231 ;
-    coso:observedAtSamplePoint me_egad_data:samplePoint.63787 ;
-    coso:ofDatasetSubstance me_egad_data:parameter.PFOS_A ;
+    coso:analyzedSample me_egad_data:d.egad.sample.AAWHL192275901.20190529 ;
+    coso:hasFeatureOfInterest me_egad_data:d.egad.sampledFeature.63787 ;
+    coso:hasResult me_egad_data:d.egad.result.L192275901.AAWH.20190529.1763231 ;
+    coso:observedAtSamplePoint me_egad_data:d.egad.samplePoint.63787 ;
+    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind ;
     coso:observedTime "2019-05-29T10:05:00"^^xsd:dateTime ;
-    coso:observedProperty coso:SingleContaminantConcentrationQuantityKind;
-    me_egad:resultType me_egad_data:resultType.TRG ;
-    prov:wasAttributedTo me_egad_data:organization.lab.AAWH .
+    coso:ofDatasetSubstance me_egad:parameter.PFOS_A ;
+    coso:usedAnalysisMethod me_egad:testMethod.E537M ;
+    me_egad:resultType me_egad:resultType.TRG ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v2/me_egad_data> ;
+    prov:wasAttributedTo me_egad:organization.lab.AAWH ;
+    sosa:resultTime "2019-06-11T23:24:00"^^xsd:dateTime .
 
-me_egad_data:sample.BNOC0591FS.20230918 a me_egad:EGAD-Sample ;
+me_egad_data:d.egad.sample.BNOC0591FS.20230918 a me_egad:EGAD-Sample ;
     rdfs:label "EGAD sample 840 003 243 771 487 / BEAUTY" ;
-    coso:fromSamplePoint me_egad_data:samplePoint.152663 ;
-    coso:sampleOfMaterialType me_egad_data:sampleMaterialType.BD,
-        me_egad_data:sampleMaterialTypeQualifier.BE ;
-    me_egad:sampleCollectionMethod me_egad_data:samplingMethod.GS ;
-    me_egad:sampleID "840 003 243 771 487 / BEAUTY"^^xsd:string .
+    dcterms:identifier "840 003 243 771 487 / BEAUTY"^^xsd:string ;
+    coso:fromSamplePoint me_egad_data:d.egad.samplePoint.152663 ;
+    coso:sampleOfMaterialType me_egad:sampleMaterialType.BD,
+        me_egad:sampleMaterialTypeQualifier.BE ;
+    me_egad:sampleCollectionMethod me_egad:samplingMethod.GS ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v2/me_egad_data> ;
+    prov:wasAttributedTo me_egad_data:MECDC .
 
-me_egad_data:sample.AAWHL192275901.20190529 a me_egad:EGAD-Sample ;
+me_egad_data:d.egad.sample.AAWHL192275901.20190529 a me_egad:EGAD-Sample ;
     rdfs:label "EGAD sample SW-3" ;
-    coso:fromSamplePoint me_egad_data:samplePoint.63787 ;
-    coso:sampleOfMaterialType me_egad_data:sampleMaterialType.SW ;
-    me_egad:sampleCollectionMethod me_egad_data:samplingMethod.GS ;
-    me_egad:sampleID "SW-3"^^xsd:string .
+    dcterms:identifier "SW-3"^^xsd:string ;
+    coso:fromSamplePoint me_egad_data:d.egad.samplePoint.63787 ;
+    coso:sampleOfMaterialType me_egad:sampleMaterialType.SW ;
+    me_egad:sampleCollectionMethod me_egad:samplingMethod.GS ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v2/me_egad_data> .
 
-me_egad_data:samplePoint.152663 a me_egad:EGAD-SamplePoint ;
+me_egad_data:d.egad.samplePoint.152663 a me_egad:EGAD-SamplePoint ;
     rdfs:label "EGAD sample point 152663" ;
-    me_egad:samplePointNumber 152663 ;
-    me_egad:samplePointWebName "840 003 243 771 487_BEAUTY"^^xsd:string ;
-    coso:pointFromFeature me_egad_data:sampledFeature.152663.
+    me_egad:associatedSite me_egad_data:d.egad.site.30518 ;
+    me_egad:samplePointNumber "152663"^^xsd:string ;
+    me_egad:samplePointType me_egad:featureType.BLDG ;
+    me_egad:samplePointWebName "840 003 243 771 487_BEAUTY"^^xsd:string .
 
-me_egad_data:samplePoint.63787 a me_egad:EGAD-SamplePoint ;
+me_egad_data:d.egad.samplePoint.63787 a me_egad:EGAD-SamplePoint ;
     rdfs:label "EGAD sample point 63787" ;
-    me_egad:samplePointNumber 63787 ;
+    me_egad:associatedSite me_egad_data:d.egad.site.27094 ;
+    me_egad:samplePointNumber "63787"^^xsd:string ;
+    me_egad:samplePointType me_egad:featureType.ST ;
     me_egad:samplePointWebName "SW-3"^^xsd:string ;
-    coso:pointFromFeature me_egad_data:sampledFeature.63787.
+    geo:hasDefaultGeometry me_egad_data:d.egad.samplePoint.geometry.63787 ;
+    geo:hasGeometry me_egad_data:d.egad.samplePoint.geometry.63787 .
 
-me_egad_data:sampledFeature.152663 a me_egad:EGAD-SampledFeature ;
+me_egad_data:d.egad.sampledFeature.152663 a me_egad:EGAD-SampledFeature ;
     rdfs:label "EGAD sampled feature associated with sample point 152663" ;
     me_egad:sampledFeatureType me_egad_data:featureType.BLDG .
 
-me_egad_data:sampledFeature.63787 a me_egad:EGAD-SampledFeature ;
+me_egad_data:d.egad.sampledFeature.63787 a me_egad:EGAD-SampledFeature ;
     rdfs:label "EGAD sampled feature associated with sample point 63787" ;
     me_egad:sampledFeatureType me_egad_data:featureType.ST .
 
-me_egad_data:result.C0591FS.BNO.20230918.375951 a me_egad:EGAD-SinglePFAS-Concentration ;
+me_egad_data:d.egad.result.C0591FS.BNO.20230918.375951 a me_egad:EGAD-SinglePFAS-Concentration ;
     rdfs:label "EGAD PFAS measurements for sample 840 003 243 771 487 / BEAUTY" ;
-    qudt:quantityValue me_egad_data:quantityValue.C0591FS.BNO.20230918.375951 ;
     qudt:hasQuantityKind coso:SingleContaminantConcentrationQuantityKind ;
-    me_egad:methodDetectionLimit me_egad_data:mdl.C0591FS.BNO.20230918.375951 ;
-    me_egad:reportingLimit me_egad_data:rl.C0591FS.BNO.20230918.375951 ;
+    qudt:quantityValue me_egad_data:d.egad.quantityValue.C0591FS.BNO.20230918.375951 ;
+    me_egad:methodDetectionLimit me_egad_data:mdl.125.0.NanoGM-PER-L ;
+    me_egad:reportingLimit me_egad_data:rl.800.0.NanoGM-PER-L ;
     me_egad:validationLevel me_egad_data:validationLevel.DEP ;
-    me_egad:validationQualifier me_egad:concentrationQualifier.J .
+    me_egad:validationQualifier me_egad_data:concentrationQualifier.J ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v2/me_egad_data> .
 
-me_egad_data:result.L192275901.AAWH.20190529.1763231 a me_egad:EGAD-SinglePFAS-Concentration ;
+me_egad_data:d.egad.result.L192275901.AAWH.20190529.1763231 a me_egad:EGAD-SinglePFAS-Concentration ;
     rdfs:label "EGAD PFAS measurements for sample SW-3" ;
-    qudt:quantityValue me_egad_data:quantityValue.L192275901.AAWH.20190529.1763231 ;
     qudt:hasQuantityKind coso:SingleContaminantConcentrationQuantityKind ;
-    me_egad:methodDetectionLimit me_egad_data:mdl.L192275901.AAWH.20190529.1763231 ;
-    me_egad:reportingLimit me_egad_data:rl.L192275901.AAWH.20190529.1763231 ;
-    me_egad:validationLevel me_egad_data:validationLevel.DEP .
+    qudt:quantityValue me_egad_data:d.egad.quantityValue.L192275901.AAWH.20190529.1763231 ;
+    me_egad:methodDetectionLimit me_egad_data:mdl.0.47.NanoGM-PER-L ;
+    me_egad:reportingLimit me_egad_data:rl.1.86.NanoGM-PER-L ;
+    me_egad:validationLevel me_egad_data:validationLevel.DEP ;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v2/me_egad_data> .
 
-me_egad_data:quantityValue.C0591FS.BNO.20230918.375951 a coso:DetectQuantityValue ;
-    qudt:numericValue 17500.0 ;
-    qudt:unit unit:NanoGM-PER-L .
+me_egad_data:d.egad.quantityValue.C0591FS.BNO.20230918.375951 a coso:DetectQuantityValue ;
+    qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue 17500.0 .
 
-me_egad_data:mdl.C0591FS.BNO.20230918.375951 qudt:numericValue 125.0 ;
-    qudt:unit unit:NanoGM-PER-L .
+me_egad_data:d.egad.quantityValue.L192275901.AAWH.20190529.1763231 a coso:DetectQuantityValue ;
+    qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue 32.0 .
 
-me_egad_data:rl.C0591FS.BNO.20230918.375951 qudt:numericValue 800.0 ;
-    qudt:unit unit:NanoGM-PER-L .
+me_egad_data:mdl.125.0.NanoGM-PER-L qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue 125.0 .
+me_egad_data:mdl.0.47.NanoGM-PER-L qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue 0.47 .
 
-me_egad_data:quantityValue.L192275901.AAWH.20190529.1763231 a coso:DetectQuantityValue ;
-    qudt:numericValue 32.0 ;
-    qudt:unit unit:NanoGM-PER-L .
+me_egad_data:rl.800.0.NanoGM-PER-L qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue 800.0 .
 
-me_egad_data:mdl.L192275901.AAWH.20190529.1763231 qudt:numericValue 0.47 ;
-    qudt:unit unit:NanoGM-PER-L.
-
-me_egad_data:rl.L192275901.AAWH.20190529.1763231 qudt:numericValue 1.86 ;
-    qudt:unit unit:NanoGM-PER-L.
+me_egad_data:rl.1.86.NanoGM-PER-L qudt:hasUnit unit:NanoGM-PER-L ;
+    qudt:numericValue 1.86 .
 
 me_egad_data:testMethod.E537M a me_egad:EGAD-AnalysisMethod,
         owl:NamedIndividual ;
@@ -121,9 +134,8 @@ me_egad_data:parameter.PFNA_A a me_egad:EGAD-PFAS-ParameterName,
         coso:Substance,
         owl:NamedIndividual ;
     rdfs:label "PERFLUORONONANOIC ACID" ;
-    me_egad:parameterAbbreviation "PFNA_A"^^xsd:string ;
-    me_egad:parameterName "PERFLUORONONANOIC ACID"^^xsd:string .
-me_egad_data:parameter.PFNA_A DSSTox:sameAsDSSToxSubstance DSSTox:DSSTox_DTXSID8031863 .
+    skos:altLabel "PFNA_A"^^xsd:string .
+me_egad_data:parameter.PFNA_A dsstox:sameAsDSSToxSubstance dsstox:DTXSID8031863 .
 
 me_egad_data:parameter.PFOS_A a me_egad:EGAD-PFAS-ParameterName,
         coso:Substance,

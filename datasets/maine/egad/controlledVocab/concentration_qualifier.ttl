@@ -1,0 +1,291 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:concentrationQualifier.B a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK (ORGANIC) OR THE REPORTED VALUE WAS LESS THAN THE REPORTING LIMIT BUT GREATER THAN OR EQUAL TO THE IDL. (INORGANIC)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.B-EMPC a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK (ORGANIC) OR THE REPORTED VALUE WAS LESS THAN THE REPORTING LIMIT BUT GREATER THAN OR EQUAL TO THE IDL. (INORGANIC)  ACCOMODATES HISTORIC DATA. PEAK DETECTED, BUT DID NOT MEET QUANTIFICATION CRITERIA, RESUL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.BE a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK (ORGANIC) OR THE REPORTED VALUE WAS LESS THAN THE REPORTING LIMIT BUT GREATER THAN OR EQUAL TO THE IDL. (INORGANIC) & REPORTED VALUE IS ESTIMATED DUE TO PRESENCE OF INTERFERENCE (INORGANIC) OR COMPOUND EXCE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.BL a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK AS WELL AS INORGANIC SAMPLE." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.BPJ a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "BEST PROFESSIONAL JUDGEMENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.BT a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK (ORGANIC) OR THE REPORTED VALUE WAS LESS THAN THE REPORTING LIMIT BUT GREATER THAN OR EQUAL TO THE IDL. (INORGANIC) AND ANALYTE RECALCULATED AGAINST ALTERNATE LABELED COMPOUND(S) OR INTERNAL STANDARD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.Bs a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK (ORGANIC) OR THE REPORTED VALUE WAS LESS THAN THE REPORTING LIMIT BUT GREATER THAN OR EQUAL TO THE IDL. (INORGANIC) & QC RESULTS ARE NOT WITHIN CONTROL LIMITS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.C a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "PESTICIDE CONFIRMED BY GC/MS." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.D a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SAMPLE RESULT THAT REQUIRED DILUTION." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.DQE a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "DATA QUALITY EXCELLENT (FOR CONTINUOUS DATA ONLY)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.DQG a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "DATA QUALITY GOOD (FOR CONTINUOUS DATA ONLY)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.E a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "REPORTED VALUE IS ESTIMATED DUE TO PRESENCE OF INTERFERENCE (INORGANIC) OR COMPOUND EXCEEDED UPPER LEVEL OF CALIBRATION RANGE (ORGANIC)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.EH a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "EXTREMELY HIGH/EXTREME (IRON AND SULFUR REDUCING BACTERIA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.EMPC a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "PEAK DETECTED, BUT DID NOT MEET QUANTIFICATION CRITERIA, RESULT REPORTED REPRESENTS THE ESTIMATED MAXIMUM POSSIBLE CONCENTRATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.Es a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "REPORTED VALUE IS ESTIMATED DUE TO PRESENCE OF INTERFERENCE (INORGANIC) OR COMPOUND EXCEEDED UPPER LEVEL OF CALIBRATION RANGE (ORGANIC) AND QC RESULTS ARE NOT WITHIN CONTROL LIMITS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.FAIL a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "RESULT FAILS (CRITERIA BASED ON THE METHOD)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.G a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "GREATER THAN SPECIFIED AMOUNT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.H a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "HIGH/HEAVY (IRON AND SULFUR REDUCING BACTERIA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.J a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "ASSOCIATED VALUE IS ESTIMATED - MAY BE DUE TO FACTORS SUCH AS HOLDING TIME VIOLATIONS, BLANK CONTAMINATION, ETC." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.J-EMPC a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "PEAK DETECTED, BUT DID NOT MEET QUANTIFICATION CRITERIA, RESULT REPORTED REPRESENTS THE ESTIMATED MAXIMUM POSSIBLE CONCENTRATION & ASSOCIATED VALUE IS AN ESTIMATE BELOW QUANTITATION/ REPORTING LIMIT OR INDICATES AN ESTIMATED RESULT DUE TO AN ASSOCIATED QC" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.JB a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "ASSOCIATED VALUE IS AN ESTIMATE, COMPOUND IS FOUND IN THE ASSOCIATED METHOD BLANK." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.JG a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "ASSOCIATED VALUE IS ESTIMATED - MAY BE DUE TO FACTORS SUCH AS HOLDING TIME VIOLATIONS, BLANK CONTAMINATION, ETC. AND VALUE IS GREATER THAN SPECIFIED AMOUNT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.Js a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "ASSOCIATED VALUE IS ESTIMATED AND QC RESULTS NOT WITHIN CONTROL LIMITS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.K a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "TRACE LEVEL BELOW STATED REPORTING LIMIT (HETL)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.L a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "LIGHT (IRON AND SULFUR REDUCING BACTERIA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.LQV a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "LAB QUALIFIED, UNDEFINED. DATA SUBSEQUENTLY VALIDATED." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.LT a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "LESS THAN SPECIFIED AMOUNT (NON-LAB DATA ONLY)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.MD a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "MODEL L&W" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.MDO a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "MODEL-OLD L&W" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.MH a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "MODERATE TO HIGH/HEAVY (IRON AND SULFUR REDUCING BACTERIA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.MI a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "MATRIX INTERFERENCE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.MO a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "MODERATE (IRON AND SULFUR REDUCING BACTERIA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.N a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "PRESENCE OF AN ANALYTE IN WHICH A TENTATIVE ID CAN BE MADE AND VALUE REPRESENTS ITS APPROXIMATE CONCENTRATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.NAN a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NOT ANALYZED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.NC a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NOT CONFIRMED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.NQ a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NOT QUANTITATED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.P a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "(PESTICIDE/AROCLOR) EXCEEDS ACCEPTABLE % DIFFERENCE BETWEEN THE ORIGINAL AND CONFIRMATION ANALYSES." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.PASS a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "RESULT PASSES (CRITERIA BASED ON THE METHOD)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.PK a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SLIGHTLY POSITIVE (OILSCREEN TEST)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.PO a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "POSITIVE (COLIFORM BACTERIA AND OILSCREEN TESTS)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.R a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "RESULTS ARE REJECTED DURING DATA VALIDATION DUE TO SERIOUS ANALYTICAL OR SAMPLING DEFICIENCIES." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.S a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "REPORTED VALUE WAS DETERMINED BY METHOD OF STANDARD ADDITIONS (MSA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.SA a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SATURATED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.SP a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SLIGHTLY POSITIVE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.T a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "ANALYTE RECALCULATED AGAINST ALTERNATE LABELED COMPOUND(S) OR INTERNAL STANDARD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.T-EMPC a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "ANALYTE RECALCULATED AGAINST ALTERNATE LABELED COMPOUND(S) OR INTERNAL STANDARD AND PEAK DETECTED, BUT DID NOT MEET QUANTIFICATION CRITERIA, RESULT REPORTED REPRESENTS THE ESTIMATED MAXIMUM POSSIBLE CONCENTRATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.TN a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "BACTERIAL RESULTS REPORTED TOO NUMEROUS TO COUNT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.TR a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "TRACE (IRON AND SULFUR REDUCING BACTERIA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.U a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NOT DETECTED ABOVE THE ASSOCIATED QUANTITATION LIMIT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.UH a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "HISTORICAL DATA IDENTIFIED AS NON-DETECT BUT WITH OUT A REPORTING LIMIT PROVIDED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.UJ a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NOT DETECTED ABOVE THE ASSOCIATED QUANTITATION LIMIT AND ESTIMATED DUE TO VARIOUS QC DEVIATIONS, INCLUDING ELEVATED OR ESTIMATED QUANTITATION LIMIT." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.UJH a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "HISTORICAL DATA WITHOUT A REPORTING LIMIT PROVIDED--NOT DETECTED ABOVE ELEVATED QUANTITATION LIMIT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.UT a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NOT DETECTED ABOVE THE ASSOCIATED QUANTITATION LIMIT; AND ANALYTE RECALCULATED AGAINST ALTERNATE LABELED COMPOUND(S) OR INTERNAL STANDARD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.Z a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SURROGATE OR SPIKE DILUTED OUT OF SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.s a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "QC RESULTS NOT WITHIN CONTROL LIMITS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+me_egad:concentrationQualifier.s-EMPC a me_egad:EGAD-ConcentrationQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "QC RESULTS NOT WITHIN CONTROL LIMITS/PEAK DETECTED, BUT DID NOT MEET QUANTIFICATION CRITERIA, RESULT REPORTED REPRESENTS THE ESTIMATED MAXIMUM POSSIBLE CONCENTRATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD concentration_qualifier" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - concentration_qualifier"^^xsd:string .
+

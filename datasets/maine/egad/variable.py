@@ -23,10 +23,11 @@ from datetime import datetime
 
 
 NAME_SPACE = "http://w3id.org/sawgraph/v1/"
+DATASET_NAMESPACE = "http://w3id.org/sawgraph/v2/"
 
 _PREFIX = {
     "me_egad": Namespace(f"{NAME_SPACE}me-egad#"),
-    "me_egad_data": Namespace(f"{NAME_SPACE}me-egad-data#"),
+    "me_egad_data": Namespace(f"{DATASET_NAMESPACE}me-egad-data#"),
     "us_sdwis": Namespace(f"{NAME_SPACE}us-sdwis#"),
     "coso": Namespace(f"http://w3id.org/coso/v1/contaminoso#"),
     "dsstox": Namespace("http://w3id.org/DSSTox/v1/"),

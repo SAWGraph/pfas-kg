@@ -1,0 +1,739 @@
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:parameter.10-2_FTS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "10:2 FLUOROTELOMER SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "10:2 FTS_A"^^xsd:string .
+
+me_egad:parameter.11CL-PF3OUDS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "11-CHLOROEICOSAFLUORO-3-OXAUNDECANE-1-SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "11CL-PF3OUDS"^^xsd:string .
+
+me_egad:parameter.11CL-PF3OUDS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "11-CHLOROEICOSAFLUORO-3-OXAUNDECANE-1-SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "11CL-PF3OUDS_A"^^xsd:string .
+
+me_egad:parameter.3-3_FTC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "3:3 FLUOROTELOMER CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "3:3 FTC_A"^^xsd:string .
+
+me_egad:parameter.4-2_FTS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "4:2 FLUOROTELOMER SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "4:2 FTS"^^xsd:string .
+
+me_egad:parameter.4-2_FTS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "4:2-FLUOROTELOMER SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "4:2 FTS_A"^^xsd:string .
+
+me_egad:parameter.5-3_FTC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "5:3 FLUOROTELOMER CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "5:3 FTC_A"^^xsd:string .
+
+me_egad:parameter.6-2_FTC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "6:2 FLUOROTELOMER CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "6:2 FTC_A"^^xsd:string .
+
+me_egad:parameter.6-2_FTS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "6:2 FLUOROTELOMER SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "6:2 FTS"^^xsd:string .
+
+me_egad:parameter.6-2_FTS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "6:2 FLUOROTELOMER SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "6:2 FTS_A"^^xsd:string .
+
+me_egad:parameter.6-2_FTUC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "6:2 FLUOROTELOMER UNSATURATED CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "6:2 FTUC_A"^^xsd:string .
+
+me_egad:parameter.7-3_FTC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "7:3 FLUOROTELOMER CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "7:3 FTC_A"^^xsd:string .
+
+me_egad:parameter.8-2_FTC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "8:2 FLUOROTELOMER CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "8:2 FTC_A"^^xsd:string .
+
+me_egad:parameter.8-2_FTS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "8:2 FLUOROTELOMER SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "8:2 FTS"^^xsd:string .
+
+me_egad:parameter.8-2_FTS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "8:2 FLUOROTELOMER SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "8:2 FTS_A"^^xsd:string .
+
+me_egad:parameter.8-2_FTUC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "8:2 FLUOROTELOMER UNSATURATED CARBOXYLIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "8:2 FTUC_A"^^xsd:string .
+
+me_egad:parameter.9CL-PF3ONS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "9-CHOLOROHEXADECAFLUORO-3-OXANONANE-1-SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "9CL-PF3ONS"^^xsd:string .
+
+me_egad:parameter.9CL-PF3ONS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "9-CHOLOROHEXADECAFLUORO-3-OXANONANE-1-SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "9CL-PF3ONS_A"^^xsd:string .
+
+me_egad:parameter.ADONA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "4,8-DIOXA-3H-PERFLUORONONANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "ADONA"^^xsd:string .
+
+me_egad:parameter.ADONA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "4,8-DIOXA-3H-PERFLUORONONANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "ADONA_A"^^xsd:string .
+
+me_egad:parameter.FBSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROBUTANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "FBSA"^^xsd:string .
+
+me_egad:parameter.FHXSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "FHXSA"^^xsd:string .
+
+me_egad:parameter.HFPO-DA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "HEXAFLUOROPROPYLENE OXIDE DIMER ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "HFPO-DA_A"^^xsd:string .
+
+me_egad:parameter.N-ETFOSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-ETFOSA"^^xsd:string .
+
+me_egad:parameter.N-EtFOSAA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-EtFOSAA"^^xsd:string .
+
+me_egad:parameter.N-EtFOSAA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-EtFOSAA_A"^^xsd:string .
+
+me_egad:parameter.N-EtFOSAA_A_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-EtFOSAA_A_BR"^^xsd:string .
+
+me_egad:parameter.N-EtFOSAA_A_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-EtFOSAA_A_L"^^xsd:string .
+
+me_egad:parameter.N-EtFOSE a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOETHANOL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-EtFOSE"^^xsd:string .
+
+me_egad:parameter.N-MEFOSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MEFOSA"^^xsd:string .
+
+me_egad:parameter.N-MEFOSE a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOETHANOL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MEFOSE"^^xsd:string .
+
+me_egad:parameter.N-MeFOSAA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MeFOSAA"^^xsd:string .
+
+me_egad:parameter.N-MeFOSAA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MeFOSAA_A"^^xsd:string .
+
+me_egad:parameter.N-MeFOSAA_A_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MeFOSAA_A_BR"^^xsd:string .
+
+me_egad:parameter.N-MeFOSAA_A_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MeFOSAA_A_L"^^xsd:string .
+
+me_egad:parameter.N-MeFOSSA_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MeFOSSA_BR"^^xsd:string .
+
+me_egad:parameter.N-MeFOSSA_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-METHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-MeFOSSA_L"^^xsd:string .
+
+me_egad:parameter.N-etFOSSA_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-etFOSSA_BR"^^xsd:string .
+
+me_egad:parameter.N-etFOSSA_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "N-ETHYL PERFLUOROOCTANE SULFONAMIDOACETIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "N-etFOSSA_L"^^xsd:string .
+
+me_egad:parameter.PF05DOD_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORO-3,5,7,9,11-PENTAOXADODECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PF05DOD_A"^^xsd:string .
+
+me_egad:parameter.PFBA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROBUTANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFBA"^^xsd:string .
+
+me_egad:parameter.PFBA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROBUTANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFBA_A"^^xsd:string .
+
+me_egad:parameter.PFBS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROBUTANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFBS"^^xsd:string .
+
+me_egad:parameter.PFBSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROBUTANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFBSA"^^xsd:string .
+
+me_egad:parameter.PFBS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROBUTANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFBS_A"^^xsd:string .
+
+me_egad:parameter.PFDA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODECANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDA"^^xsd:string .
+
+me_egad:parameter.PFDA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDA_A"^^xsd:string .
+
+me_egad:parameter.PFDH_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORO-3,6-DIOXAHEPTANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDH_A"^^xsd:string .
+
+me_egad:parameter.PFDOA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODODECANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDOA"^^xsd:string .
+
+me_egad:parameter.PFDOA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODODECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDOA_A"^^xsd:string .
+
+me_egad:parameter.PFDOS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODODECANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDOS"^^xsd:string .
+
+me_egad:parameter.PFDOS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODODECANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDOS_A"^^xsd:string .
+
+me_egad:parameter.PFDS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODECANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDS"^^xsd:string .
+
+me_egad:parameter.PFDS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORODECANESULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFDS_A"^^xsd:string .
+
+me_egad:parameter.PFECHS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROETHYLCYCLOHEXANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFECHS"^^xsd:string .
+
+me_egad:parameter.PFECHS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "ACETOHYDROXAMIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFECHS_A"^^xsd:string .
+
+me_egad:parameter.PFEC_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORO-4-ISOPROPOXYBUTANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFEC_A"^^xsd:string .
+
+me_egad:parameter.PFEES_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORO(2-ETHOXYETHANE)SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFEES_A"^^xsd:string .
+
+me_egad:parameter.PFESA_A_BP2 a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "7H-PERFLUORO-4-METHYL-3,6-DIOXAOCTANESULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFESA_A_BP2"^^xsd:string .
+
+me_egad:parameter.PFHPA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEPTANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHPA"^^xsd:string .
+
+me_egad:parameter.PFHPA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEPTANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHPA_A"^^xsd:string .
+
+me_egad:parameter.PFHPS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEPTANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHPS"^^xsd:string .
+
+me_egad:parameter.PFHPS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEPTANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHPS_A"^^xsd:string .
+
+me_egad:parameter.PFHXA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXA"^^xsd:string .
+
+me_egad:parameter.PFHXA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXA_A"^^xsd:string .
+
+me_egad:parameter.PFHXDA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXADECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXDA_A"^^xsd:string .
+
+me_egad:parameter.PFHXS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXS"^^xsd:string .
+
+me_egad:parameter.PFHXSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXSA"^^xsd:string .
+
+me_egad:parameter.PFHXS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXS_A"^^xsd:string,
+        "PFHXS_A_L + PFHXS_A_BR"^^xsd:string .
+
+me_egad:parameter.PFHXS_A_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANE SULFONIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXS_A_BR"^^xsd:string .
+
+me_egad:parameter.PFHXS_A_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROHEXANE SULFONIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFHXS_A_L"^^xsd:string .
+
+me_egad:parameter.PFMB_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORO-4-METHOXYBUTANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFMB_A"^^xsd:string .
+
+me_egad:parameter.PFMP_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORO-3-METHOXYPROPANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFMP_A"^^xsd:string .
+
+me_egad:parameter.PFNA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORONONANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFNA"^^xsd:string .
+
+me_egad:parameter.PFNA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORONONANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFNA_A"^^xsd:string .
+
+me_egad:parameter.PFNS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORONONANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFNS"^^xsd:string .
+
+me_egad:parameter.PFNS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUORONONANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFNS_A"^^xsd:string .
+
+me_egad:parameter.PFOA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOA"^^xsd:string .
+
+me_egad:parameter.PFOA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANOIC ACID",
+        "PERFLUOROOCTANOIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOA_A"^^xsd:string,
+        "PFOA_A_L + PFOA_A_BR"^^xsd:string .
+
+me_egad:parameter.PFOA_A_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANOIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOA_A_BR"^^xsd:string .
+
+me_egad:parameter.PFOA_A_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANOIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOA_A_L"^^xsd:string .
+
+me_egad:parameter.PFODA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTADECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFODA_A"^^xsd:string .
+
+me_egad:parameter.PFOS a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOS"^^xsd:string .
+
+me_egad:parameter.PFOSA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANE SULFONAMIDE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOSA"^^xsd:string .
+
+me_egad:parameter.PFOS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLOUROOCTANE SULFONIC ACID",
+        "PERFLUOROOCTANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOS_A"^^xsd:string,
+        "PFOS_A_L + PFOS_A_BR"^^xsd:string .
+
+me_egad:parameter.PFOS_A_BR a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANE SULFONIC ACID-BRANCHED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOS_A_BR"^^xsd:string .
+
+me_egad:parameter.PFOS_A_L a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROOCTANE SULFONIC ACID-LINEAR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOS_A_L"^^xsd:string .
+
+me_egad:parameter.PFPEA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROPENTANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFPEA"^^xsd:string .
+
+me_egad:parameter.PFPEA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROPENTANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFPEA_A"^^xsd:string .
+
+me_egad:parameter.PFPES a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROPENTANE SULFONATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFPES"^^xsd:string .
+
+me_egad:parameter.PFPES_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROPENTANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFPES_A"^^xsd:string .
+
+me_egad:parameter.PFRPS_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROPROPANE SULFONIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFRPS_A"^^xsd:string .
+
+me_egad:parameter.PFTEA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROTETRADECANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFTEA"^^xsd:string .
+
+me_egad:parameter.PFTEA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROTETRADECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFTEA_A"^^xsd:string .
+
+me_egad:parameter.PFTRDA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROTRIDECANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFTRDA_A"^^xsd:string .
+
+me_egad:parameter.PFTRIA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROTRIDECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFTRIA_A"^^xsd:string .
+
+me_egad:parameter.PFUNDA a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROUNDECANOATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFUNDA"^^xsd:string .
+
+me_egad:parameter.PFUNDA_A a coso:Substance,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "PERFLUOROUNDECANOIC ACID" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFUNDA_A"^^xsd:string .
+
+me_egad:parameter.SUM_OF_5_PFAS a coso:SubstanceCollection,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "SUM OF 5 PFAS (PFHPA + PFHXS + PFOA + PFNA + PFOS)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "SUM OF 5 PFAS"^^xsd:string .
+
+me_egad:parameter.SUM_OF_6_PFAS a coso:SubstanceCollection,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "SUM OF 6 PFAS (PFHPA + PFHXS + PFOA + PFNA + PFOS + PFDA)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "SUM OF 6 PFAS"^^xsd:string .
+
+me_egad:parameter.SUM_PFOA_PFOS a coso:SubstanceCollection,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "TOTAL PFOA AND PFOS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "PFOA + PFOS"^^xsd:string .
+
+me_egad:parameter.TOTAL-PFC_A a coso:SubstanceCollection,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "TOTAL PERFLUOROCARBOXYLIC ACIDS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "TOTAL PFC_A"^^xsd:string .
+
+me_egad:parameter.TOTAL_PFCA a coso:SubstanceCollection,
+        me_egad:EGAD-PFAS-ParameterName,
+        owl:NamedIndividual ;
+    rdfs:label "TOTAL PERFLUOROCARBOXYLIC ACIDS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> ;
+    skos:altLabel "TOTAL PFCA"^^xsd:string .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD pfas_parameter" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - pfas_parameter"^^xsd:string .
+

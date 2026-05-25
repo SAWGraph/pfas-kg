@@ -1,0 +1,41 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:validationLevel.DEP a me_egad:EGAD-ValidationLevel,
+        owl:NamedIndividual ;
+    rdfs:label "DEP REVIEW" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> .
+
+me_egad:validationLevel.QAPP a me_egad:EGAD-ValidationLevel,
+        owl:NamedIndividual ;
+    rdfs:label "QAPP SPECIFIED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> .
+
+me_egad:validationLevel.T1 a me_egad:EGAD-ValidationLevel,
+        owl:NamedIndividual ;
+    rdfs:label "Tier I: EPA-NE REGION 1 GUIDELINES. The data package is checked for completeness. The DC-2 Form (Inventory Sheet) is completed and signed.  This ensures that the data set is complete for potential use in court. The PE sample results are evaluated to asses" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> .
+
+me_egad:validationLevel.T2M a me_egad:EGAD-ValidationLevel,
+        owl:NamedIndividual ;
+    rdfs:label "TIER II MODIFIED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> .
+
+me_egad:validationLevel.T3 a me_egad:EGAD-ValidationLevel,
+        owl:NamedIndividual ;
+    rdfs:label "Tier III: EPA-NE REGION 1 GUIDELINES. The raw data are examined in detail to check for calculation, compound identification, and/or transcription errors. For Tier III validations, a Data Validation Report is produced by the validator." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> .
+
+me_egad:validationLevel.T3M a me_egad:EGAD-ValidationLevel,
+        owl:NamedIndividual ;
+    rdfs:label "TIER III MODIFIED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD validation_level" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - validation_level"^^xsd:string .
+

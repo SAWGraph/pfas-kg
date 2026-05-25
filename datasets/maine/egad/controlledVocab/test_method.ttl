@@ -1,0 +1,71 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:testMethod.CALCULATED a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "CALCULATED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.E1633_DR a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "3RD DRAFT METHOD 1633 ANALYSIS OF PER= AND POLYFLUOROALKYL SUBSTANCES (PFAS) IN AQUEOUS, SOLID, BIOSOLIDS, AND TISSUE SAMPLES BY LC-MS/MS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.E533 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "EPA: DETERMINATION OF PER- AND POLYFLUOROALYKL SUBSTANCES IN DRINKING WATER BY ISOTOPE DILUTION ANION EXCHANGE SOLID PHASE EXTRACTION AND LIQUID CHROMATOGRAPHY/TANDEM MASS SPECTROMETRY (LC/MS/MS). EPA METHOD 533, EPA DOCUMENT 815-B-19-020, NOVEMBER 2019." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.E537 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "EPA: DETERMINATION OF SELECTED PERFLUORINATED ALKYL ACIDS IN DRINKING WATER BY SOLID PHASE EXTRACTION AND LIQUID CHROMATOGRAPHY/TANDEM MASS SPECTROMETRY (LC/MS/MS). SEPTEMBER 2009." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.E537.1 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "EPA: DETERMINATION OF SELECTED PERFLUORINATED ALKYL ACIDS IN DRINKING WATER BY SOLID PHASE EXTRACTION AND LIQUID CHROMATOGRAPHY/TANDEM MASS SPECTROMETRY (LC/MS/MS). NOVEMBER 2018." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.E537M a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "EPA: MODIFIED - DETERMINATION OF SELECTED PERFLUORINATED ALKYL ACIDS IN DRINKING WATER BY SOLID PHASE EXTRACTION AND LIQUID CHROMATOGRAPHY/TANDEM MASS SPECTROMETRY (LC/MS/MS). SEPTEMBER 2009." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.MLA-041 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "AXYS INTERNAL METHOD FOR PERFLUOROCARBONS (SOLIDS)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.MLA-043 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "AXYS INTERNAL METHOD FOR PERFLUOROCARBONS (TISSUE)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.MLA-060 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "AXYS INTERNAL METHOD FOR PERFLUOROCARBONS (WATER)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.SW8321 a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "SW846: SOLVENT EXTRACTABLE NON-VOLATILE COMPOUNDS BY HPLC/TSP/MS OR UV DETECT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.SW8321BM a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "SW846: MODIFIED - SOLVENT EXTRACTABLE NON-VOLATILE COMPOUNDS BY HPLC/TSP/MS OR UV DETECT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+me_egad:testMethod.VAL-PFAS a me_egad:EGAD-AnalysisMethod,
+        owl:NamedIndividual ;
+    rdfs:label "VISTA INTERNAL METHOD FOR PERFLUORINATED ALKYL ACIDS IN SOLID AND TISSUE. ADDED AUG 2015." ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD test_method" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - test_method"^^xsd:string .
+

@@ -1,0 +1,152 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:organization.lab.AA a prov:Organization ;
+    rdfs:label "ALPHA ANALYTICAL LAB - WESTBOROUGH, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.AAWH a prov:Organization ;
+    rdfs:label "ALPHA ANALYTICAL WOODS HOLE LAB - MANSFIELD, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.ALSK a prov:Organization ;
+    rdfs:label "ALS - KELSO, WA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.AU a prov:Organization ;
+    rdfs:label "ACCUTEST" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.AUOF a prov:Organization ;
+    rdfs:label "SGS ACCUTEST - ORLANDO, FLORIDA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.AX a prov:Organization ;
+    rdfs:label "AXYS ANALYTICAL SERVICES" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.BCI a prov:Organization ;
+    rdfs:label "BIOREMEDIATION CONSULTING INC - WATERTOWN, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.BNO a prov:Organization ;
+    rdfs:label "BATTELLE NORWELL OPERATIONS- NORWELL, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.BVL a prov:Organization ;
+    rdfs:label "BUREAU VERITAS LABORATORIES - MISSISSAUGA, ONTARIO, CANADA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.CAL a prov:Organization ;
+    rdfs:label "CONTEST ANALYTICAL LABORATORY- EAST LONGMEADOW, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.CMBA a prov:Organization ;
+    rdfs:label "COLUMBIA ANALYTICAL- KELSO, WA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.ELL a prov:Organization ;
+    rdfs:label "EUROFINS LANCASTER LABORATORIES - LANCASTER, PA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.EP a prov:Organization ;
+    rdfs:label "ENVIRONMENTAL PROTECTION AGENCY, CHELMSFORD, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.ESR a prov:Organization ;
+    rdfs:label "EUROFINS SPECTRUM - NORTH KINGSTON, RI" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.GEL a prov:Organization ;
+    rdfs:label "GEL LABORATORIES LLC - CHARLESTON, SC" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.KA a prov:Organization ;
+    rdfs:label "KATAHDIN ANALYTICAL SERVICES" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.ME a prov:Organization ;
+    rdfs:label "MAINE ENVIRONMENTAL LAB" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.ML a prov:Organization ;
+    rdfs:label "MAINE LABORATORIES - NORRIDGEWOCK, ME" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.MW a prov:Organization ;
+    rdfs:label "EUROFINS EATON ANALYTICAL (MONGOMERY WATSON) - MONROVIA, CA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.OEME a prov:Organization ;
+    rdfs:label "EPA OFFICE OF ENVIRONMENTAL MEASUREMENT AND EVALUATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.PAE a prov:Organization ;
+    rdfs:label "PACE ANALYTICAL - EAST LONGMEADOW, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.PAF a prov:Organization ;
+    rdfs:label "PACE ANALYTICAL - ORMOND BEACH, FL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.PAM a prov:Organization ;
+    rdfs:label "PACE ANALYTICAL - MINNEAPOLIS, MN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.PAMA a prov:Organization ;
+    rdfs:label "PACE ANALYTICAL - MANSFIELD, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.PAW a prov:Organization ;
+    rdfs:label "PACE ANALYTICAL - WESTBOROUGH, MA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.RL a prov:Organization ;
+    rdfs:label "ABSOLUTE RESOURCE ASSOCIATES, NH (FORMERLY RESOURCE LABORATORIES)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.SGSD a prov:Organization ;
+    rdfs:label "SGS ENVIRONMENTAL SERVICES INC - WILMINGTON, DE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.SS a prov:Organization ;
+    rdfs:label "SEVERN TRENT LABS, SACRAMENTO, CA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.SU a prov:Organization ;
+    rdfs:label "SEVERN TRENT LABS, LOCATION UNKNOWN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.TA a prov:Organization ;
+    rdfs:label "TEST AMERICA, LOCATION UNKNOWN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.TAD a prov:Organization ;
+    rdfs:label "TEST AMERICA - DENVER,CO" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.TAI a prov:Organization ;
+    rdfs:label "TEST AMERICA - WEST SACRAMENTO, CA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.TAN a prov:Organization ;
+    rdfs:label "TEST AMERICA - BUFFALO, NY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.UL a prov:Organization ;
+    rdfs:label "EUROFINS EATON ANALYTICAL (UNDERWRITERS) - SOUTH BEND, INDIANA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+me_egad:organization.lab.VAL a prov:Organization ;
+    rdfs:label "VISTA ANALYTICAL LABORATORY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD analysis_lab" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - analysis_lab"^^xsd:string .
+

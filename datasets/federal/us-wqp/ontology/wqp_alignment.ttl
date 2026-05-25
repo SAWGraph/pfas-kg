@@ -1,11 +1,10 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
-@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
-@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
 
 <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment> rdf:type owl:Ontology ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
@@ -21,112 +20,120 @@
 
 # species mapping to NCBI (& FOODON)
 
-us_wqp_data:biologicalTaxon.10575 rdf:type obo:NCBITaxon_66913;
+us_wqp:biologicalTaxon.10575 rdf:type obo:FOODON_03411900;   #NCBITaxon_66913
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.10582 rdf:type obo:NCBITaxon_7998;
+us_wqp:biologicalTaxon.10582 rdf:type obo:FOODON_03411899;  #NCBITaxon_7998
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13166 rdf:type obo:NCBITaxon_147949; 
+us_wqp:biologicalTaxon.13166 rdf:type obo:FOODON_03412427; #NCBITaxon_147949
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13169 rdf:type obo:NCBITaxon_225060;
+us_wqp:biologicalTaxon.13169 rdf:type obo:FOODON_03414030; #NCBITaxon_225060
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13170 rdf:type obo:NCBITaxon_27706;
+us_wqp:biologicalTaxon.13170 rdf:type obo:FOODON_03412182; #NCBITaxon_27706
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13370 rdf:type obo:NCBITaxon_46259;
+us_wqp:biologicalTaxon.13370 rdf:type obo:FOODON_03411764; #NCBITaxon_46259
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.13374 rdf:type obo:NCBITaxon_34816;
+us_wqp:biologicalTaxon.13374 rdf:type obo:FOODON_03412181; #NCBITaxon_34816
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.1447 rdf:type obo:NCBITaxon_225389;
+us_wqp:biologicalTaxon.1447 rdf:type obo:FOODON_03411796; #NCBITaxon_225389;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.14727 rdf:type obo:NCBITaxon_8022;
+us_wqp:biologicalTaxon.14727 rdf:type obo:FOODON_03411109; #NCBITaxon_8022
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.15717 rdf:type obo:NCBITaxon_8167;
+us_wqp:biologicalTaxon.15717 rdf:type obo:FOODON_03411177; #NCBITaxon_8167
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.17772 rdf:type obo:NCBITaxon_75288;
+us_wqp:biologicalTaxon.17772 rdf:type obo:FOODON_03412582; #NCBITaxon_75288
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.18416 rdf:type obo:NCBITaxon_8032;
+us_wqp:biologicalTaxon.18416 rdf:type obo:FOODON_03411479; #NCBITaxon_8032
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.18441 rdf:type obo:NCBITaxon_8038;
+us_wqp:biologicalTaxon.18441 rdf:type obo:FOODON_03411077; #NCBITaxon_8038;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.23065 rdf:type obo:NCBITaxon_6550;
+us_wqp:biologicalTaxon.23065 rdf:type obo:FOODON_03412875; #NCBITaxon_6550;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.25364 rdf:type obo:NCBITaxon_6604;
+us_wqp:biologicalTaxon.25364 rdf:type obo:FOODON_03412356; #NCBITaxon_6604;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.3725 rdf:type obo:NCBITaxon_154811;
+us_wqp:biologicalTaxon.3725 rdf:type _:riverCarpsucker ;
+        rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
+
+_:riverCarpsucker  rdfs:subClassOf obo:FOODON_03411892;  #sucker family
+    rdfs:label "river carpsucker";
+    obo:RO_0002162  obo:NCBITaxon_154811.
+
+us_wqp:biologicalTaxon.3757 rdf:type obo:FOODON_02021972; #NCBITaxon_7971
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.3757 rdf:type obo:NCBITaxon_7971;
+us_wqp:biologicalTaxon.40317 rdf:type obo:FOODON_03411398; #NCBITaxon_283036
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.40317 rdf:type obo:NCBITaxon_283036;
-    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
-
-us_wqp_data:biologicalTaxon.7587 rdf:type obo:NCBITaxon_126735;
+us_wqp:biologicalTaxon.7587 rdf:type obo:FOODON_03411165; #NCBITaxon_126735;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.7588 rdf:type obo:NCBITaxon_184451;
+us_wqp:biologicalTaxon.7588 rdf:type obo:FOODON_03412334; #NCBITaxon_184451;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.818 rdf:type obo:NCBITaxon_27778;
+us_wqp:biologicalTaxon.818 rdf:type obo:FOODON_03412007;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
-us_wqp_data:biologicalTaxon.11868 rdf:type obo:NCBITaxon_13106;
+obo:FOODON_03412007 obo:RO_0002162 obo:NCBITaxon_27778. #missing in taxon
+
+us_wqp:biologicalTaxon.11868 rdf:type obo:FOODON_03412079; #NCBITaxon_13106;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:biologicalTaxon.817 rdf:type obo:NCBITaxon_66912;
+us_wqp:biologicalTaxon.817 rdf:type obo:FOODON_03412607; #NCBITaxon_66912;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp_data:sampleMedia.tissue rdf:type obo:FOODON_02010032; #all tissue samples some animal muscle tissue. 
+us_wqp:sampleMedia.tissue rdf:type obo:FOODON_02010032; #all tissue samples some animal muscle tissue. 
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
+
+## some aquatic animal if also sampled in river
 
 # sample type by media 
 us_wqp:DefWQPWaterSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:sampleMedia.water; 
+        owl:hasValue us_wqp:sampleMedia.water; 
         rdfs:subClassOf coso:WaterSample;
         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
     
 us_wqp:DefWQPSoilSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:sampleMedia.soil; 
+        owl:hasValue us_wqp:sampleMedia.soil; 
     rdfs:subClassOf coso:SoilSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPSedimentSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:sampleMedia.sediment; 
+        owl:hasValue us_wqp:sampleMedia.sediment; 
     rdfs:subClassOf coso:SedimentSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPBiologicalSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:sampleMedia.biological; 
+        owl:hasValue us_wqp:sampleMedia.biological; 
     rdfs:subClassOf coso:BiotaSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPTissueSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:sampleMedia.tissue; 
+        owl:hasValue us_wqp:sampleMedia.tissue; 
     rdfs:subClassOf coso:AnimalTissueSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 us_wqp:DefWQPAirSample rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp_data:sampleMedia.air; 
+        owl:hasValue us_wqp:sampleMedia.air; 
     rdfs:subClassOf coso:AirSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 

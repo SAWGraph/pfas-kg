@@ -18,7 +18,6 @@ from shapely.geometry import Point
 import numpy
 from pathlib import Path
 
-
 ## importing utility/variable file
 #sys.path.insert(0, 'C:/Users/Shirly/Documents/GitHub/kg-construction/datasets/maine/egad')
 from variable import NAME_SPACE, _PREFIX
@@ -111,11 +110,11 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
             samplepoint_geometry = Point(samplepoint_longitude, samplepoint_latitude)
 
         ## iris
-        site_iri = _PREFIX["me_egad_data"][f"{'site'}.{site_number}"]
-        sitegeometry_iri = _PREFIX["me_egad_data"][f"{'site.geometry'}.{site_number}"]
-        samplepoint_iri = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint_number}"]
-        samplepoint_type_iri = _PREFIX["me_egad_data"][f"{'featureType'}.{samplepoint_type}"]
-        samplepointgeometry_iri = _PREFIX["me_egad_data"][f"{'samplePoint.geometry'}.{samplepoint_number}"]
+        site_iri = _PREFIX["me_egad_data"][f"d.egad.site.{site_number}"]
+        sitegeometry_iri = _PREFIX["me_egad_data"][f"d.egad.site.geometry.{site_number}"]
+        samplepoint_iri = _PREFIX["me_egad_data"][f"d.egad.samplePoint.{samplepoint_number}"]
+        samplepoint_type_iri = _PREFIX["me_egad"][f"featureType.{samplepoint_type}"]
+        samplepointgeometry_iri = _PREFIX["me_egad_data"][f"d.egad.samplePoint.geometry.{samplepoint_number}"]
         
         ## triplify 
 

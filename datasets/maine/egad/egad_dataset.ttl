@@ -1,0 +1,43 @@
+@prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v2/me-egad-data#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdwis: <http://w3id.org/sawgraph/v1/sdwis#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stad: <http://sawgraph.spatialai.org/v1/stad#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kwgr: <http://stko-kwg.geog.ucsb.edu/lod/resource/>.
+
+<http://w3id.org/sawgraph/v2/me-egad-data> rdf:type owl:Ontology ;
+                                        owl:imports <http://w3id.org/sawgraph/v2/me-egad-data/egad_observation_output.ttl>,
+                                                    <http://w3id.org/sawgraph/v2/me-egad-data/egad_result_output.ttl>,
+                                                    <http://w3id.org/sawgraph/v2/me-egad-data/egad_samples_output.ttl>,
+                                                    <http://w3id.org/sawgraph/v2/me-egad-data/egad_sites_samples_output.ttl>,
+                                                    <http://w3id.org/sawgraph/v2/me-egad-data/egad_sites_types.ttl>;
+                                        dcterms:issued "2024-07-26"^^xsd:date ;   
+                                           dcterms:modified "2026-04-17"^^xsd:date ; 
+                                           prov:wasDerivedFrom me_egad_data:sourceDataset ;
+                                           owl:versionInfo "2.0"@en .
+me_egad_data:sourceDataset rdf:type stad:Dataset ;
+                           rdfs:label "Statewide EGAD PFAS File January 2026"@en ;
+                           dcterms:issued "2026-01-08"^^xsd:date ;  
+                           dcterms:source <https://www.maine.gov/dep/maps-data/egad/> ;
+                           stad:hasSpatialCoverage kwgr:administrativeRegion.USA.23 ;
+                           stad:hasTemporalCoverage me_egad_data:temporalCoverage .
+me_egad_data:temporalCoverage a time:ProperInterval ;
+                              time:hasBeginning me_egad_data:temporalCoverage.start ;
+                              time:hasEnd me_egad_data:temporalCoverage.end ;
+                              time:hasDurationDescription me_egad_data:temporalCoverage.duration .
+me_egad_data:temporalCoverage.start a time:Instant ;
+                                    time:inXSDDate "2007-10-31"^^xsd:date .
+me_egad_data:temporalCoverage.end a time:Instant ;
+                                  time:inXSDDate "2026-01-04"^^xsd:date .
+me_egad_data:temporalCoverage.duration a time:DurationDescription ;
+                                       time:years "18.2"^^xsd:decimal .

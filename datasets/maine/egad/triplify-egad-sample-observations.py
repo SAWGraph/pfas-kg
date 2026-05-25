@@ -25,6 +25,7 @@ from variable import NAME_SPACE, _PREFIX
 
 ## declare variables
 logname = "log"
+dataset_namespace= URIRef("http://w3id.org/sawgraph/v2/me_egad_data")
 
 ## data path
 root_folder = Path(__file__).resolve().parent.parent.parent.parent
@@ -214,41 +215,41 @@ def get_iris(samplepoint, sample, sampleobs, result):
     """Build iris for object instances"""
     iris = {}
     ## main sample entity iris
-    iris['samplepoint'] = _PREFIX["me_egad_data"][f"{'samplePoint'}.{samplepoint['number']}"]
-    iris['samplefeature'] = _PREFIX["me_egad_data"][f"{'sampledFeature'}.{samplepoint['number']}"] #TODO this is sometimes a site
-    iris['sample'] = _PREFIX["me_egad_data"][f"{'sample'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}"] #sample id is not unique
-    iris['sampleobs'] = _PREFIX["me_egad_data"][f"{'observation'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['samplepoint'] = _PREFIX["me_egad_data"][f"{'d.egad.samplePoint'}.{samplepoint['number']}"]
+    iris['samplefeature'] = _PREFIX["me_egad_data"][f"{'d.egad.sampledFeature'}.{samplepoint['number']}"] #TODO this is sometimes a site
+    iris['sample'] = _PREFIX["me_egad_data"][f"{'d.egad.sample'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}"] #sample id is not unique
+    iris['sampleobs'] = _PREFIX["me_egad_data"][f"{'d.egad.observation'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     if 'sampled_by' in sample.keys():
         iris['sample_agent'] = _PREFIX['me_egad_data'][f"{sample['agent']}"]
     # CV iris
     if 'type' in samplepoint.keys():
-        iris['samplepoint_type'] = _PREFIX["me_egad_data"][f"{'featureType'}.{samplepoint['type']}"]
+        iris['samplepoint_type'] = _PREFIX["me_egad"][f"{'featureType'}.{samplepoint['type']}"]
     
     if 'type' in sampleobs.keys():
-        iris['samplematerial'] = _PREFIX["me_egad_data"][f"{'sampleMaterialType'}.{material_type_dict[sampleobs['type']]}"] 
+        iris['samplematerial'] = _PREFIX["me_egad"][f"{'sampleMaterialType'}.{material_type_dict[sampleobs['type']]}"] 
     if 'typequalifier' in sampleobs.keys():
-        iris['samplematerialqualifier'] = _PREFIX["me_egad_data"][f"{'sampleMaterialTypeQualifier'}.{material_qualifier_dict[sampleobs['typequalifier']]}"]
+        iris['samplematerialqualifier'] = _PREFIX["me_egad"][f"{'sampleMaterialTypeQualifier'}.{material_qualifier_dict[sampleobs['typequalifier']]}"]
 
     if 'location' in sample.keys():
-        iris['samplelocation'] = _PREFIX["me_egad_data"][f"{'sampleLocation'}.{location_type_dict[sample['location']]}"] 
+        iris['samplelocation'] = _PREFIX["me_egad"][f"{'sampleLocation'}.{location_type_dict[sample['location']]}"] 
 
     if 'treatment_status' in sample.keys():
-        iris['sampletreatment'] = _PREFIX["me_egad_data"][f"{'treatmentStatus'}.{treatment_status_dict[sample['treatment_status']]}"]  
+        iris['sampletreatment'] = _PREFIX["me_egad"][f"{'treatmentStatus'}.{treatment_status_dict[sample['treatment_status']]}"]  
     
     if 'collection_method' in sample.keys():
-        iris['samplecollectionmethod'] = _PREFIX["me_egad_data"][f"{'samplingMethod'}.{collection_method_dict[sample['collection_method']]}"]
+        iris['samplecollectionmethod'] = _PREFIX["me_egad"][f"{'samplingMethod'}.{collection_method_dict[sample['collection_method']]}"]
 
     if 'analysis_method' in sampleobs.keys():
-        iris['analysis_method'] = _PREFIX["me_egad_data"][f"{'testMethod'}.{test_method_dict[sampleobs['analysis_method']]}"]
+        iris['analysis_method'] = _PREFIX["me_egad"][f"{'testMethod'}.{test_method_dict[sampleobs['analysis_method']]}"]
 
     if 'type' in result.keys():
-        iris['result_type'] = _PREFIX["me_egad_data"][f"{'resultType'}.{result_type_dict[result['type']]}"]
+        iris['result_type'] = _PREFIX["me_egad"][f"{'resultType'}.{result_type_dict[result['type']]}"]
 
     ## Result and Quantity and related Controlled Vocabs
-    iris['result'] = _PREFIX["me_egad_data"][f"{'result'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
-    iris['quantityValue'] = _PREFIX["me_egad_data"][f"{'quantityValue'}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
-    iris['analysislab'] = _PREFIX["me_egad_data"][f"{'organization.lab'}.{lab_dict[sampleobs['analysislab']]}"]
-    iris['substance'] = _PREFIX["me_egad_data"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
+    iris['result'] = _PREFIX["me_egad_data"][f"d.egad.result.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['quantityValue'] = _PREFIX["me_egad_data"][f"d.egad.quantityValue.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['analysislab'] = _PREFIX["me_egad"][f"organization.lab.{lab_dict[sampleobs['analysislab']]}"]
+    iris['substance'] = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
 
     ## unit qudt 
     if result['pfas_concentration_units'] == "NG/G":
@@ -267,10 +268,10 @@ def get_iris(samplepoint, sample, sampleobs, result):
     
     # concentration qualifier
     if 'validation_qualifier' in result.keys():
-            iris['validationQualifier'] = _PREFIX["me_egad_data"][f"{'concentrationQualifier'}.{result['validation_qualifier']}"] 
+            iris['validationQualifier'] = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{result['validation_qualifier']}"] 
 
     if 'lab_qualifier' in result.keys():
-            iris['labQualifier'] = _PREFIX["me_egad_data"][f"{'concentrationQualifier'}.{result['lab_qualifier']}"] 
+            iris['labQualifier'] = _PREFIX["me_egad"][f"{'concentrationQualifier'}.{result['lab_qualifier']}"] 
 
     #share quantities for rl and mdl based on values, precision, and units
     if 'pfas_rl' in result.keys():
@@ -304,6 +305,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         #kg.add( (iris['samplepoint'], _PREFIX["dcterms"]['identifier'], Literal(samplepoint['number'], datatype = XSD.integer)) )
         #kg.add( (iris['samplepoint'], _PREFIX["skos"]['altLabel'], Literal(samplepoint['webname'], datatype = XSD.string)) )
         kg.add( (iris['samplepoint'], _PREFIX["coso"]['pointFromFeature'], iris['samplefeature']) )
+        kg.add((iris['samplepoint'], RDFS.isDefinedBy, dataset_namespace))
 
                 
         ## specify sample feature instance and it's data properties
@@ -318,6 +320,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         kg.add( (iris['sample'], RDFS['label'], Literal('EGAD sample '+ str(sample['id']))) )
         kg.add( (iris['sample'], _PREFIX["dcterms"]['identifier'], Literal(sample['id'], datatype = XSD.string)) )
         kg.add( (iris['sample'], _PREFIX["coso"]['fromSamplePoint'], iris['samplepoint']) )
+        kg.add((iris['sample'], RDFS.isDefinedBy, dataset_namespace))
 
 
         ### material sample type
@@ -340,7 +343,8 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         if 'sample_agent' in iris.keys():
             kg.add((iris['sample'], _PREFIX["prov"]['wasAttributedTo'], iris['sample_agent'] ))
             kg.add((iris['sample_agent'], RDF.type, _PREFIX["prov"]['Agent'])) #this is a mix of organizations and individuals
-            kg.add((iris['sample_agent'], RDFS.label, Literal(sample['sampled_by'], datatype=XSD.string)))      
+            kg.add((iris['sample_agent'], RDFS.label, Literal(sample['sampled_by'], datatype=XSD.string)))
+            kg.add((iris['sample_agent'], RDFS.isDefinedBy, dataset_namespace))      
 
 
         ## Observation 
@@ -354,6 +358,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['analyzedSample'], iris['sample']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['ofDatasetSubstance'], iris['substance']) )
         kg_obs.add( (iris['sampleobs'], _PREFIX["coso"]['hasResult'], iris['result']) )
+        kg_obs.add((iris['sampleobs'], RDFS.isDefinedBy, dataset_namespace))
 
         if 'analysis_date' in sampleobs.keys():
             kg_obs.add( (iris['sampleobs'], _PREFIX["sosa"]['resultTime'], Literal(sampleobs['analysis_date'] , datatype = XSD.dateTime)) )
@@ -371,6 +376,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
         
         ## contaminantMeasurement (result) and substance and quantity kind
         kg_result.add( (iris['result'], RDFS['label'], Literal('EGAD PFAS measurements for sample '+ str(sample['id']))) )        
+        kg_result.add((iris['result'], RDFS.isDefinedBy, dataset_namespace))
         kg_result.add( (iris['result'], _PREFIX["qudt"]['quantityValue'], iris['quantityValue']) )
         ### aggregate measurements
         if (pfas_parameter_kind_dict[sampleobs['parameter']] == 'Cumulative'):
@@ -378,12 +384,14 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
             kg_result.add( (iris['substance'], _PREFIX["me_egad"]['dep_chemicalID'], Literal(sampleobs['chemical_number'] , datatype = XSD.string)) )
             kg_result.add( (iris['result'], RDF.type, _PREFIX["me_egad"]["EGAD-AggregatePFAS-Concentration"]) )
             kg_result.add((iris['result'], _PREFIX['qudt']['hasQuantityKind'], _PREFIX['coso']['AggregateContaminantConcentrationQuantityKind']))
+            kg_obs.add((iris['sampleobs'], _PREFIX['coso']['observedProperty'], _PREFIX['coso']['AggregateContaminantConcentrationQuantityKind']))
             #kg_result.add((iris['sampleobs'], _PREFIX['coso']['observedProperty'], _PREFIX['coso']['AggregateContaminantConcentrationQuantityKind']))
         ### single
         else:
             kg_result.add( (iris['substance'], _PREFIX["coso"]['casNumber'], Literal(sampleobs['chemical_number']  , datatype = XSD.string)) ) #TODO update to reused relation, ignore ones that are custom DEP
             kg_result.add( (iris['result'], RDF.type, _PREFIX["me_egad"]["EGAD-SinglePFAS-Concentration"]) )
             kg_result.add((iris['result'], _PREFIX['qudt']['hasQuantityKind'], _PREFIX['coso']['SingleContaminantConcentrationQuantityKind']))
+            kg_obs.add((iris['sampleobs'], _PREFIX['coso']['observedProperty'], _PREFIX['coso']['SingleContaminantConcentrationQuantityKind']))
             #kg_result.add((iris['sampleobs'], _PREFIX['coso']['observedProperty'], _PREFIX['coso']['SingleContaminantConcentrationQuantityKind']))
 
 

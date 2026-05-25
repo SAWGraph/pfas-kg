@@ -1,0 +1,384 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:siteType.AGRICCHEM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "AGRICULTURAL CHEMICAL USE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An area of large commercial farming and orchards that appear on field inspection to have pesticide use. Evidence includes tractors with spray bars, totally weed-free crops, etc. Also includes large farm supply stores noted during watershed inspections." .
+
+me_egad:siteType.AGRICFARM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "AGRICULTURAL FARM PRODUCTS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Includes dairies, feedlots, large herds of livestock, and chicken farms, as well as areas with recent sludge spreading as part of the Statewide PFAS Investigation under Maine LD 1600" .
+
+me_egad:siteType.AGRICNITRBAC a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "AGRICULTURE NITRATE/BACTERIA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Includes dairies, feedlots, large herds of livestock, and chicken farms, as well as areas with recent manure spreading noted during watershed inspections.  " .
+
+me_egad:siteType.AQUA a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "AQUACULTURE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A facility for farming aquatic species" .
+
+me_egad:siteType.ASHUTIL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "ASH UTILIZATION SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site at which the residue (biomass ash) remaining after the combustion of tree parts, paper mill sludge, wood from demolition debris, peat, or the combustion of wood with fossil fuels or other material has been spread on the land." .
+
+me_egad:siteType.AUTOJUNK a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "AUTOMOBILE GRAVEYARD/JUNKYARD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An area used to store three or more unserviceable, discarded, worn out or junked motor vehicles. Also includes an area used for automobile dismantling, salvage and recycling operations." .
+
+me_egad:siteType.BENREUSE a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "BENEFICIAL REUSE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site involved in the use or reuse of a solid waste or waste derived product" .
+
+me_egad:siteType.BKSTUDY a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "BACKGROUND STUDY SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site used for determination of background contamination concentrations." .
+
+me_egad:siteType.BROWNFIELDS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "BROWNFIELDS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Site that receives federal or state funding or services under the Brownfields Program for a property where redevelopment is impeded by the presence or potential presence of contaminants." .
+
+me_egad:siteType.COMP a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "COMPOST SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site at which compost is produced. Compost is the humus-like product resulting from the biological decomposition of organic matter under aerobic conditions at high temperature. This material may be used as a soil amendment." .
+
+me_egad:siteType.CONDEM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "CONSTRUCTION/DEMOLITION SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site at which debris resulting from construction, remodeling, repair, and demolition of structures have been disposed. It excludes asbestos and other special wastes." .
+
+me_egad:siteType.DMP a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "DIOXIN MONITORING PROGRAM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Sites at which organisms (predominantly fish, occasionally shellfish) and sediments are monitored for contamination with the chemicals dioxins/furans." .
+
+me_egad:siteType.DRYCLN a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "DRY CLEANER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A former or current location of a dry cleaners which is currently using or historically used perchloroethylene (PCE)." .
+
+me_egad:siteType.ENGSWDS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "ENGINEERED SUBSURFACE WASTEWATER DISPOSAL SYSTEM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A system which is designed to infiltrate flows of greater than 2000 gallons per day into the ground." .
+
+me_egad:siteType.ESTUARINE a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "ESTUARINE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site in an estuary (semi-enclosed coastal water with a free connection with the open sea, and salinity typically 0.5 to 25 parts per thousand) where monitoring or assessment activities for water or sediment quality, habitat condition, and/or biological " .
+
+me_egad:siteType.EWASTECOLL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "E-WASTE COLLECTION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Any type of electronic waste (E-Waste) storage facility, including consolidators, generator-owned central accumulators, or municipal transfer stations or recycling centers." .
+
+me_egad:siteType.FISHHATCHERY a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "FISH HATCHERY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A facility for the breeding and rearing of fish species." .
+
+me_egad:siteType.INDCOMPL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "INDUSTRIAL COMPLEX" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A non-point source site where manufactured goods are produced.  Runoff and infiltration of water from these sites may carry substances which can contaminate ground water." .
+
+me_egad:siteType.INFRETBAS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "INFILTRATION/RETENTION BASIN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site at which run-off or other surface flow enters a property other than where it originated, and where water is held while it slowly penetrates through the ground surface into the subsurface soil. " .
+
+me_egad:siteType.LAKEPOND a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LAKE/POND" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A body of (usually fresh) lentic water surrounded by land where monitoring or assessment activities for quality of water, sediment, habitat, and/or biolgoical communities occur. Includes lake and pond ecosystems." .
+
+me_egad:siteType.LAST a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LEAKING ABOVEGROUND STORAGE TANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "(LAST). A container, 90% or more of which is above the ground, which is used to hold oil and other petroleum derived products.  It is considered to be leaking if there is some evidence that it has released some of its contents to the environment, includin" .
+
+me_egad:siteType.LFCOM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LANDFILL COMMERCIAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Commercially owned and/or operated solid waste landfill licensed to accept municipal solid waste (from household and normal commercial sources)." .
+
+me_egad:siteType.LFMUN a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LANDFILL MUNICIPAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Municipally owned and operated solid landfill licensed to accept municipal solid waste (from household and normal commercial sources). " .
+
+me_egad:siteType.LFSPW a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LANDFILL SPECIAL WASTE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A landfill that accepts special solid waste (not from household or typical commercial sources, that exists in an unusual quantity/state such that it may impair effective waste management, or threaten human safety or the environment and requires special ha" .
+
+me_egad:siteType.LGBULKFUEL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LARGE BULK FUEL STORAGE/DISTRIBUTION FACILITY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A group of large above ground storage tanks (ASTs) usually used to store petroleum products, (i.e., marine terminals, petroleum distribution facilities), with a total facility volume greater than 1320 gallons (requires a Spill Prevention, Control and Coun" .
+
+me_egad:siteType.LQG a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RCRA LARGE QUANTITY GENERATOR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A Resource Conservation and Recovery Act (RCRA) Fully Regulated Generator that generates more than 1000 kilograms of hazardous waste per month. Hazardous waste cannot be stored more than 90 days from date of generation." .
+
+me_egad:siteType.LUST a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "LEAKING UNDERGROUND STORAGE TANK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "(LUST). A container, 10% or more of which is beneath the surface of the ground, which is used to hold oil and other petroleum derived products. It is considered to be leaking if there is some evidence that it has released some of its contents to the envir" .
+
+me_egad:siteType.MARBOAT a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "MARINA/BOATYARD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A waterfront location where large concentrations of boats are stored, fueled, repaired or constructed. Usually identified by signage during watershed inspections or from shorefront boat survey. Generally restricted to clearly commercial operations." .
+
+me_egad:siteType.MARINE a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "MARINE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A marine location (with a typical salinity greater than 25 parts per thousand) where monitoring or assessment activities for water or sediment quality, habitat condition, and/or biological communities or organisms occur." .
+
+me_egad:siteType.MQG a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RCRA MEDIUM QUANTITY GENERATOR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A Resource Conservation and Recovery Act (RCRA) generator that generates between 100 and 1000 kilograms (220-2200 lbs) of hazardous waste per month, either on average per month or exceeding 100 kg in any one month." .
+
+me_egad:siteType.MYSTSP a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "MYSTERY SPILL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A spill at which, although the contaminant is known as well as the impacted location, the source of the contaminant was unknown at the time that the data was reported." .
+
+me_egad:siteType.NPS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "NON-POINT SOURCE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Stormwater runoff from these sites may carry fertilizer, pesticides, nutrients and other compounds which may contaminate ground and surface water. Includes golfcourses, industrial complexes (incinerators, pulp and papermills, industrial parks, manufacturi" .
+
+me_egad:siteType.RCRAREM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RCRA REMEDIATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A Resource Conservation and Recovery Act (RCRA) hazardous treatment, storage, or disposal site at which a hazardous waste generator is conducting site and groundwater remediation." .
+
+me_egad:siteType.RESEXTR a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RESOURCE EXTRACTION ACTIVITY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site at which surface or underground mining has been or is being conducted. These sites may include gravel pits, above ground or underground metallic mineral mines, etc." .
+
+me_egad:siteType.RESEXTRGW a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RESOURCE EXTRACTION (GROUNDWATER)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site where groundwater is extracted for human consumption, such as for bottling and sale on the open market, or for sale and distribution on a municipal level." .
+
+me_egad:siteType.RESUTIL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RESIDUALS UTILIZATION SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site for materials that are suitable for controlled land application, resulting in vegetative assimilation, attenuation, or improved soil condition. Includes residuals from processing vegetables, fish, and other foods. (See also ash and sludge categorie" .
+
+me_egad:siteType.RIVERSTREAM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RIVER/STREAM" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A natural stream of water where monitoring or assessment activities for water or sediment quality, habitat condition, and/or biological communities or organisms take place." .
+
+me_egad:siteType.SEPTSTOR a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SEPTAGE DISPOSAL/STORAGE SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site on which a mixture of liquid and solid septage have been spread on the land, or where such waste is stored. Septage sources may be domestic or commercial. " .
+
+me_egad:siteType.SIA a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SURFACE IMPOUNDMENT ASSESSMENT SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An unlicensed site once used for the disposal of liquid wastes." .
+
+me_egad:siteType.SIWWTF a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SANITARY & INDUSTRIAL WWTF" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A wastewater treatment facility (WWTF) used for treating sanitary or industrial wastewater. This may include spray irrigation sites, aerated lagoons, stabilization ponds, polishing ponds, sand filters,and other similar structures used for that purpose." .
+
+me_egad:siteType.SLUTIL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SLUDGE UTILIZATION SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site at which the solid, semi-solid or liquid material generated by a municipal, commercial or industrial wastewater treatment plant is spread on the land." .
+
+me_egad:siteType.SMBULKFUEL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SMALL BULK FUEL STORAGE/DISTRIBUTION FACILITY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A small above ground storage tank (AST) usually used to store petroleum products, with a total facility volume less than 1320 gallons. This includes marine, highway, and other commercial, private, and public entities supplied by petroleum distributors." .
+
+me_egad:siteType.SQG a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "RCRA SMALL QUANTITY GENERATOR" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A Resource Conservation and Recovery Act (RCRA) generator that generates less than 100 kilograms of hazardous waste per month AND accumulates no more than 55 gallons (1 drum; ~208 kg) of hazardous waste per month." .
+
+me_egad:siteType.SS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SAND/SALT STORAGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An area at which salt, or sand-and-salt, are stored in preparation for road and highway deicing." .
+
+me_egad:siteType.STREAMRIVER a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "STREAM/RIVER BIOMONITORING" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site in classified streams or rivers where monitoring or assessment activities for quality of water, sediment, habitat, and/or biological communities occur. Includes waterbodies called creek or brook." .
+
+me_egad:siteType.STRMSWR a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "STORM SEWER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A storm drain or sewer system designed to drain excess rain and groundwater from impervious surfaces. May include mixing of storm water and sewage." .
+
+me_egad:siteType.SURFSP a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SURFACE SPILL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site where oil has been released onto the ground, not caused by a leak from a storage tank. Common examples include heating oil and gasoline tank overfills, tanker truck accidents and releases from gasoline tanks mounted on vehicles." .
+
+me_egad:siteType.SWATL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SWAT (SURFACE WATER AMBIENT TOXICS) - LAKES" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Sites in lakes or ponds at which organisms (predominantly fish) and sediments are monitored for contamination with toxic chemicals such as heavy metals or polychlorinated biphenyls (PCBs)." .
+
+me_egad:siteType.SWATM a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SWAT (SURFACE WATER AMBIENT TOXICS) - MARINE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Sites in estuaries and near-shore marine environments at which organisms (mussels, lobster, etc.) and sediments are monitored for contamination with toxic chemicals such as heavy metals or polychlorinated biphenyls (PCBs)." .
+
+me_egad:siteType.SWATRS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "SWAT (SURFACE WATER AMBIENT TOXICS) - RIVERS & STREAMS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Sites in rivers or streams at which organisms (predominantly fish) and sediments are monitored for contamination with toxic chemicals such as heavy metals or polychlorinated biphenyls (PCBs)." .
+
+me_egad:siteType.TS a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "TRANSFER STATION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A waste facility constructed and managed for storage, compaction and/or placement of solid waste for movement to another waste facility." .
+
+me_egad:siteType.UIC a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNDERGROUND INJECTION SITE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A site which discharges into sources of drinking water. Includes sump and separator systems discharging to wastewater disposal systems, septic systems that discharge industrial/commercial wastewater (photoprocessing, drycleaning, etc.), and dry wells for " .
+
+me_egad:siteType.UNCDOD a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNCONTROLLED SITE, DOD" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An uncontrolled hazardous substance site owned by the Department of Defense (DOD). A location at which hazardous substances came to be located, where the site poses a threat or hazard to any person or the natural environment and requires action to abate/c" .
+
+me_egad:siteType.UNCNPL a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNCONTROLLED SITE, NPL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A Superfund (National Priorities List) uncontrolled hazardous substance site. A location at which hazardous substances came to be located, where the site poses a threat or hazard to any person or the natural environment and requires action to abate/clean-" .
+
+me_egad:siteType.UNCOTHER a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNCONTROLLED SITE, ALL OTHER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An uncontrolled hazardous substance site, not DOD or NPL (see respective categories). A location at which hazardous substances came to be located, where the site poses a threat or hazard to any person or the natural environment and requires action to abat" .
+
+me_egad:siteType.UNIVWASTEHAND a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNIVERSAL WASTE HANDLER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Any type of universal waste storer including a consolidator, generator-owned central accumulator, or municipal transfer station or recycling center." .
+
+me_egad:siteType.UNSSUB a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNSEWERED SUBDIVISION" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "A high density commercial or residential subdivision, condominium, or trailer park which depends on individual subsurface wastewater disposal systems for the disposal of sanitary wastewater." .
+
+me_egad:siteType.UOSF a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "UNDERGROUND OIL STORAGE FACILITY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Any underground oil storage tank or tanks, together with associated piping and dispensing facilities, located under any land at a single location and used, or intended to be used, for the storage or supply of oil. " .
+
+me_egad:siteType.VRAP a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "VOLUNTARY RESPONSE ACTION PROGRAM (VRAP)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Site where applicants voluntarily investigate and cleanup properties to the DEP's satisfaction, in exchange for protections from DEP enforcement actions." .
+
+me_egad:siteType.WETLAND a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "WETLAND" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "An area inundated or saturated by surface or groundwater where monitoring or assessment activities for quality of water, sediment, habitat, and/or biolgoical communities occur. Includes shallow portions of ponds, lake littoral zones and low gradient strea" .
+
+me_egad:siteType.WILDFOCUSA a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "WILDLIFE FOCUS AREA" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "	An area used for the collection and assessment of wildlife samples. This can include specific or multiple habitat areas, and can be within either a single town or across multiple towns." .
+
+me_egad:siteType.WOODPROD a me_egad:EGAD-SiteType,
+        owl:NamedIndividual ;
+    rdfs:label "WOOD PRODUCTS FACILITY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> ;
+    skos:definition "Includes woodyards, wood fuel and woodwaste storage piles associated with power plants, lumberyards, sawmills." .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD site_type" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - site_type"^^xsd:string .
+

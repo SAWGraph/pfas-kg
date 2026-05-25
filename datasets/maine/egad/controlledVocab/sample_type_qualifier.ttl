@@ -1,0 +1,206 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+me_egad:sampleMaterialTypeQualifier.AR a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "WELL IS OVERFLOWING UNDER ARTESIAN CONDITIONS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BA a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "BALEAGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BBH a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Brown bullhead (Ameiurus nebulosus)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BE a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "BEEF" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BKT a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Brook trout (Salvelinus fontinalis)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BLC a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Black crappie (Pomoxis nigromaculatus)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BLM a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Blue mussel (Mytilus edulis)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.BVR a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "BEAVER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.CH a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "CHICKEN" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.CSK a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Burbot (Lota lota)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.CSN a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "CORN SNAPLAGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.DE a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "DEER" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.EEL a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "American eel (Anguilla rostrata)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.FD a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "FIELD DUPLICATE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.GO a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "GOAT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.GRF a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "GRAIN FOR FEED" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.LKT a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Lake trout (Salvelinus namaycush)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.LKW a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Lake whitefish (Coregonus clupeaformis)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.LLS a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Atlantic salmon (Salmo salar sebago)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.LMB a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Largemouth bass (Micropterus salmoides)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.MU a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "MUTTON" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.NES a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "NORMAL ENVIRONMENTAL SAMPLE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.NPK a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Northern pike (Esox lucius)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.OYS a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "American or Eastern oyster (Crassostrea virginica)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.PO a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "PORK" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.R a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "REANALYSIS" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.RBT a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Rainbow trout (Oncorhynchus mykiss)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.RSD a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "RESEARCH AND DEVELOPMENT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.S a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SPLIT" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.SG a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SMALL GAME" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.SI a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "SILAGE" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.SMB a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Smallmouth bass (Micropterus dolomieu)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.SPK a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Splake (Salvelinus namaycush X Salvelinus fontinalis)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.SSC a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Soft-shell clam (Mya arenaria)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.TU a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "TURKEY" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.VE a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "VEAL" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.WCF a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "White catfish (Ameiurus catus)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.WHP a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "White perch (Morone americana)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+me_egad:sampleMaterialTypeQualifier.YLP a me_egad:EGAD-SampleMaterialTypeQualifier,
+        owl:NamedIndividual ;
+    rdfs:label "Yellow perch (Perca flavescens)" ;
+    rdfs:isDefinedBy <https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> .
+
+<https://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier> a owl:Ontology ;
+    dcterms:description "Controlled Vocabulary for Maine EGAD sample_type_qualifier" ;
+    dcterms:modified "2026-05-20"^^xsd:date ;
+    dcterms:title "Maine EGAD Controlled Vocabulary - sample_type_qualifier"^^xsd:string .
+
