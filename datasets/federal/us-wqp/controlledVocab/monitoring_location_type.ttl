@@ -384,7 +384,7 @@ us_wqp:featureType.PondStormwater a us_wqp:LocationType ;
 
 us_wqp:featureType.PondWastewater a us_wqp:LocationType ;
     rdfs:label "Pond-Wastewater" ;
-    rdfs:comment "Any water that has been affected by human use. Wastewater is \"used water from any combination of domestic, industrial, commercial or agricultural activities, surface runoff or stormwater, and any sewer inflow or sewer infiltration\"."^^xsd:string ;
+    rdfs:comment "Any water that has been affected by human use. Wastewater is \"used water from any combination of domestic, industrial, commercial or agricultural activities, surface runoff or stormwater, and any sewer inflow or sewer infiltration\"."^^xsd:string ;
     rdfs:isDefinedBy us_wqp_cv:monitoring_location_type .
 
 us_wqp:featureType.Reservoir a us_wqp:DefWQPSurfaceWaterFeatureType,

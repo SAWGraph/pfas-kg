@@ -13,7 +13,6 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix terms: <http://purl.org/dc/terms/> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment> rdf:type owl:Ontology ;
@@ -28,7 +27,6 @@
                                              terms:title "Ontology for Maine Environmental and Geographic Analysis Database (EGAD) PFAS Dataset Sample Type mapping"@en ;
                                              owl:versionInfo "1.0"@en .
 
-#me_egad:sampleMaterialType.SW
 me_egad:DefEGADSurfaceWaterSample owl:equivalentClass [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.SW
@@ -36,49 +34,47 @@ me_egad:DefEGADSurfaceWaterSample owl:equivalentClass [rdf:type owl:Restriction;
      rdfs:subClassOf coso:SurfaceWaterSample;  #need to add sample location 
      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
-#me_egad:sampleMaterialType.GW #groundwater
-#me_egad:sampleMaterialType.PO #pore water
-me_egad:DefEGADGroundWaterSample owl:unionOf (
+
+me_egad:DefEGADGroundWaterSample owl:equivalentClass [owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.GW
+  owl:hasValue me_egad:sampleMaterialType.GW #groundwater
   ]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.PO]
+  owl:hasValue me_egad:sampleMaterialType.PO] #pore water
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialTypeQualifier.AR
+  owl:hasValue me_egad:sampleMaterialTypeQualifier.AR #well is overflowing under artesianal conditions
   ]
-  );
+  )];
      rdfs:subClassOf coso:GroundWaterSample; #need to add sample location 
      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad:sampleMaterialType.DW #drinking water
-me_egad:DefEGADDrinkingWaterSample owl:unionOf ([rdf:type owl:Restriction;
-  owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.DW]
-  [rdf:type owl:Restriction;
-    owl:onProperty me_egad:sampleCollectionMethod;
-    owl:hasValue me_egad:sampleLocation.T] #inside tap
-    [rdf:type owl:Restriction;
-    owl:onProperty me_egad:sampleCollectionMethod;
-    owl:hasValue me_egad:sampleLocation.OT]  #outside tap
-);
+me_egad:DefEGADDrinkingWaterSample owl:equivalentClass [owl:unionOf (
+        [rdf:type owl:Restriction;
+        owl:onProperty coso:sampleOfMaterialType;
+        owl:hasValue me_egad:sampleMaterialType.DW] #drinking water
+        [rdf:type owl:Restriction;
+          owl:onProperty me_egad:sampleCollectionMethod;
+          owl:hasValue me_egad:sampleLocation.T] #inside tap
+          [rdf:type owl:Restriction;
+          owl:onProperty me_egad:sampleCollectionMethod;
+          owl:hasValue me_egad:sampleLocation.OT]  #outside tap
+      )];
 
      rdfs:subClassOf coso:DrinkingWaterSample;
      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #need to add sample location 
 
-me_egad:DefEGADFilteredWaterSample owl:unionOf (
+me_egad:DefEGADFilteredWaterSample owl:equivalentClass [ owl:unionOf (
     [rdf:type owl:Restriction; 
     owl:onProperty me_egad:sampleCollectionLocation;
     owl:hasValue me_egad:sampleLocation.AF]  #after filter
-    
-);
+  )];
   rdfs:subClassOf coso:FilteredWaterSample;
   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad:DefEGADTreatedWaterSample owl:unionOf (
+me_egad:DefEGADTreatedWaterSample owl:equivalentClass [owl:unionOf (
     [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
     owl:hasValue me_egad:sampleLocation.EF] #treatment system effluent
@@ -88,11 +84,11 @@ me_egad:DefEGADTreatedWaterSample owl:unionOf (
     [ rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleTreatmentStatus;
     owl:hasValue me_egad:treatmentStatus.T] #treated
-);
+)];
   rdfs:subClassOf coso:TreatedWaterSample;
   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad:DefEGADRawWaterSample owl:unionOf (
+me_egad:DefEGADRawWaterSample owl:equivalentClass [ owl:unionOf (
   [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
     owl:hasValue me_egad:sampleLocation.BE] #before filter
@@ -102,34 +98,36 @@ me_egad:DefEGADRawWaterSample owl:unionOf (
   [ rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleTreatmentStatus;
     owl:hasValue me_egad:treatmentStatus.N] #not treated
-);
+)];
   rdfs:subClassOf coso:RawWaterSample;
  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad:sampleMaterialType.SL  #soil
+
 me_egad:DefEGADSoilSample owl:equivalentClass [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.SL];
-    rdfs:subClassOf coso:SoilSample.
+  owl:hasValue me_egad:sampleMaterialType.SL]; #soil
+    rdfs:subClassOf coso:SoilSample;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
-#me_egad:sampleMaterialType.SD #sediment
-#me_egad:sampleMaterialType.SWS #surface water substrate
-me_egad:DefEGADSedimentSample owl:unionOf ( [rdf:type owl:Restriction;
+me_egad:DefEGADSedimentSample owl:equivalentClass [owl:unionOf ( [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.SD]
+  owl:hasValue me_egad:sampleMaterialType.SD] #sediment
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.SWS
-  ]);
+  owl:hasValue me_egad:sampleMaterialType.SWS #surface water substrate
+  ])];
     rdfs:subClassOf coso:SedimentSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
-#me_egad:sampleMaterialType.MA #manure
-#me_egad:sampleMaterialType.CO #compost #ash #flyash
-me_egad:DefEGADSolidWasteSample owl:unionOf (
+
+me_egad:DefEGADSolidWasteSample owl:equivalentClass [ owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.MA
+  owl:hasValue me_egad:sampleMaterialType.MA #manure
+  ]
+  [rdf:type owl:Restriction;
+  owl:onProperty coso:sampleOfMaterialType;
+  owl:hasValue me_egad:sampleMaterialType.CO #compost
   ]
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
@@ -138,82 +136,69 @@ me_egad:DefEGADSolidWasteSample owl:unionOf (
   [	rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.FA #fly ash
-]);
+])];
   rdfs:subClassOf coso:SolidWasteSample;
   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad:sampleMaterialType.L #leachate 
-#me_egad:sampleMaterialType.RIN #rinsate 
-#	me_egad:sampleMaterialType.WW #wastewater
-#me_egad:sampleMaterialType.SPG #septage
-#me_egad:sampleMaterialType.SU #sludge
-#me_egad:sampleMaterialType.PW #process water
-me_egad:DefEGADWasteWaterSample owl:unionOf (
+
+me_egad:DefEGADWasteWaterSample owl:equivalentClass [ owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.L ]
+  owl:hasValue me_egad:sampleMaterialType.L ] #leachate 
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.RIN]
+  owl:hasValue me_egad:sampleMaterialType.RIN] #rinsate 
     [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.WW]
+  owl:hasValue me_egad:sampleMaterialType.WW] #wastewater
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.SPG]
+  owl:hasValue me_egad:sampleMaterialType.SPG] #septage
 [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.PW]
+  owl:hasValue me_egad:sampleMaterialType.PW] #process water
 [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.SU
-]);
+  owl:hasValue me_egad:sampleMaterialType.SU #sludge
+])];
   rdfs:subClassOf coso:WasteWaterSample;
   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-#me_egad:sampleMaterialType.BC #bedrock chips
-#me_egad:sampleMaterialType.BM #building material
-#me_egad:sampleMaterialType.POL #polymer
-#me_egad:sampleMaterialType.SA #sawdust
-me_egad:DefEGADSolidMaterials owl:unionOf (
+me_egad:DefEGADSolidMaterials owl:equivalentClass [ owl:unionOf (
   [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad:sampleMaterialType.BC]
+    owl:hasValue me_egad:sampleMaterialType.BC] #bedrock chips
       [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad:sampleMaterialType.BM]
+    owl:hasValue me_egad:sampleMaterialType.BM] #building material
       [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad:sampleMaterialType.POL]
+    owl:hasValue me_egad:sampleMaterialType.POL] #polymer
       [rdf:type owl:Restriction;
     owl:onProperty coso:sampleOfMaterialType;
-    owl:hasValue me_egad:sampleMaterialType.SA]
-); rdfs:subClassOf coso:SolidMaterialSample;
+    owl:hasValue me_egad:sampleMaterialType.SA] #sawdust
+)]; 
+rdfs:subClassOf coso:SolidMaterialSample;
 rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
 
-me_egad:DefEGADFishFillet owl:unionOf([
+me_egad:DefEGADFishFillet owl:equivalentClass [ owl:unionOf([
   rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.SF]
   [ rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.SOF]);
-  owl:equivalentClass obo:FOODON_0000267; #fish fillet
-  #obo:RO_0002162 obo:
+  owl:hasValue me_egad:sampleMaterialType.SOF])];
+  #owl:equivalentClass obo:FOODON_00002679; #fish fillet
   rdfs:subClassOf coso:AnimalTissueSample.
 
-me_egad:DefEGADWholeMarineAnimal owl:intersectionOf (
-  owl:unionOf(
+me_egad:DefEGADWholeMarineAnimal owl:equivaelntClass [ owl:intersectionOf (
   [ rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.WH] #whole
-  [ rdf:type owl:Restriction;
-  owl:onProperty coso:sampleOfMaterialType;
-  owl:hasValue me_egad:sampleMaterialType.WS] ) #whole without skin
+  owl:hasValue me_egad:sampleMaterialType.WH] #whole / whole without skin
   [ rdf:type owl:Restriction;
   owl:onProperty prov:wasAttributedTo;
-  owl:hasValue me_egad_data:SWATMW]);
+  owl:hasValue me_egad_data:SWATMW])];
   rdfs:subClassOf coso:AnimalMaterialSample. 
 
 
@@ -277,9 +262,7 @@ me_egad:sampleMaterialType.V rdf:type obo:FOODON_03420150, # plant whole or piec
 
 me_egad:sampleMaterialType.WH rdf:type obo:FOODON_03420116;
 rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. # whole > organism material #in egad this is used for whole seafood
-#me_egad:DefEGADWholeMarineAnimal owl:unionOf (me_egad:sampleMaterialType.WH 
-#[] )
-#        rdfs:subClassOf obo:FOODON_03411021 
+
 
 me_egad:sampleMaterialType.WS rdf:type obo:FOODON_03420147;
 rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. #whole without skin > whole animal skinned. 

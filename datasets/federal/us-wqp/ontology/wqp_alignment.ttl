@@ -1,3 +1,4 @@
+@prefix _: <workspace:///datasets/federal/us-wqp/ontology/wqp_alignment.ttl#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
@@ -70,7 +71,9 @@ us_wqp:biologicalTaxon.3725 rdf:type _:riverCarpsucker ;
 
 _:riverCarpsucker  rdfs:subClassOf obo:FOODON_03411892;  #sucker family
     rdfs:label "river carpsucker";
-    obo:RO_0002162  obo:NCBITaxon_154811.
+    owl:equivalentClass [ rdf:type owl:Restriction;
+                    owl:onProperty obo:RO_0002162;
+                    owl:someValuesFrom obo:NCBITaxon_154811].
 
 us_wqp:biologicalTaxon.3757 rdf:type obo:FOODON_02021972; #NCBITaxon_7971
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
@@ -101,67 +104,150 @@ us_wqp:sampleMedia.tissue rdf:type obo:FOODON_02010032; #all tissue samples some
 ## some aquatic animal if also sampled in river
 
 # sample type by media 
-us_wqp:DefWQPWaterSample rdf:type owl:Restriction;
-        owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp:sampleMedia.water; 
+us_wqp:DefWQPWaterSample owl:equivalentClass [ 
+            rdf:type owl:Restriction;
+            owl:onProperty coso:sampleOfMaterialType;
+            owl:hasValue us_wqp:sampleMedia.water]; 
         rdfs:subClassOf coso:WaterSample;
         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
     
-us_wqp:DefWQPSoilSample rdf:type owl:Restriction;
+us_wqp:DefWQPSoilSample owl:equivalentClass [ rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp:sampleMedia.soil; 
+        owl:hasValue us_wqp:sampleMedia.soil]; 
     rdfs:subClassOf coso:SoilSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp:DefWQPSedimentSample rdf:type owl:Restriction;
+us_wqp:DefWQPSedimentSample owl:equivalentClass [ rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp:sampleMedia.sediment; 
+        owl:hasValue us_wqp:sampleMedia.sediment]; 
     rdfs:subClassOf coso:SedimentSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp:DefWQPBiologicalSample rdf:type owl:Restriction;
+us_wqp:DefWQPBiologicalSample owl:equivalentClass [rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp:sampleMedia.biological; 
+        owl:hasValue us_wqp:sampleMedia.biological]; 
     rdfs:subClassOf coso:BiotaSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp:DefWQPTissueSample rdf:type owl:Restriction;
+us_wqp:DefWQPTissueSample owl:equivalentClass [ rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp:sampleMedia.tissue; 
+        owl:hasValue us_wqp:sampleMedia.tissue]; 
     rdfs:subClassOf coso:AnimalTissueSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp:DefWQPAirSample rdf:type owl:Restriction;
+us_wqp:DefWQPAirSample owl:equivalentClass [rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
-        owl:hasValue us_wqp:sampleMedia.air; 
+        owl:hasValue us_wqp:sampleMedia.air]; 
     rdfs:subClassOf coso:AirSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
 # monitoring location feature type mapping 
 
-us_wqp:DefWQPSurfaceWaterFeatureType rdf:type owl:Class;
+us_wqp:DefWQPSurfaceWaterFeatureType owl:equivalentClass [ rdf:type owl:Class;
+    owl:oneOf (
+    us_wqp:featureType.BEACHProgramSiteChannelizedstream
+    us_wqp:featureType.BEACHProgramSiteEstuary 
+    us_wqp:featureType.BEACHProgramSiteGreatLake
+    us_wqp:featureType.BEACHProgramSiteLake
+    us_wqp:featureType.BEACHProgramSiteOcean
+    us_wqp:featureType.BEACHProgramSiteRiverStream 
+    us_wqp:featureType.CanalDrainage
+    us_wqp:featureType.CanalIrrigation
+    us_wqp:featureType.CanalTransport
+    us_wqp:featureType.ChannelizedStream
+    us_wqp:featureType.ConstructedDiversionDam
+    us_wqp:featureType.ConstructedWaterTransportStructure
+    us_wqp:featureType.ConstructedWetland
+    us_wqp:featureType.Estuary
+    us_wqp:featureType.EstuaryFreshwater
+    us_wqp:featureType.FloodwaterUrban
+    us_wqp:featureType.FloodwaternonUrban
+    us_wqp:featureType.Gallery 
+    us_wqp:featureType.GreatLake
+    us_wqp:featureType.Intertidal
+    us_wqp:featureType.Lake
+    us_wqp:featureType.Ocean
+    us_wqp:featureType.OtherSurfaceWater
+    us_wqp:featureType.Playa
+    us_wqp:featureType.Pond
+    us_wqp:featureType.PondAnchialine
+    us_wqp:featureType.PondStock
+    us_wqp:featureType.PondStormwater
+    us_wqp:featureType.Reservoir
+    us_wqp:featureType.RiverStream
+    us_wqp:featureType.RiverStreamEphemeral
+    us_wqp:featureType.RiverStreamIntermittent
+    us_wqp:featureType.RiverStreamPerennial
+    us_wqp:featureType.RiverineImpoundment
+    us_wqp:featureType.RiverstreamEffluentDominated
+    us_wqp:featureType.Seep
+    us_wqp:featureType.Spring
+    us_wqp:featureType.StormSewer
+    us_wqp:featureType.Subtidal
+    us_wqp:featureType.WetlandEstuarineDitch
+    us_wqp:featureType.WetlandEstuarineEmergent
+    us_wqp:featureType.WetlandEstuarineForested
+    us_wqp:featureType.WetlandEstuarineMarsh
+    us_wqp:featureType.WetlandEstuarinePool
+    us_wqp:featureType.WetlandEstuarineScrubShrub
+    us_wqp:featureType.WetlandEstuarineTidalCreek
+    us_wqp:featureType.WetlandLacustrineAquaticBed 
+    us_wqp:featureType.WetlandLacustrineEmergent
+    us_wqp:featureType.WetlandLacustrineUnconsolidatedBottom
+    us_wqp:featureType.WetlandPalustrineEmergent
+    us_wqp:featureType.WetlandUndifferentiated
+    )];
+    rdfs:subClassOf us_wqp:LocationType;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
+  
+us_wqp:DefWQPGroundWaterFeatureType owl:equivalentClass [ rdf:type owl:Class;
+    owl:oneOf (
+        us_wqp:featureType.Borehole
+        us_wqp:featureType.OtherGroundWater
+        us_wqp:featureType.Sump
+        us_wqp:featureType.TestPit
+        us_wqp:featureType.Well
+        )];
     rdfs:subClassOf us_wqp:LocationType;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp:DefWQPGroundWaterFeatureType rdf:type owl:Class;
-    rdfs:subClassOf us_wqp:LocationType;
-    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
-
-us_wqp:DefWQPWasteWaterFeatureType rdf:type owl:Class;
+us_wqp:DefWQPWasteWaterFeatureType owl:equivalentClass [ rdf:type owl:Class;
+    owl:oneOf (
+        us_wqp:featureType.BEACHProgramSiteStormsewer
+        us_wqp:featureType.BEACHProgramSiteWastesewer
+        us_wqp:featureType.CombinedSewer
+        us_wqp:featureType.FacilityMunicipalSewagePOTW
+        us_wqp:featureType.GasExtraction
+        us_wqp:featureType.Landfill
+        us_wqp:featureType.LeachateExtraction
+        us_wqp:featureType.LeachateHeadWell
+        us_wqp:featureType.LeachateSamplePoint
+        us_wqp:featureType.OilandGasWell
+        us_wqp:featureType.PipeUnspecifiedSource
+        us_wqp:featureType.PondWastewater
+        us_wqp:featureType.WastePit
+        )];
       rdfs:subClassOf us_wqp:LocationType;
       rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
+us_wqp:DefWQPDrinkingWaterFeatureType owl:equivalentClass [ rdf:type owl:Class;
+    owl:oneOf (
+        us_wqp:featureType.FacilityPublicWaterSupplyPWS
+    )];
+    rdfs:subClassOf us_wqp:LocationType;
+    rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
+
 #Water material samples by source mapping using activity media and monitoring location
   
-us_wqp:DefWQPSampleFromSurfaceWaterFeature rdf:type owl:Restriction;
+us_wqp:DefWQPSampleFromSurfaceWaterFeature owl:equivalentClass [ rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
-        owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType;
+        owl:someValuesFrom us_wqp:DefWQPSurfaceWaterFeatureType];
         rdfs:subClassOf us_wqp:Sample;
         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
-us_wqp:DefWQPSampleFromGroundWaterFeature rdf:type owl:Restriction;
+us_wqp:DefWQPSampleFromGroundWaterFeature owl:equivalentClass [ rdf:type owl:Restriction;
         owl:onProperty coso:sampleFeatureType;
-        owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType;
+        owl:someValuesFrom us_wqp:DefWQPGroundWaterFeatureType];
         rdfs:subClassOf us_wqp:Sample;
         rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>.
 
@@ -171,7 +257,7 @@ us_wqp:DefWQPSurfaceWaterSample rdf:type owl:Class;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
 us_wqp:DefWQPGroundWaterSample rdf:type owl:Class;
-    owl:intersectionOf(us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromGroundWaterFeature);
+    owl:intersectionOf (us_wqp:DefWQPWaterSample us_wqp:DefWQPSampleFromGroundWaterFeature);
     rdfs:subClassOf coso:GroundWaterSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment>. 
 
