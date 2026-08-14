@@ -1,6 +1,7 @@
 import os
+from urllib.parse import quote
 from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
-from rdflib import Namespace
+from rdflib import DCTERMS, Namespace
 from rdflib import Graph
 from rdflib.tools import chunk_serializer
 from rdflib import URIRef, BNode, Literal
@@ -114,11 +115,13 @@ def main():
     print('finished results output')
     logger = logging.getLogger('Finished triplifying EGAD PFAS sample data.')
     
-def Initial_KG(prefixes: dict[str, str]) -> Graph:
+def Initial_KG(prefixes: dict[str, str], file:str) -> Graph:
     ''' Create the Graph'''
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
+    kg.add((_PREFIX['me_egad_data'][file], RDF.type, OWL.Ontology ))
+    kg.add((_PREFIX['me_egad_data'][file], DCTERMS.modified, Literal(datetime.today().strftime('%Y-%m-%d'),datatype=XSD.date )))
     return kg
 
 def get_attributes(row):
@@ -166,6 +169,10 @@ def get_attributes(row):
         sampleobs['type'] = row['SAMPLE_TYPE_UPDATE'] # sample type
     if pd.notnull(row['SAMPLE_TYPE_QUALIFIER']) and row['SAMPLE_TYPE_QUALIFIER'] not in ['NOT APPLICABLE']:
         sampleobs['typequalifier'] = row['SAMPLE_TYPE_QUALIFIER'] #sample type qualifier (species)
+    if pd.notnull(row['BATCH_ID']):
+        sampleobs['batch_id'] = quote(row['BATCH_ID'], safe='') # batch id - URL encode unsafe characters
+    else:
+        sampleobs['batch_id'] = ''
 
     ### analysis 
     sampleobs['analysis_id'] = row['ANALYSIS_LAB_SAMPLE_ID'] # ID assigned by an analysis lab
@@ -217,8 +224,8 @@ def get_iris(samplepoint, sample, sampleobs, result):
     ## main sample entity iris
     iris['samplepoint'] = _PREFIX["me_egad_data"][f"{'d.egad.samplePoint'}.{samplepoint['number']}"]
     iris['samplefeature'] = _PREFIX["me_egad_data"][f"{'d.egad.sampledFeature'}.{samplepoint['number']}"] #TODO this is sometimes a site
-    iris['sample'] = _PREFIX["me_egad_data"][f"{'d.egad.sample'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}"] #sample id is not unique
-    iris['sampleobs'] = _PREFIX["me_egad_data"][f"{'d.egad.observation'}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['sample'] = _PREFIX["me_egad_data"][f"{'d.egad.sample'}.{samplepoint['number']}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}"] #sample id alone is not unique
+    iris['sampleobs'] = _PREFIX["me_egad_data"][f"{'d.egad.observation'}.{samplepoint['number']}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}{sampleobs['batch_id']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     if 'sampled_by' in sample.keys():
         iris['sample_agent'] = _PREFIX['me_egad_data'][f"{sample['agent']}"]
     # CV iris
@@ -246,10 +253,11 @@ def get_iris(samplepoint, sample, sampleobs, result):
         iris['result_type'] = _PREFIX["me_egad"][f"{'resultType'}.{result_type_dict[result['type']]}"]
 
     ## Result and Quantity and related Controlled Vocabs
-    iris['result'] = _PREFIX["me_egad_data"][f"d.egad.result.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
-    iris['quantityValue'] = _PREFIX["me_egad_data"][f"d.egad.quantityValue.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['result'] = _PREFIX["me_egad_data"][f"d.egad.result.{samplepoint['number']}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}{sampleobs['batch_id']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
+    iris['quantityValue'] = _PREFIX["me_egad_data"][f"d.egad.quantityValue.{samplepoint['number']}.{sampleobs['analysis_id_formatted']}.{lab_dict[sampleobs['analysislab']]}{sampleobs['batch_id']}.{sample['date_formatted']}.{sampleobs['chemical_number']}"]
     iris['analysislab'] = _PREFIX["me_egad"][f"organization.lab.{lab_dict[sampleobs['analysislab']]}"]
     iris['substance'] = _PREFIX["me_egad"][f"{'parameter'}.{pfas_parameter_dict[sampleobs['parameter']]}"]
+    #{samplepoint['number']}.{lab_dict[sampleobs['analysislab']]}{sampleobs['analysis_id_formatted']}.{sample['date_formatted']}.{sampleobs['chemical_number']}
 
     ## unit qudt 
     if result['pfas_concentration_units'] == "NG/G":
@@ -286,9 +294,9 @@ def get_iris(samplepoint, sample, sampleobs, result):
 
 def triplify_egad_pfas_sample_data(df, _PREFIX):
     ## triplify the abox
-    kg = Initial_KG(_PREFIX)
-    kg_obs = Initial_KG(_PREFIX)
-    kg_result = Initial_KG(_PREFIX)
+    kg = Initial_KG(_PREFIX, "egad_samples_output.ttl")
+    kg_obs = Initial_KG(_PREFIX, "egad_observation_output.ttl")
+    kg_result = Initial_KG(_PREFIX, "egad_result_output.ttl")
     
     ## materialize each record
     rowcount = df.shape[0]
@@ -375,7 +383,7 @@ def triplify_egad_pfas_sample_data(df, _PREFIX):
 
         
         ## contaminantMeasurement (result) and substance and quantity kind
-        kg_result.add( (iris['result'], RDFS['label'], Literal('EGAD PFAS measurements for sample '+ str(sample['id']))) )        
+        kg_result.add( (iris['result'], RDFS['label'], Literal('EGAD PFAS '+ sampleobs['parameter'] +' measurements for sample '+ str(sample['id']))) )        
         kg_result.add((iris['result'], RDFS.isDefinedBy, dataset_namespace))
         kg_result.add( (iris['result'], _PREFIX["qudt"]['quantityValue'], iris['quantityValue']) )
         ### aggregate measurements

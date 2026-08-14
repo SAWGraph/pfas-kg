@@ -2,7 +2,7 @@
 @prefix dsstox: <http://w3id.org/DSSTox/v1/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix me_egad: <http://w3id.org/sawgraph/v1/me-egad#> .
-@prefix me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#> .
+@prefix me_egad_data: <http://w3id.org/sawgraph/v2/me-egad-data#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -27,7 +27,7 @@
                                              terms:title "Ontology for Maine Environmental and Geographic Analysis Database (EGAD) PFAS Dataset Sample Type mapping"@en ;
                                              owl:versionInfo "1.0"@en .
 
-me_egad:DefEGADSurfaceWaterSample owl:equivalentClass [rdf:type owl:Restriction;
+me_egad:DefEGADSurfaceWaterSample owl:equivalentClass [ rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.SW
   ];
@@ -35,7 +35,7 @@ me_egad:DefEGADSurfaceWaterSample owl:equivalentClass [rdf:type owl:Restriction;
      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
 
-me_egad:DefEGADGroundWaterSample owl:equivalentClass [owl:unionOf (
+me_egad:DefEGADGroundWaterSample owl:equivalentClass [ owl:unionOf (
   [rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.GW #groundwater
@@ -51,7 +51,7 @@ me_egad:DefEGADGroundWaterSample owl:equivalentClass [owl:unionOf (
      rdfs:subClassOf coso:GroundWaterSample; #need to add sample location 
      rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad:DefEGADDrinkingWaterSample owl:equivalentClass [owl:unionOf (
+me_egad:DefEGADDrinkingWaterSample owl:equivalentClass [ owl:unionOf (
         [rdf:type owl:Restriction;
         owl:onProperty coso:sampleOfMaterialType;
         owl:hasValue me_egad:sampleMaterialType.DW] #drinking water
@@ -74,7 +74,7 @@ me_egad:DefEGADFilteredWaterSample owl:equivalentClass [ owl:unionOf (
   rdfs:subClassOf coso:FilteredWaterSample;
   rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
-me_egad:DefEGADTreatedWaterSample owl:equivalentClass [owl:unionOf (
+me_egad:DefEGADTreatedWaterSample owl:equivalentClass [ owl:unionOf (
     [rdf:type owl:Restriction;
     owl:onProperty me_egad:sampleCollectionLocation;
     owl:hasValue me_egad:sampleLocation.EF] #treatment system effluent
@@ -103,13 +103,13 @@ me_egad:DefEGADRawWaterSample owl:equivalentClass [ owl:unionOf (
  rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>. 
 
 
-me_egad:DefEGADSoilSample owl:equivalentClass [rdf:type owl:Restriction;
+me_egad:DefEGADSoilSample owl:equivalentClass [ rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.SL]; #soil
     rdfs:subClassOf coso:SoilSample;
     rdfs:isDefinedBy <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/alignment>.
 
-me_egad:DefEGADSedimentSample owl:equivalentClass [owl:unionOf ( [rdf:type owl:Restriction;
+me_egad:DefEGADSedimentSample owl:equivalentClass [ owl:unionOf ( [ rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.SD] #sediment
   [rdf:type owl:Restriction;
@@ -190,16 +190,16 @@ me_egad:DefEGADFishFillet owl:equivalentClass [ owl:unionOf([
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.SOF])];
   #owl:equivalentClass obo:FOODON_00002679; #fish fillet
-  rdfs:subClassOf coso:AnimalTissueSample.
+  rdfs:subClassOf coso:AnimalTissueSample, me_egad:EGAD-Sample.
 
-me_egad:DefEGADWholeMarineAnimal owl:equivaelntClass [ owl:intersectionOf (
+me_egad:DefEGADWholeMarineAnimal owl:equivalentClass [ owl:intersectionOf (
   [ rdf:type owl:Restriction;
   owl:onProperty coso:sampleOfMaterialType;
   owl:hasValue me_egad:sampleMaterialType.WH] #whole / whole without skin
   [ rdf:type owl:Restriction;
   owl:onProperty prov:wasAttributedTo;
   owl:hasValue me_egad_data:SWATMW])];
-  rdfs:subClassOf coso:AnimalMaterialSample. 
+  rdfs:subClassOf coso:AnimalMaterialSample, me_egad:EGAD-Sample. 
 
 
 #########################################################################

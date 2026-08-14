@@ -230,37 +230,12 @@ datasets/federal/us-wqp/wqp-metadata.py
 datasets/federal/us-wqp/old_code/wqp-observations.py
 datasets/federal/us-wqp/old_code/wqp-station.py
 datasets/federal/us-wqp/controlledVocab/wqp_controlledVocab.zip
-datasets/federal/us-wqp/old_code/variable.py
-datasets/federal/us-wqp/old_code/metadata/Activity Media Subdivision.csv
-datasets/federal/us-wqp/old_code/metadata/Activity Media.csv
-datasets/federal/us-wqp/old_code/metadata/ActivityType.CSV
-datasets/federal/us-wqp/old_code/metadata/Analytical Method.csv
-datasets/federal/us-wqp/old_code/metadata/Characteristic.csv
-datasets/federal/us-wqp/old_code/metadata/LocalAquifer.CSV
-datasets/federal/us-wqp/old_code/metadata/MonitoringLocationType.CSV
-datasets/federal/us-wqp/old_code/metadata/NationalAquifer.CSV
-datasets/federal/us-wqp/old_code/metadata/Organization.CSV
-datasets/federal/us-wqp/old_code/metadata/SampleCollectionMethod.CSV
-datasets/federal/us-wqp/old_code/metadata/WellType.csv
-datasets/federal/us-wqp/old_code/wqp-metadata.py
+datasets/federal/us-wqp/old_code/
 .gitignore
 datasets/maine/egad/egad_observation_output.ttl
 datasets/maine/egad/egad_result_output.ttl
 datasets/maine/egad/egad_sites_types.ttl
 datasets/maine/egad/EGAD_controlledVocab.zip
-datasets/maine/egad/controlledVocab/analysis_lab.ttl
-datasets/maine/egad/controlledVocab/concentration_qualifier.ttl
-datasets/maine/egad/controlledVocab/pfas_parameter.ttl
-datasets/maine/egad/controlledVocab/result_type.ttl
-datasets/maine/egad/controlledVocab/sample_collection_method.ttl
-datasets/maine/egad/controlledVocab/sample_location.ttl
-datasets/maine/egad/controlledVocab/sample_point_type.ttl
-datasets/maine/egad/controlledVocab/sample_treatment_status.ttl
-datasets/maine/egad/controlledVocab/sample_type_qualifier.ttl
-datasets/maine/egad/controlledVocab/sample_type.ttl
-datasets/maine/egad/controlledVocab/site_type.ttl
-datasets/maine/egad/controlledVocab/test_method.ttl
-datasets/maine/egad/controlledVocab/validation_level.ttl
 datasets/maine/egad/log
 datasets/federal/us-wqp/IL_wqp_observations.ttl
 datasets/federal/us-wqp/IL_wqp_sites.ttl
@@ -270,3 +245,18 @@ datasets/federal/us-wqp/ME_wqp_sites.ttl
 datasets/federal/us-wqp/ME_wqp_observations.ttl
 datasets/federal/us-wqp/triples
 datasets/federal/us-ghg/triples
+datasets/maine/egad/__pycache__/variable.cpython-314.pyc
+datasets/maine/egad/old_triples/egad_observation_output_old.ttl
+datasets/maine/egad/old_triples/egad_result_output_old.ttl
+datasets/maine/egad/old_triples/egad_samples_output_old.ttl
+datasets/maine/egad/old_triples/egad_sites_samples_output_old.ttl
+datasets/maine/egad/old_triples/egad_sites_types_old.ttl
+pfas_implicit_old.ttl
+pfas_implicit_old.ttl.gz
+pfas_implicit_old1.ttl.gz
+pfas_implicit.ttl
+pfas_implicit.ttl.gz
+datasets/federal/us-ucmr/triples/UCMR3_observations.ttl
+datasets/federal/us-ucmr/triples/UCMR5_observations.ttl
+pfas-kg.code-workspace
+datasets/federal/us-wqp/ontology/catalog-v001.xml

@@ -11,6 +11,21 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://w3id.org/sawgraph/v1/me-egad> rdf:type owl:Ontology ;
+                                        owl:imports <http://w3id.org/sawgraph/v1/me-egad/egad-controlledVocab-alignment.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/analysis_lab.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/ChemicalMapping.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/concentration_qualifier.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/pfas_parameter.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/result_type.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_collection_method.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_location.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_point_type.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_treatment_status.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type_qualifier.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/sample_type.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/site_type.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/test_method.ttl>,
+                                                <http://w3id.org/sawgraph/v1/me-egad/controlledVocab/validation_level.ttl>;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,
                                                             <http://orcid.org/0000-0003-3547-8058> ,
                                                             <https://orcid.org/0000-0003-3271-6700> ;

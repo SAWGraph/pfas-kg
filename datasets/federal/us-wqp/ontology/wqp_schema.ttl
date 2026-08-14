@@ -1,4 +1,3 @@
-@prefix : <file:///c%3A/Users/kschw/Documents/SAWGraph/pfas-kg/datasets/federal/us-wqp/ontology/wqp_schema.ttl#> .
 @prefix coso: <http://w3id.org/coso/v1/contaminoso#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,7 +7,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
-@prefix us_wqp_data: <http://w3id.org/sawgraph/v1/us-wqp-data#> .
 
 <http://w3id.org/sawgraph/v1/us-wqp> rdf:type owl:Ontology ;
                                         owl:imports <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp_alignment.ttl>,

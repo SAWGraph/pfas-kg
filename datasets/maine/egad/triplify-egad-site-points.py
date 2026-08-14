@@ -25,6 +25,7 @@ from variable import NAME_SPACE, _PREFIX
 
 ## declare variables
 logname = "log"
+dataset_namespace = URIRef("http://w3id.org/sawgraph/v2/me_egad_data")
 point_type_dict = []
 site_type_dict = []
 precision = 7
@@ -70,6 +71,8 @@ def Initial_KG(_PREFIX):
     kg = Graph()
     for prefix in prefixes:
         kg.bind(prefix, prefixes[prefix])
+    kg.add((_PREFIX['me_egad_data'][f'egad_sites_samples_output.ttl'], RDF.type, OWL.Ontology ))
+    kg.add((_PREFIX['me_egad_data'][f'egad_sites_samples_output.ttl'], DCTERMS.modified, Literal(datetime.today().strftime('%Y-%m-%d'),datatype=XSD.date )))
     return kg
 
 
@@ -123,6 +126,7 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         #kg.add( (site_iri, RDFS['label'], Literal('EGAD site '+ str(site_number))) )
         kg.add( (site_iri, _PREFIX["me_egad"]['siteNumber'], Literal(site_number, datatype = XSD.integer)) )
         kg.add( (site_iri, RDFS['label'], Literal(site_name, datatype = XSD.string)) )
+        kg.add((site_iri, RDFS.isDefinedBy, dataset_namespace))
         if (len(str(pwsid_number)) != 0) and (str(pwsid_number) != 'nan'):
             kg.add( (site_iri, _PREFIX["us_sdwis"]['hasPWSID'], Literal(pwsid_number, datatype = XSD.string)) )
             kg.add(( site_iri, OWL.sameAs, pwsid_iri))
@@ -143,6 +147,7 @@ def triplify_egad_pfas_site_data(df, _PREFIX):
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['samplePointNumber'], Literal(samplepoint_number, datatype=XSD.string)))       
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['samplePointType'], samplepoint_type_iri) )
         kg.add( (samplepoint_iri, _PREFIX['me_egad']['associatedSite'], site_iri) )
+        kg.add((samplepoint_iri, RDFS.isDefinedBy, dataset_namespace))
 ##        if len(str(samplepoint_web_name)) != 0:
 ##            kg.add( (samplepoint_iri, _PREFIX["me_egad"]['samplePointWebName'], Literal(samplepoint_web_name, datatype = XSD.string)) )
 ##        

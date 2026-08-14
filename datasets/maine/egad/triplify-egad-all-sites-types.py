@@ -3,7 +3,7 @@ import geopandas
 import pandas as pd
 
 import os
-from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS
+from rdflib.namespace import OWL, XMLNS, XSD, RDF, RDFS, DCTERMS
 from rdflib import Namespace
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
@@ -33,7 +33,7 @@ from variable import NAME_SPACE, _PREFIX
 
 ## declare variables
 logname = "log"
-
+dataset_namespace = URIRef("http://w3id.org/sawgraph/v2/me_egad_data")
 ## data path
 root_folder =Path(__file__).resolve().parent.parent.parent
 data_dir = root_folder / "data/maine_dep_esri_server/"
@@ -108,6 +108,8 @@ def triplify_data(df, vocab, _PREFIX):
     ## materialize each site
     pd.set_option('display.max_columns', 15)
     print(df.info())
+    kg.add((_PREFIX['me_egad_data'][f'egad_sites_types.ttl'], RDF.type, OWL.Ontology ))
+    kg.add((_PREFIX['me_egad_data'][f'egad_sites_types.ttl'], DCTERMS.modified, Literal(datetime.today().strftime('%Y-%m-%d'),datatype=XSD.date )))
     #print(df['SITE_TYPE'].unique())
 
     for idx, row in df.iterrows():
@@ -128,7 +130,7 @@ def triplify_data(df, vocab, _PREFIX):
         
         
         ## iris
-        type_iri = _PREFIX["me_egad_data"][f"{'siteType'}.{site_value_formatted}"]
+        type_iri = _PREFIX["me_egad"][f"{'siteType'}.{site_value_formatted}"]
         egad_site_iri = _PREFIX["me_egad_data"][f'site.{site}']
         egad_geometry_iri = _PREFIX["me_egad_data"][f'egad.site.geometry.{site}']
 
@@ -139,7 +141,12 @@ def triplify_data(df, vocab, _PREFIX):
         kg.add((egad_site_iri, RDFS['label'], Literal(row['CURRENT_SITE_NAME'], datatype=XSD.string)))
         #kg.add((egad_site_iri, RDFS['label'], Literal('EGAD site ' + str(row['EGAD_SEQ']))))
         kg.add((egad_site_iri, _PREFIX["me_egad"]['siteType'], type_iri))
+        kg.add((egad_site_iri, RDFS.isDefinedBy, dataset_namespace))
 
+        if str(desc) != 'nan':
+            kg.add((egad_site_iri, DCTERMS.description, Literal(desc, datatype=XSD.string)))
+        if str(narrative) != 'nan':
+            kg.add((egad_site_iri, RDFS.comment , Literal(narrative, datatype=XSD.string)))
         if str(site_geometry) != "POINT EMPTY":
             kg.add((egad_site_iri, _PREFIX['geo']['hasDefaultGeometry'], egad_geometry_iri))
             kg.add((egad_site_iri, _PREFIX['geo']['hasGeometry'], egad_geometry_iri))
