@@ -409,7 +409,7 @@ def triplify(df):
             if str(result['measure']) in ('non detect', 'ND', 'UJ', 'Non Detect'): 
                 kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonDetectQuantityValue']))
                 kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
-            elif '<' in str(result['measure']): #some states use < for non-detects or unquantified values
+            elif '<' in str(result['measure']) or str(result['measure']) == 0: #some states use < for non-detects or unquantified values
                 kg.add((iris['quantityValue'], RDF.type, prefixes['coso']['NonQuantifiedQuantityValue']))
                 kg.add((iris['quantityValue'], RDFS.isDefinedBy, Namespace(f"http://w3id.org/sawgraph/{version}/")['us-wqp-data']))
             else: #detects with values
