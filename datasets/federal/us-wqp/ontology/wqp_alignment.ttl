@@ -5,7 +5,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix us_wqp: <http://w3id.org/sawgraph/v1/us-wqp#> .
-@prefix _: <workspace:///datasets/federal/us-wqp/ontology/wqp_alignment.ttl#> .
 
 <http://w3id.org/sawgraph/v1/us-wqp/controlledVocab/wqp-alignment> rdf:type owl:Ontology ;
                                         dcterms:contributor <http://orcid.org/0000-0002-5331-5052> ,

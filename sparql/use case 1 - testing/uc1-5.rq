@@ -9,7 +9,7 @@ PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
 PREFIX gwml2: <http://gwml2.org/def/gwml2#>
 PREFIX kwg-ont: <http://stko-kwg.geog.ucsb.edu/lod/ontology/>
 PREFIX me_egad: <http://w3id.org/sawgraph/v1/me-egad#>
-PREFIX me_egad_data: <http://w3id.org/sawgraph/v1/me-egad-data#>   # Not needed in FRINK query for coso:ofSubstance line (10/16/25)
+PREFIX me_egad_data: <http://w3id.org/sawgraph/v2/me-egad-data#>   # Not needed in FRINK query for coso:ofSubstance line (10/16/25)
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -25,7 +25,7 @@ SELECT DISTINCT ?well (MAX (?num_val) AS ?max_value) WHERE {
     #?sp_type rdfs:label 'PRIVATE WATER SUPPLY WELL' .
     # Find PFOA observations and results for each EGAD sample point
     ?obs coso:observedAtSamplePoint ?samp_pt ;
-         coso:ofSubstance me_egad_data:parameter.PFOA_A ;     # As of 10/16/25, this line is different from the same line in the FRINK query
+         coso:ofSubstance me_egad:parameter.PFOA_A ;   
          sosa:hasResult ?result .
     # Find PFOA levels for each result, limiting them to units of ng/L.
     ?result qudt:quantityValue ?quant_val .

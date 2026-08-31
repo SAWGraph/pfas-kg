@@ -7,10 +7,10 @@ import pandas as pd
 import re
 import json
 import logging
-import urllib
+import urllib.parse
 from datetime import datetime
 from datetime import date
-from pyutil import *
+#from pyutil import *
 from shapely.geometry import Point
 from pathlib import Path
 

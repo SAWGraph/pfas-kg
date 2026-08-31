@@ -14,7 +14,7 @@ PREFIX dsstox: <http://w3id.org/DSSTox/v1/>
 SELECT * WHERE {
     # Find all samples and their results from a particular samplePoint
    ?samp_pt rdf:type coso:SamplePoint .
-        VALUES ?samp_pt{<http://w3id.org/sawgraph/v1/me-egad-data#samplePoint.94300>} 
+        VALUES ?samp_pt{<http://w3id.org/sawgraph/v2/me-egad-data#d.egad.samplePoint.94300>} 
   ?obs coso:observedAtSamplePoint ?samp_pt;
 		coso:analyzedSample ?sample;
         coso:ofSubstance ?substance;
