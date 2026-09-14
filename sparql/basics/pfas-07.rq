@@ -1,0 +1,22 @@
+# all plant material samples with the type of plant that was sampled
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX coso: <http://w3id.org/coso/v1/contaminoso#>
+prefix onto:<http://www.ontotext.com/>
+PREFIX FOODON: <http://purl.obolibrary.org/obo/FOODON_>
+
+select DISTINCT *
+WHERE  {
+    ?s a coso:PlantMaterialSample; 
+    	coso:sampleOfMaterialType ?type.
+    ?type rdfs:label ?typeName;
+    	rdf:type ?materialClass. 
+    ?materialClass rdfs:subClassOf FOODON:00004331; #plant material
+    		rdfs:label ?foodon_label.
+    MINUS{?type rdfs:label "VEGETATION"}
+    FILTER NOT EXISTS {
+    ?type a ?moreSpecificClass .
+    ?moreSpecificClass rdfs:subClassOf ?materialClass .
+    FILTER (?moreSpecificClass != ?materialClass) #exclude self-subclass
+  }
+} 
